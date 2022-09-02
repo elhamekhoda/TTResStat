@@ -1,0 +1,678 @@
+Job: "zprimeMASS"
+  Label: "t#bar{t} 1-lepton Search"
+  AtlasLabel: Internal
+  CmeLabel: "13 TeV"
+  #LumiLabel: "36.2 fb^{-1}"
+  %LumiLabel: "58.5 fb^{-1}"
+  %Lumi:  2.376 %139.0/58.5
+  LumiLabel: "139 fb^{-1}"
+  POI: "SigXsecOverSM"
+  ReadFrom: HIST
+  OutputDir: "OUTPUTDIR/"
+  HistoPath: "INPUTDIR/"
+  DebugLevel: 2
+  SystControlPlots: TRUE
+  SystErrorBars: TRUE
+  UseGammaPulls: TRUE
+  RankingPlot: "all"
+  RankingMaxNP: 20
+  HistoChecks: NOCRASH
+  SystPruningShape: 0.005
+  SystPruningNorm: 0.005
+  CorrelationThreshold: 0.20
+  ImageFormat: "pdf"
+  PlotOptions: "NOSIG"
+  RatioYmax: 1.5
+  RatioYmin: 0.6
+  StatOnly: STATONLY
+  %PieChartCanvasSize: 800,800
+  LegendNColumns: 1
+  LegendNColumnsSummary: 1
+  LegendNColumnsMerge: 1
+  SmoothingOption: COMMONTOOLSMOOTHPARABOLIC #MAXVARIATION #TTBARRESONANCE #COMMONTOOLSMOOTHPARABOLIC
+
+
+% % --------------- %
+% % ---  FIT    --- %
+% % --------------- %
+
+Fit: "SPLUSB_CRSR_Asimov"
+  FitType: SPLUSB
+  FitRegion: CRSR
+  FitBlind: TRUE
+  POIAsimov: 0
+  SetRandomInitialNPval: 0.01
+  GetGoodnessOfFit: TRUE
+  UseMinos: SigXsecOverSM
+  %FitToys: 100
+
+% % --------------- %
+% % ---  LIMIT  --- %
+% % --------------- %
+
+Limit: "tt1lep_limit"
+  LimitType: ASYMPTOTIC
+  LimitBlind: TRUE
+  ParamName: "ZprimeMass"
+  ParamValue: MASS
+  OutputPrefixName: zprimeMASS
+  %POIAsimov:
+
+
+% %---------------- %
+% % -SIGNIFICANCE - %
+% %---------------- %
+
+Significance: "tt1lep_sig"
+  SignificanceBlind: FALSE
+  ParamName: "ZprimeMass"
+  ParamValue: MASS
+  OutputPrefixName: zprimeMASS
+  %POIAsimov:
+
+
+% % --------------- %
+% % - NORMFACTORS - %
+% % --------------- %
+
+NormFactor: "SigXsecOverSM"
+  Title: "#mu(Z't#bar{t})"
+  Nominal: 0
+  Min: -5
+  Max: 5
+  Samples: Signal
+
+NormFactor: "ttNorm_boosted"
+  Title: "k_{b}(t#bar{t})"
+  Nominal: 1
+  Min: 0.5
+  Max: 1.5
+  Samples: tt
+  Regions: b1,b2,b3
+
+%NormFactor: "ttNorm_boosted_SR1SR2"
+%  Title: "k_{b}(t#bar{t}) SR1SR2"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: be1,be2,bmu1,bmu2
+
+%NormFactor: "ttNorm_boosted_SR1"
+%  Title: "k_{b}(t#bar{t}) SR1"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: be1,be2,bmu1,bmu2
+
+%NormFactor: "ttNorm_boosted_SR2"
+%  Title: "k_{b}(t#bar{t}) SR2"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: be1,be2,bmu1,bmu2
+
+%NormFactor: "ttNorm_boosted_SR3"
+%  Title: "k_{b}(t#bar{t}) SR3"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: be3,bmu3
+
+%NormFactor: "ttNorm_resolved"
+%  Title: "k_{r}(t#bar{t})"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: re1,re2,re3,rmu1,rmu2,rmu3
+
+%NormFactor: "ttNorm_resolved_SR1SR2"
+%  Title: "k_{r}(t#bar{t}) SR1SR2"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: re1,re2,rmu1,rmu2
+
+%NormFactor: "ttNorm_resolved_SR1"
+%  Title: "k_{r}(t#bar{t}) SR1"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: re1,re2,rmu1,rmu2
+
+%NormFactor: "ttNorm_resolved_SR2"
+%  Title: "k_{r}(t#bar{t}) SR2"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: re1,re2,rmu1,rmu2
+
+%NormFactor: "ttNorm_resolved_SR3"
+%  Title: "k_{r}(t#bar{t}) SR3"
+%  Nominal: 1
+%  Min: 0.5
+%  Max: 1.5
+%  Samples: tt
+%  Regions: re3,rmu3
+
+
+NormFactor: "WjetsNorm_boosted1"
+  Title: "k_{b1}(W+jets)"
+  Nominal: 1
+  Min: 0.5
+  Max: 1.5
+  Samples: wjets
+  Regions: b1
+
+NormFactor: "WjetsNorm_boosted2"
+  Title: "k_{b2}(W+jets)"
+  Nominal: 1
+  Min: 0.5
+  Max: 1.5
+  Samples: wjets
+  Regions: b2
+
+NormFactor: "WjetsNorm_boosted3"
+  Title: "k_{b3}(W+jets)"
+  Nominal: 1
+  Min: 0.5
+  Max: 1.5
+  Samples: wjets
+  Regions: b3
+
+
+NormFactor: "WjetsNorm_resolved1"
+  Title: "k_{r1}(W+jets)"
+  Nominal: 1
+  Min: 0.5
+  Max: 1.5
+  Samples: wjets
+  Regions: r1
+
+NormFactor: "WjetsNorm_resolved2"
+  Title: "k_{r2}(W+jets)"
+  Nominal: 1
+  Min: 0.5
+  Max: 1.5
+  Samples: wjets
+  Regions: r2
+
+NormFactor: "WjetsNorm_resolved3"
+  Title: "k_{r3}(W+jets)"
+  Nominal: 1
+  Min: 0.5
+  Max: 1.5
+  Samples: wjets
+  Regions: r3
+
+% % --------------- %
+% % --- REGIONS --- %
+% % --------------- %
+
+
+Region: "b1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  %Label: "Boosted (cat 1)"
+  Label: "b1"
+  ShortLabel: "b1"
+  HistoPathSuff: "boo/"
+  HistoName: mtt_b1
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  %Rebinning: 480, 560, 640, 720,800, 880, 920, 970, 1040,1160,1280,1400,1700,2000,2300,2600,3000,6000
+  %Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2300,2500, 2700, 3000, 3500,4500, 6000
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  %400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,2000,2500,3000,3500,4000,4500,6000
+  %480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000,3500,4000,4500,6000
+  %480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000,3500,4000,4500,5000,6000
+  %Binning: 500, 600, 700,800, 880, 920, 970, 1040,1160,1280,1400,1700,2000,2400,2800,3200, 3600, 4000,4400,5200,6000
+
+
+Region: "r1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  %Label: "Resolved (cat 1)"
+  Label: "r1"
+  ShortLabel: "r1"
+  HistoName: mtt_r1
+  HistoPathSuff: "res/"
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  %320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000
+
+
+Region: "b2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  %Label: "Boosted (cat 2)"
+  Label: "b2"
+  ShortLabel: "b2"
+  HistoPathSuff: "boo/"
+  HistoName: mtt_b2
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  %Rebinning: 480, 560, 640, 720,800, 880, 920, 970, 1040,1160,1280,1400,1700,2000,2300,2600,3000,6000
+  %Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2300,2500, 2700, 3000, 3500,4500, 6000
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  %400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,2000,2500,3000,3500,4000,4500,6000
+  %480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000,3500,4000,4500,6000
+  %480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000,3500,4000,4500,5000,6000
+  %Binning: 500, 600, 700,800, 880, 920, 970, 1040,1160,1280,1400,1700,2000,2400,2800,3200, 3600, 4000,4400,5200,6000
+
+
+Region: "r2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  %Label: "Resolved (cat 2)"
+  Label: "r2"
+  ShortLabel: "r2"
+  HistoName: mtt_r2
+  HistoPathSuff: "res/"
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  %320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000
+
+
+Region: "b3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  %Label: "Boosted (cat 3)"
+  Label: "b3"
+  ShortLabel: "b3"
+  HistoPathSuff: "boo/"
+  HistoName: mtt_b3
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  %Rebinning: 480, 560, 640, 720,800, 880, 920, 970, 1040,1160,1280,1400,1700,2000,2300,2600,3000,6000
+  %Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2300,2500, 2700, 3000, 3500,4500, 6000
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  %400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,2000,2500,3000,3500,4000,4500,6000
+  %480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000,3500,4000,4500,6000
+  %480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000,3500,4000,4500,5000,6000
+  %Binning: 500, 600, 700,800, 880, 920, 970, 1040,1160,1280,1400,1700,2000,2400,2800,3200, 3600, 4000,4400,5200,6000
+
+
+Region: "r3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  %Label: "Resolved (cat 3)"
+  Label: "r3"
+  ShortLabel: "r3"
+  HistoName: mtt_r3
+  HistoPathSuff: "res/"
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  %320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000
+
+
+
+
+
+% % --------------- %
+% % --- SAMPLES --- %
+% % --------------- %
+
+Sample: "tt_had"
+  Type: GHOST
+  HistoFile: "hist_tt_had"
+  %NormalizedByTheory: TRUE
+
+Sample: "tt_hs"
+  Type: GHOST
+  HistoFile: "hist_tt_hs"
+  %NormalizedByTheory: TRUE
+
+Sample: "tt_hdamp"
+  Type: GHOST
+  HistoFile: "hist_tt_hdamp"
+  %NormalizedByTheory: TRUE
+
+Sample: "tt_af2"
+  Type: GHOST
+  HistoFile: "hist_tt_af2"
+  %NormalizedByTheory: TRUE
+
+Sample: "Signal"
+  Type: SIGNAL
+  Title: "Z'"
+  %HistoName: mtt
+  FillColor: 632
+  LineColor: 632
+  HistoFile: "hist_zprimeMASS"
+  NormalizedByTheory: TRUE
+
+Sample: "tt"
+  Type: BACKGROUND
+  Title: "t#bar{t}"
+  %HistoName: mtt
+  TexTitle: "$t\overline{t}$"
+  LineColor: 0
+  LineColor: 1
+  HistoFile: "hist_tt"
+  NormalizedByTheory: TRUE
+%  UseMCstat: FALSE
+
+Sample: "wjets"
+  Type: BACKGROUND
+  %HistoName: mtt
+  Title: "W+jets"
+  FillColor: 863
+  HistoFile: "hist_wjets"
+  NormalizedByTheory: TRUE
+%  UseMCstat: FALSE
+
+Sample: "singletop"
+  Type: BACKGROUND
+  %HistoName: mtt
+  Title: "singletop"
+  FillColor: 62
+  HistoFile: "hist_singletop"
+  NormalizedByTheory: TRUE
+%  UseMCstat: FALSE
+
+Sample: "qcd"
+  Type: BACKGROUND
+  %HistoName: mtt
+  Title: "QCD"
+  FillColor: 5
+  HistoFile: "hist_qcd_smooth"
+  NormalizedByTheory: TRUE
+  UseMCstat: FALSE
+
+Sample: "zjets"
+  Type: BACKGROUND
+  %HistoName: mtt
+  Title: "Z+jets"
+  FillColor: 800
+  HistoFile: "hist_zjets"
+  NormalizedByTheory: TRUE
+%  UseMCstat: FALSE
+
+Sample: "diboson"
+  Type: BACKGROUND
+  %HistoName: mtt
+  Title: "di-boson"
+  FillColor: 98
+  HistoFile: "hist_vv"
+  NormalizedByTheory: TRUE
+%  UseMCstat: FALSE
+
+
+%Sample: "ttV"
+%  Type: BACKGROUND
+%  %HistoName: mtt
+%  Title: "ttV"
+%  FillColor: 6
+%  HistoFile: "hist_ttV"
+%  NormalizedByTheory: TRUE
+%%  UseMCstat: FALSE
+
+
+%Sample: "Data"
+%  Title: "Data"
+%  Type: DATA
+%  HistoFile: "hist_data"
+
+% % --------------- %
+% % - SYSTEMATICS - %
+% % --------------- %
+
+
+% ///////////-----                        -----/////////// %
+% ///////////----- LUMINOSITY and PILE-UP -----/////////// %
+% ///////////-----                        -----/////////// %
+
+Systematic: "lumi"
+  Title: "Luminosity"
+  Type: OVERALL
+  OverallUp:    0.017
+  OverallDown: -0.017
+  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Category: Instrumental
+
+Systematic: "ATLAS_PRW_DATASF"
+  Title: "pileup modeling"
+  Type: HISTO
+  HistoNameSufUp: "pileupSF__1up"
+  HistoNameSufDown: "pileupSF__1down"
+  % Smoothing: 40   % weight syst -> Smoothing removal needs to be done
+  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Symmetrisation: TWOSIDED
+  Category: Instrumental
+
+Systematic: "jvtSF";
+  Title: "JVT"
+  Type: HISTO
+  HistoNameSufUp: "jvtSF__1up"
+  HistoNameSufDown: "jvtSF__1down";
+  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Symmetrisation: TWOSIDED
+  % Smoothing: 40
+  Category: Instrumental
+
+Systematic: "tt_Xsec"
+  Title: "#it{t#bar{t}} XS"
+  Type: OVERALL
+  OverallUp:    0.1
+  OverallDown: -0.1
+  Samples: tt
+  Regions: r1,r2,r3
+  Category: "Modelling"
+
+%-------------------------------------------------------------
+% ttbar hard-scattering uncertainty
+%-------------------------------------------------------------
+
+%Systematic:          "ttbar_hs"
+%  SampleUp:          "tt_hs"
+%  Samples:           "tt"
+%  Type:              HISTO
+%  Title:             "#it{t#bar{t}} HS"
+%  Symmetrisation:    ONESIDED
+%  Smoothing:         40
+%  SubCategory:       "Parton shower"
+%  Category:          "Modelling"
+%  %Decorrelate:       REGION
+%  %DropNorm:          "all"
+%  ReferenceSample:   "tt_af2"
+
+Systematic:          "ttbar_hsShape"
+  SampleUp:          "tt_hs"
+  Samples:           "tt"
+  Type:              HISTO
+  Title:             "#it{t#bar{t}} HS (shape)"
+  Symmetrisation:    ONESIDED
+  Smoothing:         40
+  SubCategory:       "Parton shower"
+  Category:          "Modelling"
+  Decorrelate:       REGION
+  DropNorm:          "all"
+  ReferenceSample:   "tt_af2"
+
+Systematic:          "ttbar_hsAcc"
+  SampleUp:          "tt_hs"
+  Samples:           "tt"
+  Type:              HISTO
+  Title:             "#it{t#bar{t}} HS (acc.)"
+  Symmetrisation:    ONESIDED
+  Smoothing:         40
+  SubCategory:       "Parton shower"
+  Category:          "Modelling"
+  Decorrelate:       REGION
+  DropShapeIn:          "all"
+  ReferenceSample:   "tt_af2"
+
+%-------------------------------------------------------------
+% ttbar Hadronization uncertainty
+%-------------------------------------------------------------
+
+%Systematic:          "ttbar_had"
+%  SampleUp:          "tt_had"
+%  Samples:           "tt"
+%  Type:              HISTO
+%  Title:             "#it{t#bar{t}} Had"
+%  Symmetrisation:    ONESIDED
+%  Smoothing:         40
+%  SubCategory:       "Parton shower"
+%  Category:          "Modelling"
+%  %Decorrelate:       REGION
+%  %DropNorm:          "all"
+%  ReferenceSample:   "tt_af2"
+
+Systematic:          "ttbar_hadShape"
+  SampleUp:          "tt_had"
+  Samples:           "tt"
+  Type:              HISTO
+  Title:             "#it{t#bar{t}} Had (shape)"
+  Symmetrisation:    ONESIDED
+  Smoothing:         40
+  SubCategory:       "Parton shower"
+  Category:          "Modelling"
+  Decorrelate:       REGION
+  DropNorm:          "all"
+  ReferenceSample:   "tt_af2"
+
+Systematic:          "ttbar_hadAcc"
+  SampleUp:          "tt_had"
+  Samples:           "tt"
+  Type:              HISTO
+  Title:             "#it{t#bar{t}} Had (acc.)"
+  Symmetrisation:    ONESIDED
+  Smoothing:         40
+  SubCategory:       "Parton shower"
+  Category:          "Modelling"
+  Decorrelate:       REGION
+  DropShapeIn:          "all"
+  ReferenceSample:   "tt_af2"
+
+
+%-------------------------------------------------------------
+% ttbar ISR hdamp uncertainty
+%-------------------------------------------------------------
+
+%Systematic:          "ttbar_hdamp"
+%  SampleUp:          "tt_hdamp"
+%  Samples:           "tt"
+%  Type:              HISTO
+%  Title:             "#it{t#bar{t}} hdamp"
+%  Symmetrisation:    ONESIDED
+%  Smoothing:         40
+%  SubCategory:       "ISR hdamp"
+%  Category:          "Modelling"
+%  %Decorrelate:       REGION
+%  %DropNorm:          "all"
+%  ReferenceSample:   "tt_af2"
+
+Systematic:          "ttbar_hdampShape"
+  SampleUp:          "tt_hdamp"
+  Samples:           "tt"
+  Type:              HISTO
+  Title:             "#it{t#bar{t}} hdamp (shape)"
+  Symmetrisation:    ONESIDED
+  Smoothing:         40
+  SubCategory:       "ISR hdamp"
+  Category:          "Modelling"
+  Decorrelate:       REGION
+  DropNorm:          "all"
+  ReferenceSample:   "tt_af2"
+
+Systematic:          "ttbar_hdampAcc"
+  SampleUp:          "tt_hdamp"
+  Samples:           "tt"
+  Type:              HISTO
+  Title:             "#it{t#bar{t}} hdamp (acc.)"
+  Symmetrisation:    ONESIDED
+  Smoothing:         40
+  SubCategory:       "ISR hdamp"
+  Category:          "Modelling"
+  Decorrelate:       REGION
+  DropShapeIn:          "all"
+  ReferenceSample:   "tt_af2"
+
+
+%-------------------------------------------------------------
+% QCD flat uncertainty: 30%
+%-------------------------------------------------------------
+
+
+Systematic: "qcd"
+  Title: "QCD"
+  Type: OVERALL
+  OverallUp:    0.30
+  OverallDown: -0.30
+  Samples: qcd
+  Category: Instrumental
+
+%Systematic: "qcd_e"
+%  Title: "QCD (boost)"
+%  Type: OVERALL
+%  OverallUp:    0.30
+%  OverallDown: -0.30
+%  Samples: qcd
+%  Regions: be1, be2, be3, re1, re2, re3
+%  Category: Instrumental
+
+%Systematic: "qcd_mu"
+%  Title: "QCD (boost)"
+%  Type: OVERALL
+%  OverallUp:    0.30
+%  OverallDown: -0.30
+%  Samples: qcd
+%  Regions: bmu1, bmu2, bmu3, rmu1, rmu2, rmu3
+%  Category: Instrumental
+
+% ///////////-----                    -----/////////// %
+% ///////////----- EXP UNCERTAINTIES  -----/////////// %
+% ///////////-----                    -----/////////// %
+
+% BTAG_SYS
+
+% TOPTAG_SYS
+
+% JES_SYSAnomalous quartic gauge couplings at a muon collider
+
+% JMR_SYS
+
+% JER_SYS
+
+% JMS_SYS
+
+% MET_SCALE
+
+% MET_RES
+
+% EG_SYS
+
+% MUON_SYS
+
+% TTGEN_SYS
+
+% TTMUF_SYS
+
+% TTPDF_SYS
+
+% TTNNLO_SYS
+
+
+% ///////////-----                    -----/////////// %
+% ///////////----- SIGNAL SYSTEMATICS -----/////////// %
+% ///////////-----                    -----/////////// %
+
+

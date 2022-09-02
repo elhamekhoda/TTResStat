@@ -1,0 +1,26 @@
+*~
+._*
+source/.asetup.save
+# for macs
+.DS_Store
+
+#TRExFitter dir
+TRExFitter
+
+#plots
+plots/plots_*
+plots/*
+
+#configs
+configs/*
+!template_*
+
+#batch files
+batch_files
+
+#output files
+run/statResults*
+
+#python compiled bytecode files (.pyc files) 
+*.pyc
+
