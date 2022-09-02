@@ -6,8 +6,11 @@ The scripts used for the statistical analysis of ttbar resonance search in 1-lep
 As of now the the minimal amount of scripts needed to run TRexFitter and produce a limit plot are kept. It will be updated with time.
 
 ### First time setup:
-Need to create a `run` and `plots` directory. It will be created by `setup.sh` script. TRXeFitter will also be checked out by the setup script.
+Need to create a `run` and `plots` directory. It will be created by `setup.sh` script. [TRExFitter](https://gitlab.cern.ch/TRExStats/TRExFitter) will also be checked out by the setup script.
 **No need to run this in subsequent logins**
+
+### Step 0: Compile TRExFitter
+Look at the instructions on TRexFitter [README file](https://gitlab.cern.ch/TRExStats/TRExFitter)
 
 ### Step 1: Create the config files
 The config files will be created by running the `makeConfig.py` script. It takes several arguments.
