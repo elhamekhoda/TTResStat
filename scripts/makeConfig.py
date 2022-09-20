@@ -163,9 +163,9 @@ def makeSysList(filename,channel, JESconfig='category', getFromFile=False):
         ttPDF_sys_list = [x for x in ttPDF_sysMap]
         ttNNLO_sys_list = [x for x in ttNNLO_sysMap]
 
-    # regions = "be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"
+    regions = "be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"
     # regions = "b1,b2,b3,r1,r2,r3"
-    regions = "be1b,be2b,bmu1b,bmu2b,re1b,re2b,rmu1b,rmu2b"
+    # regions = "be1b,be2b,bmu1b,bmu2b,re1b,re2b,rmu1b,rmu2b"
     btag_sys = sys_group("btag_sys", btag_sys_list, [btag_sysMap[x] for x in btag_sys_list], "TWOSIDED", "b-tag", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
     toptag_sys = sys_group("toptag_sys", toptag_sys_list, [toptag_sysMap[x] for x in toptag_sys_list], "TWOSIDED", "top-tag", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
     JES_sys = sys_group("JES_sys", JES_sys_list, [JES_sysMap[x] for x in JES_sys_list], "TWOSIDED", "JES", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
@@ -241,29 +241,25 @@ def main():
     if sigInject:
         temp = homedir+"/configs/tt1lep_"+region+"_siginjection.config"
     else:
-      # config with 4 b-tag SRs
-      # temp = homedir+"/scripts/tt1lep_config.tmp"
-      # Config with 16 b-tag SRs
-      # temp = homedir+"/scripts/tt1lep_config_wbtagSR.tmp"
-      
-      # Config with 12 b-tag SRs
-      # temp = homedir+"/scripts/tt1lep_config_wbtagSR_1b2b.tmp"
-      
-      # Config with N+ N- SRs
-      # temp = homedir+"/scripts/tt1lep_config_wbtagSR_lepcharge.tmp"
-      #config for W+jets CR
-      #temp = homedir+"/scripts/tt1lep_WjetsCR_config.tmp"
-      # 0 b-tag CR
-      # temp = homedir+"/scripts/tt1lep_config_0btagCR.tmp"
-      
-      # combined electron and muon channel
-      # temp = homedir+"/scripts/tt1lep_config_wbtagSR_1b2b_mergedlep.tmp"
+        # config with 4 b-tag SRs
+        # temp = homedir+"/scripts/tt1lep_config.tmp"
+        # Config with 16 b-tag SRs
+        # temp = homedir+"/scripts/tt1lep_config_wbtagSR.tmp"
+        # Config with N+ N- SRs
+        # temp = homedir+"/scripts/tt1lep_config_wbtagSR_lepcharge.tmp"
+        #config for W+jets CR
+        #temp = homedir+"/scripts/tt1lep_WjetsCR_config.tmp"
+        # 0 b-tag CR
+        # temp = homedir+"/scripts/tt1lep_config_0btagCR.tmp"
 
-      # combined category 1 and category 2
-      temp = homedir+"/scripts/tt1lep_config_wbtagSR_1b2b_mergedbtag.tmp"
+        # Config with 12 b-tag SRs
+        temp = homedir+"/scripts/tt1lep_config_wbtagSR_1b2b.tmp"
 
-      # try ttbar systematics
-      # temp = homedir+"/scripts/test_config.tmp"
+        # combined electron and muon channel
+        # temp = homedir+"/scripts/tt1lep_config_wbtagSR_1b2b_mergedlep.tmp"
+
+        # combined category 1 and category 2
+        # temp = homedir+"/scripts/tt1lep_config_wbtagSR_1b2b_mergedbtag.tmp"
 
 
     #config file path
