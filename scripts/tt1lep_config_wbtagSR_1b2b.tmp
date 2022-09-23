@@ -1,4 +1,4 @@
-Job: "zprimeMASS"
+Job: "ttRes1L"
   Label: "t#bar{t} 1-lepton Search"
   AtlasLabel: Internal
   CmeLabel: "13 TeV"
@@ -6,7 +6,7 @@ Job: "zprimeMASS"
   %LumiLabel: "58.5 fb^{-1}"
   %Lumi:  2.376 %139.0/58.5
   LumiLabel: "139 fb^{-1}"
-  POI: "SigXsecOverSM"
+  POI: "mu_Zprime"
   ReadFrom: HIST
   OutputDir: "OUTPUTDIR/"
   HistoPath: "INPUTDIR/"
@@ -43,7 +43,7 @@ Fit: "SPLUSB_CRSR_Asimov"
   POIAsimov: 0
   SetRandomInitialNPval: 0.01
   GetGoodnessOfFit: TRUE
-  UseMinos: SigXsecOverSM
+  UseMinos: mu_Zprime
   %FitToys: 100
 
 % % --------------- %
@@ -53,8 +53,8 @@ Fit: "SPLUSB_CRSR_Asimov"
 Limit: "tt1lep_limit"
   LimitType: ASYMPTOTIC
   LimitBlind: TRUE
-  ParamName: "ZprimeMass"
-  ParamValue: MASS
+  %ParamName: "ZprimeMass"
+  %ParamValue: MASS
   OutputPrefixName: zprimeMASS
   %POIAsimov:
 
@@ -63,11 +63,11 @@ Limit: "tt1lep_limit"
 % % -SIGNIFICANCE - %
 % %---------------- %
 
-Significance: "tt1lep_sig"
-  SignificanceBlind: FALSE
-  ParamName: "ZprimeMass"
-  ParamValue: MASS
-  OutputPrefixName: zprimeMASS
+%Significance: "tt1lep_sig"
+  %SignificanceBlind: FALSE
+  %ParamName: "ZprimeMass"
+  %ParamValue: MASS
+  %OutputPrefixName: zprimeMASS
   %POIAsimov:
 
 
@@ -75,12 +75,12 @@ Significance: "tt1lep_sig"
 % % - NORMFACTORS - %
 % % --------------- %
 
-NormFactor: "SigXsecOverSM"
+NormFactor: "mu_Zprime"
   Title: "#mu(Z't#bar{t})"
   Nominal: 0
   Min: -5
   Max: 5
-  Samples: Signal
+  Samples: "Zprime*"
 
 NormFactor: "ttNorm_boosted"
   Title: "k_{b}(t#bar{t})"
@@ -89,94 +89,6 @@ NormFactor: "ttNorm_boosted"
   Max: 1.5
   Samples: tt
   Regions: be1,be2,be3,bmu1,bmu2,bmu3
-
-%NormFactor: "ttNorm_boosted_SR1SR2"
-%  Title: "k_{b}(t#bar{t}) SR1SR2"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: be1,be2,bmu1,bmu2
-
-%NormFactor: "ttNorm_boosted_SR1"
-%  Title: "k_{b}(t#bar{t}) SR1"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: be1,be2,bmu1,bmu2
-
-%NormFactor: "ttNorm_boosted_SR2"
-%  Title: "k_{b}(t#bar{t}) SR2"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: be1,be2,bmu1,bmu2
-
-%NormFactor: "ttNorm_boosted_SR3"
-%  Title: "k_{b}(t#bar{t}) SR3"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: be3,bmu3
-
-%NormFactor: "ttNorm_resolved"
-%  Title: "k_{r}(t#bar{t})"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: re1,re2,re3,rmu1,rmu2,rmu3
-
-%NormFactor: "ttNorm_resolved_SR1SR2"
-%  Title: "k_{r}(t#bar{t}) SR1SR2"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: re1,re2,rmu1,rmu2
-
-%NormFactor: "ttNorm_resolved_SR1"
-%  Title: "k_{r}(t#bar{t}) SR1"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: re1,re2,rmu1,rmu2
-
-%NormFactor: "ttNorm_resolved_SR2"
-%  Title: "k_{r}(t#bar{t}) SR2"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: re1,re2,rmu1,rmu2
-
-%NormFactor: "ttNorm_resolved_SR3"
-%  Title: "k_{r}(t#bar{t}) SR3"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: tt
-%  Regions: re3,rmu3
-
-%NormFactor: "WjetsNorm_boosted"
-%  Title: "k_{b}(W+jets)"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: wjets
-%  Regions: be0,be1,be2,be3,bmu0,bmu1,bmu2,bmu3
-
-%NormFactor: "WjetsNorm_boosted0"
-%  Title: "k_{b0}(W+jets)"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: wjets
-%  Regions: be0,bmu0
 
 NormFactor: "WjetsNorm_boosted1"
   Title: "k_{b1}(W+jets)"
@@ -201,23 +113,6 @@ NormFactor: "WjetsNorm_boosted3"
   Max: 1.5
   Samples: wjets
   Regions: be3,bmu3
-
-
-%NormFactor: "WjetsNorm_resolved"
-% Title: "k_{r}(W+jets)"
-% Nominal: 1
-% Min: 0.5
-% Max: 1.5
-% Samples: wjets
-% Regions: re0,re1,re2,re3,rmu0,rmu1,rmu2,rmu3
-
-%NormFactor: "WjetsNorm_resolved0"
-%  Title: "k_{r0}(W+jets)"
-%  Nominal: 1
-%  Min: 0.5
-%  Max: 1.5
-%  Samples: wjets
-%  Regions: re0,rmu0
 
 NormFactor: "WjetsNorm_resolved1"
   Title: "k_{r1}(W+jets)"
@@ -453,63 +348,6 @@ Region: "rmu3"
   %320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000
 
 
-%Region: "be0"
-%  Type: SIGNAL
-%  VariableTitle: "m_{t#bar{t}} [GeV]"
-%  Label: "Boosted Electron (cat 0)"
-%  ShortLabel: "be0"
-%  HistoPathSuff: "be/"
-%  HistoName: mtt_be0
-%  LogScale: TRUE
-%  Ymin:1e-2
-  %Rebinning: 500, 600, 700,800, 880, 920, 970, 1040,1160,1280,1400,1700,2000,2400,2800,3200, 3600, 4000,4400,4800,5200,5600,6000
-%  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2250, 2500,2750,3000,6000
-  %400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,2000,2500,3000,3500,4000,4500,6000
-  %480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000,3500,4000,4500,6000
-  %480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000,3500,4000,4500,5000,6000
-  %Binning: 500, 600, 700,800, 880, 920, 970, 1040,1160,1280,1400,1700,2000,2400,2800,3200, 3600, 4000,4400,5200,6000
-
-
-%Region: "re0"
-%  Type: SIGNAL
-%  VariableTitle: "m_{t#bar{t}} [GeV]"
-%  Label: "Resolved Electron (cat 0)"
-%  ShortLabel: "re0"
-%  HistoName: mtt_re0
-%  HistoPathSuff: "re/"
-%  LogScale: TRUE
-%  Ymin:1e-2
-%  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
-%  %320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000
-
-
-%Region: "bmu0"
-%  Type: SIGNAL
-%  VariableTitle: "m_{t#bar{t}} [GeV]"
-%  Label: "Boosted Muon (cat 0)"
-%  ShortLabel: "bmu0"
-%  HistoPathSuff: "bmu/"
-%  HistoName: mtt_bmu0
-%  LogScale: TRUE
-%  Ymin:1e-2
-%  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,2000,2500,3000,6000
-%  %400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,2000,2500,3000,3500,4000,4500,6000
-
-
-%Region: "rmu0"
-%  Type: SIGNAL
-%  VariableTitle: "m_{t#bar{t}} [GeV]"
-%  Label: "Resolved Muon (cat 0)"
-%  ShortLabel: "rmu0"
-%  HistoPathSuff: "rmu/"
-%  HistoName: mtt_rmu0
-%  LogScale: TRUE
-%  Ymin:1e-2
-%  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
-%  %320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,2300,2600,3000
-
-
-
 % % --------------- %
 % % --- SAMPLES --- %
 % % --------------- %
@@ -533,14 +371,14 @@ Sample: "tt_af2"
   Type: GHOST
   HistoFile: "hist_tt_af2"
   %NormalizedByTheory: TRUE
-
-Sample: "Signal"
+  
+Sample:           "ZprimeTC2_400"     ;"ZprimeTC2_500"     ;"ZprimeTC2_750"      ;"ZprimeTC2_1000"    ;"ZprimeTC2_1250"     ;"ZprimeTC2_1500"    ;"ZprimeTC2_1750"     ;"ZprimeTC2_2000"   ;"ZprimeTC2_2250"      ;"ZprimeTC2_2500"     ;"ZprimeTC2_2750"      ;"ZprimeTC2_3000"    ;"ZprimeTC2_4000"    ;"ZprimeTC2_5000"
+  Title:          "Z'_{TC2} (400 GeV)";"Z'_{TC2} (500 GeV)";"Z'_{TC2} (750 GeV)" ;"Z'_{TC2} (1 TeV)"  ;"Z'_{TC2} (1.25 TeV)";"Z'_{TC2} (1.5 TeV)";"Z'_{TC2} (1.75 TeV)";"Z'_{TC2} (2 TeV)" ;"Z'_{TC2} (2.25 TeV)" ;"Z'_{TC2} (2.5 TeV)" ;"Z'_{TC2} (2.75 TeV)" ;"Z'_{TC2} (3 TeV)"  ;"Z'_{TC2} (4 TeV)"  ;"Z'_{TC2} (5 TeV)"
+  TexTitle:       "$Z'$ (400 GeV)"    ;"$Z'$ (500 GeV)"    ;"$Z'$ (750 GeV)"     ;"$Z'$ (1 TeV)"      ;"$Z'$ (1.25 TeV)"    ;"$Z'$ (1.5 TeV)"    ;"$Z'$ (1.75 TeV)"    ;"$Z'$ (2 TeV)"     ;"$Z'$ (2.25 TeV)"     ;"$Z'$ (2.5 TeV)"     ;"$Z'$ (2.75 TeV)"     ;"$Z'$ (3 TeV)"      ;"$Z'$ (4 TeV)"      ;"$Z'$ (5 TeV)"
+  HistoFile:      "hist_zprime400"    ;"hist_zprime500"    ;"hist_zprime750"    ;"hist_zprime1000"    ;"hist_zprime1000"    ;"hist_zprime1500"   ;"hist_zprime1750"    ;"hist_zprime2000"  ;"hist_zprime2250"     ;"hist_zprime2500"    ;"hist_zprime2750"     ;"hist_zprime3000"   ;"hist_zprime4000"   ;"hist_zprime5000"
   Type: SIGNAL
-  Title: "Z'"
-  %HistoName: mtt
   FillColor: 632
   LineColor: 632
-  HistoFile: "hist_zprimeMASS"
   NormalizedByTheory: TRUE
 
 Sample: "tt"
@@ -629,7 +467,7 @@ Systematic: "lumi"
   Type: OVERALL
   OverallUp:    0.017
   OverallDown: -0.017
-  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
   Category: Instrumental
 
 Systematic: "ATLAS_PRW_DATASF"
@@ -638,7 +476,7 @@ Systematic: "ATLAS_PRW_DATASF"
   HistoNameSufUp: "pileupSF__1up"
   HistoNameSufDown: "pileupSF__1down"
   % Smoothing: 40   % weight syst -> Smoothing removal needs to be done
-  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
   Symmetrisation: TWOSIDED
   Category: Instrumental
 
@@ -647,7 +485,7 @@ Systematic: "jvtSF";
   Type: HISTO
   HistoNameSufUp: "jvtSF__1up"
   HistoNameSufDown: "jvtSF__1down";
-  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
   Symmetrisation: TWOSIDED
   % Smoothing: 40
   Category: Instrumental
@@ -831,7 +669,7 @@ Systematic: "qcd"
 
 % TOPTAG_SYS
 
-% JES_SYSAnomalous quartic gauge couplings at a muon collider
+% JES_SYS
 
 % JMR_SYS
 

@@ -6,6 +6,7 @@ import subprocess
 import argparse
 from datetime import datetime
 from systematics import *
+from pathlib import Path
 
 today = datetime.date(datetime.now())
 
@@ -15,7 +16,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--configdir",      type=str,  default="configs_%s"%today,
                         help="The path to the config files to be used.")
-    parser.add_argument("--action",         type=str,  default="hwfl",
+    parser.add_argument("--action",         type=str,  default="hwf",
                         help="The trex-fitter action.")
     parser.add_argument("--excludeSys",            type=str,  default="none",
                         help="List of systematics to exclude from the list.")
@@ -31,10 +32,9 @@ def main():
                         help="Determines whether to study signal regions respectively.")
     parser.add_argument('--useBatch',       type=str,        default='pbs',
                         help="Determines whether you will submit fitting to a batch queue. Currently the script is setup only for PBS batch")
-    parser.add_argument("--useMorphedSignal",    dest='morphedSignal', default=False, action='store_true',
-                        help="Determines whether to use the morphed signal sample or not.")
     parser.add_argument("--suff", type=str,  default="",
                         help="suffix added to the outdir and configdir")
+    parser.add_argument("--masses", nargs='+', default=['400','500','750','1000','1250','1500','1750','2000','2250','2500','2750','3000','4000','5000'])
 
     args = parser.parse_args()
     configDir           = args.configdir+'_'+args.suff
@@ -46,12 +46,8 @@ def main():
     runBONLYFit         = args.runBONLYFit
     region              = args.region
     useBatch            = args.useBatch
-    morphedSignal       = args.morphedSignal
-    suff                = args.suff
-
+    masses = args.masses
     reg = region
-
-
 
     print ("=====================================================================")
     print ("Executing Run_TRExFitter.py with :")
@@ -63,30 +59,20 @@ def main():
     print ("runBONLYFit      : ",runBONLYFit)
     print ("region           : ",region)
     print ("useBatch         : ",useBatch)
-    print ("morphedSignal    : ",morphedSignal)
     print ("=====================================================================")
 
-    # make the necessary output directories for storing the results and bookkeeping the configs used
-    # os.system("mkdir -p "+outputDir)
+    if 'l' in action:
+        raise NotImplementedError()
 
     # template submission for batch queue - to possibly be changed/improved in the future
     if useBatch == 'pbs':
         templatescript = "scripts/batchScript_template_pbs.sh"
-    # Get current working directory
     headdir = os.getcwd()
 
-    masses = ['400', '500', '750', '1000', '1250', '1500','1750','2000','2250','2500','2750','3000','4000','5000']
-    # masses = ['3000', '4000']
-    if morphedSignal:
-        masses = ['1750','1875','2000','2125','2250','2375','2500','2625','2750','2875','3000','3250','3500','3750','4000','4250','4500','4750','5000','5250','5500','5750','6000']
-
-    if excludeSys == 'none':
-        sysToexcl = ''
-    else:
-        sysToexcl = excludeSys
-
+    date_suffix = configDir[8:] # len("configs_") = 8
+    job_dir = f"run/statResults_tt1lep_{date_suffix}"
+    
     ttbar_syst_list = []
-    syst_names = ["ttbar_hsShape", "ttbar_hsAcc", "ttbar_hadShape", "ttbar_hadAcc", "ttbar_hdampShape", "ttbar_hdampAcc"]
     twopoint_syst_names = ["tt_muF", "tt_muR", "tt_ISR", "tt_FSR"]
     regions = ["be", "re", "bmu", "rmu"]
     for i in range(1,4):
@@ -95,100 +81,54 @@ def main():
                 ttbar_syst_list.append(s+'_'+r+str(i))
 
     for mass in masses:
+        job_name = f"Zprime_{mass}"
+        signal_name = f"ZprimeTC2_{mass}"
+
         if runBONLYFit:
-            allsys_string = 'zprime{0}_BONLY_AllSys'.format(mass)
-            configFileName = "configs/{0}/allsys/zprime{1}_combined_BONLY_AllSys.config".format(configDir,mass)
-            allsys_command = "trex-fitter {0} {1}".format(action,configFileName)
-            commandList = [allsys_command]
-            MapOfNamingString = {allsys_command:allsys_string}
-
-            # fitblind_string = 'zprime{0}_BONLY_FitBlind'.format(mass)
-            # configFileName = "configs/{0}/allsys/zprime{1}_combined_BONLY_FitBlind.config".format(configDir,mass)
-            # fitblind_command = "trex-fitter {0} {1}".format(action,configFileName)
-            # commandList += [fitblind_command]
-            # MapOfNamingString[fitblind_command] = fitblind_string
-
+            raise NotImplementedError()
         elif runStatOnly:
             stringForNaming = 'zprime{0}_StatOnly'.format(mass)
-            configFileName = "configs/{0}/statonly/zprime{1}_combined_StatOnly.config".format(configDir,mass)
+            configFileName = "configs/{0}/statonly/zprime_combined_StatOnly.config".format(configDir)
+            job_path =  f"{job_dir}/statonly/{job_name}"
             thisCommand = "trex-fitter {0} {1} ".format(action,configFileName)
-            newCommand = thisCommand+" \"Suffix=_statonly\""
+            newCommand = thisCommand+f" \"Suffix=_statonly:Signal={signal_name}:Job={job_path}\""
             commandList = [newCommand]
             MapOfNamingString = {newCommand:stringForNaming}
 
-            #stringForNaming = 'zprime{0}_MCstat'.format(mass)
-            #configFileName = "configs/{0}/MCstat/zprime{1}_combined_MCstat.config".format(configDir,mass)
-            #newCommand = "trex-fitter {0} {1}  \"Systematics=none:Suffix=_MCstat\"".format(action,configFileName)
-            #commandList += [newCommand]
-            #MapOfNamingString[newCommand] = stringForNaming
-
-            #fitblind_string = 'zprime{0}_StatOnly_FitBlind'.format(mass)
-            #configFileName = "configs/{0}/statonly/zprime{1}_combined_StatOnly_FitBlind.config".format(configDir,mass)
-            #fitblind_command = "trex-fitter {0} {1}".format(action,configFileName)
-            #commandList += [fitblind_command]
-            #MapOfNamingString[fitblind_command] = fitblind_string
-
             if region != 'combined':
-                commandList = []; MapOfNamingString = {}
-                newCommand = thisCommand+" \"Regions={0}:Suffix=_statonly_{1}\"".format(reg,reg)
-                newString = stringForNaming.replace("StatOnly","StatOnly_"+reg)
-                commandList.append(newCommand)
-                MapOfNamingString[newCommand]=newString
-
+                raise NotImplementedError()
         else:
             commandList = []; MapOfNamingString = {}
             allsys_string = 'zprime{0}_AllSys'.format(mass)
-            configFileName = "configs/{0}/allsys/zprime{1}_combined_AllSys.config".format(configDir,mass)
+            configFileName = "configs/{0}/allsys/zprime_combined_AllSys.config".format(configDir)
+            job_path =  f"{job_dir}/allsys/{job_name}"
             allsys_command = "trex-fitter {0} {1} ".format(action,configFileName)
             if 'r' in action and ranking_indv:
                 for sys in ttbar_syst_list: #syslist:
-                    allsys_command_ranking = allsys_command+" \"Ranking={0}\"".format(sys)
+                    allsys_command_ranking = allsys_command+f" \"Ranking={sys}:Signal={signal_name}:Job={job_path}\""
                     commandList.append(allsys_command_ranking)
                     allsys_string_syst = allsys_string.replace("AllSys", sys)
                     MapOfNamingString[allsys_command_ranking] = allsys_string_syst
             else:
-                commandList.append(allsys_command)
+                commandList.append(allsys_command + f" \"Signal={signal_name}:Job={job_path}\"")
                 MapOfNamingString[allsys_command] = allsys_string
 
-            # fitblind_string = 'zprime{0}_FitBlind'.format(mass)
-            # configFileName = "configs/{0}/allsys/zprime{1}_combined_FitBlind.config".format(configDir,mass)
-            # fitblind_command = "trex-fitter {0} {1}".format(action,configFileName)
-            # commandList += [fitblind_command]
-            # MapOfNamingString[fitblind_command] = fitblind_string
-
             if region != 'combined':
-                commandList = []; MapOfNamingString = {}
-
-                allsys_command_reg = allsys_command+" \"Regions={0}:Suffix=_{1}\"".format(reg,reg)
-                allsys_string_reg = allsys_string+'_'+reg
-                commandList.append(allsys_command_reg)
-                MapOfNamingString[allsys_command_reg] = allsys_string_reg
-
-                fitblind_command_reg = fitblind_command+" \"Regions={0}:Suffix=_{1}\"".format(reg,reg)
-                fitblind_string_reg = fitblind_string+'_'+reg
-                commandList.append(fitblind_command_reg)
-                MapOfNamingString[fitblind_command_reg]=fitblind_string_reg
+                raise NotImplementedError()
 
             if runSeparateSys:
-                for sys in sysToexcl:
-                    if 'r' in action:
-                        newCommand = thisCommand+" \"Ranking={0}\"".format(sys)
-                    else:
-                        newCommand = thisCommand+" \"Exclude={0}:Suffix=_exclude_{1}\"".format(sys,sys)
-                    newString = stringForNaming.replace('AllSys',sys)
-                    commandList.append(newCommand)
-                    MapOfNamingString[newCommand]=newString
-
-
-
+                raise NotImplementedError()
+        
         modcommand = "chmod 744 {0}".format(configFileName)
         subprocess.call(modcommand,shell=True)
 
         for command in commandList:
             if useBatch == "pbs" :
+                raise NotImplementedError()
                 batchSubmit_PBS(command, MapOfNamingString[command], templatescript, headdir)
             else :
                 print("About to call",command)
+                breakpoint()
                 subprocess.call(command, shell=True)
 
 def batchSubmit_PBS(command, stringForNaming, templatescript, headdir) :

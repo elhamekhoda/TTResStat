@@ -1,4 +1,4 @@
-Job: "zprimeMASS"
+Job: "ttRes1L"
   Label: "t#bar{t} 1-lepton Search"
   AtlasLabel: Internal
   CmeLabel: "13 TeV"
@@ -6,7 +6,7 @@ Job: "zprimeMASS"
   %LumiLabel: "58.5 fb^{-1}"
   %Lumi:  2.376 %139.0/58.5
   LumiLabel: "139 fb^{-1}"
-  POI: "SigXsecOverSM"
+  POI: "mu_Zprime"
   ReadFrom: HIST
   OutputDir: "OUTPUTDIR/"
   HistoPath: "INPUTDIR/"
@@ -43,7 +43,7 @@ Fit: "SPLUSB_CRSR_Asimov"
   POIAsimov: 0
   SetRandomInitialNPval: 0.01
   GetGoodnessOfFit: TRUE
-  UseMinos: SigXsecOverSM
+  UseMinos: mu_Zprime
   %FitToys: 100
 
 % % --------------- %
@@ -54,8 +54,8 @@ Limit: "tt1lep_limit"
   LimitType: ASYMPTOTIC
   LimitBlind: TRUE
   ParamName: "ZprimeMass"
-  ParamValue: MASS
-  OutputPrefixName: zprimeMASS
+  %ParamValue: MASS
+  %OutputPrefixName: zprimeMASS
   %POIAsimov:
 
 
@@ -63,11 +63,11 @@ Limit: "tt1lep_limit"
 % % -SIGNIFICANCE - %
 % %---------------- %
 
-Significance: "tt1lep_sig"
-  SignificanceBlind: FALSE
-  ParamName: "ZprimeMass"
-  ParamValue: MASS
-  OutputPrefixName: zprimeMASS
+%Significance: "tt1lep_sig"
+  %SignificanceBlind: FALSE
+  %ParamName: "ZprimeMass"
+  %ParamValue: MASS
+  %OutputPrefixName: zprimeMASS
   %POIAsimov:
 
 
@@ -75,12 +75,12 @@ Significance: "tt1lep_sig"
 % % - NORMFACTORS - %
 % % --------------- %
 
-NormFactor: "SigXsecOverSM"
+NormFactor: "mu_Zprime"
   Title: "#mu(Z't#bar{t})"
   Nominal: 0
   Min: -5
   Max: 5
-  Samples: Signal
+  Samples: "Zprime*"
 
 NormFactor: "ttNorm_boosted"
   Title: "k_{b}(t#bar{t})"
@@ -285,13 +285,13 @@ Sample: "tt_af2"
   HistoFile: "hist_tt_af2"
   %NormalizedByTheory: TRUE
 
-Sample: "Signal"
+Sample:           "ZprimeTC2_400"     ;"ZprimeTC2_500"     ;"ZprimeTC2_750"      ;"ZprimeTC2_1000"    ;"ZprimeTC2_1250"     ;"ZprimeTC2_1500"    ;"ZprimeTC2_1750"     ;"ZprimeTC2_2000"   ;"ZprimeTC2_2250"      ;"ZprimeTC2_2500"     ;"ZprimeTC2_2750"      ;"ZprimeTC2_3000"    ;"ZprimeTC2_4000"    ;"ZprimeTC2_5000"
+  Title:          "Z'_{TC2} (400 GeV)";"Z'_{TC2} (500 GeV)";"Z'_{TC2} (750 GeV)" ;"Z'_{TC2} (1 TeV)"  ;"Z'_{TC2} (1.25 TeV)";"Z'_{TC2} (1.5 TeV)";"Z'_{TC2} (1.75 TeV)";"Z'_{TC2} (2 TeV)" ;"Z'_{TC2} (2.25 TeV)" ;"Z'_{TC2} (2.5 TeV)" ;"Z'_{TC2} (2.75 TeV)" ;"Z'_{TC2} (3 TeV)"  ;"Z'_{TC2} (4 TeV)"  ;"Z'_{TC2} (5 TeV)"
+  TexTitle:       "$Z'$ (400 GeV)"    ;"$Z'$ (500 GeV)"    ;"$Z'$ (750 GeV)"     ;"$Z'$ (1 TeV)"      ;"$Z'$ (1.25 TeV)"    ;"$Z'$ (1.5 TeV)"    ;"$Z'$ (1.75 TeV)"    ;"$Z'$ (2 TeV)"     ;"$Z'$ (2.25 TeV)"     ;"$Z'$ (2.5 TeV)"     ;"$Z'$ (2.75 TeV)"     ;"$Z'$ (3 TeV)"      ;"$Z'$ (4 TeV)"      ;"$Z'$ (5 TeV)"
+  HistoFile:      "hist_zprime400"    ;"hist_zprime500"    ;"hist_zprime750"    ;"hist_zprime1000"    ;"hist_zprime1000"    ;"hist_zprime1500"   ;"hist_zprime1750"    ;"hist_zprime2000"  ;"hist_zprime2250"     ;"hist_zprime2500"    ;"hist_zprime2750"     ;"hist_zprime3000"   ;"hist_zprime4000"   ;"hist_zprime5000"
   Type: SIGNAL
-  Title: "Z'"
-  %HistoName: mtt
   FillColor: 632
   LineColor: 632
-  HistoFile: "hist_zprimeMASS"
   NormalizedByTheory: TRUE
 
 Sample: "tt"
@@ -380,7 +380,7 @@ Systematic: "lumi"
   Type: OVERALL
   OverallUp:    0.017
   OverallDown: -0.017
-  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
   Category: Instrumental
 
 Systematic: "ATLAS_PRW_DATASF"
@@ -389,7 +389,7 @@ Systematic: "ATLAS_PRW_DATASF"
   HistoNameSufUp: "pileupSF__1up"
   HistoNameSufDown: "pileupSF__1down"
   % Smoothing: 40   % weight syst -> Smoothing removal needs to be done
-  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
   Symmetrisation: TWOSIDED
   Category: Instrumental
 
@@ -398,7 +398,7 @@ Systematic: "jvtSF";
   Type: HISTO
   HistoNameSufUp: "jvtSF__1up"
   HistoNameSufDown: "jvtSF__1down";
-  Samples: Signal,tt,singletop,diboson,wjets,zjets
+  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
   Symmetrisation: TWOSIDED
   % Smoothing: 40
   Category: Instrumental
@@ -582,7 +582,7 @@ Systematic: "qcd"
 
 % TOPTAG_SYS
 
-% JES_SYSAnomalous quartic gauge couplings at a muon collider
+% JES_SYS
 
 % JMR_SYS
 

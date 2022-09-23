@@ -22,7 +22,7 @@ _run from the main directiory_
 ### Step 2: Run TRExFitter
 Make sure TRExFitter is checked out from git. `runTRExFitter.py` script will be used
 ```python
-python scripts/runTRExFitter.py --configDir CONFIG_DIR --action hwfl --suff SUFFIX
+python scripts/runTRExFitter.py --configdir CONFIG_DIR --action hwfl --suff SUFFIX
 ```
 `--runStatOnly` will run the stat only limit    
 

@@ -196,8 +196,8 @@ def makeSysList(filename,channel, JESconfig='category', getFromFile=False):
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--indir",    type=str,  default="./config",
-                        help="The path to the input histigram files to be used")
+    parser.add_argument("--indir",    type=str,  default="/eos/atlas/atlascerngroupdisk/phys-exotics/hqt/ttRes_semilep/TNA_outputs/histOutput_21.2.180_syst/fullrun2_aug2022/combined/limit_inputs",
+                        help="The path to the input histogram files to be used")
     parser.add_argument("--outdir",       type=str,  default="statResults_tt1lep_%s"%today,
                         help="The path to the configs directory")
     parser.add_argument("--configdir",       type=str,  default="./configs_%s"%today,
@@ -326,54 +326,47 @@ def main():
     # read config template
     theTemplate = open(temp, 'r')
     theTemplateString  = theTemplate.read()
+    string = theTemplateString.replace("INPUTDIR",inputDir)
+    string = string.replace("TODAY",str(today))
 
-    # write config file for each signal mass
-    masses = ['400', '500', '750', '1000', '1250', '1500', '1750','2000','2250','2500','2750','3000','4000','5000']
-    #masses = ['2500']
-    for i, mass in enumerate(masses):
-        print ('Writing mass point {0}'.format(mass))
-        string = theTemplateString.replace("MASS",mass)
-        string = string.replace("INPUTDIR",inputDir)
-        string = string.replace("TODAY",str(today))
+    string_statonly = string.replace("STATONLY", "TRUE")
+    string_statonly = string_statonly.replace("OUTPUTDIR",outPATH_statonly)
+    config_statonly = open(configPATH_statonly+"zprime_"+region+"_StatOnly.config",'w')
+    config_statonly.writelines(string_statonly)
+    config_statonly.close()
 
-        string_statonly = string.replace("STATONLY", "TRUE")
-        string_statonly = string_statonly.replace("OUTPUTDIR",outPATH_statonly)
-        config_statonly = open(configPATH_statonly+"zprime"+mass+"_"+region+"_StatOnly.config",'w')
-        config_statonly.writelines(string_statonly)
-        config_statonly.close()
+    #All systematics configuration
+    string_allsys = string.replace("STATONLY", "FALSE")
+    string_allsys = string_allsys.replace("% BTAG_SYS",btag_sys_block)
+    string_allsys = string_allsys.replace("% TOPTAG_SYS",toptag_sys_block)
+    string_allsys = string_allsys.replace("% JES_SYS",JES_sys_block)
+    string_allsys = string_allsys.replace("% JER_SYS",JER_sys_block)
+    string_allsys = string_allsys.replace("% JMR_SYS",JMR_sys_block)
+    string_allsys = string_allsys.replace("% JMS_SYS",JMS_sys_block)
+    # # #MET
+    string_allsys = string_allsys.replace("% MET_SCALE",MET_scale_sys_block)
+    string_allsys = string_allsys.replace("% MET_RES",MET_res_sys_block)
+    string_allsys = string_allsys.replace(r"% EG_SYS",EG_sys_block)
+    string_allsys = string_allsys.replace("% MUON_SYS",MUON_sys_block)
+    #ttbar generator, pdf and NNLO correction
+    string_allsys = string_allsys.replace("% TTGEN_SYS",ttgen_sys_block)
+    # string_allsys = string_allsys.replace("% TTMUF_SYS",ttmuF_sys_block)
+    string_allsys = string_allsys.replace("% TTPDF_SYS",ttpdf_sys_block)
+    string_allsys = string_allsys.replace("% TTNNLO_SYS",ttNNLO_sys_block)
 
-        #All systematics configuration
-        string_allsys = string.replace("STATONLY", "FALSE")
-        string_allsys = string_allsys.replace("% BTAG_SYS",btag_sys_block)
-        string_allsys = string_allsys.replace("% TOPTAG_SYS",toptag_sys_block)
-        string_allsys = string_allsys.replace("% JES_SYS",JES_sys_block)
-        string_allsys = string_allsys.replace("% JER_SYS",JER_sys_block)
-        string_allsys = string_allsys.replace("% JMR_SYS",JMR_sys_block)
-        string_allsys = string_allsys.replace("% JMS_SYS",JMS_sys_block)
-        # # #MET
-        string_allsys = string_allsys.replace("% MET_SCALE",MET_scale_sys_block)
-        string_allsys = string_allsys.replace("% MET_RES",MET_res_sys_block)
-        string_allsys = string_allsys.replace(r"% EG_SYS",EG_sys_block)
-        string_allsys = string_allsys.replace("% MUON_SYS",MUON_sys_block)
-        #ttbar generator, pdf and NNLO correction
-        string_allsys = string_allsys.replace("% TTGEN_SYS",ttgen_sys_block)
-        # string_allsys = string_allsys.replace("% TTMUF_SYS",ttmuF_sys_block)
-        string_allsys = string_allsys.replace("% TTPDF_SYS",ttpdf_sys_block)
-        string_allsys = string_allsys.replace("% TTNNLO_SYS",ttNNLO_sys_block)
+    string_bonly_allsys = string_allsys.replace("SPLUSB", "BONLY")
+    string_bonly_allsys = string_bonly_allsys.replace("OUTPUTDIR",outPATH_bonly_allsys)
+    config_bonly_allsys = open(configPATH_allsys+"zprime_"+region+"_BONLY_AllSys.config",'w')
+    config_bonly_allsys.writelines(string_bonly_allsys)
+    config_bonly_allsys.close()
 
-        string_bonly_allsys = string_allsys.replace("SPLUSB", "BONLY")
-        string_bonly_allsys = string_bonly_allsys.replace("OUTPUTDIR",outPATH_bonly_allsys)
-        config_bonly_allsys = open(configPATH_allsys+"zprime"+mass+"_"+region+"_BONLY_AllSys.config",'w')
-        config_bonly_allsys.writelines(string_bonly_allsys)
-        config_bonly_allsys.close()
+    string_allsys = string_allsys.replace("OUTPUTDIR",outPATH_allsys)
+    config_allsys = open(configPATH_allsys+"zprime_"+region+"_AllSys.config",'w')
+    config_allsys.writelines(string_allsys)
+    config_allsys.close()
 
-        string_allsys = string_allsys.replace("OUTPUTDIR",outPATH_allsys)
-        config_allsys = open(configPATH_allsys+"zprime"+mass+"_"+region+"_AllSys.config",'w')
-        config_allsys.writelines(string_allsys)
-        config_allsys.close()
-
-        del string, string_statonly, string_allsys, string_bonly_allsys
-        del config_statonly, config_allsys, config_bonly_allsys
+    del string, string_statonly, string_allsys, string_bonly_allsys
+    del config_statonly, config_allsys, config_bonly_allsys
 
 
 
