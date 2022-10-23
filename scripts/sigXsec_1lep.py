@@ -7,14 +7,14 @@ signalList= [
               'zprime1000',
               'zprime1250',
               'zprime1500',
-              # 'zprime1750',
+              'zprime1750',
               'zprime2000',
               'zprime2250',
               'zprime2500',
-              # 'zprime2750',
+              'zprime2750',
               'zprime3000',
               'zprime4000',
-              # 'zprime5000',
+              'zprime5000',
               #'zprime6000'
               ]
 
@@ -53,6 +53,75 @@ xs = {
   'zprime5000': 0.000330792326516*1.3,
   'zprime6000': 7.17103e-5*1.3
   }
+
+
+# #Graviton
+# signalList = [
+#               'grav400',
+#               'grav500',
+#               'grav750',
+#               'grav1000',
+#               'grav2000',
+#               # 'grav3000'
+#               ]
+
+# mass = {
+#         'grav400':0.4,
+#         'grav500':0.5,
+#         'grav750':0.75,
+#         'grav1000':1,
+#         'grav2000':2,
+#         'grav3000':3
+#         }
+
+# xs = {
+#        'grav400': 7.19,
+#        'grav500': 5.84,
+#        'grav750': 1.18,
+#        'grav1000': 0.289,
+#        'grav2000': 0.00498,
+#        'grav3000': 0.000248
+#        }
+
+
+# signalList = [
+#             'gluon500',
+#             'gluon1000',
+#             'gluon1500',
+#             'gluon2000',
+#             'gluon2500',
+#             'gluon3000',
+#             'gluon3500',
+#             'gluon4000',
+#             'gluon4500',
+#             'gluon5000'
+#             ]
+# mass = {
+#          'gluon500': 0.5,
+#          'gluon1000': 1.0,
+#          'gluon1500': 1.5,
+#          'gluon2000': 2.0,
+#          'gluon2500': 2.5,
+#          'gluon3000': 3.0,
+#          'gluon3500': 3.5,
+#          'gluon4000': 4.0,
+#          'gluon4500': 4.5,
+#          'gluon5000': 5.0
+#          }
+
+
+# xs = {
+#       'gluon500': 91.946244,
+#       'gluon1000': 8.05651215,
+#       'gluon1500': 1.54465083,
+#       'gluon2000': 0.4266680898,
+#       'gluon2500': 0.1494520676,
+#       'gluon3000': 0.0622959605,
+#       'gluon3500': 0.02966500351,
+#       'gluon4000': 0.01581725076,
+#       'gluon4500': 0.00925413031,
+#       'gluon5000': 0.00581167335,
+#       }
 
 signalListMorphed= [ 
               'zprime1750',
