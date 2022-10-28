@@ -7,14 +7,14 @@ signalList= [
               'zprime1000',
               'zprime1250',
               'zprime1500',
-              # 'zprime1750',
+              'zprime1750',
               'zprime2000',
-              'zprime2250',
+              #'zprime2250',
               'zprime2500',
-              # 'zprime2750',
+              #'zprime2750',
               'zprime3000',
               'zprime4000',
-              # 'zprime5000',
+              'zprime5000',
               #'zprime6000'
               ]
 
