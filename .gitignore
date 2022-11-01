@@ -14,12 +14,13 @@ plots/*
 #configs
 configs/*
 !template_*
+!configs/ttRes1L2L
 
 #batch files
 batch_files
 
 #output files
-run/statResults*
+run/*
 
 #python compiled bytecode files (.pyc files) 
 *.pyc
