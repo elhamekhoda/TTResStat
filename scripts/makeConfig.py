@@ -16,9 +16,10 @@ class sys_group:
     class defining systematics group objects
     grops consists of the systematics coming from the same source. Ex b-tagging
     '''
-    def __init__ (self, group_name, name, title, symmetrization, category, sample_list, smoothing=False, correlation=False, regions="be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"):
+    def __init__ (self, group_name, name, dilep_names_dict, title, symmetrization, category, sample_list, smoothing=False, correlation=False, regions="be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"):
         self.group_name = group_name
         self.name = name
+        self.dilep_name = [dilep_names_dict[n] if (n in dilep_names_dict) else n for n in name]
         self.title = title
         self.symmetrization = symmetrization
         self.category = category
@@ -36,11 +37,13 @@ def writeSysBlock(sys_group):
     '''
 
     name_str = ''
+    dilep_name_str = ''
     title_str = ''
     sys_cat = ''
     sample_list = ''
     for i in range(len(sys_group.name)):
         name_str += "\"{0}\";".format(sys_group.name[i])
+        dilep_name_str += "\"{0}\";".format(sys_group.dilep_name[i])
         title_str += "\"{0}\";".format(sys_group.title[i])
     sys_cat += "\"{0}\"".format(sys_group.category)
 
@@ -53,12 +56,15 @@ def writeSysBlock(sys_group):
     regions = sys_group.regions
 
 
+    if sys_group.dilep_name:
+        name_str = sys_group
+
     block =  '''
 Systematic: %s
   Title: %s
   Type: HISTO
   Samples: %s
-  Regions: %s'''%(name_str, title_str, sample_list, regions)
+  Regions: %s'''%(dilep_name_str, title_str, sample_list, regions)
 
     if sys_group.symmetrization == "TWOSIDED":
         block += '\n  HistoNameSufUp: %s'%HistoNameSufUp_str
@@ -90,6 +96,7 @@ def makeSysList(filename,channel, JESconfig='category', getFromFile=False):
     '''
 
     if JESconfig == 'global':
+        raise NotImplementedError()
         JES_sysMap = JES_sysMap_global
         JMS_sysMap = JMS_sysMap_global
         JMR_sysMap = JMR_sysMap_global
@@ -97,6 +104,7 @@ def makeSysList(filename,channel, JESconfig='category', getFromFile=False):
         JES_sysMap = JES_sysMap_category
         JMS_sysMap = JMS_sysMap_category
         JMR_sysMap = JMR_sysMap_category
+        JES_dilepNamesMap = JES_dilepNamesMap_category
     else:
         print ("ERROR::Invalid JES configuration")
 
@@ -166,22 +174,22 @@ def makeSysList(filename,channel, JESconfig='category', getFromFile=False):
     regions = "be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"
     # regions = "b1,b2,b3,r1,r2,r3"
     # regions = "be1b,be2b,bmu1b,bmu2b,re1b,re2b,rmu1b,rmu2b"
-    btag_sys = sys_group("btag_sys", btag_sys_list, [btag_sysMap[x] for x in btag_sys_list], "TWOSIDED", "b-tag", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
-    toptag_sys = sys_group("toptag_sys", toptag_sys_list, [toptag_sysMap[x] for x in toptag_sys_list], "TWOSIDED", "top-tag", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
-    JES_sys = sys_group("JES_sys", JES_sys_list, [JES_sysMap[x] for x in JES_sys_list], "TWOSIDED", "JES", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    btag_sys = sys_group("btag_sys", btag_sys_list, btag_dilepNamesMap, [btag_sysMap[x] for x in btag_sys_list], "TWOSIDED", "b-tag", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    toptag_sys = sys_group("toptag_sys", toptag_sys_list, {}, [toptag_sysMap[x] for x in toptag_sys_list], "TWOSIDED", "top-tag", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    JES_sys = sys_group("JES_sys", JES_sys_list, JES_dilepNamesMap, [JES_sysMap[x] for x in JES_sys_list], "TWOSIDED", "JES", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
     #JES_modelling_sys = sys_group("JES_modelling_sys", JES_sys_model_list, [JES_sysMap_model[x] for x in JES_sys_model_list], "ONESIDED", False, regions=regions)
-    JMR_sys = sys_group("JMR_sys", JMR_sys_list, [JMR_sysMap[x] for x in JMR_sys_list], "TWOSIDED", "JMR", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
-    JER_sys = sys_group("JER_sys", JER_sys_list, [JER_sysMap[x] for x in JER_sys_list], "TWOSIDED", "JER", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
-    JMS_sys = sys_group("JMS_sys", JMS_sys_list, [JMS_sysMap[x] for x in JMS_sys_list], "TWOSIDED", "JMS", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
-    MET_scale_sys = sys_group("MET_scale_sys", MET_scale_sys_list, [MET_scale_sysMap[x] for x in MET_scale_sys_list], "TWOSIDED", "MET-scale", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
-    MET_res_sys = sys_group("MET_res_sys", MET_res_syst_list, [MET_res_sysMap[x] for x in MET_res_syst_list], "ONESIDED", "MET-res", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
-    EG_sys = sys_group("EG_sys", EG_sys_list, [EG_sysMap[x] for x in EG_sys_list], "TWOSIDED", "EG", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
-    MUON_sys = sys_group("MUON_sys", MUON_sys_list, [MUON_sysMap[x] for x in MUON_sys_list], "TWOSIDED", "MUON", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    JMR_sys = sys_group("JMR_sys", JMR_sys_list, {}, [JMR_sysMap[x] for x in JMR_sys_list], "TWOSIDED", "JMR", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    JER_sys = sys_group("JER_sys", JER_sys_list, JER_dilepNamesMap, [JER_sysMap[x] for x in JER_sys_list], "TWOSIDED", "JER", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    JMS_sys = sys_group("JMS_sys", JMS_sys_list, {},  [JMS_sysMap[x] for x in JMS_sys_list], "TWOSIDED", "JMS", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    MET_scale_sys = sys_group("MET_scale_sys", MET_scale_sys_list, MET_scale_dilepNamesMap, [MET_scale_sysMap[x] for x in MET_scale_sys_list], "TWOSIDED", "MET-scale", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    MET_res_sys = sys_group("MET_res_sys", MET_res_syst_list, MET_res_dilepNamesMap, [MET_res_sysMap[x] for x in MET_res_syst_list], "ONESIDED", "MET-res", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    EG_sys = sys_group("EG_sys", EG_sys_list, EG_dilepNamesMap, [EG_sysMap[x] for x in EG_sys_list], "TWOSIDED", "EG", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
+    MUON_sys = sys_group("MUON_sys", MUON_sys_list, MUON_dilepNamesMap, [MUON_sysMap[x] for x in MUON_sys_list], "TWOSIDED", "MUON", "Signal,tt,singletop,diboson,wjets,zjets", True, False, regions=regions)
 
-    tt_gen_sys = sys_group("tt_gen_sys", ttgen_sys_list, [ttgen_sysMap[x] for x in ttgen_sys_list], "TWOSIDED", "tt_gen", "tt", True, True, regions=regions)
-    tt_muF_sys = sys_group("tt_muF_sys", ttmuF_sys_list, [ttmuF_sysMap[x] for x in ttmuF_sys_list], "TWOSIDED", "tt_muF", "tt", True, True, regions=regions) #regions='be1,be2,be3,bmu1,bmu2,bmu3'
-    tt_pdf_sys = sys_group("tt_pdf_sys", ttPDF_sys_list, [ttPDF_sysMap[x] for x in ttPDF_sys_list], "ONESIDED", "tt_pdf", "tt", True, False, regions=regions) #regions='re1,re2,re3,rmu1,rmu2,rmu3'
-    tt_NNLO_sys = sys_group("tt_NNLO_sys", ttNNLO_sys_list, [ttNNLO_sysMap[x] for x in ttNNLO_sys_list], "TWOSIDED", "tt_NNLO", "tt", True, False, regions=regions)
+    tt_gen_sys = sys_group("tt_gen_sys", ttgen_sys_list, {}, [ttgen_sysMap[x] for x in ttgen_sys_list], "TWOSIDED", "tt_gen", "tt", True, True, regions=regions)
+    tt_muF_sys = sys_group("tt_muF_sys", ttmuF_sys_list, {}, [ttmuF_sysMap[x] for x in ttmuF_sys_list], "TWOSIDED", "tt_muF", "tt", True, True, regions=regions) #regions='be1,be2,be3,bmu1,bmu2,bmu3'
+    tt_pdf_sys = sys_group("tt_pdf_sys", ttPDF_sys_list, {}, [ttPDF_sysMap[x] for x in ttPDF_sys_list], "ONESIDED", "tt_pdf", "tt", True, False, regions=regions) #regions='re1,re2,re3,rmu1,rmu2,rmu3'
+    tt_NNLO_sys = sys_group("tt_NNLO_sys", ttNNLO_sys_list, {}, [ttNNLO_sysMap[x] for x in ttNNLO_sys_list], "TWOSIDED", "tt_NNLO", "tt", True, False, regions=regions)
 
     sys_groups = [btag_sys, toptag_sys, JES_sys, JMR_sys, JER_sys, JMS_sys, MET_scale_sys, MET_res_sys, EG_sys, MUON_sys, tt_gen_sys, tt_muF_sys, tt_pdf_sys, tt_NNLO_sys]
 

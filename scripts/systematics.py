@@ -24,6 +24,28 @@ btag_sysMap["btaglSF_1"] = "light-mistag (E1)"
 btag_sysMap["btaglSF_2"] = "light-mistag (E2)"
 btag_sysMap["btaglSF_3"] = "light-mistag (E3)"
 
+btag_dilepNamesMap = OrderedDict()
+btag_dilepNamesMap["btagbSF_0"] = 'btag_b_0'
+btag_dilepNamesMap["btagbSF_1"] = 'btag_b_1'
+btag_dilepNamesMap["btagbSF_2"] = 'btag_b_2'
+btag_dilepNamesMap["btagbSF_3"] = 'btag_b_3'
+btag_dilepNamesMap["btagbSF_4"] = 'btag_b_4'
+btag_dilepNamesMap["btagbSF_5"] = 'btag_b_5'
+btag_dilepNamesMap["btagbSF_6"] = 'btag_b_6'
+btag_dilepNamesMap["btagbSF_7"] = 'btag_b_7'
+btag_dilepNamesMap["btagbSF_8"] = 'btag_b_8'
+btag_dilepNamesMap["btagcSF_0"] = 'btag_c_0'
+btag_dilepNamesMap["btagcSF_1"] = 'btag_c_1'
+btag_dilepNamesMap["btagcSF_2"] = 'btag_c_2'
+btag_dilepNamesMap["btagcSF_3"] = 'btag_c_3'
+btag_dilepNamesMap["btageSF_0"] = 'btag_extrap'
+btag_dilepNamesMap["btageSF_1"] = 'btag_extrap_c'
+btag_dilepNamesMap["btaglSF_0"] = 'btag_light_0'
+btag_dilepNamesMap["btaglSF_1"] = 'btag_light_1'
+btag_dilepNamesMap["btaglSF_2"] = 'btag_light_2'
+btag_dilepNamesMap["btaglSF_3"] = 'btag_light_3'
+
+
 btag_shortNames = OrderedDict()
 btag_shortNames["btagbSF_0"] = "btagb0"
 btag_shortNames["btagbSF_1"] = "btagb1"
@@ -142,6 +164,59 @@ JES_sysMap_category['JET_EtaIntercalibration_R10_TotalStat'] = r"AKT10 JES #eta-
 JES_sysMap_category['JET_LargeR_TopologyUncertainty_top'] = r"AKT10 JES #eta-int top"
 JES_sysMap_category['JET_LargeR_TopologyUncertainty_V'] = r"AKT10 JES #eta-int V"
 
+JES_dilepNamesMap_category = OrderedDict()
+JES_dilepNamesMap_category['JET_EffectiveNP_Modelling1'] = 'JES_EffectiveNP_Modelling1'
+JES_dilepNamesMap_category['JET_EffectiveNP_Modelling2'] = 'JES_EffectiveNP_Modelling2'
+JES_dilepNamesMap_category['JET_EffectiveNP_Modelling3'] = 'JES_EffectiveNP_Modelling3'
+JES_dilepNamesMap_category['JET_EffectiveNP_Modelling4'] = 'JES_EffectiveNP_Modelling4'
+JES_dilepNamesMap_category['JET_EffectiveNP_Mixed1'] = 'JES_EffectiveNP_Mixed1'
+JES_dilepNamesMap_category['JET_EffectiveNP_Mixed2'] = 'JES_EffectiveNP_Mixed2'
+JES_dilepNamesMap_category['JET_EffectiveNP_Mixed3'] = 'JES_EffectiveNP_Mixed3'
+JES_dilepNamesMap_category['JET_EffectiveNP_Detector1'] = 'JES_EffectiveNP_Detector1'
+JES_dilepNamesMap_category['JET_EffectiveNP_Detector2'] = 'JES_EffectiveNP_Detector2'
+JES_dilepNamesMap_category['JET_EffectiveNP_Statistical1'] = 'JES_EffectiveNP_Statistical1'
+JES_dilepNamesMap_category['JET_EffectiveNP_Statistical2'] = 'JES_EffectiveNP_Statistical2'
+JES_dilepNamesMap_category['JET_EffectiveNP_Statistical3'] = 'JES_EffectiveNP_Statistical3'
+JES_dilepNamesMap_category['JET_EffectiveNP_Statistical4'] = 'JES_EffectiveNP_Statistical4'
+JES_dilepNamesMap_category['JET_EffectiveNP_Statistical5'] = 'JES_EffectiveNP_Statistical5'
+JES_dilepNamesMap_category['JET_EffectiveNP_Statistical6'] = 'JES_EffectiveNP_Statistical6'
+JES_dilepNamesMap_category['JET_Pileup_OffsetMu'] = 'JES_Pileup_OffsetMu'
+JES_dilepNamesMap_category['JET_Pileup_OffsetNPV'] = 'JES_Pileup_OffsetNPV'
+JES_dilepNamesMap_category['JET_Pileup_PtTerm'] = 'JES_Pileup_PtTerm'
+JES_dilepNamesMap_category['JET_Pileup_RhoTopology'] = 'JES_Pileup_RhoTopology'
+JES_dilepNamesMap_category['JET_Flavor_Composition'] = 'JES_Flavor_Comp'
+JES_dilepNamesMap_category['JET_Flavor_Response'] = 'JES_Flavor_Resp'
+JES_dilepNamesMap_category['JET_BJES_Response'] = 'JES_BJES_Resp'
+JES_dilepNamesMap_category['JET_PunchThrough_MC16'] = 'JES_MC16'
+JES_dilepNamesMap_category['JET_SingleParticle_HighPt'] = 'JES_SinglePart'
+JES_dilepNamesMap_category['JET_EtaIntercalibration_Modelling'] = 'JES_EtaModelling'
+JES_dilepNamesMap_category['JET_EtaIntercalibration_TotalStat'] = 'JES_EtatotStat'
+JES_dilepNamesMap_category['JET_EtaIntercalibration_NonClosure_highE'] = 'JES_EtaNonClos_highE'
+JES_dilepNamesMap_category['JET_EtaIntercalibration_NonClosure_posEta'] = 'JES_EtaNonClos_posEta'
+JES_dilepNamesMap_category['JET_EtaIntercalibration_NonClosure_negEta'] = 'JES_EtaNonClos_negEta'
+JES_dilepNamesMap_category['JET_EtaIntercalibration_NonClosure_2018data'] = 'JES_EtaNonClos_2018data'
+# Large-R jet
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Modelling1'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Modelling2'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Modelling3'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Modelling4'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Mixed1'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Mixed2'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Mixed3'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Mixed4'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Statistical1'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Statistical2'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Statistical3'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Statistical4'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Statistical5'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Statistical6'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Detector1'] = ''
+# JES_dilepNamesMap_category['JET_EffectiveNP_R10_Detector2'] = ''
+# JES_dilepNamesMap_category['JET_EtaIntercalibration_R10_TotalStat'] = ''
+# JES_dilepNamesMap_category['JET_LargeR_TopologyUncertainty_top'] = ''
+# JES_dilepNamesMap_category['JET_LargeR_TopologyUncertainty_V'] = ''
+
+
 JES_shortNames = OrderedDict()
 # Small-R jet
 JES_shortNames['JET_EffectiveNP_Modelling1'] = "akt4jesmodel1"
@@ -225,6 +300,36 @@ JER_sysMap['JET_JER_dijet_R10_jesFlavResp'] = r"AKT10 JER flav resp."
 JER_sysMap['JET_JER_dijet_R10_mcgenerator'] = r"AKT10 JER MC-gen"
 JER_sysMap['JET_JER_dijet_R10_stat'] = r"AKT10 JER NP stat"
 JER_sysMap['JET_JER_AllOthers'] = r"AKT10 JER Allother"
+
+
+JER_dilepNamesMap = OrderedDict()
+# Small-R jet
+JER_dilepNamesMap['JET_JER_EffectiveNP_1'] = 'JER_EffectiveNP1'
+JER_dilepNamesMap['JET_JER_EffectiveNP_2'] = 'JER_EffectiveNP2'
+JER_dilepNamesMap['JET_JER_EffectiveNP_3'] = 'JER_EffectiveNP3'
+JER_dilepNamesMap['JET_JER_EffectiveNP_4'] = 'JER_EffectiveNP4'
+JER_dilepNamesMap['JET_JER_EffectiveNP_5'] = 'JER_EffectiveNP5'
+JER_dilepNamesMap['JET_JER_EffectiveNP_6'] = 'JER_EffectiveNP6'
+JER_dilepNamesMap['JET_JER_EffectiveNP_7'] = 'JER_EffectiveNP7'
+JER_dilepNamesMap['JET_JER_EffectiveNP_8'] = 'JER_EffectiveNP8'
+JER_dilepNamesMap['JET_JER_EffectiveNP_9'] = 'JER_EffectiveNP9'
+JER_dilepNamesMap['JET_JER_EffectiveNP_10'] = 'JER_EffectiveNP10'
+JER_dilepNamesMap['JET_JER_EffectiveNP_11'] = 'JER_EffectiveNP11'
+JER_dilepNamesMap['JET_JER_EffectiveNP_12restTerm'] = 'JER_EffectiveNP_12restTerm'
+JER_dilepNamesMap['JET_JER_DataVsMC_MC16'] = 'JER_DataVsMC_MC16'
+# Large-R jet
+# JER_dilepNamesMap['JET_JER_DataVsMC_R10_MC16'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_closure'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_selection'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_jesEffNP1'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_jesEffNP3'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_jesEffNP4'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_jesEtaIntMod'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_jesFlavComp'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_jesFlavResp'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_mcgenerator'] = ''
+# JER_dilepNamesMap['JET_JER_dijet_R10_stat'] = ''
+# JER_dilepNamesMap['JET_JER_AllOthers'] = ''
 
 JER_shortNames = OrderedDict()
 # Small-R jet
@@ -330,12 +435,20 @@ JMR_shortNames['COMB_OutsideCalib_JMR'] = r"jmroutsideCalib"
 MET_scale_sysMap = OrderedDict()
 MET_scale_sysMap['MET_SoftTrk_Scale'] = r"E_{T}^{miss} soft track scale"
 
+MET_scale_dilepNamesMap = OrderedDict()
+MET_scale_dilepNamesMap['MET_SoftTrk_Scale'] = 'MET_SoftTrk_Scale'
+
 MET_scale_shortNames = OrderedDict()
 MET_scale_shortNames['MET_SoftTrk_Scale'] = "metscale"
 
 MET_res_sysMap = OrderedDict()
 MET_res_sysMap['MET_SoftTrk_ResoPara'] = r"E_{T}^{miss} soft track resolution (para.)"
 MET_res_sysMap['MET_SoftTrk_ResoPerp'] = r"E_{T}^{miss} soft track resolution (perp.)"
+
+MET_res_dilepNamesMap = OrderedDict()
+
+MET_res_dilepNamesMap['MET_SoftTrk_ResoPara'] = 'MET_SoftTrk_ResoPara'
+MET_res_dilepNamesMap['MET_SoftTrk_ResoPerp'] = 'MET_SoftTrk_ResoPerp'
 
 MET_res_shortNames = OrderedDict()
 MET_res_shortNames['MET_SoftTrk_ResoPara'] = "metresopara"
@@ -353,6 +466,17 @@ EG_sysMap['eIDSF'] = r"EL IDSF"
 EG_sysMap['eIsolSF'] = r"EL IsoSF"
 EG_sysMap['eRecoSF'] = r"EL RecoSF"
 EG_sysMap['eTrigSF'] = r"EL TrigSF"
+
+EG_dilepNamesMap = OrderedDict()
+EG_dilepNamesMap['EG_RESOLUTION_ALL'] = 'EG_RESOLUTION_ALL'
+EG_dilepNamesMap['EG_SCALE_ALL'] = 'EG_SCALE_ALL'
+# EG_dilepNamesMap['eChargeMisIDStatSF'] =
+# EG_dilepNamesMap['eChargeMisIDSystSF'] = 
+# EG_dilepNamesMap['eChargeSF'] = 
+EG_dilepNamesMap['eIDSF'] = 'leptonSF_EL_SF_ID'
+EG_dilepNamesMap['eIsolSF'] = 'leptonSF_EL_SF_Isol'
+EG_dilepNamesMap['eRecoSF'] = 'leptonSF_EL_SF_Reco'
+EG_dilepNamesMap['eTrigSF'] = 'leptonSF_EL_SF_Trigger'
 
 EG_shortNames = OrderedDict()
 EG_shortNames['EG_RESOLUTION_ALL'] = r"elres"
@@ -380,6 +504,19 @@ MUON_sysMap['muIsolSystSF'] = "Muon IsolSystSF"
 MUON_sysMap['muTrigStatSF'] = "Muon TrigStatSF"
 MUON_sysMap['muTrigSystSF'] = "Muon TrigSystSF"
 
+MUON_dilepNamesMap = OrderedDict()
+MUON_dilepNamesMap['MUON_SAGITTA_RESBIAS'] = 'MUON_Sagitta'
+# MUON_dilepNamesMap['MUON_SAGITTA_RHO'] =
+MUON_dilepNamesMap['MUON_SCALE'] = 'MUON_Scale'
+MUON_dilepNamesMap['MUON_ID'] = 'MUON_ID'
+MUON_dilepNamesMap['MUON_MS'] = 'MUON_MS'
+MUON_dilepNamesMap['muIDStatSF'] = 'leptonSF_MU_SF_ID_STAT'
+MUON_dilepNamesMap['muIDSystSF'] = 'leptonSF_MU_SF_ID_SYST'
+MUON_dilepNamesMap['muIsolStatSF'] = 'leptonSF_MU_SF_Isol_STAT'
+MUON_dilepNamesMap['muIsolSystSF'] = 'leptonSF_MU_SF_Isol_SYST'
+MUON_dilepNamesMap['muTrigStatSF'] = 'leptonSF_MU_SF_Trigger_STAT'
+MUON_dilepNamesMap['muTrigSystSF'] = 'leptonSF_MU_SF_Trigger_SYST'
+
 MUON_shortNames = OrderedDict()
 MUON_shortNames['MUON_SAGITTA_RESBIAS'] = r"muonsagittaresbias"
 MUON_shortNames['MUON_SAGITTA_RHO'] = r"muonsagittarho"
@@ -392,18 +529,6 @@ MUON_shortNames['muIsolStatSF'] = "muonIsolStatSF"
 MUON_shortNames['muIsolSystSF'] = "muonIsolSystSF"
 MUON_shortNames['muTrigStatSF'] = "muonTrigStatSF"
 MUON_shortNames['muTrigSystSF'] = "muonTrigSystSF"
-
-
-### ========== JVT, Pileup, Lumi ============ ###
-sysMap = OrderedDict()
-sysMap["jvtSF"] ="JVT"
-sysMap["pileupSF"] ="pileup modelling"
-# sysMap["lumi"] ="Luminosity"
-
-sysNames = OrderedDict()
-sysNames["jvtSF"] ="jvt"
-sysNames["pileupSF"] ="pileup"
-# sysNames["lumi"] ="lumi"
 
 
 ### ========== ttbar Generator SF systematics ============ ###
@@ -429,6 +554,22 @@ ttNNLO_sysMap["ttNNLOrec_toppt"] = r"t#bar{t} NNLO scale (p_{T} (t))"
 ttNNLO_sysMap["ttNNLOrec_ttmass"] = r"t#bar{t} NNLO scale (m (t#bar{t}))"
 # ttNNLO_sysMap["ttNNLOrec_ttpt"] = r"t#bar{t} NNLO scale (p_{T} (t#bar{t}))"
 
+
+### ========== JVT, Pileup, Lumi ============ ###
+sysMap = OrderedDict()
+sysMap["jvtSF"] ="JVT"
+sysMap["pileupSF"] ="pileup modelling"
+# sysMap["lumi"] ="Luminosity"
+
+sys_dilepNamesMap = OrderedDict()
+sys_dilepNamesMap['jvtSF'] = 'jvt'
+sys_dilepNamesMap['pileupSF'] = 'pileup'
+sys_dilepNamesMap['lumi'] = 'Lumi'
+
+sysNames = OrderedDict()
+sysNames["jvtSF"] ="jvt"
+sysNames["pileupSF"] ="pileup"
+# sysNames["lumi"] ="lumi"
 
 
 sysMap.update(JES_sysMap_category)
