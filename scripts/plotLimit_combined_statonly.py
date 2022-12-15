@@ -19,8 +19,8 @@ SetAtlasStyle()
 parse = argparse.ArgumentParser()
 parse.add_argument('--indir',           type=str,   default="statResults_tt1lep_%s"%today,
                     help='directory of the input root (limit) files')
-parse.add_argument('--outdir',          type=str,   default="masslimit_%s"%today,
-                    help='plots will be saved here, under plots dir')
+# parse.add_argument('--outdir',          type=str,   default="masslimit_%s"%today,
+#                     help='plots will be saved here, under plots dir')
 parse.add_argument("--JESconfig",      type=str,   default="global",
                     help="JES configurations to be used: 'global' or 'category'")
 parse.add_argument('--SR',              type=str,   default="combined",
@@ -30,7 +30,7 @@ parse.add_argument('--SR',              type=str,   default="combined",
 args            = parse.parse_args()
 JESconfig       = args.JESconfig
 indir           = Path(args.indir)
-outdir          = Path(args.outdir)
+outdir          = indir
 SR              = args.SR
 
 
@@ -53,7 +53,7 @@ elif SR == "2bSR":
 
 
 outpath = outdir
-os.system('mkdir -p %s'%str(outpath))
+# os.system('mkdir -p %s'%str(outpath))
 
 gStyle.SetOptStat(0)
 gStyle.SetPadTickX(1)
@@ -89,7 +89,7 @@ idx=0
 
 for i in signalList:
 
-    f = TFile(str(indir/f"{i}.root"))
+    f = TFile(str(indir/f"{i}_CL95.root"))
     statonly_tree = f.stats
     for ev in range(statonly_tree.GetEntries()):
         statonly_tree.GetEntry(ev)
@@ -147,6 +147,7 @@ exp.SetMarkerColor(kBlue);
 exp.SetLineColor(kBlue);
 
 l.AddEntry(exp, "Expected 95% CL upper limit (stat-only)", "L")
+l.AddEntry(obs, "Observed 95% CL upper limit (stat-only)", "L")
 l.AddEntry(sigma1, "Expected 95% CL upper limit #pm 1 #sigma", "F")
 l.AddEntry(sigma2, "Expected 95% CL upper limit #pm 2 #sigma", "F")
 l.AddEntry(xsec, "LO Z'_{TC2}(#Gamma/m=1.2%) cross-section #times 1.3", "L")
@@ -155,6 +156,7 @@ sigma2.Draw("3");
 sigma1.Draw("3");
 exp.Draw("LP")
 xsec.Draw("L")
+obs.Draw("L")
 l.Draw()
 clim.SetLogy(1)
 

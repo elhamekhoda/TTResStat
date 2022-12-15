@@ -128,7 +128,6 @@ def main():
                 batchSubmit_PBS(command, MapOfNamingString[command], templatescript, headdir)
             else :
                 print("About to call",command)
-                breakpoint()
                 subprocess.call(command, shell=True)
 
 def batchSubmit_PBS(command, stringForNaming, templatescript, headdir) :

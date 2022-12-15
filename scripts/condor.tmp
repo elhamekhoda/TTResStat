@@ -1,0 +1,7 @@
+executable            = SCRIPTS/run_trexfitter.sh
+arguments             = MASS_DIR OPS SUFFIX MASS CHANNEL
+output                = MASS_DIR/condor.out
+error                 = MASS_DIR/condor.err
+log                   = MASS_DIR/condor.log
++JobFlavour           = "espresso"
+queue

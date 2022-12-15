@@ -39,8 +39,7 @@ Job: "ttRes1L"
 Fit: "SPLUSB_CRSR_Asimov"
   FitType: SPLUSB
   FitRegion: CRSR
-  FitBlind: TRUE
-  POIAsimov: 0
+  FitBlind: FALSE
   SetRandomInitialNPval: 0.01
   GetGoodnessOfFit: TRUE
   UseMinos: mu_Zprime
@@ -52,7 +51,7 @@ Fit: "SPLUSB_CRSR_Asimov"
 
 Limit: "tt1lep_limit"
   LimitType: ASYMPTOTIC
-  LimitBlind: TRUE
+  LimitBlind: FALSE
   %ParamName: "ZprimeMass"
   %ParamValue: ZPRIMEMASS
   OutputPrefixName: zprimeZPRIMEMASS
@@ -448,10 +447,10 @@ Sample: "diboson"
 %%  UseMCstat: FALSE
 
 
-%Sample: "Data"
-%  Title: "Data"
-%  Type: DATA
-%  HistoFile: "hist_data"
+Sample: "Data"
+  Title: "Data"
+  Type: DATA
+  HistoFile: "hist_gravGRAVMASS_pseudodata"
 
 % % --------------- %
 % % - SYSTEMATICS - %

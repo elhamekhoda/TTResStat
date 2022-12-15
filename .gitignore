@@ -25,3 +25,4 @@ run/*
 #python compiled bytecode files (.pyc files) 
 *.pyc
 
+scripts/make_plots.sh
