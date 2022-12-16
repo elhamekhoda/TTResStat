@@ -5,24 +5,6 @@ from pathlib import Path
 import datetime
 import os
 
-
-def copy_run_to_shared(mass_out_dir, run_dir, run_name):
-    """Copy the output directory for the run to the shared filesystem.
-    Args:
-        mass_out_dir (Path): directory containing the output of the trexfitter run
-        run_dir (Path): directory containing the output of the run
-        run_name (str): name of the run"""
-    # in case temp filesystem is used, copy files to shared filesystem where they can be accessed
-    scripts_path = Path(__file__).parent.resolve()
-    shared_run_dir = (scripts_path / '..' / 'run' / run_name).resolve()
-    if shared_run_dir != run_dir:
-        shared_run_dir.mkdir(parents=True, exist_ok=True)
-        # move mass_out_dir to shared_run_dir
-        print(f'moving {str(mass_out_dir)} to {str(shared_run_dir)}')
-        shutil.move(str(mass_out_dir), str(shared_run_dir))
-    else:
-        print('already running on shared filesystem, so copying is not necessary')
-
 def copy_limits_to_shared(channel, mass, mass_out_dir, shared_limit_dir):
     """Copy the limit file to the shared limit directory.
     Args:
@@ -32,16 +14,15 @@ def copy_limits_to_shared(channel, mass, mass_out_dir, shared_limit_dir):
         shared_limit_dir (Path): directory to copy the limit file to
     """
     if channel == 'all' or channel == 'combined':
-        limit_run = 'ttRes1l2L'
+        limit_run = 'ttRes1L2L'
     elif channel == '2l':
         limit_run = 'ttRes2L'
     elif channel == '1l':
         limit_run = 'ttRes1L'
     run_limit_dir = mass_out_dir / limit_run / 'Limits' / 'asymptotics'
     limit_file = [f for f in run_limit_dir.glob('*.root')][0]
-    limit_file.rename(run_limit_dir / f'zprime{mass}.root')
-    print('copying limit file from run limit directory: ', run_limit_dir / f'zprime{mass}.root', ' to shared limit directory: ', shared_limit_dir / f'zprime{mass}.root')
-    shutil.copy(run_limit_dir / f'zprime{mass}.root', shared_limit_dir / f'zprime{mass}.root')
+    print('copying limit file from run limit directory: ', limit_file, ' to shared limit directory: ', shared_limit_dir / f'zprime{mass}.root')
+    shutil.copy(limit_file, shared_limit_dir / f'zprime{mass}.root')
 
 
 def write_configs(mass_out_dir, config_dir, channel, mass):
@@ -87,6 +68,15 @@ def write_configs(mass_out_dir, config_dir, channel, mass):
     return ttres1L_config, ttres2L_config, ttres1L2L_config
 
 def submit_condor(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_system):
+    """Submit the trexfitter job to condor.
+    Args:
+        mass_out_dir (Path): directory to run trexfitter in
+        mass (int): Z' mass
+        channel (str): '1l', '2l', 'all', or 'combined'
+        ops (str): options to pass to trexfitter
+        suffix (str): suffix to append to the output directory
+        dry_run (bool): if True, don't submit the job
+        batch_system (str): 'af' or 'af_short'"""
     scripts_path = Path(__file__).parent.resolve()
     if batch_system == 'af':
         template_name = 'af.tmp'
@@ -105,12 +95,22 @@ def submit_condor(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_syste
         subprocess.call(['condor_submit', str(condor_sub_file)])
 
 def submit_batch(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_system):
+    """Submit the trexfitter job to the batch system.
+    Args:
+        mass_out_dir (Path): directory to run trexfitter in
+        mass (int): Z' mass
+        channel (str): '1l', '2l', 'all', or 'combined'
+        ops (str): trexfitter options
+        suffix (str): suffix to append to the output directory
+        dry_run (bool): if True, don't actually submit the job
+        batch_system (str): 'af' or 'af_short'
+    """
     if batch_system in ['af', 'af_short']:
         submit_condor(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_system)
     else:
         raise NotImplementedError('Unrecognized batch system: {}'.format(batch_system))
 
-def run_trexfitter(mass_out_dir, channel, ops, dry_run, ttres1L_config, ttres2L_config, ttres1L2L_config, mass, shared_limit_dir, run_dir, run_name):
+def run_trexfitter(mass_out_dir, channel, ops, dry_run, ttres1L_config, ttres2L_config, ttres1L2L_config, mass, limit_dir):
     """Run trexfitter for the specified parameters.
     Args:
         mass_out_dir (Path): directory to run trexfitter in
@@ -121,9 +121,7 @@ def run_trexfitter(mass_out_dir, channel, ops, dry_run, ttres1L_config, ttres2L_
         ttres2L_config (Path): path to the ttres2L.config file
         ttres1L2L_config (Path): path to the ttres1L2L.config file
         mass (int): Z' mass
-        shared_limit_dir (Path): directory to copy the limit file to
-        run_dir (Path): directory to copy the run file to
-        run_name (str): name of the run
+        limit_dir (Path): directory to store the limit files in
     """
 
     def call_trex_fitter(ops, config, log):
@@ -152,10 +150,7 @@ def run_trexfitter(mass_out_dir, channel, ops, dry_run, ttres1L_config, ttres2L_
         raise NotImplementedError()
 
     if not dry_run and 'l' in ops:
-        copy_limits_to_shared(channel, mass, mass_out_dir, shared_limit_dir)
-
-    copy_run_to_shared(mass_out_dir, run_dir, run_name)
-
+        copy_limits_to_shared(channel, mass, mass_out_dir, limit_dir)
     
 
 def main():
@@ -170,22 +165,25 @@ def main():
 
     args = parser.parse_args()
 
+    # Make appropriate directories
     timestamp = str(datetime.date.today())
     run_name = f'statResults_ttres1L2L_{timestamp}'
     if args.suffix:
         run_name = run_name + '_' + args.suffix
     if not args.suffix and args.batch:
         raise NotImplementedError('batch mode must be run with a suffix!')
-    scratch_run_dir = (Path('run') / run_name).resolve()
-    scratch_run_dir.mkdir(parents=True, exist_ok=True)
     scripts_path = Path(__file__).parent.resolve()
-    shared_run_dir = (scripts_path / '..' / 'run' / run_name).resolve()
-    limit_dir = (shared_run_dir / 'limits').resolve()
+    run_dir = (scripts_path / '..' / 'run' / run_name).resolve()
+    run_dir.mkdir(parents=True, exist_ok=True)
+    limit_dir = (run_dir / 'limits').resolve()
     limit_dir.mkdir(exist_ok=True)
 
+    print(f'run_dir: {run_dir}')
+    print(f'limit_dir: {limit_dir}')
     
+    # Run trexfitter for each mass point
     for mass in args.masses:
-        mass_out_dir = (scratch_run_dir / f'zprime_{str(mass)}').resolve()
+        mass_out_dir = (run_dir / f'zprime_{str(mass)}').resolve()
         mass_out_dir.mkdir(exist_ok=True, parents=True)
 
         ttres1L_config, ttres2L_config, ttres1L2L_config = write_configs(mass_out_dir, Path(args.config_dir), args.channel, mass)
@@ -193,9 +191,7 @@ def main():
         if args.batch_system:
             submit_batch(mass_out_dir, mass, args.channel, args.ops, args.suffix, args.dry_run, args.batch_system)
         else:
-            run_trexfitter(mass_out_dir, args.channel, args.ops, args.dry_run, ttres1L_config, ttres2L_config, ttres1L2L_config, mass, limit_dir, scratch_run_dir, shared_run_dir)
-    
-
+            run_trexfitter(mass_out_dir, args.channel, args.ops, args.dry_run, ttres1L_config, ttres2L_config, ttres1L2L_config, mass, limit_dir)
 
 
 if __name__ == "__main__":
