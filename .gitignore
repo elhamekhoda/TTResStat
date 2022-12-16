@@ -26,3 +26,6 @@ run/*
 *.pyc
 
 scripts/make_plots.sh
+scripts/tmp*.sh
+
+settings.json

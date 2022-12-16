@@ -409,14 +409,14 @@ Sample: "singletop"
   NormalizedByTheory: TRUE
 %  UseMCstat: FALSE
 
-Sample: "qcd"
-  Type: BACKGROUND
-  %HistoName: mtt
-  Title: "QCD"
-  FillColor: 5
-  HistoFile: "hist_qcd_smooth"
-  NormalizedByTheory: TRUE
-  UseMCstat: FALSE
+%Sample: "qcd"
+%  Type: BACKGROUND
+%  %HistoName: mtt
+%  Title: "QCD"
+%  FillColor: 5
+%  HistoFile: "hist_qcd_smooth"
+%  NormalizedByTheory: TRUE
+%%  UseMCstat: FALSE
 
 Sample: "zjets"
   Type: BACKGROUND
@@ -450,7 +450,7 @@ Sample: "diboson"
 Sample: "Data"
   Title: "Data"
   Type: DATA
-  HistoFile: "hist_gravGRAVMASS_pseudodata"
+  HistoFile: "hist_INJNAMEINJMASS_pseudodata"
 
 % % --------------- %
 % % - SYSTEMATICS - %
@@ -634,13 +634,13 @@ Systematic:          "ttbar_hdampAcc"
 %-------------------------------------------------------------
 
 
-Systematic: "qcd"
-  Title: "QCD"
-  Type: OVERALL
-  OverallUp:    0.30
-  OverallDown: -0.30
-  Samples: qcd
-  Category: Instrumental
+%Systematic: "qcd"
+%  Title: "QCD"
+%  Type: OVERALL
+%  OverallUp:    0.30
+%  OverallDown: -0.30
+%  Samples: qcd
+%  Category: Instrumental
 
 %Systematic: "qcd_e"
 %  Title: "QCD (boost)"

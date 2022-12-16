@@ -175,8 +175,6 @@ def makeSysList(filename,channel, JESconfig='category', getFromFile=False, use_d
         ttNNLO_sys_list = [x for x in ttNNLO_sysMap]
 
     regions = "be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"
-    # regions = "b1,b2,b3,r1,r2,r3"
-    # regions = "be1b,be2b,bmu1b,bmu2b,re1b,re2b,rmu1b,rmu2b"
     btag_sys = sys_group("btag_sys", btag_sys_list, btag_dilepNamesMap, [btag_sysMap[x] for x in btag_sys_list], "TWOSIDED", "b-tag", "ZprimeTC2_ZPRIMEMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
     toptag_sys = sys_group("toptag_sys", toptag_sys_list, {}, [toptag_sysMap[x] for x in toptag_sys_list], "TWOSIDED", "top-tag", "ZprimeTC2_ZPRIMEMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
     JES_sys = sys_group("JES_sys", JES_sys_list, JES_dilepNamesMap, [JES_sysMap[x] for x in JES_sys_list], "TWOSIDED", "JES", "ZprimeTC2_ZPRIMEMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
@@ -207,7 +205,7 @@ def makeSysList(filename,channel, JESconfig='category', getFromFile=False, use_d
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--indir",    type=str,  default="/eos/atlas/atlascerngroupdisk/phys-exotics/hqt/ttRes_semilep/TNA_outputs/histOutput_21.2.180_syst/fullrun2_aug2022/combined/limit_inputs",
+    parser.add_argument("--indir",    type=str,  default="/data/schuya/ttbar_resonance/1l/fullrun2_aug2022/combined/limit_inputs/",
                         help="The path to the input histogram files to be used")
     parser.add_argument("--configdir",       type=str,  default="./configs_%s"%today,
                         help="The path to the configs directory")
@@ -218,7 +216,8 @@ def main():
     parser.add_argument("--suff", type=str,  default="",
                         help="suffix added to the outdir and configdir")
     parser.add_argument("--use_dilep_names", action="store_true", help="use dilepton naming scheme for systematics.")
-    parser.add_argument("--signal_injection_mass", '-sigm', type=int, default=None, help="mass of graviton signal to inject.")
+    parser.add_argument("--signal_injection_mass", '-sigm', type=int, default=None, help="mass of signal to inject.")
+    parser.add_argument("--signal_injection_name", '-sign', type=str, default=None, help="name of signal to inject.")
 
 
     args = parser.parse_args()
@@ -244,35 +243,6 @@ def main():
     configPATH_MCstat = "{0}/configs/{1}/MCstat/".format(homedir,configDir)
     configPATH_allsys = "{0}/configs/{1}/allsys/".format(homedir,configDir)
     configPATH_bonly_allsys = "{0}/configs/{1}/bonly_allsys/".format(homedir,configDir)
-
-    #output flile path
-    # outPATH_statonly = "{0}/run/{1}/statonly".format(homedir,outputDir)
-    # outPATH_MCstat = "{0}/run/{1}/MCstat".format(homedir,outputDir)
-    # outPATH_allsys = "{0}/run/{1}/allsys".format(homedir,outputDir)
-    # outPATH_fitblind = "{0}/run/{1}/fitblind".format(homedir,outputDir)
-    # outPATH_statonly_fitblind = "{0}/run/{1}/statonly_fitblind".format(homedir,outputDir)
-
-    # outPATH_bonlyFit = "{0}/run/{1}/bonlyFit".format(homedir,outputDir)
-    # outPATH_bonly_allsys = "{0}/run/{1}/bonlyFit/allsys".format(homedir,outputDir)
-    # outPATH_bonly_allsys_fitblind = "{0}/run/{1}/bonlyFit/allsys_fitblind".format(homedir,outputDir)
-
-    # comd = "mkdir -p "+outPATH_statonly
-    # os.system(comd)
-    # comd = "mkdir -p "+outPATH_MCstat
-    # os.system(comd)
-    # comd = "mkdir -p "+outPATH_allsys
-    # os.system(comd)
-    # comd = "mkdir -p "+outPATH_fitblind
-    # os.system(comd)
-    # comd = "mkdir -p "+outPATH_statonly_fitblind
-    # os.system(comd)
-
-    # comd = "mkdir -p "+outPATH_bonlyFit
-    # os.system(comd)
-    # comd = "mkdir -p "+outPATH_bonly_allsys
-    # os.system(comd)
-    # comd = "mkdir -p "+outPATH_bonly_allsys_fitblind
-    # os.system(comd)
 
     comd = "mkdir -p "+configPATH_statonly
     os.system(comd)
@@ -309,7 +279,8 @@ def main():
     string = theTemplateString.replace("INPUTDIR",inputDir)
     string = string.replace("TODAY",str(today))
     if args.signal_injection_mass is not None:
-        string = string.replace("GRAVMASS", str(args.signal_injection_mass))
+        string = string.replace("INJMASS", str(args.signal_injection_mass))
+        string = string.replace("INJNAME", str(args.signal_injection_name))
 
     string_statonly = string.replace("STATONLY", "TRUE")
     # string_statonly = string_statonly.replace("OUTPUTDIR",outPATH_statonly)
