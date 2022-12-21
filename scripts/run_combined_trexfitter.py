@@ -165,6 +165,10 @@ def main():
 
     args = parser.parse_args()
 
+    if args.channel not in ['combined', 'all']:
+        if 'm' in args.ops:
+            raise ValueError('Cannot run single channel fits with the "m" option.')
+
     # Make appropriate directories
     timestamp = str(datetime.date.today())
     run_name = f'statResults_ttres1L2L_{timestamp}'
@@ -177,6 +181,7 @@ def main():
     run_dir.mkdir(parents=True, exist_ok=True)
     limit_dir = (run_dir / 'limits').resolve()
     limit_dir.mkdir(exist_ok=True)
+    config_dir = Path(args.config_dir).resolve()
 
     print(f'run_dir: {run_dir}')
     print(f'limit_dir: {limit_dir}')
@@ -186,7 +191,7 @@ def main():
         mass_out_dir = (run_dir / f'zprime_{str(mass)}').resolve()
         mass_out_dir.mkdir(exist_ok=True, parents=True)
 
-        ttres1L_config, ttres2L_config, ttres1L2L_config = write_configs(mass_out_dir, Path(args.config_dir), args.channel, mass)
+        ttres1L_config, ttres2L_config, ttres1L2L_config = write_configs(mass_out_dir, config_dir, args.channel, mass)
 
         if args.batch_system:
             submit_batch(mass_out_dir, mass, args.channel, args.ops, args.suffix, args.dry_run, args.batch_system)

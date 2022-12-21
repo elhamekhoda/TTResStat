@@ -89,7 +89,7 @@ idx=0
 
 for i in signalList:
 
-    f = TFile(str(indir/f"{i}_CL95.root"))
+    f = TFile(str(indir/f"{i}.root"))
     statonly_tree = f.stats
     for ev in range(statonly_tree.GetEntries()):
         statonly_tree.GetEntry(ev)

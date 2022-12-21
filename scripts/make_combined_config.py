@@ -5,7 +5,7 @@ import ROOT
 import argparse
 from datetime import datetime
 from systematics import *
-
+from pathlib import Path
 
 today = datetime.date(datetime.now())
 
@@ -89,7 +89,7 @@ Systematic: %s
     return block
 
 # make list of systematics names, hist_up and hist_down
-def makeSysList(filename,channel, JESconfig='category', getFromFile=False, use_dilep_names=False):
+def makeSysList(filename, channel, regions, JESconfig='category', getFromFile=False, use_dilep_names=False):
     '''
     getFromFile: True   --> The systematic names will be read from the given root file
     getFromFile: Flase  --> The systematics names will be taken from the map
@@ -174,7 +174,6 @@ def makeSysList(filename,channel, JESconfig='category', getFromFile=False, use_d
         ttPDF_sys_list = [x for x in ttPDF_sysMap]
         ttNNLO_sys_list = [x for x in ttNNLO_sysMap]
 
-    regions = "be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"
     btag_sys = sys_group("btag_sys", btag_sys_list, btag_dilepNamesMap, [btag_sysMap[x] for x in btag_sys_list], "TWOSIDED", "b-tag", "ZprimeTC2_ZPRIMEMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
     toptag_sys = sys_group("toptag_sys", toptag_sys_list, {}, [toptag_sysMap[x] for x in toptag_sys_list], "TWOSIDED", "top-tag", "ZprimeTC2_ZPRIMEMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
     JES_sys = sys_group("JES_sys", JES_sys_list, JES_dilepNamesMap, [JES_sysMap[x] for x in JES_sys_list], "TWOSIDED", "JES", "ZprimeTC2_ZPRIMEMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
@@ -211,8 +210,8 @@ def main():
                         help="The path to the configs directory")
     parser.add_argument("--JESconfig",       type=str,  default="category",
                         help="JES configurations to be used: 'global' or 'category'")
-    parser.add_argument("--region",       type=str,  default="combined",
-                        help="Region to use in the limit: combined, 1bSR, 2bSR")
+    parser.add_argument("--region",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
+                            help="Region to use in the limit: boosted, resolved, combined")
     parser.add_argument("--suff", type=str,  default="",
                         help="suffix added to the outdir and configdir")
     parser.add_argument("--use_dilep_names", action="store_true", help="use dilepton naming scheme for systematics.")
@@ -238,6 +237,13 @@ def main():
         temp = homedir+"/scripts/tt1lep_config_wbtagSR_1b2b.tmp"
 
 
+    if region == 'combined':
+        regions = "be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"
+    elif region == 'boosted':
+        regions = "be1,be2,be3,bmu1,bmu2,bmu3"
+    elif region == 'resolved':
+        regions = "re1,re2,re3,rmu1,rmu2,rmu3"
+
     #config file path
     configPATH_statonly = "{0}/configs/{1}/statonly/".format(homedir,configDir)
     configPATH_MCstat = "{0}/configs/{1}/MCstat/".format(homedir,configDir)
@@ -255,7 +261,7 @@ def main():
 
 
     #sys blocks
-    sysmaps = makeSysList(inputDir+"/zprime2000.root", "b1SR", JESconfig, False, use_dilep_names=use_dilep_names)
+    sysmaps = makeSysList(inputDir+"/zprime2000.root", "b1SR", regions, JESconfig, False, use_dilep_names=use_dilep_names)
     JES_sys_block = writeSysBlock(sysmaps["JES_sys"])
     JER_sys_block = writeSysBlock(sysmaps["JER_sys"])
     JMR_sys_block = writeSysBlock(sysmaps["JMR_sys"])
@@ -281,6 +287,14 @@ def main():
     if args.signal_injection_mass is not None:
         string = string.replace("INJMASS", str(args.signal_injection_mass))
         string = string.replace("INJNAME", str(args.signal_injection_name))
+
+    region_text = ''
+    for r in regions.split(','):
+        root_path = Path(os.path.realpath(__file__)).parent.parent
+        region_config = root_path / 'configs' / 'ttres1L' / f'{r}.config'
+        with region_config.open('r') as f:
+            region_text += f.read() + '\n\n'
+    string = string.replace('% REGIONS', region_text)
 
     string_statonly = string.replace("STATONLY", "TRUE")
     # string_statonly = string_statonly.replace("OUTPUTDIR",outPATH_statonly)
