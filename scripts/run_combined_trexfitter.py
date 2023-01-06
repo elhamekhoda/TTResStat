@@ -20,9 +20,12 @@ def copy_limits_to_shared(channel, mass, mass_out_dir, shared_limit_dir):
     elif channel == '1l':
         limit_run = 'ttRes1L'
     run_limit_dir = mass_out_dir / limit_run / 'Limits' / 'asymptotics'
-    limit_file = [f for f in run_limit_dir.glob('*.root')][0]
-    print('copying limit file from run limit directory: ', limit_file, ' to shared limit directory: ', shared_limit_dir / f'zprime{mass}.root')
-    shutil.copy(limit_file, shared_limit_dir / f'zprime{mass}.root')
+    try:
+        limit_file = [f for f in run_limit_dir.glob('*.root')][0]
+        print('copying limit file from run limit directory: ', limit_file, ' to shared limit directory: ', shared_limit_dir / f'zprime{mass}.root')
+        shutil.copy(limit_file, shared_limit_dir / f'zprime{mass}.root')
+    except IndexError:
+        print('error: no limit file found in run limit directory: ', run_limit_dir)
 
 
 def write_configs(mass_out_dir, config_dir, channel, mass):

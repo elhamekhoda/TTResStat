@@ -291,7 +291,7 @@ def main():
     region_text = ''
     for r in regions.split(','):
         root_path = Path(os.path.realpath(__file__)).parent.parent
-        region_config = root_path / 'configs' / 'ttres1L' / f'{r}.config'
+        region_config = root_path / 'configs' / 'ttres1L' / 'regions' / f'{r}.config'
         with region_config.open('r') as f:
             region_text += f.read() + '\n\n'
     string = string.replace('% REGIONS', region_text)
