@@ -39,7 +39,7 @@ Job: "ttRes1L"
 Fit: "SPLUSB_CRSR_Asimov"
   FitType: SPLUSB
   FitRegion: CRSR
-  FitBlind: FALSE
+  FitBlind: BLIND
   SetRandomInitialNPval: 0.01
   GetGoodnessOfFit: TRUE
   UseMinos: mu_Zprime
@@ -51,11 +51,13 @@ Fit: "SPLUSB_CRSR_Asimov"
 
 Limit: "tt1lep_limit"
   LimitType: ASYMPTOTIC
-  LimitBlind: FALSE
+  LimitBlind: BLIND
   %ParamName: "ZprimeMass"
   %ParamValue: ZPRIMEMASS
   OutputPrefixName: zprimeZPRIMEMASS
   %POIAsimov:
+  SignalInjection: AUTOINJ
+  SignalInjectionValue: AUTOINJSTRENGTH
 
 
 % %---------------- %

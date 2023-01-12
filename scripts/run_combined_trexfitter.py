@@ -134,6 +134,10 @@ def run_trexfitter(mass_out_dir, channel, ops, dry_run, ttres1L_config, ttres2L_
             config (Path): path to the config file
             log (str): name of the log file"""
         cmd = f"""trex-fitter {ops} {str(config)} "Signal=ZprimeTC2_{mass}" 2>&1 | tee {log}"""
+        run_file = mass_out_dir / 'run.sh'
+        with run_file.open('w') as f:
+            f.write(cmd)
+        subprocess.call(['chmod', '+x', str(run_file)])
         print(f'calling: "{cmd}"')
         if not dry_run:
             os.chdir(mass_out_dir)
@@ -159,7 +163,7 @@ def run_trexfitter(mass_out_dir, channel, ops, dry_run, ttres1L_config, ttres2L_
 def main():
     parser = argparse.ArgumentParser(description="run single lepton and di-lepton channel combined fit using trex_fitter.")
     parser.add_argument('config_dir', help="directory containing ttres1L.config, ttres2L.config and ttres1L2L.config.")
-    parser.add_argument('--masses', '-m', default=[400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2500, 3000, 4000, 5000], type=int, nargs='+', help="Z' masses to scan.")
+    parser.add_argument('--masses', '-m', default=[500, 750, 1000, 1250, 1500, 1750, 2000, 2500, 3000, 4000, 5000], type=int, nargs='+', help="Z' masses to scan.")
     parser.add_argument('--suffix', '-s', default="", help="suffix to add to the output directory name.")
     parser.add_argument('--ops', default='mwfl', help="ops for trex-fitter.")
     parser.add_argument('--channel', '-c', default='all', choices=['1l', '2l', 'combined', 'all'], help="perform specified channel only.")

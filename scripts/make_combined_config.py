@@ -216,7 +216,9 @@ def main():
                         help="suffix added to the outdir and configdir")
     parser.add_argument("--use_dilep_names", action="store_true", help="use dilepton naming scheme for systematics.")
     parser.add_argument("--signal_injection_mass", '-sigm', type=int, default=None, help="mass of signal to inject.")
-    parser.add_argument("--signal_injection_name", '-sign', type=str, default=None, help="name of signal to inject.")
+    parser.add_argument("--signal_injection_name", '-sign', type=str, default=None, choices=['gluon', 'grav', 'zprime'], help="name of signal to inject.")
+    parser.add_argument("--unblind", action='store_true', help='unblind the analysis, if set')
+    parser.add_argument("--auto_injection_strength", type=float, help='injection strength for TRExFitter auto signal injection, if set')
 
 
     args = parser.parse_args()
@@ -278,15 +280,24 @@ def main():
     ttNNLO_sys_block = writeSysBlock(sysmaps["tt_NNLO_sys"])
 
  
-
     # read config template
     theTemplate = open(temp, 'r')
     theTemplateString  = theTemplate.read()
     string = theTemplateString.replace("INPUTDIR",inputDir)
     string = string.replace("TODAY",str(today))
+    if args.unblind:
+        string = string.replace("BLIND", "FALSE")
+    else:
+        string = string.replace("BLIND", "TRUE")
     if args.signal_injection_mass is not None:
         string = string.replace("INJMASS", str(args.signal_injection_mass))
         string = string.replace("INJNAME", str(args.signal_injection_name))
+    if args.auto_injection_strength is not None:
+        string = string.replace("AUTOINJSTRENGTH", str(args.auto_injection_strength))
+        string = string.replace("AUTOINJ", "TRUE")
+    else:
+        string = string.replace("AUTOINJSTRENGTH", "0.0")
+        string = string.replace("AUTOINJ", "FALSE")
 
     region_text = ''
     for r in regions.split(','):

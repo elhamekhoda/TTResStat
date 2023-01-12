@@ -39,7 +39,7 @@ Job: "ttRes1L"
 Fit: "SPLUSB_CRSR_Asimov"
   FitType: SPLUSB
   FitRegion: CRSR
-  FitBlind: TRUE
+  FitBlind: BLIND
   POIAsimov: 0
   SetRandomInitialNPval: 0.01
   GetGoodnessOfFit: TRUE
@@ -52,7 +52,7 @@ Fit: "SPLUSB_CRSR_Asimov"
 
 Limit: "tt1lep_limit"
   LimitType: ASYMPTOTIC
-  LimitBlind: TRUE
+  LimitBlind: BLIND
   %ParamName: "ZprimeMass"
   %ParamValue: ZPRIMEMASS
   OutputPrefixName: zprimeZPRIMEMASS

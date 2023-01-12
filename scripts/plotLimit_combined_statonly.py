@@ -87,42 +87,44 @@ sigma1 = TGraphAsymmErrors(length);
 sigma2 = TGraphAsymmErrors(length);
 idx=0
 
-for i in signalList:
+limit_files = [l for l in indir.glob('zprime*.root')]
+limit_files = sorted(limit_files, key=lambda a: int(a.stem.split('zprime')[1]))
+for limit_file in limit_files:
+  i = limit_file.stem
+  f = TFile(str(limit_file))
+  statonly_tree = f.stats
+  for ev in range(statonly_tree.GetEntries()):
+    statonly_tree.GetEntry(ev)
+    muobs = getattr(statonly_tree,'obs_upperlimit')
+    muexp = getattr(statonly_tree,'exp_upperlimit')
+    exp_p2 = getattr(statonly_tree,'exp_upperlimit_plus2')
+    exp_p1 = getattr(statonly_tree,'exp_upperlimit_plus1')
+    exp_m2 = getattr(statonly_tree,'exp_upperlimit_minus2')
+    exp_m1 = getattr(statonly_tree,'exp_upperlimit_minus1')
 
-    f = TFile(str(indir/f"{i}.root"))
-    statonly_tree = f.stats
-    for ev in range(statonly_tree.GetEntries()):
-        statonly_tree.GetEntry(ev)
-        muobs = getattr(statonly_tree,'obs_upperlimit')
-        muexp = getattr(statonly_tree,'exp_upperlimit')
-        exp_p2 = getattr(statonly_tree,'exp_upperlimit_plus2')
-        exp_p1 = getattr(statonly_tree,'exp_upperlimit_plus1')
-        exp_m2 = getattr(statonly_tree,'exp_upperlimit_minus2')
-        exp_m1 = getattr(statonly_tree,'exp_upperlimit_minus1')
+    muexp_p2 = abs(-muexp + exp_p2)
+    muexp_p1 = abs(-muexp + exp_p1)
+    muexp_m1 = abs(-muexp + exp_m1)
+    muexp_m2 = abs(-muexp + exp_m2)
 
-        muexp_p2 = abs(-muexp + exp_p2)
-        muexp_p1 = abs(-muexp + exp_p1)
-        muexp_m1 = abs(-muexp + exp_m1)
-        muexp_m2 = abs(-muexp + exp_m2)
-
-    ftxt = open(outpath/('limit_'+i+'_limitBLIND.txt'), 'w')
-    ftxt.write('muobs     '+str(muobs)+'\n')
-    ftxt.write('muexp     '+str(muexp)+'\n')
-    ftxt.write('muexp_p2  '+str(muexp_p2)+'\n')
-    ftxt.write('muexp_p1  '+str(muexp_p1)+'\n')
-    ftxt.write('muexp_m1  '+str(muexp_m1)+'\n')
-    ftxt.write('muexp_m2  '+str(muexp_m2)+'\n')
-    ftxt.write('xsec      '+str(xs[i])+'\n')
-    ftxt.close()
-    print (mass[i],"TeV\tlimits in pb, exp: %10f (1 sigma: +%10f -%10f), (2 sigma: +%10f -%10f)\tobs: %10f" % (muexp*xs[i], muexp_p1*xs[i], muexp_m1*xs[i], muexp_p2*xs[i], muexp_m2*xs[i], muobs*xs[i]))
-    sigma1.SetPoint(idx, mass[i], muexp*xs[i])
-    sigma1.SetPointError(idx, 0, 0, muexp_m1*xs[i], muexp_p1*xs[i])
-    sigma2.SetPoint(idx, mass[i], muexp*xs[i])
-    sigma2.SetPointError(idx, 0, 0, muexp_m2*xs[i], muexp_p2*xs[i])
-    xsec.SetPoint(idx, mass[i], xs[i])
-    exp.SetPoint(idx, mass[i], muexp*xs[i])
-    obs.SetPoint(idx, mass[i], muobs*xs[i])
-    idx += 1
+  ftxt = open(outpath/('limit_'+i+'_limitBLIND.txt'), 'w')
+  ftxt.write('muobs     '+str(muobs)+'\n')
+  ftxt.write('muexp     '+str(muexp)+'\n')
+  ftxt.write('muexp_p2  '+str(muexp_p2)+'\n')
+  ftxt.write('muexp_p1  '+str(muexp_p1)+'\n')
+  ftxt.write('muexp_m1  '+str(muexp_m1)+'\n')
+  ftxt.write('muexp_m2  '+str(muexp_m2)+'\n')
+  ftxt.write('xsec      '+str(xs[i])+'\n')
+  ftxt.close()
+  print (mass[i],"TeV\tlimits in pb, exp: %10f (1 sigma: +%10f -%10f), (2 sigma: +%10f -%10f)\tobs: %10f" % (muexp*xs[i], muexp_p1*xs[i], muexp_m1*xs[i], muexp_p2*xs[i], muexp_m2*xs[i], muobs*xs[i]))
+  sigma1.SetPoint(idx, mass[i], muexp*xs[i])
+  sigma1.SetPointError(idx, 0, 0, muexp_m1*xs[i], muexp_p1*xs[i])
+  sigma2.SetPoint(idx, mass[i], muexp*xs[i])
+  sigma2.SetPointError(idx, 0, 0, muexp_m2*xs[i], muexp_p2*xs[i])
+  xsec.SetPoint(idx, mass[i], xs[i])
+  exp.SetPoint(idx, mass[i], muexp*xs[i])
+  obs.SetPoint(idx, mass[i], muobs*xs[i])
+  idx += 1
 
 exp.SetLineWidth(2);
 obs.SetLineWidth(2);
