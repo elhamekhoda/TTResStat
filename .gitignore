@@ -15,6 +15,8 @@ plots/*
 configs/*
 !template_*
 !configs/ttRes1L2L
+!configs/ttres2L
+!configs/ttres1L
 
 #batch files
 batch_files
@@ -29,3 +31,8 @@ scripts/make_plots.sh
 scripts/tmp*.sh
 
 settings.json
+scripts/run_grav_statonly_siginj.sh
+scripts/run_syst_siginj.sh
+scripts/run_statonly_siginj.sh
+scripts/make_signij_configs.sh
+scripts/move_limits.py
