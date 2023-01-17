@@ -10,7 +10,7 @@ Job: "ttRes1L"
   ReadFrom: HIST
   OutputDir: "OUTPUTDIR/"
   HistoPath: "INPUTDIR/"
-  DebugLevel: 2
+  DebugLevel: 1
   SystControlPlots: TRUE
   SystErrorBars: TRUE
   UseGammaPulls: TRUE
@@ -53,10 +53,7 @@ Fit: "SPLUSB_CRSR_Asimov"
 Limit: "tt1lep_limit"
   LimitType: ASYMPTOTIC
   LimitBlind: BLIND
-  %ParamName: "ZprimeMass"
-  %ParamValue: ZPRIMEMASS
-  OutputPrefixName: zprimeZPRIMEMASS
-  %POIAsimov:
+  OutputPrefixName: SIGNALNAMESIGNALMASS
 
 
 % %---------------- %
@@ -65,9 +62,7 @@ Limit: "tt1lep_limit"
 
 %Significance: "tt1lep_sig"
   %SignificanceBlind: FALSE
-  %ParamName: "ZprimeMass"
-  %ParamValue: ZPRIMEMASS
-  %OutputPrefixName: zprimeZPRIMEMASS
+  %OutputPrefixName: SIGNALNAMESIGNALMASS
   %POIAsimov:
 
 
@@ -175,6 +170,24 @@ Sample:           "ZprimeTC2_400"     ;"ZprimeTC2_500"     ;"ZprimeTC2_750"     
   Type: SIGNAL
   FillColor: 632
   LineColor: 632
+  NormalizedByTheory: TRUE
+
+Sample:           "Grav_400"      ;"Grav_500"      ;"Grav_750"       ;"Grav_1000"    ;"Grav_2000"    ;"Grav_3000"
+  Title:          "G_{KK} (0.4 TeV)"  ;"G_{KK} (0.5 TeV)"  ;"G_{KK} (0.75 TeV)"  ;"G_{KK} (1 TeV)"   ;"G_{KK} (2 TeV)"   ;"G_{KK} (3 TeV)"
+  TexTitle:       "$G_{KK}$ (0.4 TeV)";"$G_{KK}$ (0.5 TeV)";"$G_{KK}$ (0.75 TeV)";"$G_{KK}$ (1 TeV)" ;"$G_{KK}$ (2 TeV)" ;"$G_{KK}$ (3 TeV)"
+  HistoFile:      "hist_grav400";"hist_grav500";"hist_grav750" ;"hist_grav1000";"hist_grav2000";"hist_grav3000"
+  Type:           SIGNAL
+  FillColor:      632
+  LineColor:      632
+  NormalizedByTheory: TRUE
+
+Sample:           "KKg_500"            ;"KKg_1000"         ;"KKg_1500"           ;"KKg_2000"         ;"KKg_2500"           ;"KKg_3000"         ;"KKg_3500"           ;"KKg_4000"         ;"KKg_4500"           ;"KKg_5000"
+  Title:          "g_{KK} (0.5 TeV)"  ;"g_{KK} (1 TeV)"  ;"g_{KK} (1.5 TeV)"  ;"g_{KK} (2 TeV)"  ;"g_{KK} (2.5 TeV)"  ;"g_{KK} (3 TeV)"  ;"g_{KK} (3.5 TeV)"  ;"g_{KK} (4 TeV)"  ;"g_{KK} (4.5 TeV)"  ;"g_{KK} (5 TeV)"
+  TexTitle:       "$g_{KK}$ (0.5 TeV)";"$g_{KK}$ (1 TeV)";"$g_{KK}$ (1.5 TeV)";"$g_{KK}$ (2 TeV)";"$g_{KK}$ (2.5 TeV)";"$g_{KK}$ (3 TeV)";"$g_{KK}$ (3.5 TeV)";"$g_{KK}$ (4 TeV)";"$g_{KK}$ (4.5 TeV)";"$g_{KK}$ (5 TeV)"
+  HistoFile:      "hist_gluon500";"hist_gluon1000";"hist_gluon1500";"hist_gluon2000";"hist_gluon2500";"hist_gluon3000";"hist_gluon3500";"hist_gluon4000";"hist_gluon4500";"hist_gluon5000"
+  Type:           SIGNAL 
+  FillColor:      632
+  LineColor:      632
   NormalizedByTheory: TRUE
 
 Sample: "tt"
