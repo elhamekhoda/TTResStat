@@ -95,7 +95,7 @@ def submit_condor(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_syste
     text = text.replace('MASS_DIR', str(mass_out_dir)).replace('SCRIPTS', str(scripts_path)).replace('CHANNEL', channel)
     text = text.replace('OPS', ops).replace('SUFFIX', suffix).replace('MASS', str(mass)).replace('SIGNAL', signal)
     if exclude_systematics:
-        text = text.replace('EXCLUDE_SYSTEMATICS', '--exclude-systematics')
+        text = text.replace('EXCLUDE_SYSTEMATICS', '--exclude_systematics')
     else:
         text = text.replace('EXCLUDE_SYSTEMATICS', '')
     condor_sub_file = mass_out_dir / f'condor.sub'
