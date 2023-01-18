@@ -36,3 +36,7 @@ scripts/run_syst_siginj.sh
 scripts/run_statonly_siginj.sh
 scripts/make_signij_configs.sh
 scripts/move_limits.py
+scripts/run_statonly_siginj.sh
+scripts/run_2l_zprime_excluded.sh
+scripts/run_statonly_siginj.sh
+scripts/exploration.ipynb
