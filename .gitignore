@@ -23,6 +23,7 @@ batch_files
 
 #output files
 run/*
+!run/pull_constrained
 
 #python compiled bytecode files (.pyc files) 
 *.pyc
@@ -40,3 +41,4 @@ scripts/run_statonly_siginj.sh
 scripts/run_2l_zprime_excluded.sh
 scripts/run_statonly_siginj.sh
 scripts/exploration.ipynb
+scripts/cp_configs.sh

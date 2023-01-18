@@ -1,0 +1,1 @@
+trex-fitter hwfl ttres1L.config "Signal=ZprimeTC2_500" 2>&1 | tee ttres1L.ans
