@@ -75,17 +75,8 @@ def write_configs(mass_out_dir, channel, mass, signal_name, region, use_dilep_na
 
     return ttres1L_config, ttres2L_config, ttres1L2L_config
 
-def submit_condor(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_system, signal):
-    """Submit the trexfitter job to condor.
-    Args:
-        mass_out_dir (Path): directory to run trexfitter in
-        mass (int): Z' mass
-        channel (str): '1l', '2l', 'all', or 'combined'
-        ops (str): options to pass to trexfitter
-        suffix (str): suffix to append to the output directory
-        dry_run (bool): if True, don't submit the job
-        batch_system (str): 'af' or 'af_short'
-        signal (str): name of the signal sample"""
+def submit_condor(mass_out_dir, mass, batch_system, args):
+    """Submit the trexfitter job to condor."""
     scripts_path = Path(__file__).parent.resolve()
     if batch_system == 'af':
         template_name = 'af.tmp'
@@ -94,29 +85,23 @@ def submit_condor(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_syste
     template_file = scripts_path / template_name
     with template_file.open('r') as f:
         text = f.read()
-    text = text.replace('MASS_DIR', str(mass_out_dir)).replace('SCRIPT_DIR', str(scripts_path)).replace('CHANNEL', channel)
-    text = text.replace('OPS', ops).replace('SUFFIX', suffix).replace('MASS', str(mass)).replace('SIGNAL', signal)
+    ignore_keys = ['batch_system', 'masses', 'dry_run']
+    cmd = [f'--{k} {v}' for k, v in vars(args).items() if v is not None and type(v) is not bool and k not in ignore_keys]
+    cmd.extend([f'--{k}' for k, v in vars(args).items() if v is True and k not in ignore_keys])
+    cmd.append(f'--mass {mass}')
+    cmd = ' '.join(cmd)
+    text = text.replace('MASS_DIR', str(mass_out_dir)).replace('SCRIPT_DIR', str(scripts_path)).replace('CMD', cmd)
     condor_sub_file = mass_out_dir / f'condor.sub'
     with condor_sub_file.open('w') as f:
         f.write(text)
     print(f'submitting {str(condor_sub_file)}')
-    if not dry_run:
+    if not args.dry_run:
         subprocess.call(['condor_submit', str(condor_sub_file)])
 
-def submit_batch(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_system, signal):
-    """Submit the trexfitter job to the batch system.
-    Args:
-        mass_out_dir (Path): directory to run trexfitter in
-        mass (int): Z' mass
-        channel (str): '1l', '2l', 'all', or 'combined'
-        ops (str): trexfitter options
-        suffix (str): suffix to append to the output directory
-        dry_run (bool): if True, don't actually submit the job
-        batch_system (str): 'af' or 'af_short'
-        signal (str): name of the signal
-    """
+def submit_batch(mass_out_dir, mass, batch_system, args):
+    """Submit the trexfitter job to the batch system."""
     if batch_system in ['af', 'af_short']:
-        submit_condor(mass_out_dir, mass, channel, ops, suffix, dry_run, batch_system, signal)
+        submit_condor(mass_out_dir, mass, batch_system, args)
     else:
         raise NotImplementedError('Unrecognized batch system: {}'.format(batch_system))
 
@@ -205,7 +190,7 @@ def main():
     run_name = f'statResults_ttres1L2L_{timestamp}'
     if args.suffix:
         run_name = run_name + '_' + args.suffix
-    if not args.suffix and args.batch:
+    if not args.suffix and args.batch_system:
         raise NotImplementedError('batch mode must be run with a suffix!')
     scripts_path = Path(__file__).parent.resolve()
     run_dir = (scripts_path / '..' / 'run' / run_name).resolve()
@@ -238,7 +223,7 @@ def main():
                                                                         args.unblind, args.auto_injection_strength, args.statonly, args.bonly)
 
         if args.batch_system:
-            submit_batch(mass_out_dir, mass, args.channel, args.ops, args.suffix, args.dry_run, args.batch_system, args.signal)
+            submit_batch(mass_out_dir, mass, args.batch_system, args)
         else:
             run_trexfitter(mass_out_dir, args.channel, args.ops, args.dry_run, ttres1L_config, ttres2L_config, ttres1L2L_config, mass, limit_dir, exclude_systematics, signal_name)
 
