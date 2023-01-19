@@ -81,21 +81,22 @@ h.Draw("hist");
 length =len(signalList)-1
 xsec = TGraph(length);
 exp = TGraph(length);
-obs = TGraph(length);
+#obs = TGraph(length);
 exp_statonly = TGraph(length);
 sigma1 = TGraphAsymmErrors(length);
 sigma2 = TGraphAsymmErrors(length);
 idx=0
 
-limit_files = [l for l in indir.glob('zprime*.root')]
-limit_files = sorted(limit_files, key=lambda a: int(a.stem.split('zprime')[1]))
+limit_files = [l for l in indir.glob('Zprime*.root')]
+limit_files = sorted(limit_files, key=lambda a: int(a.stem.split('Zprime')[1]))
 for limit_file in limit_files:
-  i = limit_file.stem
+  i = limit_file.stem.lower()
+  xs[i] = xs[i]*4
   f = TFile(str(limit_file))
   statonly_tree = f.stats
   for ev in range(statonly_tree.GetEntries()):
     statonly_tree.GetEntry(ev)
-    muobs = getattr(statonly_tree,'obs_upperlimit')
+    #muobs = getattr(statonly_tree,'obs_upperlimit')
     muexp = getattr(statonly_tree,'exp_upperlimit')
     exp_p2 = getattr(statonly_tree,'exp_upperlimit_plus2')
     exp_p1 = getattr(statonly_tree,'exp_upperlimit_plus1')
@@ -108,7 +109,7 @@ for limit_file in limit_files:
     muexp_m2 = abs(-muexp + exp_m2)
 
   ftxt = open(outpath/('limit_'+i+'_limitBLIND.txt'), 'w')
-  ftxt.write('muobs     '+str(muobs)+'\n')
+  #ftxt.write('muobs     '+str(muobs)+'\n')
   ftxt.write('muexp     '+str(muexp)+'\n')
   ftxt.write('muexp_p2  '+str(muexp_p2)+'\n')
   ftxt.write('muexp_p1  '+str(muexp_p1)+'\n')
@@ -116,24 +117,24 @@ for limit_file in limit_files:
   ftxt.write('muexp_m2  '+str(muexp_m2)+'\n')
   ftxt.write('xsec      '+str(xs[i])+'\n')
   ftxt.close()
-  print (mass[i],"TeV\tlimits in pb, exp: %10f (1 sigma: +%10f -%10f), (2 sigma: +%10f -%10f)\tobs: %10f" % (muexp*xs[i], muexp_p1*xs[i], muexp_m1*xs[i], muexp_p2*xs[i], muexp_m2*xs[i], muobs*xs[i]))
+  print (mass[i],"TeV\tlimits in pb, exp: %10f (1 sigma: +%10f -%10f), (2 sigma: +%10f -%10f)" % (muexp*xs[i], muexp_p1*xs[i], muexp_m1*xs[i], muexp_p2*xs[i], muexp_m2*xs[i]))
   sigma1.SetPoint(idx, mass[i], muexp*xs[i])
   sigma1.SetPointError(idx, 0, 0, muexp_m1*xs[i], muexp_p1*xs[i])
   sigma2.SetPoint(idx, mass[i], muexp*xs[i])
   sigma2.SetPointError(idx, 0, 0, muexp_m2*xs[i], muexp_p2*xs[i])
   xsec.SetPoint(idx, mass[i], xs[i])
   exp.SetPoint(idx, mass[i], muexp*xs[i])
-  obs.SetPoint(idx, mass[i], muobs*xs[i])
+  #obs.SetPoint(idx, mass[i], muobs*xs[i])
   idx += 1
 
 exp.SetLineWidth(2);
-obs.SetLineWidth(2);
+#obs.SetLineWidth(2);
 exp.SetMarkerStyle(20);
-obs.SetMarkerStyle(20);
+#obs.SetMarkerStyle(20);
 exp.SetMarkerSize(1.0);
-obs.SetMarkerSize(1.0);
-obs.SetMarkerColor(kMagenta);
-obs.SetLineColor(kBlack);
+#obs.SetMarkerSize(1.0);
+#obs.SetMarkerColor(kMagenta);
+#obs.SetLineColor(kBlack);
 xsec.SetLineWidth(3);
 xsec.SetLineColor(kRed);
 sigma2.SetFillStyle(1001);
@@ -148,8 +149,8 @@ sigma1.SetLineColor(3);
 exp.SetMarkerColor(kBlue);
 exp.SetLineColor(kBlue);
 
-l.AddEntry(exp, "Expected 95% CL upper limit (stat-only)", "L")
-l.AddEntry(obs, "Observed 95% CL upper limit (stat-only)", "L")
+l.AddEntry(exp, "Expected 95% CL upper limit", "L")
+#l.AddEntry(obs, "Observed 95% CL upper limit (stat-only)", "L")
 l.AddEntry(sigma1, "Expected 95% CL upper limit #pm 1 #sigma", "F")
 l.AddEntry(sigma2, "Expected 95% CL upper limit #pm 2 #sigma", "F")
 l.AddEntry(xsec, "LO Z'_{TC2}(#Gamma/m=1.2%) cross-section #times 1.3", "L")
@@ -158,7 +159,7 @@ sigma2.Draw("3");
 sigma1.Draw("3");
 exp.Draw("LP")
 xsec.Draw("L")
-obs.Draw("L")
+#obs.Draw("L")
 l.Draw()
 clim.SetLogy(1)
 
@@ -206,7 +207,7 @@ for i in range(3000, 5000, 1):
 fout = TFile(str(outpath/("massLimit_statonly_%s.root"%(SR))),"RECREATE")
 xsec.Write("theory")
 exp.Write("expected")
-obs.Write("observed")
+#obs.Write("observed")
 exp_statonly.Write("statonly")
 sigma1.Write("exp_sigma1")
 sigma2.Write("exp_sigma2")

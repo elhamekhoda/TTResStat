@@ -1,12 +1,12 @@
 #!/bin/bash
 
-source /home/schuya/ttres1lepstat/TRExFitter/setup.sh
+SCRIPT_DIR=$1
+source $SCRIPT_DIR/../setup.sh
 
-CONFIG_DIR=$1
-OPS=$2
-SUFFIX=$3
-MASS=$4
-CHANNEL=$5
-SIGNAL=$6
-EXCLUDE_SYSTEMATICS=$7
-python /home/schuya/ttres1lepstat/scripts/run_combined_trexfitter.py $CONFIG_DIR --ops $OPS -s $SUFFIX -c $CHANNEL --signal $SIGNAL $EXCLUDE_SYSTEMATICS -m $MASS 
+CONFIG_DIR=$2
+OPS=$3
+SUFFIX=$4
+MASS=$5
+CHANNEL=$6
+SIGNAL=$7
+python $SCRIPT_DIR/run_trexfitter.py $CONFIG_DIR --ops $OPS -s $SUFFIX -c $CHANNEL --signal $SIGNAL -m $MASS 

@@ -276,7 +276,7 @@ Systematic: "Lumi"
   Type: OVERALL
   OverallUp:    0.017
   OverallDown: -0.017
-  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
+  Samples: "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
   Category: Instrumental
 
 Systematic: "pileup"
@@ -285,7 +285,7 @@ Systematic: "pileup"
   HistoNameSufUp: "pileupSF__1up"
   HistoNameSufDown: "pileupSF__1down"
   % Smoothing: 40   % weight syst -> Smoothing removal needs to be done
-  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
+  Samples: "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
   Symmetrisation: TWOSIDED
   Category: Instrumental
 
@@ -294,7 +294,7 @@ Systematic: "jvt";
   Type: HISTO
   HistoNameSufUp: "jvtSF__1up"
   HistoNameSufDown: "jvtSF__1down";
-  Samples: "Zprime*","tt","singletop","diboson","wjets","zjets"
+  Samples: "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
   Symmetrisation: TWOSIDED
   % Smoothing: 40
   Category: Instrumental
@@ -355,18 +355,6 @@ Systematic:          "ttbar_hsAcc"
 % ttbar Hadronization uncertainty
 %-------------------------------------------------------------
 
-%Systematic:          "ttbar_had"
-%  SampleUp:          "tt_had"
-%  Samples:           "tt"
-%  Type:              HISTO
-%  Title:             "#it{t#bar{t}} Had"
-%  Symmetrisation:    ONESIDED
-%  Smoothing:         40
-%  SubCategory:       "Parton shower"
-%  Category:          "Modelling"
-%  %Decorrelate:       REGION
-%  %DropNorm:          "all"
-%  ReferenceSample:   "tt_af2"
 
 Systematic:          "ttbar_hadShape"
   SampleUp:          "tt_had"
@@ -398,19 +386,6 @@ Systematic:          "ttbar_hadAcc"
 %-------------------------------------------------------------
 % ttbar ISR hdamp uncertainty
 %-------------------------------------------------------------
-
-%Systematic:          "ttbar_hdamp"
-%  SampleUp:          "tt_hdamp"
-%  Samples:           "tt"
-%  Type:              HISTO
-%  Title:             "#it{t#bar{t}} hdamp"
-%  Symmetrisation:    ONESIDED
-%  Smoothing:         40
-%  SubCategory:       "ISR hdamp"
-%  Category:          "Modelling"
-%  %Decorrelate:       REGION
-%  %DropNorm:          "all"
-%  ReferenceSample:   "tt_af2"
 
 Systematic:          "ttbar_hdampShape"
   SampleUp:          "tt_hdamp"

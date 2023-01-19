@@ -2,10 +2,9 @@
 % ---  JOB    --- %
 % --------------- %
 
-Job: "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll_Latest"
-  %InputFolder: /afs/cern.ch/user/m/mfaraj/public/Histograms_ttbar2L_FullRun2_Asimov/
-  InputFolder: /data/schuya/ttbar_resonance/2l/fullrun2/
-  OutputDir: OUTPUTDIR
+Job: "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll"
+  InputFolder: "INPUTDIR/"
+  InputName: ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll
   CmeLabel: "13 TeV"
   POI: "mu_Zprime"
   ReadFrom: NTUP
@@ -13,19 +12,16 @@ Job: "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll_Latest"
   Label: "Dilepton"
   LumiLabel: "139 fb#kern[-0.5]{^{-1}}"
   MCweight: "weight"
+  OutputDir: "OUTPUTDIR/"
   Lumi: 139000 % 36100 + 44300 + 58600
   Selection: "(Mllbb/1e3<450 && DeltaEta<1) || (Mllbb/1e3>=450 && Mllbb/1e3<1000 && DeltaEta<1.5) || (Mllbb/1e3>=1000 && Mllbb/1e3<1500 && DeltaEta<2) || (Mllbb/1e3>=1500 && Mllbb/1e3<2500 && DeltaEta<2.5) || Mllbb/1e3>=2500" % adding deltaEta selection here ==> affecting mllbb and deltaPhi
-%   PlotOptions: "NOSIG,NORMSIG,POISSONIZE,NOXERR,OPRATIO"
   PlotOptions: "POISSONIZE,NOXERR,OPRATIO"
-%   PlotOptions: "NORMSIG,POISSONIZE,NOXERR,OPRATIO"
   NtupleName: "nominal"
   DebugLevel: 1
   MCstatThreshold: 0.0001
   SystControlPlots: TRUE
   SystPruningShape: 0.00001
   SystPruningNorm: 0.00001
-%  SystPruningShape: 0.005
-%  SystPruningNorm: 0.005
   SystLarge: 0.90
   CorrelationThreshold: 0.20
   HistoChecks: NOCRASH
@@ -33,25 +29,17 @@ Job: "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll_Latest"
   ImageFormat: "png","pdf"
   UseGammaPulls: TRUE
   AtlasLabel: "#kern[-0.1]{Internal}"
-%   LegendNColumns: 1
-%   LegendX1: 0.6
   LegendNColumns: 2
   LegendX1: 0.5
   CustomIncludePaths: "../NNLOttbar/TTbarNNLOReweighter/"
   CustomFunctions: "../NNLOttbar/TTbarNNLOReweighter/macros/RecursiveReweighting_2d_2022.C"
-%   SmoothingOption: TTBARRESONANCE
   SmoothingOption: COMMONTOOLSMOOTHPARABOLIC
   DoSummaryPlot: FALSE
   RankingMaxNP: 20
   RankingPlot: Systs
-%   GetChi2: STAT+SYST
-%   RatioType: SOVERSQRT(B)
-%   RatioYmax:      6
   RatioYmin:      0
   RatioType: SOVERB
   RatioYmax:      0.5
-%   RatioYmax:      0.001
-%   MaxNtupleEvents: 1
   AllowWrongRegionSample: TRUE
   ReorderNPs: TRUE
   
@@ -66,20 +54,11 @@ Options: "myOptions"
 
 Fit: "fit"
   FitType: SPLUSB
-%  FitType: BONLY
   FitRegion: CRSR
-  FitBlind: TRUE
-  POIAsimov: 0
+  FitBlind: BLIND
+  POIAsimov: 1
   SetRandomInitialNPval: 0.001
-%   GetGoodnessOfFit: TRUE
-  SaturatedModel: TRUE
-%  doLHscan: mu_Zprime
-%  UseMinos: 	"mu_Zprime"
-  %LHscanSteps: 50
-%  LHscanSteps: 20
-%  LHscanMin: 0.
-%  LHscanMax: 2.0    
-  NumCPU: 4  
+  SaturatedModel: TRUE 
 
 % --------------- %
 % ---  LIMIT    --- %
@@ -87,10 +66,9 @@ Fit: "fit"
 
 Limit: "limit"
   LimitType: ASYMPTOTIC
-  LimitBlind: TRUE
-%  LimitBlind: FALSE
-%   SignalInjection: TRUE
+  LimitBlind: BLIND
   ParamName: "ZprimeMass"
+  OutputPrefixName: SIGNALNAMESIGNALMASS
 
 % --------------- %
 % --- REGIONS --- %
@@ -349,11 +327,11 @@ Sample:           "fakes_ttbar"
 
 % DATA
   
-%Sample:           "Data"
-%  Type:           DATA
-%  Title:          "Data"
-%  NtupleFiles:    "data15","data16","data17","data18"
-%  IgnoreWeight:   "weight"
+Sample:           "Data"
+  Type:           DATA
+  Title:          "Data"
+  NtupleFiles:    "data15","data16","data17","data18"
+  IgnoreWeight:   "weight"
   
 % --------------- %
 % - NORMFACTORS - %
@@ -361,7 +339,7 @@ Sample:           "fakes_ttbar"
   
 NormFactor:       "mu_Zprime"
   Title:          "#mu(Z')"
-  Nominal:        0
+  Nominal:        1
   Min:            -200
 %   Max:            200
 %   Max:            500
@@ -389,7 +367,7 @@ NormFactor:       "k_tt"
 % - SYSTEMATICS - %
 % --------------- %
 
-% --- non-ttbar background modelling -- uncorrelated
+% --- non-ttbar background modelling
 
 Systematic:           "ZjetsNorm_LF"            ;"ZjetsNorm_HF"
   Title:              "#it{Z}+light jets norm." ;"#it{Z}+HF jets norm."
@@ -495,7 +473,7 @@ Systematic:           "singleTop_DSDR"
   SubCategory:        "Diagram subtraction model"
   Category:           "Modelling"
   
-% --- ttbar modelling -- use for now, don't correlate, but will need to be correlated
+% --- ttbar modelling
 
 Systematic:          "ttbar_PS_Shape"
   SampleUp:          "ttbar_dilep_PH7"
@@ -668,21 +646,35 @@ Systematic:           "ttbar_PDFs_0";"ttbar_PDFs_1";"ttbar_PDFs_2";"ttbar_PDFs_3
   SubCategory:        "PDFs"
   Category:           "Modelling"
 
-% --- tt NNLO -- use w/o correlate for now, correlate later
+% --- tt NNLO
   
-Systematic:          "ttbar_NNLO_scaleTopPt"                                                ;"ttbar_NNLO_scaleTTbarM"
-  WeightSufUp:       "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,1)" ;"RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,2)"
-  WeightSufDown:     "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-1)";"RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-2)"
-  Title:             "#it{t#bar{t}} NNLO scales (#it{p}_{T}(#it{t}))"                       ;"#it{t#bar{t}} NNLO scales (#it{m}(#it{t#bar{t}}))"
-  IgnoreWeight:      "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Samples:           "ttbar_dilep"
-  Type:              HISTO
-  Symmetrisation:    TWOSIDED
+### we should only keep the 4 split NPs muR_pT, muR_mtt, muF_pT and muF_mtt since in this way we are decorrelate them and get the correct shape uncertainty on the top-pT and mtt  
+%Systematic:          "ttbar_NNLO_scaleTopPt"                                                ;"ttbar_NNLO_scaleTTbarM"
+%  WeightSufUp:       "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,1)" ;"RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,2)"
+%  WeightSufDown:     "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-1)";"RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-2)"
+%  Title:             "#it{t#bar{t}} NNLO scales (#it{p}_{T}(#it{t}))"                       ;"#it{t#bar{t}} NNLO scales (#it{m}(#it{t#bar{t}}))"
+%  IgnoreWeight:      "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+%  Samples:           "ttbar_dilep"
+%  Type:              HISTO
+%  Symmetrisation:    TWOSIDED
 %   Symmetrisation:    MAXIMUM
 %   Symmetrisation:    ONESIDED
-  Smoothing:         40
-  SubCategory:       "tt NNLO scales"
-  Category:          "Modelling"
+%  Smoothing:         40
+%  SubCategory:       "tt NNLO scales"
+%  Category:          "Modelling"
+
+
+%Systematic:          "ttbar_NNLO_muR"                                                         ;"ttbar_NNLO_muF"
+%  WeightSufUp:       "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,10)"  ;"RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,20)"
+%  WeightSufDown:     "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-10)" ;"RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-20)"
+%  Title:             "#it{t#bar{t}} NNLO mu_{R}"                                              ;"#it{t#bar{t}} NNLO mu_{F}"
+%  IgnoreWeight:      "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+%  Samples:           "ttbar_dilep"
+%  Type:              HISTO
+%  Symmetrisation:    TWOSIDED
+%  Smoothing:         40
+%  SubCategory:       "tt NNLO scales"
+%  Category:          "Modelling"
 
 Systematic:          "ttbar_NNLO_pdf"
   WeightSufUp:       "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,4)"
@@ -696,17 +688,6 @@ Systematic:          "ttbar_NNLO_pdf"
   SubCategory:       "tt NNLO PDFs"
   Category:          "Modelling"
   
-Systematic:          "ttbar_NNLO_muR"                                                         ;"ttbar_NNLO_muF"
-  WeightSufUp:       "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,10)"  ;"RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,20)"
-  WeightSufDown:     "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-10)" ;"RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-20)"
-  Title:             "#it{t#bar{t}} NNLO mu_{R}"                                              ;"#it{t#bar{t}} NNLO mu_{F}"
-  IgnoreWeight:      "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Samples:           "ttbar_dilep"
-  Type:              HISTO
-  Symmetrisation:    TWOSIDED
-  Smoothing:         40
-  SubCategory:       "tt NNLO scales"
-  Category:          "Modelling"
   
   
 Systematic:          "ttbar_NNLO_muRtopPt"                                                    ;"ttbar_NNLO_muFtopPt"
@@ -787,7 +768,7 @@ Systematic:          "ttbar_NNLO_oneEmission_topPt"                        ;"ttb
   
 % --- Instrumental
 
-% -- Luminosity and Pileup correlated
+% -- Luminosity and Pileup
 
 Systematic:           "Lumi"
   Title:              "Luminosity"
@@ -810,7 +791,7 @@ Systematic:           "pileup"
 
 % -- Jets & MET
 
-% JER --- catalogue differences, correlate
+% JER ---
 
 Systematic:          "JER_DataVsMC_MC16";"JER_EffectiveNP1";"JER_EffectiveNP2";"JER_EffectiveNP3";"JER_EffectiveNP4";"JER_EffectiveNP5";"JER_EffectiveNP6";"JER_EffectiveNP7";"JER_EffectiveNP8";"JER_EffectiveNP9";"JER_EffectiveNP10";"JER_EffectiveNP11"
   Title:             "JER (Data vs. MC)";"JER (effective NP 1)";"JER (effective NP 2)";"JER (effective NP 3)";"JER (effective NP 4)";"JER (effective NP 5)";"JER (effective NP 6)";"JER (effective NP 7)";"JER (effective NP 8)";"JER (effective NP 9)";"JER (effective NP 10)";"JER (effective NP 11)"
@@ -856,7 +837,7 @@ Systematic:          "JER_EffectiveNP_12restTerm"
   SubCategory:       "JER"
   Smoothing:         40  
 
-% JES --- catalogue differences, correlate
+% JES ---
 
 Systematic:          "JES_EffectiveNP_Statistical1";"JES_EffectiveNP_Statistical2";"JES_EffectiveNP_Statistical3";"JES_EffectiveNP_Statistical4";"JES_EffectiveNP_Statistical5";"JES_EffectiveNP_Statistical6"
   Title:             "JES (effective NP stat. 1)";"JES (effective NP stat. 2)";"JES (effective NP stat. 3)";"JES (effective NP stat. 4)";"JES (effective NP stat. 5)";"JES (effective NP stat. 6)"
@@ -1018,7 +999,7 @@ Systematic:          "JES_SinglePart"
   SubCategory:       "JES"
   Smoothing:         40
   
-% MET --- correlate
+% MET ---
 
 Systematic:          "MET_SoftTrk_Scale"
   Title:             "#it{E}_{T}^{miss} (soft track scale)"
@@ -1049,7 +1030,7 @@ Systematic:          "MET_SoftTrk_ResoPara";"MET_SoftTrk_ResoPerp"
   SubCategory:       "MET"
   Smoothing:         40
   
-% b-tagging --- correlated
+% b-tagging ---
   
 Systematic:           "btag_b_0";"btag_b_1";"btag_b_2";"btag_b_3";"btag_b_4";"btag_b_5";"btag_b_6";"btag_b_7";"btag_b_8"                                                         
   Title:              "#it{b}-tagging eff. (#it{b}, NP 0)";"#it{b}-tagging eff. (#it{b}, NP 1)";"#it{b}-tagging eff. (#it{b}, NP 2)";"#it{b}-tagging eff. (#it{b}, NP 3)";"#it{b}-tagging eff. (#it{b}, NP 4)";"#it{b}-tagging eff. (#it{b}, NP 5)";"#it{b}-tagging eff. (#it{b}, NP 6)";"#it{b}-tagging eff. (#it{b}, NP 7)";"#it{b}-tagging eff. (#it{b}, NP 8)"
@@ -1095,7 +1076,7 @@ Systematic:           "btag_extrap"                                   ;"btag_ext
   SubCategory:        "b-tagging"
   Category:           "Instrumental"
 
-% JVT --- correlated
+% JVT ---
   
 Systematic:           "jvt"
   Title:              "JVT"
@@ -1108,7 +1089,7 @@ Systematic:           "jvt"
   SubCategory:        "JVT"
   Category:           "Instrumental"
 
-% -- Leptons -- correlated
+% -- Leptons
 
 % Scale and Resolution ---
 

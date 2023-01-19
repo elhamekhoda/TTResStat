@@ -1,22 +1,17 @@
 *~
 ._*
 source/.asetup.save
+.asetup.save
 # for macs
 .DS_Store
-
-#TRExFitter dir
-TRExFitter
 
 #plots
 plots/plots_*
 plots/*
 
 #configs
-configs/*
-!template_*
-!configs/ttRes1L2L
-!configs/ttres2L
-!configs/ttres1L
+configs/ttres1l2l/archive/*
+configs/archive
 
 #batch files
 batch_files

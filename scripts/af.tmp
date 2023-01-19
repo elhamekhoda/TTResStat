@@ -1,5 +1,5 @@
-executable            = SCRIPTS/run_trexfitter.sh
-arguments             = MASS_DIR OPS SUFFIX MASS CHANNEL SIGNAL EXCLUDE_SYSTEMATICS
+executable            = SCRIPT_DIR/run_trexfitter.sh
+arguments             = SCRIPT_DIR MASS_DIR OPS SUFFIX MASS CHANNEL SIGNAL
 output                = MASS_DIR/condor.out
 error                 = MASS_DIR/condor.err
 log                   = MASS_DIR/condor.log

@@ -12,24 +12,32 @@ def move_limits(dirs, out_path):
         if not d.is_dir():
             print(f'Error: {d} is not a directory')
             continue
-        if not (d / 'limits').exists():
-            print(f'Error: {d / "limits"} does not exist')
+        if not (d / 'ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll').exists():
+            print(f'Error: {d / "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll"} does not exist')
             continue
+        if not (d / 'ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll').is_dir():
+            print(f'Error: {d / "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll"} is not a directory')
+            continue
+        l = d / 'ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll'
+        if not (l / 'Limits' / 'asymptotics').exists():
+            print(f'Error: {l / "Limits" / "asymptotics"} does not exist')
+            continue
+        if not (l / 'Limits' / 'asymptotics').is_dir():
+            print(f'Error: {l / "Limits" / "asymptotics"} is not a directory')
+            continue
+        l = l / 'Limits' / 'asymptotics'
 
         stem = d.stem
         split = stem.split('_')
-        for i, s in enumerate(split):
-            if s == 'inj':
-                inj_mass = int(split[i+1])
-                break
+        inj_mass = split[1]
         
         try:
-            limit_file = [f for f in d.glob('limits/*.root')][0]
+            limit_file = [f for f in l.glob('*.root')][0]
         except IndexError:
-            print(f'Error: no limit file found in {d / "limits"}')
+            print(f'Error: no limit file found in {l}')
             continue
         # move limit file to out path
-        shutil.copy(limit_file, out_path / f'{inj_mass}.root')
+        shutil.copy(limit_file, out_path / f'Zprime_{inj_mass}.root')
 
 if __name__ == "__main__":
     import argparse
