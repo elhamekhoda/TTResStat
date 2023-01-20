@@ -11,6 +11,7 @@ Job: "ttRes1L"
   OutputDir: "OUTPUTDIR/"
   HistoPath: "INPUTDIR/"
   InputFolder: "HISTODIR/"
+  SplitHistoFiles: TRUE
   DebugLevel: 1
   SystControlPlots: TRUE
   SystErrorBars: TRUE

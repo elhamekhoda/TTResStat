@@ -4,6 +4,7 @@ import os
 import shutil
 import subprocess
 from pathlib import Path
+from typing import Dict
 
 from make_config import make_1l_config, make_2l_config, make_combined_config, Settings
 
@@ -34,41 +35,38 @@ def copy_limits_to_shared(channel, mass_out_dir, shared_limit_dir):
 def write_configs(settings: Settings):
     """Write the trexfitter config files for the specified channel.
     Returns:
-        ttres1L_config (Path): path to the ttres1L.config file
-        ttres2L_config (Path): path to the ttres2L.config file
-        ttres1L2L_config (Path): path to the ttres1L2L.config file
+        channel_to_config (Dict[str, Path]): mapping from channel to the path of the config file
+        channel_to_opts (Dict[str, str]): mapping from channel to trexfitter options
     """
     ttres1L_config = (settings.mass_out_dir / 'ttres1L.config').resolve()
     ttres2L_config = (settings.mass_out_dir / 'ttres2L.config').resolve()
     ttres1L2L_config = (settings.mass_out_dir / 'ttres1L2L.config').resolve()
 
-    configs = {}
-    opts = {}
+    channel_to_config = {}
+    channel_to_opts = {}
 
     if settings.channel == 'all' or settings.channel == '1l':
         template_text, opts = make_1l_config(settings)
         with ttres1L_config.open('w+') as f:
             f.write(template_text)
-        configs['1l'] = ttres1L_config
-        opts['1l'] = opts
+        channel_to_config['1l'] = ttres1L_config
+        channel_to_opts['1l'] = opts
     if settings.channel == 'all' or settings.channel == '2l':
         template_text, opts = make_2l_config(settings)
-        template_text = template_text.replace("OUTPUTDIR", str(settings.mass_out_dir))
         with ttres2L_config.open('w+') as f:
             f.write(template_text)
-        configs['2l'] = ttres2L_config
-        opts['2l'] = opts
+        channel_to_config['2l'] = ttres2L_config
+        channel_to_opts['2l'] = opts
     if settings.channel == 'all' or settings.channel == 'combined':
         assert ttres1L_config.exists()
         assert ttres2L_config.exists()
-        template_text, opts = make_combined_config()
-        template_text = template_text.replace("SIGNALNAME", settings.signal_name).replace("SIGNALMASS", str(settings.mass)).replace("SINGLELEPCONFIG", str(ttres1L_config)).replace("DILEPCONFIG", str(ttres2L_config))
+        template_text, opts = make_combined_config(settings, ttres1L_config, ttres2L_config)
         with ttres1L2L_config.open('w+') as f:
             f.write(template_text)
-        configs['combined'] = ttres1L2L_config
-        opts['combined'] = opts
+        channel_to_config['combined'] = ttres1L2L_config
+        channel_to_opts['combined'] = opts
 
-    return configs, opts
+    return channel_to_config, channel_to_opts
 
 def submit_condor(settings: Settings, args):
     """Submit the trexfitter job to condor."""
@@ -100,13 +98,12 @@ def submit_batch(settings: Settings, args):
     else:
         raise NotImplementedError('Unrecognized batch system: {}'.format(settings.batch_system))
 
-def run_trexfitter(settings: Settings, ttres1L_config: Path, ttres2L_config: Path, ttres1L2L_config: Path):
+def run_trexfitter(settings: Settings, channel_to_config: Dict[str, Path], channel_to_opts: Dict[str, str]):
     """Run trexfitter for the specified parameters.
     Args:
         settings (Settings): settings object
-        ttres1L_config (Path): path to the ttres1L.config file
-        ttres2L_config (Path): path to the ttres2L.config file
-        ttres1L2L_config (Path): path to the ttres1L2L.config file
+        channel_to_config (Dict[str, Path]): mapping from channel to config file
+        channel_to_opts (Dict[str, str]): mapping from channel to trexfitter options
     """
     # make command-line options for trexfitter
     opts = []
@@ -115,7 +112,7 @@ def run_trexfitter(settings: Settings, ttres1L_config: Path, ttres2L_config: Pat
         opts.append(f'Exclude={",".join(settings.exclude_systematics)}')
     opts = ':'.join(opts)
 
-    def call_trex_fitter(ops, config, log):
+    def call_trex_fitter(ops: str, opts: str, config: Path, log: str):
         """Call trexfitter with the specified options and config file.
         Args:
             ops (str): trexfitter options
@@ -132,18 +129,14 @@ def run_trexfitter(settings: Settings, ttres1L_config: Path, ttres2L_config: Pat
             subprocess.call(cmd, shell=True)
 
     if settings.channel == 'all':
-        call_trex_fitter(ops="wfl", config=ttres1L_config, log="ttres1L.ans") #1L
-        call_trex_fitter(ops="wfl", config=ttres2L_config, log="ttres2L.ans") #2L
-        call_trex_fitter(ops=settings.ops, config=ttres1L2L_config, log="ttres1L2L.ans") # 1L2L
-    elif settings.channel == '1l':
-        call_trex_fitter(ops=settings.ops, config=ttres1L_config, log="ttres1L.ans") #1L
-    elif settings.channel == '2l':
-        call_trex_fitter(ops=settings.ops, config=ttres2L_config, log="ttres2L.ans") #2L
-    elif settings.channel == 'combined':
-        call_trex_fitter(ops=settings.ops, config=ttres1L2L_config, log="ttres1L2L.ans") # 1L2L
+        call_trex_fitter(ops="wfl", opts=channel_to_opts['1l'], config=channel_to_config['1l'], log="ttres1L.ans") #1L
+        call_trex_fitter(ops="wfl", opts=channel_to_opts['2l'], config=channel_to_config['2l'], log="ttres2L.ans") #2L
+        call_trex_fitter(ops=settings.ops, opts=channel_to_opts['combined'], config=channel_to_config['combined'], log="ttres1L2L.ans") # 1L2L
+    elif settings.channel in ['1l', '2l', 'combined']:
+        call_trex_fitter(ops=settings.ops, opts=channel_to_opts[settings.channel], config=channel_to_config[settings.channel], log=f"ttres{settings.channel}.ans")
     else:
-        raise NotImplementedError()
-
+        raise ValueError(f'Unrecognized channel: {settings.channel}')
+    
     if not settings.dry_run and 'l' in settings.ops:
         copy_limits_to_shared(settings.channel, settings.mass_out_dir, settings.limit_dir)
     
@@ -191,8 +184,6 @@ def main():
     limit_dir.mkdir(exist_ok=True)
     histo_dir = (scripts_path / '..' / 'histos').resolve()
 
-    breakpoint()
-
     print(f'run_dir: {run_dir}')
     print(f'limit_dir: {limit_dir}')
     
@@ -217,13 +208,12 @@ def main():
                             unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly, 
                             bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir)
 
-        ttres1L_config, ttres2L_config, ttres1L2L_config = write_configs(settings)
+        channel_to_config, channel_to_opts = write_configs(settings)
 
         if args.batch_system:
             submit_batch(settings, args)
         else:
-            run_trexfitter(settings=settings, ttres1L_config=ttres1L_config, ttres2L_config=ttres2L_config, 
-                           ttres1L2L_config=ttres1L2L_config)
+            run_trexfitter(settings=settings, channel_to_config=channel_to_config, channel_to_opts=channel_to_opts)
 
 if __name__ == "__main__":
     main()

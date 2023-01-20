@@ -18,7 +18,6 @@ class Settings:
     mass_out_dir: Path
     limit_dir: Path
     histo_dir: Path
-    in_dir: Path
     channel: str
     signal_name: str
     signal_injection_name: str
@@ -166,39 +165,39 @@ def makeSysList(regions, use_dilep_names=False):
     return {s.group_name: s for s in sys_groups}
 
 
-def add_common_settings_to_config_string(string: str, settings: Settings):
-    string = string.replace("INPUTDIR", settings.in_dir)
-    string = string.replace("HISTODIR", settings.histo_dir)
+def add_common_settings_to_config_string(config_string: str, in_dir: Path, settings: Settings):
+    config_string = config_string.replace("INPUTDIR", str(in_dir))
+    config_string = config_string.replace("HISTODIR", str(settings.histo_dir))
 
     if settings.unblind:
-        string = string.replace("BLIND", "FALSE")
+        config_string = config_string.replace("BLIND", "FALSE")
     else:
-        string = string.replace("BLIND", "TRUE")
+        config_string = config_string.replace("BLIND", "TRUE")
     if settings.signal_injection_mass is not None:
-        string = string.replace("INJMASS", str(settings.signal_injection_mass))
-        string = string.replace("INJNAME", str(settings.signal_injection_name))
+        config_string = config_string.replace("INJMASS", str(settings.signal_injection_mass))
+        config_string = config_string.replace("INJNAME", str(settings.signal_injection_name))
     if settings.auto_injection_strength is not None:
-        string = string.replace("AUTOINJSTRENGTH", str(settings.auto_injection_strength))
-        string = string.replace("AUTOINJ", "TRUE")
+        config_string = config_string.replace("AUTOINJSTRENGTH", str(settings.auto_injection_strength))
+        config_string = config_string.replace("AUTOINJ", "TRUE")
     else:
-        string = string.replace("AUTOINJSTRENGTH", "0.0")
-        string = string.replace("AUTOINJ", "FALSE")
+        config_string = config_string.replace("AUTOINJSTRENGTH", "0.0")
+        config_string = config_string.replace("AUTOINJ", "FALSE")
 
     if settings.statonly:
-        string = string.replace("STATONLY", "TRUE")
+        config_string = config_string.replace("STATONLY", "TRUE")
     else:
-        string = string.replace("STATONLY", "FALSE")
+        config_string = config_string.replace("STATONLY", "FALSE")
 
     if settings.bonly:
-        string = string.replace("SPLUSB", "BONLY")
+        config_string = config_string.replace("SPLUSB", "BONLY")
 
-    string = string.replace("OUTPUTDIR", str(settings.mass_out_dir))
-    string = string.replace("SIGNALNAME", settings.signal_name)
-    string = string.replace("SIGNALMASS", str(settings.mass))
+    config_string = config_string.replace("OUTPUTDIR", str(settings.mass_out_dir))
+    config_string = config_string.replace("SIGNALNAME", settings.signal_name)
+    config_string = config_string.replace("SIGNALMASS", str(settings.mass))
 
-    return string
+    return config_string
 
-def add_systematics_to_1l_config_string(string: str, settings: Settings):
+def add_systematics_to_1l_config_string(config_string: str, settings: Settings):
     #sys blocks
     sysmaps = makeSysList(settings.region_1l, use_dilep_names=settings.use_dilep_names)
     JES_sys_block = writeSysBlock(sysmaps["JES_sys"])
@@ -216,24 +215,24 @@ def add_systematics_to_1l_config_string(string: str, settings: Settings):
     ttpdf_sys_block = writeSysBlock(sysmaps["tt_pdf_sys"])
     ttNNLO_sys_block = writeSysBlock(sysmaps["tt_NNLO_sys"])
 
-    string = string.replace("% BTAG_SYS",btag_sys_block)
-    string = string.replace("% TOPTAG_SYS",toptag_sys_block)
-    string = string.replace("% JES_SYS",JES_sys_block)
-    string = string.replace("% JER_SYS",JER_sys_block)
-    string = string.replace("% JMR_SYS",JMR_sys_block)
-    string = string.replace("% JMS_SYS",JMS_sys_block)
+    config_string = config_string.replace("% BTAG_SYS",btag_sys_block)
+    config_string = config_string.replace("% TOPTAG_SYS",toptag_sys_block)
+    config_string = config_string.replace("% JES_SYS",JES_sys_block)
+    config_string = config_string.replace("% JER_SYS",JER_sys_block)
+    config_string = config_string.replace("% JMR_SYS",JMR_sys_block)
+    config_string = config_string.replace("% JMS_SYS",JMS_sys_block)
     #MET
-    string = string.replace("% MET_SCALE",MET_scale_sys_block)
-    string = string.replace("% MET_RES",MET_res_sys_block)
-    string = string.replace(r"% EG_SYS",EG_sys_block)
-    string = string.replace("% MUON_SYS",MUON_sys_block)
+    config_string = config_string.replace("% MET_SCALE",MET_scale_sys_block)
+    config_string = config_string.replace("% MET_RES",MET_res_sys_block)
+    config_string = config_string.replace(r"% EG_SYS",EG_sys_block)
+    config_string = config_string.replace("% MUON_SYS",MUON_sys_block)
     #ttbar generator, pdf and NNLO correction
-    string = string.replace("% TTGEN_SYS",ttgen_sys_block)
+    config_string = config_string.replace("% TTGEN_SYS",ttgen_sys_block)
     # string_allsys = string_allsys.replace("% TTMUF_SYS",ttmuF_sys_block)
-    string = string.replace("% TTPDF_SYS",ttpdf_sys_block)
-    string = string.replace("% TTNNLO_SYS",ttNNLO_sys_block)
+    config_string = config_string.replace("% TTPDF_SYS",ttpdf_sys_block)
+    config_string = config_string.replace("% TTNNLO_SYS",ttNNLO_sys_block)
 
-    return string
+    return config_string
 
 def get_common_opts(settings: Settings, regions: str):
     opts = []
@@ -262,7 +261,7 @@ def make_1l_config(settings: Settings):
 
     # read config template
     with template_path.open('r') as f:
-        string = f.read()
+        config_string = f.read()
 
     #regions
     if settings.region_1l == 'combined':
@@ -274,17 +273,16 @@ def make_1l_config(settings: Settings):
     settings.region_1l = regions
 
     if not settings.statonly:
-        string = add_systematics_to_1l_config_string(string, settings)
+        config_string = add_systematics_to_1l_config_string(config_string, settings)
 
-    if settings.in_dir is None:
-        settings.in_dir = os.environ['DATA_DIR_1L']
-    string = add_common_settings_to_config_string(string, settings)
+    in_dir = Path(os.environ['DATA_DIR_1L'])
+    config_string = add_common_settings_to_config_string(config_string, in_dir, settings)
 
     # make command-line options for trexfitter
     opts = get_common_opts(settings, regions=regions)
     opts = ':'.join(opts)
 
-    return string, opts
+    return config_string, opts
 
 
 def make_2l_config(settings: Settings):
@@ -303,12 +301,10 @@ def make_2l_config(settings: Settings):
     template_name = template_path.stem
     settings.histo_dir = settings.histo_dir / 'ttres2l' / template_name
     settings.histo_dir.mkdir(parents=True, exist_ok=True)
-    if settings.in_dir is None:
-        settings.in_dir = os.environ['DATA_DIR_2L']
-
+    
     # read config template
     with template_path.open('r') as f:
-        string = f.read()
+        config_string = f.read()
 
     # regions
     if settings.region_2l == 'mllbb':
@@ -319,13 +315,16 @@ def make_2l_config(settings: Settings):
         regions = "mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100"
 
     # common settings
-    string = add_common_settings_to_config_string(string, settings)
+    in_dir = Path(os.environ['DATA_DIR_2L'])
+    config_string = add_common_settings_to_config_string(config_string, in_dir, settings)
 
     # make command-line options for trexfitter
     opts = get_common_opts(settings, regions=regions)
     opts = ':'.join(opts)
 
-    return string, opts
+    return config_string, opts
 
-def make_combined_config(settings: Settings):
-    pass
+def make_combined_config(settings: Settings, config_1l: str, config_2l: str):
+    string = string.replace("SINGLELEPCONFIG", str(config_1l)).replace("DILEPCONFIG", str(config_2l))
+    opts = ''
+    return string, opts
