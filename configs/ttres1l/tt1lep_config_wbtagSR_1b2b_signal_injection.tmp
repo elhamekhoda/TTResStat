@@ -42,6 +42,7 @@ Fit: "SPLUSB_CRSR_Asimov"
   FitType: SPLUSB
   FitRegion: CRSR
   FitBlind: BLIND
+  POIAsimov: FIT_POIASIMOV
   SetRandomInitialNPval: 0.01
   GetGoodnessOfFit: TRUE
   UseMinos: mu_Zprime

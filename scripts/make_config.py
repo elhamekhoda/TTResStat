@@ -27,6 +27,7 @@ class Settings:
     mass: int
     signal_injection_mass: int
     auto_injection_strength: float
+    fit_mu_asimov: float
     use_dilep_names: bool
     unblind: bool
     statonly: bool
@@ -194,6 +195,7 @@ def add_common_settings_to_config_string(config_string: str, in_dir: Path, setti
     config_string = config_string.replace("OUTPUTDIR", str(settings.mass_out_dir))
     config_string = config_string.replace("SIGNALNAME", settings.signal_name)
     config_string = config_string.replace("SIGNALMASS", str(settings.mass))
+    config_string = config_string.replace("FIT_POIASIMOV", str(settings.fit_mu_asimov))
 
     return config_string
 

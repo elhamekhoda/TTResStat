@@ -145,7 +145,7 @@ def main():
     parser = argparse.ArgumentParser(description="run single lepton and di-lepton channel combined fit using trex_fitter.")
     parser.add_argument('--seed', default=42, type=int, help="random seed for trex-fitter.")
     parser.add_argument('--dry_run', '-d', action='store_true', help="print trex-fitter commands without running them.")
-    parser.add_argument('--suffix', '-s', default="", help="suffix to add to the output directory name.")
+    parser.add_argument('--suffix', '-s', help="suffix to add to the output directory name.")
     parser.add_argument('--ops', default='mwfl', help="ops for trex-fitter.")
     parser.add_argument('--opts', help="command-line options for trex-fitter (that are not already set in make_config).")
     parser.add_argument('--channel', '-c', default='all', choices=['1l', '2l', 'combined', 'all'], help="perform specified channel only.")
@@ -161,6 +161,7 @@ def main():
     parser.add_argument("--use_dilep_names", action="store_true", help="use dilepton naming scheme for systematics.")
     parser.add_argument("--statonly", action="store_true", help="run stat-only fit.")
     parser.add_argument("--bonly", action="store_true", help="run b-only fit.")
+    parser.add_argument('--fit_mu_asimov', type=float, default=1.0, help="mu value for fit asimov data.")
     parser.add_argument('--batch_system', choices=['af', 'af_short'], default=None, type=str, help="submit jobs to specified batch system.")
     parser.add_argument('--masses', '-m', default=[500, 750, 1000, 1250, 1500, 1750, 2000, 2500, 3000, 4000, 5000], type=int, nargs='+', help="Z' masses to scan.")
 
@@ -176,9 +177,9 @@ def main():
     if not args.suffix:
         suffix = [f'{args.channel}', f'{args.signal}']
         if args.channel in ['1l', 'all']:
-            suffix.append(f'region1l_{args.region_1l}')
+            suffix.append(f'region1l-{args.region_1l}')
         if args.channel in ['2l', 'all']:
-            suffix.append(f'region2l_{args.region_2l}')
+            suffix.append(f'region2l-{args.region_2l}')
         if args.unblind:
             suffix.append('unblind')
         if args.statonly:
@@ -186,11 +187,13 @@ def main():
         if args.bonly:
             suffix.append('bonly')
         if args.signal_injection_mass:
-            suffix.append(f'siginject_{args.signal_injection_name}_{args.signal_injection_mass}')
+            suffix.append(f'siginject-{args.signal_injection_name}-{args.signal_injection_mass}')
         if args.auto_injection_strength:
-            suffix.append(f'autoinject_{args.auto_injection_strength}')
+            suffix.append(f'autoinject-{args.auto_injection_strength}')
         if args.opts:
             raise NotImplementedError('Cannot use opts with default suffix. Please specify a suffix.')
+        
+        suffix = '_'.join(suffix)
     else:
         suffix = args.suffix
     run_name = run_name + '_' + suffix
@@ -223,7 +226,7 @@ def main():
         settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l, use_dilep_names=args.use_dilep_names, 
                             signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name, 
                             unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly, 
-                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir)
+                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov)
 
         channel_to_config, channel_to_opts = write_configs(settings)
 

@@ -56,7 +56,7 @@ Fit: "fit"
   FitType: SPLUSB
   FitRegion: CRSR
   FitBlind: BLIND
-  POIAsimov: 1
+  POIAsimov: FIT_POIASIMOV
   SetRandomInitialNPval: 0.001
   SaturatedModel: TRUE 
 
