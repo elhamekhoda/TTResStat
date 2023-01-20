@@ -109,7 +109,7 @@ Systematic: %s
              block += '\n  Smoothing: 40'
     if sys_group.correlation:
              block += '\n  Decorrelate:  REGION'
-    print("\033[32;1m Adding %s systematics for samples = [%s] in the [%s] regions \033[0m"%(sys_group.group_name,sample_list,regions))
+    # print("\033[32;1m Adding %s systematics for samples = [%s] in the [%s] regions \033[0m"%(sys_group.group_name,sample_list,regions))
 
     return block
 

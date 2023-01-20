@@ -71,9 +71,9 @@ def write_configs(settings: Settings):
 def submit_condor(settings: Settings, args):
     """Submit the trexfitter job to condor."""
     scripts_path = Path(__file__).parent.resolve()
-    if settings.batch_system == 'af':
+    if args.batch_system == 'af':
         template_name = 'af.tmp'
-    elif settings.batch_system == 'af_short':
+    elif args.batch_system == 'af_short':
         template_name = 'af_short.tmp'
     template_file = scripts_path / template_name
     with template_file.open('r') as f:
@@ -93,10 +93,10 @@ def submit_condor(settings: Settings, args):
 
 def submit_batch(settings: Settings, args):
     """Submit the trexfitter job to the batch system."""
-    if settings.batch_system in ['af', 'af_short']:
+    if args.batch_system in ['af', 'af_short']:
         submit_condor(settings, args)
     else:
-        raise NotImplementedError('Unrecognized batch system: {}'.format(settings.batch_system))
+        raise NotImplementedError('Unrecognized batch system: {}'.format(args.batch_system))
 
 def run_trexfitter(settings: Settings, channel_to_config: Dict[str, Path], channel_to_opts: Dict[str, str]):
     """Run trexfitter for the specified parameters.
@@ -147,7 +147,7 @@ def main():
     parser.add_argument('--dry_run', '-d', action='store_true', help="print trex-fitter commands without running them.")
     parser.add_argument('--suffix', '-s', default="", help="suffix to add to the output directory name.")
     parser.add_argument('--ops', default='mwfl', help="ops for trex-fitter.")
-    parser.add_argument('--opts', default='', help="command-line options for trex-fitter (that are not already set in make_config).")
+    parser.add_argument('--opts', help="command-line options for trex-fitter (that are not already set in make_config).")
     parser.add_argument('--channel', '-c', default='all', choices=['1l', '2l', 'combined', 'all'], help="perform specified channel only.")
     parser.add_argument('--signal', choices=['zprime', 'grav', 'gluon'], default='zprime', type=str, help="signal to use.")
     parser.add_argument("--region_1l",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
@@ -173,16 +173,33 @@ def main():
     # Make appropriate directories
     timestamp = str(datetime.date.today())
     run_name = f'statResults_ttres1L2L_{timestamp}'
-    if args.suffix:
-        run_name = run_name + '_' + args.suffix
-    if not args.suffix and args.batch_system:
-        raise NotImplementedError('batch mode must be run with a suffix!')
+    if not args.suffix:
+        suffix = [f'{args.channel}', f'{args.signal}']
+        if args.channel in ['1l', 'all']:
+            suffix.append(f'region1l_{args.region_1l}')
+        if args.channel in ['2l', 'all']:
+            suffix.append(f'region2l_{args.region_2l}')
+        if args.unblind:
+            suffix.append('unblind')
+        if args.statonly:
+            suffix.append('statonly')
+        if args.bonly:
+            suffix.append('bonly')
+        if args.signal_injection_mass:
+            suffix.append(f'siginject_{args.signal_injection_name}_{args.signal_injection_mass}')
+        if args.auto_injection_strength:
+            suffix.append(f'autoinject_{args.auto_injection_strength}')
+        if args.opts:
+            raise NotImplementedError('Cannot use opts with default suffix. Please specify a suffix.')
+    else:
+        suffix = args.suffix
+    run_name = run_name + '_' + suffix
     scripts_path = Path(__file__).parent.resolve()
     run_dir = (scripts_path / '..' / 'run' / run_name).resolve()
     run_dir.mkdir(parents=True, exist_ok=True)
     limit_dir = (run_dir / 'limits').resolve()
     limit_dir.mkdir(exist_ok=True)
-    histo_dir = (scripts_path / '..' / 'histos').resolve()
+    histo_dir = (scripts_path / '..' / 'histograms').resolve()
 
     print(f'run_dir: {run_dir}')
     print(f'limit_dir: {limit_dir}')
