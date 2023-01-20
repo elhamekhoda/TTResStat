@@ -5,14 +5,13 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from make_config import make_1l_config, make_2l_config, make_combined_config
+from make_config import make_1l_config, make_2l_config, make_combined_config, Settings
 
 
-def copy_limits_to_shared(channel, mass, mass_out_dir, shared_limit_dir):
+def copy_limits_to_shared(channel, mass_out_dir, shared_limit_dir):
     """Copy the limit file to the shared limit directory.
     Args:
         channel (str): '1l', '2l', 'all', or 'combined'
-        mass (int): Z' mass
         mass_out_dir (Path): directory containing the limit file from running trexfitter
         shared_limit_dir (Path): directory to copy the limit file to
     """
@@ -32,55 +31,51 @@ def copy_limits_to_shared(channel, mass, mass_out_dir, shared_limit_dir):
         print('error: no limit file found in run limit directory: ', run_limit_dir)
 
 
-def write_configs(mass_out_dir, channel, mass, signal_name, region, use_dilep_names, signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, statonly, bonly):
+def write_configs(settings: Settings):
     """Write the trexfitter config files for the specified channel.
-    Args:
-        mass_out_dir (Path): directory to write the config files to
-        channel (str): '1l', '2l', 'all', or 'combined'
-        mass (int): Z' mass
-        signal_name (str): name of the signal sample
-        region (str): the region to use in the limit: boosted, resolved, combined
-        use_dilep_names (bool): whether to use the dilepton names for the systematics
-        signal_injection_mass (int): mass to inject
-        signal_injection_name (str): name of the signal sample to inject
-        unblind (bool): whether to unblind the limit
-        auto_injection_strength (float): strength of the signal injection
-        statonly (bool): whether to run the statonly limit
-        bonly (bool): whether to run the bonly limit
     Returns:
         ttres1L_config (Path): path to the ttres1L.config file
         ttres2L_config (Path): path to the ttres2L.config file
         ttres1L2L_config (Path): path to the ttres1L2L.config file
     """
-    ttres1L_config = (mass_out_dir / 'ttres1L.config').resolve()
-    ttres2L_config = (mass_out_dir / 'ttres2L.config').resolve()
-    ttres1L2L_config = (mass_out_dir / 'ttres1L2L.config').resolve()
+    ttres1L_config = (settings.mass_out_dir / 'ttres1L.config').resolve()
+    ttres2L_config = (settings.mass_out_dir / 'ttres2L.config').resolve()
+    ttres1L2L_config = (settings.mass_out_dir / 'ttres1L2L.config').resolve()
 
-    if channel == 'all' or channel == '1l':
-        template_text = make_1l_config(region, use_dilep_names, signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, signal_name, mass, statonly, bonly, mass_out_dir)
+    configs = {}
+    opts = {}
+
+    if settings.channel == 'all' or settings.channel == '1l':
+        template_text, opts = make_1l_config(settings)
         with ttres1L_config.open('w+') as f:
             f.write(template_text)
-    if channel == 'all' or channel == '2l':
-        template_text = make_2l_config(signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, signal_name, mass, statonly, bonly, mass_out_dir)
-        template_text = template_text.replace("OUTPUTDIR", str(mass_out_dir))
+        configs['1l'] = ttres1L_config
+        opts['1l'] = opts
+    if settings.channel == 'all' or settings.channel == '2l':
+        template_text, opts = make_2l_config(settings)
+        template_text = template_text.replace("OUTPUTDIR", str(settings.mass_out_dir))
         with ttres2L_config.open('w+') as f:
             f.write(template_text)
-    if channel == 'all' or channel == 'combined':
+        configs['2l'] = ttres2L_config
+        opts['2l'] = opts
+    if settings.channel == 'all' or settings.channel == 'combined':
         assert ttres1L_config.exists()
         assert ttres2L_config.exists()
-        template_text = make_combined_config()
-        template_text = template_text.replace("SIGNALNAME", signal_name).replace("SIGNALMASS", str(mass)).replace("SINGLELEPCONFIG", str(ttres1L_config)).replace("DILEPCONFIG", str(ttres2L_config))
+        template_text, opts = make_combined_config()
+        template_text = template_text.replace("SIGNALNAME", settings.signal_name).replace("SIGNALMASS", str(settings.mass)).replace("SINGLELEPCONFIG", str(ttres1L_config)).replace("DILEPCONFIG", str(ttres2L_config))
         with ttres1L2L_config.open('w+') as f:
             f.write(template_text)
+        configs['combined'] = ttres1L2L_config
+        opts['combined'] = opts
 
-    return ttres1L_config, ttres2L_config, ttres1L2L_config
+    return configs, opts
 
-def submit_condor(mass_out_dir, mass, batch_system, args):
+def submit_condor(settings: Settings, args):
     """Submit the trexfitter job to condor."""
     scripts_path = Path(__file__).parent.resolve()
-    if batch_system == 'af':
+    if settings.batch_system == 'af':
         template_name = 'af.tmp'
-    elif batch_system == 'af_short':
+    elif settings.batch_system == 'af_short':
         template_name = 'af_short.tmp'
     template_file = scripts_path / template_name
     with template_file.open('r') as f:
@@ -88,43 +83,36 @@ def submit_condor(mass_out_dir, mass, batch_system, args):
     ignore_keys = ['batch_system', 'masses', 'dry_run']
     cmd = [f'--{k} {v}' for k, v in vars(args).items() if v is not None and type(v) is not bool and k not in ignore_keys]
     cmd.extend([f'--{k}' for k, v in vars(args).items() if v is True and k not in ignore_keys])
-    cmd.append(f'--mass {mass}')
+    cmd.append(f'--mass {settings.mass}')
     cmd = ' '.join(cmd)
-    text = text.replace('MASS_DIR', str(mass_out_dir)).replace('SCRIPT_DIR', str(scripts_path)).replace('CMD', cmd)
-    condor_sub_file = mass_out_dir / f'condor.sub'
+    text = text.replace('MASS_DIR', str(settings.mass_out_dir)).replace('SCRIPT_DIR', str(scripts_path)).replace('CMD', cmd)
+    condor_sub_file = settings.mass_out_dir / f'condor.sub'
     with condor_sub_file.open('w') as f:
         f.write(text)
     print(f'submitting {str(condor_sub_file)}')
-    if not args.dry_run:
+    if not settings.dry_run:
         subprocess.call(['condor_submit', str(condor_sub_file)])
 
-def submit_batch(mass_out_dir, mass, batch_system, args):
+def submit_batch(settings: Settings, args):
     """Submit the trexfitter job to the batch system."""
-    if batch_system in ['af', 'af_short']:
-        submit_condor(mass_out_dir, mass, batch_system, args)
+    if settings.batch_system in ['af', 'af_short']:
+        submit_condor(settings, args)
     else:
-        raise NotImplementedError('Unrecognized batch system: {}'.format(batch_system))
+        raise NotImplementedError('Unrecognized batch system: {}'.format(settings.batch_system))
 
-def run_trexfitter(mass_out_dir, channel, ops, dry_run, ttres1L_config, ttres2L_config, ttres1L2L_config, mass, limit_dir, exclude_systematics, signal_name):
+def run_trexfitter(settings: Settings, ttres1L_config: Path, ttres2L_config: Path, ttres1L2L_config: Path):
     """Run trexfitter for the specified parameters.
     Args:
-        mass_out_dir (Path): directory to run trexfitter in
-        channel (str): '1l', '2l', 'all', or 'combined'
-        ops (str): trexfitter options
-        dry_run (bool): if True, don't actually run trexfitter
+        settings (Settings): settings object
         ttres1L_config (Path): path to the ttres1L.config file
         ttres2L_config (Path): path to the ttres2L.config file
         ttres1L2L_config (Path): path to the ttres1L2L.config file
-        mass (int): Z' mass
-        limit_dir (Path): directory to store the limit files in
-        exclude_systematics (List): list of systematics to exclude
-        signal_name (str): name of the signal to use
     """
     # make command-line options for trexfitter
     opts = []
-    opts.append(f'Signal={signal_name}_{mass}')
-    if exclude_systematics:
-        opts.append(f'Exclude={",".join(exclude_systematics)}')
+    opts.append(f'Signal={settings.signal_name}_{settings.mass}')
+    if settings.exclude_systematics:
+        opts.append(f'Exclude={",".join(settings.exclude_systematics)}')
     opts = ':'.join(opts)
 
     def call_trex_fitter(ops, config, log):
@@ -134,41 +122,45 @@ def run_trexfitter(mass_out_dir, channel, ops, dry_run, ttres1L_config, ttres2L_
             config (Path): path to the config file
             log (str): name of the log file"""
         cmd = f"""trex-fitter {ops} {str(config)} "{opts}" 2>&1 | tee {log}"""
-        run_file = mass_out_dir / 'run.sh'
+        run_file = settings.mass_out_dir / 'run.sh'
         with run_file.open('w') as f:
             f.write(cmd)
         subprocess.call(['chmod', '+x', str(run_file)])
         print(f'calling: "{cmd}"')
-        if not dry_run:
-            os.chdir(mass_out_dir)
+        if not settings.dry_run:
+            os.chdir(settings.mass_out_dir)
             subprocess.call(cmd, shell=True)
 
-    if channel == 'all':
-        call_trex_fitter(ops="hwfl", config=ttres1L_config, log="ttres1L.ans") #1L
+    if settings.channel == 'all':
+        call_trex_fitter(ops="wfl", config=ttres1L_config, log="ttres1L.ans") #1L
         call_trex_fitter(ops="wfl", config=ttres2L_config, log="ttres2L.ans") #2L
-        call_trex_fitter(ops=ops, config=ttres1L2L_config, log="ttres1L2L.ans") # 1L2L
-    elif channel == '1l':
-        call_trex_fitter(ops=ops, config=ttres1L_config, log="ttres1L.ans") #1L
-    elif channel == '2l':
-        call_trex_fitter(ops=ops, config=ttres2L_config, log="ttres2L.ans") #2L
-    elif channel == 'combined':
-        call_trex_fitter(ops=ops, config=ttres1L2L_config, log="ttres1L2L.ans") # 1L2L
+        call_trex_fitter(ops=settings.ops, config=ttres1L2L_config, log="ttres1L2L.ans") # 1L2L
+    elif settings.channel == '1l':
+        call_trex_fitter(ops=settings.ops, config=ttres1L_config, log="ttres1L.ans") #1L
+    elif settings.channel == '2l':
+        call_trex_fitter(ops=settings.ops, config=ttres2L_config, log="ttres2L.ans") #2L
+    elif settings.channel == 'combined':
+        call_trex_fitter(ops=settings.ops, config=ttres1L2L_config, log="ttres1L2L.ans") # 1L2L
     else:
         raise NotImplementedError()
 
-    if not dry_run and 'l' in ops:
-        copy_limits_to_shared(channel, mass, mass_out_dir, limit_dir)
+    if not settings.dry_run and 'l' in settings.ops:
+        copy_limits_to_shared(settings.channel, settings.mass_out_dir, settings.limit_dir)
     
 
 def main():
     parser = argparse.ArgumentParser(description="run single lepton and di-lepton channel combined fit using trex_fitter.")
+    parser.add_argument('--seed', default=42, type=int, help="random seed for trex-fitter.")
     parser.add_argument('--dry_run', '-d', action='store_true', help="print trex-fitter commands without running them.")
     parser.add_argument('--suffix', '-s', default="", help="suffix to add to the output directory name.")
     parser.add_argument('--ops', default='mwfl', help="ops for trex-fitter.")
+    parser.add_argument('--opts', default='', help="command-line options for trex-fitter (that are not already set in make_config).")
     parser.add_argument('--channel', '-c', default='all', choices=['1l', '2l', 'combined', 'all'], help="perform specified channel only.")
     parser.add_argument('--signal', choices=['zprime', 'grav', 'gluon'], default='zprime', type=str, help="signal to use.")
-    parser.add_argument("--region",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
-                            help="Region to use in the limit: boosted, resolved, combined")
+    parser.add_argument("--region_1l",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
+                            help="Region to use for the 1l channel: boosted, resolved, combined")
+    parser.add_argument("--region_2l",       type=str,  default="mllbb_deltaphi", choices=['mllbb', 'deltaphi', 'mllbb_deltaphi'],
+                            help="Region to use for the 2l channel: mllbb")
     parser.add_argument("--signal_injection_mass", '-sigm', type=int, default=None, help="mass of signal to inject.")
     parser.add_argument("--signal_injection_name", '-sign', type=str, default=None, choices=['gluon', 'grav', 'zprime'], help="name of signal to inject.")
     parser.add_argument("--unblind", action='store_true', help='unblind the analysis, if set')
@@ -197,6 +189,9 @@ def main():
     run_dir.mkdir(parents=True, exist_ok=True)
     limit_dir = (run_dir / 'limits').resolve()
     limit_dir.mkdir(exist_ok=True)
+    histo_dir = (scripts_path / '..' / 'histos').resolve()
+
+    breakpoint()
 
     print(f'run_dir: {run_dir}')
     print(f'limit_dir: {limit_dir}')
@@ -217,16 +212,18 @@ def main():
         mass_out_dir = (run_dir / f'{args.signal}_{str(mass)}').resolve()
         mass_out_dir.mkdir(exist_ok=True, parents=True)
 
-        # mass_out_dir, channel, mass, signal_name, region, use_dilep_names, signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, statonly, bonly
-        ttres1L_config, ttres2L_config, ttres1L2L_config = write_configs(mass_out_dir, args.channel, mass, signal_name, args.region, 
-                                                                        args.use_dilep_names, args.signal_injection_mass, args.signal_injection_name, 
-                                                                        args.unblind, args.auto_injection_strength, args.statonly, args.bonly)
+        settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l, use_dilep_names=args.use_dilep_names, 
+                            signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name, 
+                            unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly, 
+                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir)
+
+        ttres1L_config, ttres2L_config, ttres1L2L_config = write_configs(settings)
 
         if args.batch_system:
-            submit_batch(mass_out_dir, mass, args.batch_system, args)
+            submit_batch(settings, args)
         else:
-            run_trexfitter(mass_out_dir, args.channel, args.ops, args.dry_run, ttres1L_config, ttres2L_config, ttres1L2L_config, mass, limit_dir, exclude_systematics, signal_name)
-
+            run_trexfitter(settings=settings, ttres1L_config=ttres1L_config, ttres2L_config=ttres2L_config, 
+                           ttres1L2L_config=ttres1L2L_config)
 
 if __name__ == "__main__":
     main()

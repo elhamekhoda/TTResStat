@@ -3,12 +3,12 @@
 % --------------- %
 
 Job: "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll"
-  InputFolder: "INPUTDIR/"
+  InputFolder: "HISTODIR/"
   InputName: ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll
   CmeLabel: "13 TeV"
   POI: "mu_Zprime"
   ReadFrom: NTUP
-  NtuplePaths: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24/"
+  NtuplePaths: "INPUTDIR/"
   Label: "Dilepton"
   LumiLabel: "139 fb#kern[-0.5]{^{-1}}"
   MCweight: "weight"

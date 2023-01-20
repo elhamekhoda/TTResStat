@@ -19,6 +19,9 @@ batch_files
 #output files
 run/*
 !run/pull_constrained
+*.ans
+*.root
+histograms/*
 
 #python compiled bytecode files (.pyc files) 
 *.pyc
@@ -37,3 +40,4 @@ scripts/run_2l_zprime_excluded.sh
 scripts/run_statonly_siginj.sh
 scripts/exploration.ipynb
 scripts/cp_configs.sh
+scripts/make_siginj_configs.sh

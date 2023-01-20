@@ -10,6 +10,7 @@ Job: "ttRes1L"
   ReadFrom: HIST
   OutputDir: "OUTPUTDIR/"
   HistoPath: "INPUTDIR/"
+  InputFolder: "HISTODIR/"
   DebugLevel: 1
   SystControlPlots: TRUE
   SystErrorBars: TRUE
@@ -137,7 +138,149 @@ NormFactor: "WjetsNorm_resolved3"
 % % --- REGIONS --- %
 % % --------------- %
 
-% REGIONS
+Region: "be1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "be1"
+  ShortLabel: "be1"
+  HistoPathSuff: "be/"
+  HistoName: mtt_be1
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+
+Region: "be2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "be2"
+  ShortLabel: "be2"
+  HistoPathSuff: "be/"
+  HistoName: mtt_be2
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+
+Region: "be3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "be3"
+  ShortLabel: "be3"
+  HistoPathSuff: "be/"
+  HistoName: mtt_be3
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+
+Region: "bmu1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "bmu1"
+  ShortLabel: "bmu1"
+  HistoPathSuff: "bmu/"
+  HistoName: mtt_bmu1
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+
+Region: "bmu2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "bmu2"
+  ShortLabel: "bmu2"
+  HistoPathSuff: "bmu/"
+  HistoName: mtt_bmu2
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+
+Region: "bmu3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "bmu3"
+  ShortLabel: "bmu3"
+  HistoPathSuff: "bmu/"
+  HistoName: mtt_bmu3
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e8
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+
+Region: "re1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "re1"
+  ShortLabel: "re1"
+  HistoName: mtt_re1
+  HistoPathSuff: "re/"
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+
+Region: "re2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "re2"
+  ShortLabel: "re2"
+  HistoName: mtt_re2
+  HistoPathSuff: "re/"
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+
+Region: "re3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "re3"
+  ShortLabel: "re3"
+  HistoName: mtt_re3
+  HistoPathSuff: "re/"
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+
+Region: "rmu1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "rmu1"
+  ShortLabel: "rmu1"
+  HistoPathSuff: "rmu/"
+  HistoName: mtt_rmu1
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+
+Region: "rmu2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "rmu2"
+  ShortLabel: "rmu2"
+  HistoPathSuff: "rmu/"
+  HistoName: mtt_rmu2
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+
+Region: "rmu3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Label: "rmu3"
+  ShortLabel: "rmu3"
+  HistoPathSuff: "rmu/"
+  HistoName: mtt_rmu3
+  LogScale: TRUE
+  Ymin:1e-2
+  Ymax:1e10
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
 
 % % --------------- %
 % % --- SAMPLES --- %

@@ -6,9 +6,35 @@ import argparse
 from datetime import datetime
 from systematics import *
 from pathlib import Path
+from collections import namedtuple
 
 today = datetime.date(datetime.now())
 
+
+from dataclasses import dataclass
+
+@dataclass(frozen=False)
+class Settings:
+    mass_out_dir: Path
+    limit_dir: Path
+    histo_dir: Path
+    in_dir: Path
+    channel: str
+    signal_name: str
+    signal_injection_name: str
+    region_1l: str
+    region_2l: str
+    ops: str
+    mass: int
+    signal_injection_mass: int
+    auto_injection_strength: float
+    use_dilep_names: bool
+    unblind: bool
+    statonly: bool
+    bonly: bool
+    dry_run: bool
+    exclude_systematics: list
+    
 
 
 class sys_group:
@@ -140,39 +166,41 @@ def makeSysList(regions, use_dilep_names=False):
     return {s.group_name: s for s in sys_groups}
 
 
-def add_common_settings_to_config_string(string, in_dir, signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, signal_name, signal_mass, statonly, bonly, out_dir):
-    string = string.replace("INPUTDIR",in_dir)
-    if unblind:
+def add_common_settings_to_config_string(string: str, settings: Settings):
+    string = string.replace("INPUTDIR", settings.in_dir)
+    string = string.replace("HISTODIR", settings.histo_dir)
+
+    if settings.unblind:
         string = string.replace("BLIND", "FALSE")
     else:
         string = string.replace("BLIND", "TRUE")
-    if signal_injection_mass is not None:
-        string = string.replace("INJMASS", str(signal_injection_mass))
-        string = string.replace("INJNAME", str(signal_injection_name))
-    if auto_injection_strength is not None:
-        string = string.replace("AUTOINJSTRENGTH", str(auto_injection_strength))
+    if settings.signal_injection_mass is not None:
+        string = string.replace("INJMASS", str(settings.signal_injection_mass))
+        string = string.replace("INJNAME", str(settings.signal_injection_name))
+    if settings.auto_injection_strength is not None:
+        string = string.replace("AUTOINJSTRENGTH", str(settings.auto_injection_strength))
         string = string.replace("AUTOINJ", "TRUE")
     else:
         string = string.replace("AUTOINJSTRENGTH", "0.0")
         string = string.replace("AUTOINJ", "FALSE")
 
-    if statonly:
+    if settings.statonly:
         string = string.replace("STATONLY", "TRUE")
     else:
         string = string.replace("STATONLY", "FALSE")
 
-    if bonly:
+    if settings.bonly:
         string = string.replace("SPLUSB", "BONLY")
 
-    string = string.replace("OUTPUTDIR", str(out_dir))
-    string = string.replace("SIGNALNAME", signal_name)
-    string = string.replace("SIGNALMASS", str(signal_mass))
+    string = string.replace("OUTPUTDIR", str(settings.mass_out_dir))
+    string = string.replace("SIGNALNAME", settings.signal_name)
+    string = string.replace("SIGNALMASS", str(settings.mass))
 
     return string
 
-def add_systematics_to_1l_config_string(string, regions, use_dilep_names):
+def add_systematics_to_1l_config_string(string: str, settings: Settings):
     #sys blocks
-    sysmaps = makeSysList(regions, use_dilep_names=use_dilep_names)
+    sysmaps = makeSysList(settings.region_1l, use_dilep_names=settings.use_dilep_names)
     JES_sys_block = writeSysBlock(sysmaps["JES_sys"])
     JER_sys_block = writeSysBlock(sysmaps["JER_sys"])
     JMR_sys_block = writeSysBlock(sysmaps["JMR_sys"])
@@ -207,76 +235,97 @@ def add_systematics_to_1l_config_string(string, regions, use_dilep_names):
 
     return string
 
-def make_1l_config(region, use_dilep_names, signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, signal_name, signal_mass, statonly, bonly, mass_out_dir):
-    """Make the config files for the limit setting
-    region: the region to use in the limit: boosted, resolved, combined
-    use_dilep_names: whether to use the dilepton naming convention for the input histograms
-    signal_injection_mass: the mass of the signal to inject
-    signal_injection_name: the name of the signal to inject
-    unblind: whether to unblind
-    auto_injection_strength: injection strength for TRExFitter auto signal injection
-    signal_name: the name of the signal to use
-    signal_mass: the mass of the signal to use
-    statonly: whether to run  in stat-only mode
-    bonly: whether to run the fit in background-only mode
-    mass_out_dir: the run directory for this mass point
-    """
+def get_common_opts(settings: Settings, regions: str):
+    opts = []
+    opts.append(f'Signal={settings.signal_name}_{settings.mass}')
+    if settings.exclude_systematics:
+        opts.append(f'Exclude={",".join(settings.exclude_systematics)}')
+    opts.append(f'Regions={regions}')
+    return opts
+
+def make_1l_config(settings: Settings):
+    """Make the config for the 1l channel"""
 
     # get path to parent directory of this script
     root_path = Path(os.path.realpath(__file__)).parent.parent
     config_dir = root_path / 'configs' / 'ttres1l'
 
-    if signal_injection_mass is not None:
+    if settings.signal_injection_mass is not None:
         template_path = config_dir / "tt1lep_config_wbtagSR_1b2b_signal_injection.tmp"
     else:
         template_path = config_dir / "tt1lep_config_wbtagSR_1b2b.tmp"
  
+    # set histogram path
+    template_name = template_path.stem
+    settings.histo_dir = settings.histo_dir / 'ttres1l' / template_name
+    settings.histo_dir.mkdir(parents=True, exist_ok=True)
+
     # read config template
     with template_path.open('r') as f:
         string = f.read()
 
     #regions
-    if region == 'combined':
+    if settings.region_1l == 'combined':
         regions = "be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3"
-    elif region == 'boosted':
+    elif settings.region_1l == 'boosted':
         regions = "be1,be2,be3,bmu1,bmu2,bmu3"
-    elif region == 'resolved':
+    elif settings.region_1l == 'resolved':
         regions = "re1,re2,re3,rmu1,rmu2,rmu3"
+    settings.region_1l = regions
 
-    region_text = ''
-    for r in regions.split(','):
-        region_config = config_dir / 'regions' / f'{r}.config'
-        with region_config.open('r') as f:
-            region_text += f.read() + '\n\n'
-    string = string.replace('% REGIONS', region_text)
+    if not settings.statonly:
+        string = add_systematics_to_1l_config_string(string, settings)
 
-    if not statonly:
-        string = add_systematics_to_1l_config_string(string, regions, use_dilep_names)
+    if settings.in_dir is None:
+        settings.in_dir = os.environ['DATA_DIR_1L']
+    string = add_common_settings_to_config_string(string, settings)
 
-    in_dir = os.environ['DATA_DIR_1L']
-    string = add_common_settings_to_config_string(string, in_dir, signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, signal_name, signal_mass, statonly, bonly, mass_out_dir)
+    # make command-line options for trexfitter
+    opts = get_common_opts(settings, regions=regions)
+    opts = ':'.join(opts)
 
-    return string
+    return string, opts
 
 
-def make_2l_config(signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, signal_name, signal_mass, statonly, bonly, mass_out_dir):
+def make_2l_config(settings: Settings):
+    """Make the config for the 2l channel"""
+
     # get path to parent directory of this script
     root_path = Path(os.path.realpath(__file__)).parent.parent
     config_dir = root_path / 'configs' / 'ttres2l'
 
-    if signal_injection_mass is not None:
+    if settings.signal_injection_mass is not None:
         raise NotImplementedError("Signal injection not implemented for 2l")
     else:
         template_path = config_dir / "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll.tmp"
+
+    # set input paths
+    template_name = template_path.stem
+    settings.histo_dir = settings.histo_dir / 'ttres2l' / template_name
+    settings.histo_dir.mkdir(parents=True, exist_ok=True)
+    if settings.in_dir is None:
+        settings.in_dir = os.environ['DATA_DIR_2L']
 
     # read config template
     with template_path.open('r') as f:
         string = f.read()
 
-    in_dir = os.environ['DATA_DIR_2L']
-    string = add_common_settings_to_config_string(string, in_dir, signal_injection_mass, signal_injection_name, unblind, auto_injection_strength, signal_name, signal_mass, statonly, bonly, mass_out_dir)
+    # regions
+    if settings.region_2l == 'mllbb':
+        regions = "mllbb"
+    elif settings.region_2l == 'deltaphi':
+        regions = "DeltaPhi"
+    elif settings.region_2l == 'mllbb_deltaphi':
+        regions = "mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100"
 
-    return string
+    # common settings
+    string = add_common_settings_to_config_string(string, settings)
 
-def make_combined_config():
+    # make command-line options for trexfitter
+    opts = get_common_opts(settings, regions=regions)
+    opts = ':'.join(opts)
+
+    return string, opts
+
+def make_combined_config(settings: Settings):
     pass
