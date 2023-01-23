@@ -144,17 +144,17 @@ def makeSysList(regions, use_dilep_names=False):
     ttPDF_sys_list = [x for x in ttPDF_sysMap]
     ttNNLO_sys_list = [x for x in ttNNLO_sysMap]
 
-    btag_sys = sys_group("btag_sys", btag_sys_list, btag_dilepNamesMap, [btag_sysMap[x] for x in btag_sys_list], "TWOSIDED", "b-tag", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
-    toptag_sys = sys_group("toptag_sys", toptag_sys_list, {}, [toptag_sysMap[x] for x in toptag_sys_list], "TWOSIDED", "top-tag", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
-    JES_sys = sys_group("JES_sys", JES_sys_list, JES_dilepNamesMap, [JES_sysMap[x] for x in JES_sys_list], "TWOSIDED", "JES", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    btag_sys = sys_group("btag_sys", btag_sys_list, btag_dilepNamesMap, [btag_sysMap[x] for x in btag_sys_list], "TWOSIDED", "b-tag", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    toptag_sys = sys_group("toptag_sys", toptag_sys_list, {}, [toptag_sysMap[x] for x in toptag_sys_list], "TWOSIDED", "top-tag", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    JES_sys = sys_group("JES_sys", JES_sys_list, JES_dilepNamesMap, [JES_sysMap[x] for x in JES_sys_list], "TWOSIDED", "JES", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
     #JES_modelling_sys = sys_group("JES_modelling_sys", JES_sys_model_list, [JES_sysMap_model[x] for x in JES_sys_model_list], "ONESIDED", False, regions=regions, use_dilep_names=use_dilep_names)
-    JMR_sys = sys_group("JMR_sys", JMR_sys_list, {}, [JMR_sysMap[x] for x in JMR_sys_list], "TWOSIDED", "JMR", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
-    JER_sys = sys_group("JER_sys", JER_sys_list, JER_dilepNamesMap, [JER_sysMap[x] for x in JER_sys_list], "TWOSIDED", "JER", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
-    JMS_sys = sys_group("JMS_sys", JMS_sys_list, {},  [JMS_sysMap[x] for x in JMS_sys_list], "TWOSIDED", "JMS", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
-    MET_scale_sys = sys_group("MET_scale_sys", MET_scale_sys_list, MET_scale_dilepNamesMap, [MET_scale_sysMap[x] for x in MET_scale_sys_list], "TWOSIDED", "MET-scale", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
-    MET_res_sys = sys_group("MET_res_sys", MET_res_syst_list, MET_res_dilepNamesMap, [MET_res_sysMap[x] for x in MET_res_syst_list], "ONESIDED", "MET-res", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
-    EG_sys = sys_group("EG_sys", EG_sys_list, EG_dilepNamesMap, [EG_sysMap[x] for x in EG_sys_list], "TWOSIDED", "EG", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
-    MUON_sys = sys_group("MUON_sys", MUON_sys_list, MUON_dilepNamesMap, [MUON_sysMap[x] for x in MUON_sys_list], "TWOSIDED", "MUON", "SIGNALNAME_SIGNALMASS,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    JMR_sys = sys_group("JMR_sys", JMR_sys_list, {}, [JMR_sysMap[x] for x in JMR_sys_list], "TWOSIDED", "JMR", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    JER_sys = sys_group("JER_sys", JER_sys_list, JER_dilepNamesMap, [JER_sysMap[x] for x in JER_sys_list], "TWOSIDED", "JER", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    JMS_sys = sys_group("JMS_sys", JMS_sys_list, {},  [JMS_sysMap[x] for x in JMS_sys_list], "TWOSIDED", "JMS", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    MET_scale_sys = sys_group("MET_scale_sys", MET_scale_sys_list, MET_scale_dilepNamesMap, [MET_scale_sysMap[x] for x in MET_scale_sys_list], "TWOSIDED", "MET-scale", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    MET_res_sys = sys_group("MET_res_sys", MET_res_syst_list, MET_res_dilepNamesMap, [MET_res_sysMap[x] for x in MET_res_syst_list], "ONESIDED", "MET-res", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    EG_sys = sys_group("EG_sys", EG_sys_list, EG_dilepNamesMap, [EG_sysMap[x] for x in EG_sys_list], "TWOSIDED", "EG", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
+    MUON_sys = sys_group("MUON_sys", MUON_sys_list, MUON_dilepNamesMap, [MUON_sysMap[x] for x in MUON_sys_list], "TWOSIDED", "MUON", "Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets", True, False, regions=regions, use_dilep_names=use_dilep_names)
 
     tt_gen_sys = sys_group("tt_gen_sys", ttgen_sys_list, {}, [ttgen_sysMap[x] for x in ttgen_sys_list], "TWOSIDED", "tt_gen", "tt", True, True, regions=regions, use_dilep_names=use_dilep_names)
     tt_muF_sys = sys_group("tt_muF_sys", ttmuF_sys_list, {}, [ttmuF_sysMap[x] for x in ttmuF_sys_list], "TWOSIDED", "tt_muF", "tt", True, True, regions=regions, use_dilep_names=use_dilep_names) #regions='be1,be2,be3,bmu1,bmu2,bmu3'
@@ -238,7 +238,8 @@ def add_systematics_to_1l_config_string(config_string: str, settings: Settings):
 
 def get_common_opts(settings: Settings, regions: str):
     opts = []
-    opts.append(f'Signal={settings.signal_name}_{settings.mass}')
+    if settings.signal_name != 'all':
+        opts.append(f'Signal={settings.signal_name}_{settings.mass}')
     if settings.exclude_systematics:
         opts.append(f'Exclude={",".join(settings.exclude_systematics)}')
     opts.append(f'Regions={regions}')

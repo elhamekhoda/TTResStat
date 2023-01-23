@@ -149,7 +149,7 @@ def main():
     parser.add_argument('--ops', default='mwfl', help="ops for trex-fitter.")
     parser.add_argument('--opts', help="command-line options for trex-fitter (that are not already set in make_config).")
     parser.add_argument('--channel', '-c', default='all', choices=['1l', '2l', 'combined', 'all'], help="perform specified channel only.")
-    parser.add_argument('--signal', choices=['zprime', 'grav', 'gluon'], default='zprime', type=str, help="signal to use.")
+    parser.add_argument('--signal', choices=['zprime', 'grav', 'gluon', 'all'], default='zprime', type=str, help="signal to use.")
     parser.add_argument("--region_1l",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
                             help="Region to use for the 1l channel: boosted, resolved, combined")
     parser.add_argument("--region_2l",       type=str,  default="mllbb_deltaphi", choices=['mllbb', 'deltaphi', 'mllbb_deltaphi'],
@@ -163,7 +163,7 @@ def main():
     parser.add_argument("--bonly", action="store_true", help="run b-only fit.")
     parser.add_argument('--fit_mu_asimov', type=float, default=1.0, help="mu value for fit asimov data.")
     parser.add_argument('--batch_system', choices=['af', 'af_short'], default=None, type=str, help="submit jobs to specified batch system.")
-    parser.add_argument('--masses', '-m', default=[500, 750, 1000, 1250, 1500, 1750, 2000, 2500, 3000, 4000, 5000], type=int, nargs='+', help="Z' masses to scan.")
+    parser.add_argument('--masses', '-m', default=None, type=str, help="Signal masses to scan (comma-separated list, e.g., 400,500,750).")
 
     args = parser.parse_args()
 
@@ -215,14 +215,29 @@ def main():
         signal_name = 'Grav'
     elif args.signal == 'gluon':
         signal_name = 'KKg'
+    elif args.signal == 'all':
+        signal_name = 'all'
     else:
         raise NotImplementedError(f'Unknown signal {args.signal}')
 
+
+    # Set mass points to scan
+    if args.masses is None:
+        if args.signal == 'zprime':
+            masses = [500, 750, 1000, 1250, 1500, 1750, 2000, 2500, 3000, 4000, 5000]
+        elif args.signal == 'grav':
+            masses = [400, 500, 750, 1000, 2000, 3000]
+        elif args.signal == 'gluon':
+            masses = [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000]
+    else:
+        masses = args.masses.split(',')
+
     # Run trexfitter for each mass point
-    for mass in args.masses:
+    for mass in masses:
+        mass = int(mass)
         mass_out_dir = (run_dir / f'{args.signal}_{str(mass)}').resolve()
         mass_out_dir.mkdir(exist_ok=True, parents=True)
-
+        
         settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l, use_dilep_names=args.use_dilep_names, 
                             signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name, 
                             unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly, 
