@@ -7,11 +7,10 @@ from datetime import datetime
 from systematics import *
 from pathlib import Path
 from collections import namedtuple
-
-today = datetime.date(datetime.now())
-
-
 from dataclasses import dataclass
+
+today = datetime.date(datetime.now()) 
+
 
 @dataclass(frozen=False)
 class Settings:
