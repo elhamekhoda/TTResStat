@@ -48,33 +48,31 @@ def make_pseudo_data(signal_name, mass, mu):
         print(f'Injecting signal into {region}...')
         histo_path = injected_trexfitter_histograms / f'ttRes1L_{region}_histos.root'
         trex_histogram_tfile = TFile(str(histo_path), 'update')
+        for suffix in ['_regBin', '']:
+            h_data = trex_histogram_tfile.Get(f'{region}/Data/nominal/{region}_Data{suffix}')
+            h_data.Reset('ICES')
+            signal_histogram_name = f'{region}/{signal_name}_{mass}/nominal/{region}_{signal_name}_{mass}{suffix}'
+            print('\t Getting signal histogram: ', signal_histogram_name)
+            h_signal = trex_histogram_tfile.Get(signal_histogram_name)
+            h_signal.Scale(mu)
+            h_data.Add(h_signal)
+            # print('\t\t signal contents: ', get_contents(h_asimov))
+            # print('\t\t signal errors: ', get_errors(h_asimov))
+            for b in backgrounds:
+                background_histogram_name = f'{region}/{b}/nominal/{region}_{b}{suffix}'
+                print('\t Getting background histogram: ', background_histogram_name)
+                h_background = trex_histogram_tfile.Get(background_histogram_name)
+                if b == 'qcd':
+                    h_background_f = TH1F()
+                    h_background.Copy(h_background_f)
+                    h_background = h_background_f
+                # print('\t\t background contents: ', get_contents(h_background))
+                # print('\t\t background errors: ', get_errors(h_background))
+                h_data.Add(h_background)
 
-        
-        signal_histogram_name = f'{region}/{signal_name}_{mass}/nominal/{region}_{signal_name}_{mass}'
-        print('\t Getting signal histogram: ', signal_histogram_name)
-        h_asimov = trex_histogram_tfile.Get(signal_histogram_name)
-        h_asimov.Scale(mu)
-        # print('\t\t signal contents: ', get_contents(h_asimov))
-        # print('\t\t signal errors: ', get_errors(h_asimov))
-        for b in backgrounds:
-            background_histogram_name = f'{region}/{b}/nominal/{region}_{b}'
-            print('\t Getting background histogram: ', background_histogram_name)
-            h_background = trex_histogram_tfile.Get(background_histogram_name)
-            if b == 'qcd':
-                h_background_f = TH1F()
-                h_background.Copy(h_background_f)
-                h_background = h_background_f
-            # print('\t\t background contents: ', get_contents(h_background))
-            # print('\t\t background errors: ', get_errors(h_background))
-            h_asimov = h_asimov + h_background
-
-        data_histogram_name = f'{region}/Data/nominal/{region}_Data'
-        print('\t Writing asimov data histogram: ', data_histogram_name)
-        print('\t\t Asimov contents: ', get_contents(h_asimov))
-        print('\t\t Asimov errors: ', get_errors(h_asimov))
-
-        h_asimov.SetName(data_histogram_name)
-        h_asimov.Write()
+            print('\t\t Asimov contents: ', get_contents(h_data))
+            print('\t\t Asimov errors: ', get_errors(h_data))
+            h_data.Write()
         trex_histogram_tfile.Close()
 
 def main():

@@ -10,7 +10,7 @@ Job: "ttRes1L"
   ReadFrom: HIST
   OutputDir: "OUTPUTDIR/"
   HistoPath: "INPUTDIR/"
-  #InputFolder: "HISTODIR/"
+  InputFolder: "HISTODIR/"
   SplitHistoFiles: TRUE
   DebugLevel: 1
   SystControlPlots: FALSE

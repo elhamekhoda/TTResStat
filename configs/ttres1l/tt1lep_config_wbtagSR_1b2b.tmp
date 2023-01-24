@@ -401,10 +401,10 @@ Sample: "diboson"
 %%  UseMCstat: FALSE
 
 
-%Sample: "Data"
-%  Title: "Data"
-%  Type: DATA
-%  HistoFile: "hist_data"
+Sample: "Data"
+  Title: "Data"
+  Type: DATA
+  HistoFile: "hist_data"
 
 % % --------------- %
 % % - SYSTEMATICS - %

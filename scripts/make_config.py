@@ -256,8 +256,19 @@ def make_1l_config(settings: Settings):
  
     # set histogram path
     template_name = template_path.stem
-    settings.histo_dir = settings.histo_dir / 'ttres1l' / template_name
-    settings.histo_dir.mkdir(parents=True, exist_ok=True)
+    if settings.signal_injection_mass is not None:
+        if settings.signal_injection_name == 'grav':
+            signal_injection_name = 'Grav'
+        elif settings.signal_injection_name == 'gluon':
+            signal_injection_name = 'KKg'
+        elif settings.signal_injection_name == 'zprime':
+            signal_injection_name = 'ZprimeTC2'
+        else:
+            raise ValueError(f"Unknown signal injection name {settings.signal_injection_name}")
+        settings.histo_dir = settings.histo_dir / 'ttres1l' / template_name / f'{signal_injection_name}_{settings.signal_injection_mass}_mu1.0'
+    else:
+        settings.histo_dir = settings.histo_dir / 'ttres1l' / template_name
+        settings.histo_dir.mkdir(parents=True, exist_ok=True)
 
     # read config template
     with template_path.open('r') as f:

@@ -2,7 +2,7 @@
 % ---  JOB    --- %
 % --------------- %
 
-Job: "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll"
+Job: "ttRes2L"
   InputFolder: "HISTODIR/"
   InputName: ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll
   CmeLabel: "13 TeV"
