@@ -237,8 +237,6 @@ def add_systematics_to_1l_config_string(config_string: str, settings: Settings):
 
 def get_common_opts(settings: Settings, regions: str):
     opts = []
-    if settings.signal_name != 'all':
-        opts.append(f'Signal={settings.signal_name}_{settings.mass}')
     if settings.exclude_systematics:
         opts.append(f'Exclude={",".join(settings.exclude_systematics)}')
     opts.append(f'Regions={regions}')
@@ -282,6 +280,8 @@ def make_1l_config(settings: Settings):
 
     # make command-line options for trexfitter
     opts = get_common_opts(settings, regions=regions)
+    if settings.signal_name != 'all':
+        opts.append(f'Signal={settings.signal_name}_{settings.mass}')
     opts = ':'.join(opts)
 
     return config_string, opts
@@ -322,6 +322,13 @@ def make_2l_config(settings: Settings):
 
     # make command-line options for trexfitter
     opts = get_common_opts(settings, regions=regions)
+    if settings.signal_name != 'all':
+        if settings.signal_name == 'ZprimeTC2':
+            opts.append(f'Signal={settings.signal_name}_{settings.mass}')
+        elif settings.signal_name == 'Grav':
+            opts.append(f'Signal={settings.signal_name}{settings.mass}')
+        elif settings.signal_name == 'KKg':
+            opts.append(f'Signal={settings.signal_name}MG{settings.mass}')
     opts = ':'.join(opts)
 
     return config_string, opts
