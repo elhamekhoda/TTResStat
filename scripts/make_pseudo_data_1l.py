@@ -2,16 +2,7 @@ from pathlib import Path
 import argparse
 from shutil import copyfile, rmtree
 
-from ROOT import TFile, TH1F
-
-# def make_pseudodata(root_dir, signal_name):
-#     # iterate over all subdirectories in root_dir
-#     for channel_dir in root_dir.iterdir():
-#         signal_paths = [f for f in channel_dir.glob(f'hist_{signal_name}*.root')]
-#         backgrounds = ['tt', 'wjets', 'singletop', 'zjets', 'vv']
-#         background_paths = [str(channel_dir / f'hist_{b}.root') for b in backgrounds]
-#         for p in signal_paths:
-#             subprocess.call(['hadd', str(channel_dir / f'{p.stem}_pseudodata.root'), str(p)] + background_paths)
+from ROOT import *
 
 def get_contents(histogram):
     contents = []
