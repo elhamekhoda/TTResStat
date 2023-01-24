@@ -5,6 +5,7 @@ import shutil
 import subprocess
 from pathlib import Path
 from typing import Dict
+import json
 
 from make_config import (Settings, make_1l_config, make_2l_config,
                          make_combined_config)
@@ -207,8 +208,11 @@ def main():
     print(f'run_dir: {run_dir}')
     print(f'limit_dir: {limit_dir}')
 
+    settings_json = run_dir / 'settings.json'
 
-    
+    with open(settings_json, 'w') as f:
+        json.dump(vars(args), f, indent=4)
+
     exclude_systematics = []
     # set the signal name
     if args.signal == 'zprime':
