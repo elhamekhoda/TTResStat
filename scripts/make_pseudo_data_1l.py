@@ -72,7 +72,11 @@ def make_pseudo_data(signal_name, mass, mu):
 
             print('\t\t Asimov contents: ', get_contents(h_data))
             print('\t\t Asimov errors: ', get_errors(h_data))
-            h_data.Write()
+            h_data.SetTitle(f'{signal_name}_{mass} injection')
+            trex_histogram_tfile.cd(f'{region}/Data/nominal')
+            print('\t Writing data histogram: ', f'{region}/Data/nominal/{region}_Data{suffix}')
+            print('\t Overwriting data histogram: ', h_data.GetName())
+            h_data.Write("", TObject.kOverwrite)
         trex_histogram_tfile.Close()
 
 def main():
