@@ -176,7 +176,7 @@ def main():
     timestamp = str(datetime.date.today())
     run_name = f'statResults_ttres1L2L_{timestamp}'
     if not args.suffix:
-        suffix = [f'{args.channel}', f'{args.signal}']
+        suffix = [f'{args.channel}', f'{args.signal}', f'fitmu-{args.fit_mu_asimov}']
         if args.channel in ['1l', 'all']:
             suffix.append(f'region1l-{args.region_1l}')
         if args.channel in ['2l', 'all']:
@@ -247,7 +247,7 @@ def main():
         settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l, use_dilep_names=args.use_dilep_names, 
                             signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name, 
                             unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly, 
-                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov)
+                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed)
 
         channel_to_config, channel_to_opts = write_configs(settings)
 

@@ -2,7 +2,7 @@
 % ---  JOB    --- %
 % --------------- %
 
-Job: "ttRes2L"
+Job: "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll"
   InputFolder: "HISTODIR/"
   InputName: ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll
   CmeLabel: "13 TeV"
@@ -58,6 +58,7 @@ Fit: "fit"
   FitBlind: BLIND
   POIAsimov: FIT_POIASIMOV
   SetRandomInitialNPval: 0.001
+  SetRandomInitialNPvalSeed: SEED
   SaturatedModel: TRUE 
 
 % --------------- %
