@@ -1,0 +1,7 @@
+executable            = SCRIPT_DIR/run_trexfitter.sh
+arguments             = "SCRIPT_DIR 'CMD'"
+output                = MASS_DIR/condor.out
+error                 = MASS_DIR/condor.err
+log                   = MASS_DIR/condor.log
++MaxRuntime           = 18000
+queue

@@ -77,6 +77,8 @@ def submit_condor(settings: Settings, args):
         template_name = 'af.tmp'
     elif args.batch_system == 'af_short':
         template_name = 'af_short.tmp'
+    elif args.batch_system == 'lxplus_short':
+        template_name = 'lxplus_short.tmp'
     template_file = scripts_path / template_name
     with template_file.open('r') as f:
         text = f.read()
@@ -95,7 +97,7 @@ def submit_condor(settings: Settings, args):
 
 def submit_batch(settings: Settings, args):
     """Submit the trexfitter job to the batch system."""
-    if args.batch_system in ['af', 'af_short']:
+    if args.batch_system in ['af', 'af_short', 'lxplus_short']:
         submit_condor(settings, args)
     else:
         raise NotImplementedError('Unrecognized batch system: {}'.format(args.batch_system))
@@ -163,7 +165,7 @@ def main():
     parser.add_argument("--statonly", action="store_true", help="run stat-only fit.")
     parser.add_argument("--bonly", action="store_true", help="run b-only fit.")
     parser.add_argument('--fit_mu_asimov', type=float, default=1.0, help="mu value for fit asimov data.")
-    parser.add_argument('--batch_system', choices=['af', 'af_short'], default=None, type=str, help="submit jobs to specified batch system.")
+    parser.add_argument('--batch_system', choices=['af', 'af_short', 'lxplus_short'], default=None, type=str, help="submit jobs to specified batch system.")
     parser.add_argument('--masses', '-m', default=None, type=str, help="Signal masses to scan (comma-separated list, e.g., 400,500,750).")
 
     args = parser.parse_args()
