@@ -44,6 +44,7 @@ Fit: "SPLUSB_CRSR_Asimov"
   FitBlind: BLIND
   POIAsimov: FIT_POIASIMOV
   SetRandomInitialNPval: 0.01
+  SetRandomInitialNPvalSeed: SEED
   GetGoodnessOfFit: TRUE
   UseMinos: mu_Zprime
   %FitToys: 100
