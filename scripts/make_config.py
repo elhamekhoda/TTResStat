@@ -8,6 +8,7 @@ from systematics import *
 from pathlib import Path
 from collections import namedtuple
 from dataclasses import dataclass
+import hashlib
 
 today = datetime.date(datetime.now()) 
 
@@ -237,6 +238,15 @@ def add_systematics_to_1l_config_string(config_string: str, settings: Settings):
 
     return config_string
 
+def get_md5sum(file: Path):
+    """Get the md5sum of a file"""
+    md5 = hashlib.md5()
+    with file.open('rb') as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            md5.update(chunk)
+    return md5.hexdigest()
+    
+
 def get_common_opts(settings: Settings, regions: str):
     opts = []
     if settings.exclude_systematics:
@@ -271,6 +281,15 @@ def make_1l_config(settings: Settings):
     else:
         settings.histo_dir = settings.histo_dir / 'ttres1l' / template_name
         settings.histo_dir.mkdir(parents=True, exist_ok=True)
+
+    # get md5sum of files in histo_dir, if any exist:
+    md5sums = None
+    histo_files = [f for f in settings.histo_dir.glob('*.root')]
+    if histo_files:
+        md5sums = [get_md5sum(f) for f in histo_files]
+        # write md5sum to the output directory
+        with (settings.mass_out_dir / 'histo_md5sum.txt').open('w') as f:
+            f.write('\n'.join([f'{f.name}: {md5}' for f, md5 in zip(histo_files, md5sums)]))
 
     # read config template
     with template_path.open('r') as f:
@@ -317,6 +336,15 @@ def make_2l_config(settings: Settings):
     settings.histo_dir = settings.histo_dir / 'ttres2l' / template_name
     settings.histo_dir.mkdir(parents=True, exist_ok=True)
     
+    # get md5sum of files in histo_dir, if any exist:
+    md5sums = None
+    histo_files = [f for f in settings.histo_dir.glob('*.root')]
+    if histo_files:
+        md5sums = [get_md5sum(f) for f in histo_files]
+        # write md5sum to the out directory
+        with (settings.mass_out_dir / 'histo_md5sum.txt').open('w') as f:
+            f.write('\n'.join([f'{f.name}: {md5}' for f, md5 in zip(histo_files, md5sums)]))
+
     # read config template
     with template_path.open('r') as f:
         config_string = f.read()
