@@ -86,6 +86,7 @@ def submit_condor(settings: Settings, args):
     cmd = [f'--{k} {v}' for k, v in vars(args).items() if v is not None and type(v) is not bool and k not in ignore_keys]
     cmd.extend([f'--{k}' for k, v in vars(args).items() if v is True and k not in ignore_keys])
     cmd.append(f'--mass {settings.mass}')
+    cmd.append('--use_existing_config')
     cmd = ' '.join(cmd)
     text = text.replace('MASS_DIR', str(settings.mass_out_dir)).replace('SCRIPT_DIR', str(scripts_path)).replace('CMD', cmd)
     condor_sub_file = settings.mass_out_dir / f'condor.sub'
@@ -109,12 +110,6 @@ def run_trexfitter(settings: Settings, channel_to_config: Dict[str, Path], chann
         channel_to_config (Dict[str, Path]): mapping from channel to config file
         channel_to_opts (Dict[str, str]): mapping from channel to trexfitter options
     """
-    # make command-line options for trexfitter
-    opts = []
-    opts.append(f'Signal={settings.signal_name}_{settings.mass}')
-    if settings.exclude_systematics:
-        opts.append(f'Exclude={",".join(settings.exclude_systematics)}')
-    opts = ':'.join(opts)
 
     def call_trex_fitter(ops: str, opts: str, config: Path, log: str):
         """Call trexfitter with the specified options and config file.
@@ -167,8 +162,10 @@ def main():
     parser.add_argument('--fit_mu_asimov', type=float, default=1.0, help="mu value for fit asimov data.")
     parser.add_argument('--batch_system', choices=['af', 'af_short', 'lxplus_short'], default=None, type=str, help="submit jobs to specified batch system.")
     parser.add_argument('--masses', '-m', default=None, type=str, help="Signal masses to scan (comma-separated list, e.g., 400,500,750).")
+    parser.add_argument('--use_existing_config', action='store_true', help='use existing config files instead of generating new ones.')
 
     args = parser.parse_args()
+
 
     if args.channel not in ['combined', 'all']:
         if 'm' in args.ops:
@@ -249,7 +246,7 @@ def main():
         settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l, use_dilep_names=args.use_dilep_names, 
                             signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name, 
                             unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly, 
-                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed)
+                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed, opts=args.opts)
 
         channel_to_config, channel_to_opts = write_configs(settings)
 
