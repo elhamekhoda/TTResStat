@@ -12,7 +12,7 @@ Job: "ttRes1L"
   HistoPath: "INPUTDIR/"
   InputFolder: "HISTODIR/"
   SplitHistoFiles: TRUE
-  DebugLevel: 2
+  DebugLevel: 1
   SystControlPlots: FALSE
   SystErrorBars: TRUE
   UseGammaPulls: TRUE
@@ -46,7 +46,7 @@ Fit: "SPLUSB_CRSR_Asimov"
   SetRandomInitialNPval: 0.01
   SetRandomInitialNPvalSeed: SEED
   GetGoodnessOfFit: TRUE
-  UseMinos: mu_Zprime
+  %UseMinos: mu_Zprime
   %FitToys: 100
 
 % % --------------- %

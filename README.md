@@ -6,6 +6,7 @@ The scripts used for the statistical analysis of ttbar resonance search are kept
 Configuration files are located at `configs/ttres{channel}`. They are standard trex-fitter config files, but with some options set to keywords that are replaced when `run_trexfitter.py` is run. For example, `OutputDir: "OUTPUTDIR/"`. 
 
 ### Step 0: Setup
+
 The setup script is `setup.sh`:
 ```
 source setup.sh

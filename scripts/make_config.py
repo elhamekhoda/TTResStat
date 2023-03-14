@@ -24,6 +24,7 @@ class Settings:
     region_1l: str
     region_2l: str
     ops: str
+    opts: str
     mass: int
     signal_injection_mass: int
     seed: int
