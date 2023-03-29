@@ -1,11 +1,12 @@
 import argparse
+import copy
 import datetime
+import json
 import os
 import shutil
 import subprocess
 from pathlib import Path
 from typing import Dict
-import json
 
 from make_config import (Settings, make_1l_config, make_2l_config,
                          make_combined_config)
@@ -21,7 +22,7 @@ def copy_limits_to_shared(channel, mass_out_dir, shared_limit_dir):
     if channel == 'all' or channel == 'combined':
         limit_run = 'ttRes1L2L'
     elif channel == '2l':
-        limit_run = 'ttRes2L'
+        limit_run = 'ttRes2L_fit_inverted_deltaEta_2dRew_slim_SysAll_V24'
     elif channel == '1l':
         limit_run = 'ttRes1L'
     run_limit_dir = mass_out_dir / limit_run / 'Limits' / 'asymptotics'
@@ -48,13 +49,13 @@ def write_configs(settings: Settings):
     channel_to_opts = {}
 
     if settings.channel == 'all' or settings.channel == '1l':
-        template_text, opts = make_1l_config(settings)
+        template_text, opts = make_1l_config(copy.deepcopy(settings))
         with ttres1L_config.open('w+') as f:
             f.write(template_text)
         channel_to_config['1l'] = ttres1L_config
         channel_to_opts['1l'] = opts
     if settings.channel == 'all' or settings.channel == '2l':
-        template_text, opts = make_2l_config(settings)
+        template_text, opts = make_2l_config(copy.deepcopy(settings))
         with ttres2L_config.open('w+') as f:
             f.write(template_text)
         channel_to_config['2l'] = ttres2L_config
@@ -62,7 +63,7 @@ def write_configs(settings: Settings):
     if settings.channel == 'all' or settings.channel == 'combined':
         assert ttres1L_config.exists()
         assert ttres2L_config.exists()
-        template_text, opts = make_combined_config(settings, ttres1L_config, ttres2L_config)
+        template_text, opts = make_combined_config(copy.deepcopy(settings), ttres1L_config, ttres2L_config)
         with ttres1L2L_config.open('w+') as f:
             f.write(template_text)
         channel_to_config['combined'] = ttres1L2L_config

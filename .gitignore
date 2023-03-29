@@ -42,3 +42,4 @@ scripts/exploration.ipynb
 scripts/cp_configs.sh
 scripts/make_siginj_configs.sh
 *.png
+data

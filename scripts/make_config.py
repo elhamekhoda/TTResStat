@@ -1,14 +1,16 @@
  #!/usr/bin/env python
 
-import os,sys
-import ROOT
 import argparse
-from datetime import datetime
-from systematics import *
-from pathlib import Path
+import hashlib
+import os
+import sys
 from collections import namedtuple
 from dataclasses import dataclass
-import hashlib
+from datetime import datetime
+from pathlib import Path
+
+import ROOT
+from systematics import *
 
 today = datetime.date(datetime.now()) 
 
@@ -289,7 +291,7 @@ def make_1l_config(settings: Settings):
     if histo_files:
         md5sums = [get_md5sum(f) for f in histo_files]
         # write md5sum to the output directory
-        with (settings.mass_out_dir / 'histo_md5sum.txt').open('w') as f:
+        with (settings.mass_out_dir / 'histo_md5sum_1l.txt').open('w') as f:
             f.write('\n'.join([f'{f.name}: {md5}' for f, md5 in zip(histo_files, md5sums)]))
 
     # read config template
@@ -330,7 +332,7 @@ def make_2l_config(settings: Settings):
     if settings.signal_injection_mass is not None:
         raise NotImplementedError("Signal injection not implemented for 2l")
     else:
-        template_path = config_dir / "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim_SysAll.tmp"
+        template_path = config_dir / "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim.tmp"
 
     # set input paths
     template_name = template_path.stem
@@ -343,7 +345,7 @@ def make_2l_config(settings: Settings):
     if histo_files:
         md5sums = [get_md5sum(f) for f in histo_files]
         # write md5sum to the out directory
-        with (settings.mass_out_dir / 'histo_md5sum.txt').open('w') as f:
+        with (settings.mass_out_dir / 'histo_md5sum_2l.txt').open('w') as f:
             f.write('\n'.join([f'{f.name}: {md5}' for f, md5 in zip(histo_files, md5sums)]))
 
     # read config template
@@ -356,7 +358,7 @@ def make_2l_config(settings: Settings):
     elif settings.region_2l == 'deltaphi':
         regions = "DeltaPhi"
     elif settings.region_2l == 'mllbb_deltaphi':
-        regions = "mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100"
+        regions = "mllbb_DeltaPhi*"
 
     # common settings
     in_dir = Path(os.environ['DATA_DIR_2L'])
@@ -366,11 +368,14 @@ def make_2l_config(settings: Settings):
     opts = get_common_opts(settings, regions=regions)
     if settings.signal_name != 'all':
         if settings.signal_name == 'ZprimeTC2':
-            opts.append(f'Signal={settings.signal_name}_{settings.mass}')
+            signal_sample_name = f'{settings.signal_name}_{settings.mass}'
         elif settings.signal_name == 'Grav':
-            opts.append(f'Signal={settings.signal_name}{settings.mass}')
+            signal_sample_name = f'{settings.signal_name}{settings.mass}'
         elif settings.signal_name == 'KKg':
-            opts.append(f'Signal={settings.signal_name}MG{settings.mass}')
+            signal_sample_name = f'{settings.signal_name}MG{settings.mass}'
+    opts.append(f'Signal={signal_sample_name}')
+    # add samples manually, for now
+    opts.append(f'''Samples={signal_sample_name},ttbar_dilep,singleTop,zjets,diboson,ttV,ttH,fakes,fakes_ttbar,ttbar_dilep_ghost_nonRew,ttbar_dilep_PH7_nonRew,ttbar_dilep_aMCP8,ttbar_dilep_MECoff,ttbar_dilep_aMCH7,ttbar_dilep_hdamp,ttbar_dilep_FSRup,ttbar_dilep_FSRdown,ttbar_dilep_noEW,ttbar_dilep_inv,ttbar_dilep_altPDF,ttbar_dilep_oneEmission_topPt,ttbar_dilep_oneEmission_mtt,singleTop_PH7,singleTop_aMCP8,singleTop_DS,zjets_up,zjets_pTll_up,zjets_pTll_down''')
     opts = ':'.join(opts)
 
     return config_string, opts
