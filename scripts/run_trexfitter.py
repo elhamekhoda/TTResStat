@@ -129,8 +129,13 @@ def run_trexfitter(settings: Settings, channel_to_config: Dict[str, Path], chann
             subprocess.call(cmd, shell=True)
 
     if settings.channel == 'all':
-        call_trex_fitter(ops="wfl", opts=channel_to_opts['1l'], config=channel_to_config['1l'], log="ttres1L.ans") #1L
-        call_trex_fitter(ops="wfl", opts=channel_to_opts['2l'], config=channel_to_config['2l'], log="ttres2L.ans") #2L
+        single_channel_ops = 'w'
+        if 'f' in settings.ops:
+            single_channel_ops += 'f'
+        if 'l' in settings.ops:
+            single_channel_ops += 'l'
+        call_trex_fitter(ops=single_channel_ops, opts=channel_to_opts['1l'], config=channel_to_config['1l'], log="ttres1L.ans") #1L
+        call_trex_fitter(ops=single_channel_ops, opts=channel_to_opts['2l'], config=channel_to_config['2l'], log="ttres2L.ans") #2L
         call_trex_fitter(ops=settings.ops, opts=channel_to_opts['combined'], config=channel_to_config['combined'], log="ttres1L2L.ans") # 1L2L
     elif settings.channel in ['1l', '2l', 'combined']:
         call_trex_fitter(ops=settings.ops, opts=channel_to_opts[settings.channel], config=channel_to_config[settings.channel], log=f"ttres{settings.channel}.ans")

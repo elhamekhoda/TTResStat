@@ -76,8 +76,8 @@ Limit: "limit"
 % --------------- %
 
 Region:           "mllbb"
-# Type:            VALIDATION
-   Type:           SIGNAL
+% Type:            VALIDATION
+  Type:           SIGNAL
   Variable:       "Mllbb/1e3",8,0,3500 %% Opt1 Setup
   Binning:        150,300,450,600,750,1000,1250,1500,2000,2500,3500
   VariableTitle:  "#it{m_{llbb}} [GeV]"

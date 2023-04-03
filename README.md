@@ -5,6 +5,15 @@ The scripts used for the statistical analysis of ttbar resonance search are kept
 ## Configuration
 Configuration files are located at `configs/ttres{channel}`. They are standard trex-fitter config files, but with some options set to keywords that are replaced when `run_trexfitter.py` is run. For example, `OutputDir: "OUTPUTDIR/"`. 
 
+## Combining ttres2l and 1l configs
+To manually combine configs, run: 
+
+```
+python scripts/convert_2l_config.py --statonly configs/ttres2l/ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim.tmp
+python scripts/convert_2l_histos.py data/2l/For_Alex_Thesis/Histograms/ data/2l/For_Alex_Thesis/converted
+python scripts/run_trexfitter.py -s converted_2l_test --ops hwl -c 2l -m 1000 --statonly --fit_mu_asimov 1.0 
+```
+
 ### Step 0: Setup
 
 The setup script is `setup.sh`:
