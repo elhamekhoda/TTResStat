@@ -98,10 +98,10 @@ def rename_samples(config, suffix):
         if obj_type.lower() == 'sample':
             new_obj_pairs = []
             for obj_name, obj_dict in obj_pairs:
-                obj_names = obj_name.split(';').strip()
+                obj_names = obj_name.split(';')
                 new_obj_names = []
                 for obj_name in obj_names:
-                    new_obj_names.append(rename_sample(obj_name))
+                    new_obj_names.append(rename_sample(obj_name.strip()))
                 new_obj_name = ';'.join(new_obj_names)
                 new_obj_pairs.append((new_obj_name, obj_dict))
             config[obj_type] = new_obj_pairs
@@ -136,13 +136,17 @@ def convert_ntuple_to_histogram_paths(config):
     new_config = config.copy()
     for i, (region_name, region_dict) in enumerate(config['Region']):
         region_names = region_name.split(';')
-        region_dict['HistoPathSuff'] = ';'.join([name.lower().strip() + '/' for name in region_names])
+        region_dict['HistoPathSuff'] = ';'.join([name.lower().strip() for name in region_names])
         region_dict['HistoName'] = ';'.join([name.lower().strip() for name in region_names])
         # delete any setting that has 'ntuple' in it
         for key in list(region_dict.keys()):
             if 'ntuple' in key.lower():
                 print('Deleting region setting: ' + key)
                 del region_dict[key]
+            if 'Selection' in region_dict:
+                del region_dict['Selection']
+            if 'Variable' in region_dict:
+                del region_dict['Variable']
         new_config['Region'][i] = (region_name, region_dict)
     config = new_config
     
@@ -151,6 +155,7 @@ def convert_ntuple_to_histogram_paths(config):
     for i, (sample_name, sample_dict) in enumerate(config['Sample']):
         sample_names = sample_name.split(';')
         sample_dict['HistoFile'] = ';'.join([name.lower().strip() for name in sample_names])
+        sample_dict['NormalizedByTheory'] = 'FALSE'
         # delete any setting that has 'ntuple' in it
         for key in list(sample_dict.keys()):
             if 'ntuple' in key.lower():
