@@ -11,7 +11,8 @@ To manually combine configs, run:
 ```
 python scripts/convert_2l_config.py --statonly configs/ttres2l/ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim.tmp
 python scripts/convert_2l_histos.py data/2l/For_Alex_Thesis/Histograms/ data/2l/For_Alex_Thesis/converted
-python scripts/run_trexfitter.py -s converted_2l_test --ops hwl -c 2l -m 1000 --statonly --fit_mu_asimov 1.0 
+python scripts/manual_combination/combine_configs.py --statonly configs/ttres1l/tt1lep_config_wbtagSR_1b2b.tmp configs/ttres2l/ttRes2L_converted.tmp configs/ttres1l2l/
+python scripts/manual_combination/combine_histos.py data/1l/fullrun2_aug2022/combined/limit_inputs/ data/2l/For_Alex_Thesis/converted/ data/1l2l/
 ```
 
 ### Step 0: Setup

@@ -74,12 +74,56 @@ Region: "DeltaPhi"
   Type: SIGNAL
   VariableTitle: "#Delta#it{#phi_{ll}/#pi}"
 
-Region: "mllbb_DeltaPhi000to050"                     ;"mllbb_DeltaPhi050to080"                     ;"mllbb_DeltaPhi080to090"                     ;"mllbb_DeltaPhi090to095"                         ;"mllbb_DeltaPhi095to100"
-  Binning: 150,300,450,600,750,1000,1250,3500         ;150,300,450,600,750,1000,1250,1500,3500      ;150,300,450,600,750,1000,1250,1500,2000,3500 ;150,300,450,600,750,1000,1250,1500,2000,2500,3500 ;150,300,450,600,750,1000,1250,1500,2000,2500,3500
-  HistoName: "mllbb_deltaphi000to050";"mllbb_deltaphi050to080";"mllbb_deltaphi080to090";"mllbb_deltaphi090to095";"mllbb_deltaphi095to100"
-  HistoPathSuff: "mllbb_deltaphi000to050";"mllbb_deltaphi050to080";"mllbb_deltaphi080to090";"mllbb_deltaphi090to095";"mllbb_deltaphi095to100"
-  IsBinOfRegion: "DeltaPhi":1;"DeltaPhi":2;"DeltaPhi":3;"DeltaPhi":4;"DeltaPhi":5
-  Label: "0. < #it{#Delta#phi_{ll}/#pi} < 0.5"      ;"0.5 < #it{#Delta#phi_{ll}/#pi} < 0.8"       ;"0.8 < #it{#Delta#phi_{ll}/#pi} < 0.9"       ; "0.9 < #it{#Delta#phi_{ll}/#pi} < 0.95"          ; "0.95 < #it{#Delta#phi_{ll}/#pi} < 1.0"
+Region: "mllbb_DeltaPhi000to050"
+  Binning: 150,300,450,600,750,1000,1250,3500
+  HistoName: "mllbb_deltaphi000to050"
+  HistoPathSuff: "mllbb_deltaphi000to050"
+  IsBinOfRegion: "DeltaPhi":1
+  Label: "0. < #it{#Delta#phi_{ll}/#pi} < 0.5"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "mllbb_DeltaPhi050to080"
+  Binning: 150,300,450,600,750,1000,1250,1500,3500
+  HistoName: "mllbb_deltaphi050to080"
+  HistoPathSuff: "mllbb_deltaphi050to080"
+  IsBinOfRegion: "DeltaPhi":2
+  Label: "0.5 < #it{#Delta#phi_{ll}/#pi} < 0.8"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "mllbb_DeltaPhi080to090"
+  Binning: 150,300,450,600,750,1000,1250,1500,2000,3500
+  HistoName: "mllbb_deltaphi080to090"
+  HistoPathSuff: "mllbb_deltaphi080to090"
+  IsBinOfRegion: "DeltaPhi":3
+  Label: "0.8 < #it{#Delta#phi_{ll}/#pi} < 0.9"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "mllbb_DeltaPhi090to095"
+  Binning: 150,300,450,600,750,1000,1250,1500,2000,2500,3500
+  HistoName: "mllbb_deltaphi090to095"
+  HistoPathSuff: "mllbb_deltaphi090to095"
+  IsBinOfRegion: "DeltaPhi":4
+  Label: "0.9 < #it{#Delta#phi_{ll}/#pi} < 0.95"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "mllbb_DeltaPhi095to100"
+  Binning: 150,300,450,600,750,1000,1250,1500,2000,2500,3500
+  HistoName: "mllbb_deltaphi095to100"
+  HistoPathSuff: "mllbb_deltaphi095to100"
+  IsBinOfRegion: "DeltaPhi":5
+  Label: "0.95 < #it{#Delta#phi_{ll}/#pi} < 1.0"
   LogScale: TRUE
   Type: SIGNAL
   VariableTitle: "#it{m_{llbb}} [GeV]"
@@ -115,8 +159,13 @@ Sample: "ttbar_dilep_hdamp_dilep"
   NormalizedByTheory: FALSE
   Type: GHOST
 
-Sample: "ttbar_dilep_FSRup_dilep";"ttbar_dilep_FSRdown_dilep"
-  HistoFile: "ttbar_dilep_fsrup_dilep";"ttbar_dilep_fsrdown_dilep"
+Sample: "ttbar_dilep_FSRup_dilep"
+  HistoFile: "ttbar_dilep_fsrup_dilep"
+  NormalizedByTheory: FALSE
+  Type: GHOST
+
+Sample: "ttbar_dilep_FSRdown_dilep"
+  HistoFile: "ttbar_dilep_fsrdown_dilep"
   NormalizedByTheory: FALSE
   Type: GHOST
 
@@ -160,59 +209,509 @@ Sample: "singleTop_DS_dilep"
   NormalizedByTheory: FALSE
   Type: GHOST
 
-Sample: "zjets_pTll_up_dilep";"zjets_pTll_down_dilep"
-  HistoFile: "zjets_ptll_up_dilep";"zjets_ptll_down_dilep"
+Sample: "zjets_pTll_up_dilep"
+  HistoFile: "zjets_ptll_up_dilep"
   NormalizedByTheory: FALSE
   Type: GHOST
 
-Sample: "zjets_LF_up_dilep";"zjets_HF_up_dilep"
-  HistoFile: "zjets_lf_up_dilep";"zjets_hf_up_dilep"
+Sample: "zjets_pTll_down_dilep"
+  HistoFile: "zjets_ptll_down_dilep"
   NormalizedByTheory: FALSE
   Type: GHOST
 
-Sample: "ZprimeTC2_400_dilep";"ZprimeTC2_500_dilep";"ZprimeTC2_750_dilep";"ZprimeTC2_1000_dilep";"ZprimeTC2_1250_dilep";"ZprimeTC2_1500_dilep";"ZprimeTC2_1750_dilep";"ZprimeTC2_2000_dilep";"ZprimeTC2_2500_dilep";"ZprimeTC2_3000_dilep";"ZprimeTC2_3500_dilep";"ZprimeTC2_4000_dilep";"ZprimeTC2_4500_dilep";"ZprimeTC2_5000_dilep";"ZprimeTC2_6000_dilep"
+Sample: "ZprimeTC2_400_dilep"
   FillColor: 2
-  HistoFile: "zprimetc2_400_dilep";"zprimetc2_500_dilep";"zprimetc2_750_dilep";"zprimetc2_1000_dilep";"zprimetc2_1250_dilep";"zprimetc2_1500_dilep";"zprimetc2_1750_dilep";"zprimetc2_2000_dilep";"zprimetc2_2500_dilep";"zprimetc2_3000_dilep";"zprimetc2_3500_dilep";"zprimetc2_4000_dilep";"zprimetc2_4500_dilep";"zprimetc2_5000_dilep";"zprimetc2_6000_dilep"
+  HistoFile: "zprimetc2_400_dilep"
   LineColor: 2
   NormalizedByTheory: FALSE
-  TexTitle: "$Z'$ (400 GeV)"    ;"$Z'$ (500 GeV)"    ;"$Z'$ (750 GeV)"     ;"$Z'$ (1 TeV)"      ;"$Z'$ (1.25 TeV)"    ;"$Z'$ (1.5 TeV)"    ;"$Z'$ (1.75 TeV)"    ;"$Z'$ (2 TeV)"     ;"$Z'$ (2.5 TeV)"     ;"$Z'$ (3 TeV)"      ;"$Z'$ (3.5 TeV)"    ;"$Z'$ (4 TeV)"      ;"$Z'$ (4.5 TeV)"    ;"$Z'$ (5 TeV)"      ;"$Z'$ (6 TeV)"
-  Title: "Z'_{TC2} (400 GeV)";"Z'_{TC2} (500 GeV)";"Z'_{TC2} (750 GeV)" ;"Z'_{TC2} (1 TeV)"  ;"Z'_{TC2} (1.25 TeV)";"Z'_{TC2} (1.5 TeV)";"Z'_{TC2} (1.75 TeV)";"Z'_{TC2} (2 TeV)" ;"Z'_{TC2} (2.5 TeV)" ;"Z'_{TC2} (3 TeV)"  ;"Z'_{TC2} (3.5 TeV)";"Z'_{TC2} (4 TeV)"  ;"Z'_{TC2} (4.5 TeV)";"Z'_{TC2} (5 TeV)"  ;"Z'_{TC2} (6 TeV)"
+  TexTitle: "$Z'$ (400 GeV)"
+  Title: "Z'_{TC2} (400 GeV)"
   Type: SIGNAL
 
-Sample: "ZprimePY_400_dilep";"ZprimePY_500_dilep";"ZprimePY_750_dilep";"ZprimePY_1000_dilep";"ZprimePY_1250_dilep";"ZprimePY_1500_dilep";"ZprimePY_1750_dilep";"ZprimePY_2000_dilep";"ZprimePY_2500_dilep";"ZprimePY_3000_dilep";"ZprimePY_3500_dilep";"ZprimePY_4000_dilep";"ZprimePY_4500_dilep";"ZprimePY_5000_dilep"
+Sample: "ZprimeTC2_500_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_500_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (500 GeV)"
+  Title: "Z'_{TC2} (500 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_750_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_750_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (750 GeV)"
+  Title: "Z'_{TC2} (750 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1000_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_1000_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (1 TeV)"
+  Title: "Z'_{TC2} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1250_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_1250_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (1.25 TeV)"
+  Title: "Z'_{TC2} (1.25 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1500_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_1500_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (1.5 TeV)"
+  Title: "Z'_{TC2} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1750_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_1750_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (1.75 TeV)"
+  Title: "Z'_{TC2} (1.75 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_2000_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_2000_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (2 TeV)"
+  Title: "Z'_{TC2} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_2500_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_2500_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (2.5 TeV)"
+  Title: "Z'_{TC2} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_3000_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_3000_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (3 TeV)"
+  Title: "Z'_{TC2} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_3500_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_3500_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (3.5 TeV)"
+  Title: "Z'_{TC2} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_4000_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_4000_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (4 TeV)"
+  Title: "Z'_{TC2} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_4500_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_4500_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (4.5 TeV)"
+  Title: "Z'_{TC2} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_5000_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_5000_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (5 TeV)"
+  Title: "Z'_{TC2} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_6000_dilep"
+  FillColor: 2
+  HistoFile: "zprimetc2_6000_dilep"
+  LineColor: 2
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (6 TeV)"
+  Title: "Z'_{TC2} (6 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_400_dilep"
   FillColor: 5
-  HistoFile: "zprimepy_400_dilep";"zprimepy_500_dilep";"zprimepy_750_dilep";"zprimepy_1000_dilep";"zprimepy_1250_dilep";"zprimepy_1500_dilep";"zprimepy_1750_dilep";"zprimepy_2000_dilep";"zprimepy_2500_dilep";"zprimepy_3000_dilep";"zprimepy_3500_dilep";"zprimepy_4000_dilep";"zprimepy_4500_dilep";"zprimepy_5000_dilep"
+  HistoFile: "zprimepy_400_dilep"
   LineColor: 5
   NormalizedByTheory: FALSE
-  TexTitle: "$Z'$ (400 GeV)"    ;"$Z'$ (500 GeV)"    ;"$Z'$ (750 GeV)"    ;"$Z'$ (1 TeV)"     ;"$Z'$ (1.25 TeV)"    ;"$Z'$ (1.5 TeV)"    ;"$Z'$ (1.75 TeV)"    ;"$Z'$ (2 TeV)"     ;"$Z'$ (2.5 TeV)"     ;"$Z'$ (3 TeV)"      ;"$Z'$ (3.5 TeV)"    ;"$Z'$ (4 TeV)"      ;"$Z'$ (4.5 TeV)"    ;"$Z'$ (5 TeV)"
-  Title: "Z'_{PY} (400 GeV)" ;"Z'_{PY} (500 GeV)" ;"Z'_{PY} (750 GeV)" ;"Z'_{PY} (1 TeV)"  ;"Z'_{PY} (1.25 TeV)" ;"Z'_{PY} (1.5 TeV)" ;"Z'_{PY} (1.75 TeV)" ;"Z'_{PY} (2 TeV)"  ;"Z'_{PY} (2.5 TeV)"  ;"Z'_{PY} (3 TeV)"   ;"Z'_{PY} (3.5 TeV)" ;"Z'_{PY} (4 TeV)"   ;"Z'_{PY} (4.5 TeV)" ;"Z'_{PY} (5 TeV)"
+  TexTitle: "$Z'$ (400 GeV)"
+  Title: "Z'_{PY} (400 GeV)"
   Type: SIGNAL
 
-Sample: "KKgMG500_dilep";"KKgMG1000_dilep";"KKgMG1500_dilep";"KKgMG2000_dilep";"KKgMG2500_dilep";"KKgMG3000_dilep";"KKgMG3500_dilep";"KKgMG4000_dilep";"KKgMG4500_dilep";"KKgMG5000_dilep"
+Sample: "ZprimePY_500_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_500_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (500 GeV)"
+  Title: "Z'_{PY} (500 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_750_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_750_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (750 GeV)"
+  Title: "Z'_{PY} (750 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_1000_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_1000_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (1 TeV)"
+  Title: "Z'_{PY} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_1250_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_1250_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (1.25 TeV)"
+  Title: "Z'_{PY} (1.25 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_1500_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_1500_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (1.5 TeV)"
+  Title: "Z'_{PY} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_1750_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_1750_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (1.75 TeV)"
+  Title: "Z'_{PY} (1.75 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_2000_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_2000_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (2 TeV)"
+  Title: "Z'_{PY} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_2500_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_2500_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (2.5 TeV)"
+  Title: "Z'_{PY} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_3000_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_3000_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (3 TeV)"
+  Title: "Z'_{PY} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_3500_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_3500_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (3.5 TeV)"
+  Title: "Z'_{PY} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_4000_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_4000_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (4 TeV)"
+  Title: "Z'_{PY} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_4500_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_4500_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (4.5 TeV)"
+  Title: "Z'_{PY} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_5000_dilep"
+  FillColor: 5
+  HistoFile: "zprimepy_5000_dilep"
+  LineColor: 5
+  NormalizedByTheory: FALSE
+  TexTitle: "$Z'$ (5 TeV)"
+  Title: "Z'_{PY} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG500_dilep"
   FillColor: 3
-  HistoFile: "kkgmg500_dilep";"kkgmg1000_dilep";"kkgmg1500_dilep";"kkgmg2000_dilep";"kkgmg2500_dilep";"kkgmg3000_dilep";"kkgmg3500_dilep";"kkgmg4000_dilep";"kkgmg4500_dilep";"kkgmg5000_dilep"
+  HistoFile: "kkgmg500_dilep"
   LineColor: 3
   NormalizedByTheory: FALSE
-  TexTitle: "$g_{KK}$ (0.5 TeV)";"$g_{KK}$ (1 TeV)";"$g_{KK}$ (1.5 TeV)";"$g_{KK}$ (2 TeV)";"$g_{KK}$ (2.5 TeV)";"$g_{KK}$ (3 TeV)";"$g_{KK}$ (3.5 TeV)";"$g_{KK}$ (4 TeV)";"$g_{KK}$ (4.5 TeV)";"$g_{KK}$ (5 TeV)"
-  Title: "g_{KK} (0.5 TeV)"  ;"g_{KK} (1 TeV)"  ;"g_{KK} (1.5 TeV)"  ;"g_{KK} (2 TeV)"  ;"g_{KK} (2.5 TeV)"  ;"g_{KK} (3 TeV)"  ;"g_{KK} (3.5 TeV)"  ;"g_{KK} (4 TeV)"  ;"g_{KK} (4.5 TeV)"  ;"g_{KK} (5 TeV)"
+  TexTitle: "$g_{KK}$ (0.5 TeV)"
+  Title: "g_{KK} (0.5 TeV)"
   Type: SIGNAL
 
-Sample: "KKgPY500_dilep";"KKgPY1000_dilep";"KKgPY1500_dilep";"KKgPY2000_dilep";"KKgPY2500_dilep";"KKgPY3000_dilep";"KKgPY3500_dilep";"KKgPY4000_dilep";"KKgPY4500_dilep";"KKgPY5000_dilep"
+Sample: "KKgMG1000_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg1000_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (1 TeV)"
+  Title: "g_{KK} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG1500_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg1500_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (1.5 TeV)"
+  Title: "g_{KK} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG2000_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg2000_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (2 TeV)"
+  Title: "g_{KK} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG2500_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg2500_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (2.5 TeV)"
+  Title: "g_{KK} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG3000_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg3000_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (3 TeV)"
+  Title: "g_{KK} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG3500_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg3500_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (3.5 TeV)"
+  Title: "g_{KK} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG4000_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg4000_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (4 TeV)"
+  Title: "g_{KK} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG4500_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg4500_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (4.5 TeV)"
+  Title: "g_{KK} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG5000_dilep"
+  FillColor: 3
+  HistoFile: "kkgmg5000_dilep"
+  LineColor: 3
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (5 TeV)"
+  Title: "g_{KK} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY500_dilep"
   FillColor: 6
-  HistoFile: "kkgpy500_dilep";"kkgpy1000_dilep";"kkgpy1500_dilep";"kkgpy2000_dilep";"kkgpy2500_dilep";"kkgpy3000_dilep";"kkgpy3500_dilep";"kkgpy4000_dilep";"kkgpy4500_dilep";"kkgpy5000_dilep"
+  HistoFile: "kkgpy500_dilep"
   LineColor: 6
   NormalizedByTheory: FALSE
-  TexTitle: "$g_{KK}$ (0.5 TeV)"  ;"$g_{KK}$ (1 TeV)"  ;"$g_{KK}$ (1.5 TeV)"  ;"$g_{KK}$ (2 TeV)"  ;"$g_{KK}$ (2.5 TeV)"  ;"$g_{KK}$ (3 TeV)"  ;"$g_{KK}$ (3.5 TeV)"  ;"$g_{KK}$ (4 TeV)"  ;"$g_{KK}$ (4.5 TeV)"  ;"$g_{KK}$ (5 TeV)"
-  Title: "g_{KK} (0.5 TeV)"    ;"g_{KK} (1 TeV)"    ;"g_{KK} (1.5 TeV)"    ;"g_{KK} (2 TeV)"    ;"g_{KK} (2.5 TeV)"    ;"g_{KK} (3 TeV)"    ;"g_{KK} (3.5 TeV)"    ;"g_{KK} (4 TeV)"    ;"g_{KK} (4.5 TeV)"    ;"g_{KK} (5 TeV)"
+  TexTitle: "$g_{KK}$ (0.5 TeV)"
+  Title: "g_{KK} (0.5 TeV)"
   Type: SIGNAL
 
-Sample: "Grav400_dilep";"Grav500_dilep";"Grav750_dilep";"Grav1000_dilep";"Grav2000_dilep";"Grav3000_dilep"
+Sample: "KKgPY1000_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy1000_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (1 TeV)"
+  Title: "g_{KK} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY1500_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy1500_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (1.5 TeV)"
+  Title: "g_{KK} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY2000_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy2000_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (2 TeV)"
+  Title: "g_{KK} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY2500_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy2500_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (2.5 TeV)"
+  Title: "g_{KK} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY3000_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy3000_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (3 TeV)"
+  Title: "g_{KK} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY3500_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy3500_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (3.5 TeV)"
+  Title: "g_{KK} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY4000_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy4000_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (4 TeV)"
+  Title: "g_{KK} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY4500_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy4500_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (4.5 TeV)"
+  Title: "g_{KK} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY5000_dilep"
+  FillColor: 6
+  HistoFile: "kkgpy5000_dilep"
+  LineColor: 6
+  NormalizedByTheory: FALSE
+  TexTitle: "$g_{KK}$ (5 TeV)"
+  Title: "g_{KK} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav400_dilep"
   FillColor: 4
-  HistoFile: "grav400_dilep";"grav500_dilep";"grav750_dilep";"grav1000_dilep";"grav2000_dilep";"grav3000_dilep"
+  HistoFile: "grav400_dilep"
   LineColor: 4
   NormalizedByTheory: FALSE
-  TexTitle: "$G_{KK}$ (0.4 TeV)";"$G_{KK}$ (0.5 TeV)";"$G_{KK}$ (0.75 TeV)";"$G_{KK}$ (1 TeV)" ;"$G_{KK}$ (2 TeV)" ;"$G_{KK}$ (3 TeV)"
-  Title: "G_{KK} (0.4 TeV)"  ;"G_{KK} (0.5 TeV)"  ;"G_{KK} (0.75 TeV)"  ;"G_{KK} (1 TeV)"   ;"G_{KK} (2 TeV)"   ;"G_{KK} (3 TeV)"
+  TexTitle: "$G_{KK}$ (0.4 TeV)"
+  Title: "G_{KK} (0.4 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav500_dilep"
+  FillColor: 4
+  HistoFile: "grav500_dilep"
+  LineColor: 4
+  NormalizedByTheory: FALSE
+  TexTitle: "$G_{KK}$ (0.5 TeV)"
+  Title: "G_{KK} (0.5 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav750_dilep"
+  FillColor: 4
+  HistoFile: "grav750_dilep"
+  LineColor: 4
+  NormalizedByTheory: FALSE
+  TexTitle: "$G_{KK}$ (0.75 TeV)"
+  Title: "G_{KK} (0.75 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav1000_dilep"
+  FillColor: 4
+  HistoFile: "grav1000_dilep"
+  LineColor: 4
+  NormalizedByTheory: FALSE
+  TexTitle: "$G_{KK}$ (1 TeV)"
+  Title: "G_{KK} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav2000_dilep"
+  FillColor: 4
+  HistoFile: "grav2000_dilep"
+  LineColor: 4
+  NormalizedByTheory: FALSE
+  TexTitle: "$G_{KK}$ (2 TeV)"
+  Title: "G_{KK} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav3000_dilep"
+  FillColor: 4
+  HistoFile: "grav3000_dilep"
+  LineColor: 4
+  NormalizedByTheory: FALSE
+  TexTitle: "$G_{KK}$ (3 TeV)"
+  Title: "G_{KK} (3 TeV)"
   Type: SIGNAL
 
 Sample: "ttbar_dilep_dilep"

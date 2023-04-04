@@ -2,6 +2,9 @@ import argparse
 from pathlib import Path
 import ROOT
 
+bad_samples = ['zjets_LF_up', 'zjets_HF_up']
+
+lumi = 139000 % 36100 + 44300 + 58600
 
 def convert_histos_in_file(tfile, out_dir, path=''):
     for key in tfile.GetListOfKeys():
@@ -26,6 +29,9 @@ def convert_histos_in_file(tfile, out_dir, path=''):
             if systematic != 'nominal':
                 # ignore systematics, for now
                 continue
+            if sample in bad_samples:
+                print(f"\t\t Ignoring bad sample {sample}...")
+                continue
             variation = obj.GetName()
             # write lowercase
             region = region.lower()
@@ -37,6 +43,8 @@ def convert_histos_in_file(tfile, out_dir, path=''):
             out_file.parent.mkdir(exist_ok=True, parents=True)
             out_tfile = ROOT.TFile(str(out_file), "UPDATE")
             out_tfile.cd()
+            # divide the weights by the luminosity, as it will be added back in later
+            # obj.Scale(1./lumi)
             # write the histogram as a clone, so that the original histogram is not modified
             obj.Write(region)
             out_tfile.Close()

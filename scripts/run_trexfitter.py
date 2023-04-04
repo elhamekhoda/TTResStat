@@ -15,12 +15,12 @@ from make_config import (Settings, make_1l_config, make_2l_config,
 def copy_limits_to_shared(channel, mass_out_dir, shared_limit_dir):
     """Copy the limit file to the shared limit directory.
     Args:
-        channel (str): '1l', '2l', 'all', or 'combined'
+        channel (str): '1l', '2l', or 'combined'
         mass_out_dir (Path): directory containing the limit file from running trexfitter
         shared_limit_dir (Path): directory to copy the limit file to
     """
-    if channel == 'all' or channel == 'combined':
-        limit_run = 'ttRes1L2L'
+    if channel == 'combined':
+        limit_run = 'ttres1l2l'
     elif channel == '2l':
         limit_run = 'ttRes2L_fit_inverted_deltaEta_2dRew_slim_SysAll_V24'
     elif channel == '1l':
@@ -48,22 +48,20 @@ def write_configs(settings: Settings):
     channel_to_config = {}
     channel_to_opts = {}
 
-    if settings.channel == 'all' or settings.channel == '1l':
+    if settings.channel == '1l':
         template_text, opts = make_1l_config(copy.deepcopy(settings))
         with ttres1L_config.open('w+') as f:
             f.write(template_text)
         channel_to_config['1l'] = ttres1L_config
         channel_to_opts['1l'] = opts
-    if settings.channel == 'all' or settings.channel == '2l':
+    if settings.channel == '2l':
         template_text, opts = make_2l_config(copy.deepcopy(settings))
         with ttres2L_config.open('w+') as f:
             f.write(template_text)
         channel_to_config['2l'] = ttres2L_config
         channel_to_opts['2l'] = opts
-    if settings.channel == 'all' or settings.channel == 'combined':
-        assert ttres1L_config.exists()
-        assert ttres2L_config.exists()
-        template_text, opts = make_combined_config(copy.deepcopy(settings), ttres1L_config, ttres2L_config)
+    if settings.channel == 'combined':
+        template_text, opts = make_combined_config(copy.deepcopy(settings))
         with ttres1L2L_config.open('w+') as f:
             f.write(template_text)
         channel_to_config['combined'] = ttres1L2L_config
@@ -128,16 +126,7 @@ def run_trexfitter(settings: Settings, channel_to_config: Dict[str, Path], chann
             os.chdir(settings.mass_out_dir)
             subprocess.call(cmd, shell=True)
 
-    if settings.channel == 'all':
-        single_channel_ops = 'w'
-        if 'f' in settings.ops:
-            single_channel_ops += 'f'
-        if 'l' in settings.ops:
-            single_channel_ops += 'l'
-        call_trex_fitter(ops=single_channel_ops, opts=channel_to_opts['1l'], config=channel_to_config['1l'], log="ttres1L.ans") #1L
-        call_trex_fitter(ops=single_channel_ops, opts=channel_to_opts['2l'], config=channel_to_config['2l'], log="ttres2L.ans") #2L
-        call_trex_fitter(ops=settings.ops, opts=channel_to_opts['combined'], config=channel_to_config['combined'], log="ttres1L2L.ans") # 1L2L
-    elif settings.channel in ['1l', '2l', 'combined']:
+    if settings.channel in ['1l', '2l', 'combined']:
         call_trex_fitter(ops=settings.ops, opts=channel_to_opts[settings.channel], config=channel_to_config[settings.channel], log=f"ttres{settings.channel}.ans")
     else:
         raise ValueError(f'Unrecognized channel: {settings.channel}')
@@ -152,7 +141,7 @@ def main():
     parser.add_argument('--suffix', '-s', help="suffix to add to the output directory name.")
     parser.add_argument('--ops', default='mwfl', help="ops for trex-fitter.")
     parser.add_argument('--opts', help="command-line options for trex-fitter (that are not already set in make_config).")
-    parser.add_argument('--channel', '-c', default='all', choices=['1l', '2l', 'combined', 'all'], help="perform specified channel only.")
+    parser.add_argument('--channel', '-c', default='combined', choices=['1l', '2l', 'combined'], help="perform specified channel only.")
     parser.add_argument('--signal', choices=['zprime', 'grav', 'gluon', 'all'], default='zprime', type=str, help="signal to use.")
     parser.add_argument("--region_1l",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
                             help="Region to use for the 1l channel: boosted, resolved, combined")
@@ -173,18 +162,17 @@ def main():
     args = parser.parse_args()
 
 
-    if args.channel not in ['combined', 'all']:
-        if 'm' in args.ops:
-            raise ValueError('Cannot run single channel fits with the "m" option.')
+    if 'm' in args.ops:
+        raise ValueError('explicit multi-channel fit not supported. Create single config as described in readme, then use `-c combined`.')
 
     # Make appropriate directories
     timestamp = str(datetime.date.today())
     run_name = f'statResults_ttres1L2L_{timestamp}'
     if not args.suffix:
         suffix = [f'{args.channel}', f'{args.signal}', f'fitmu-{args.fit_mu_asimov}']
-        if args.channel in ['1l', 'all']:
+        if args.channel in ['1l', 'combined']:
             suffix.append(f'region1l-{args.region_1l}')
-        if args.channel in ['2l', 'all']:
+        if args.channel in ['2l', 'combined']:
             suffix.append(f'region2l-{args.region_2l}')
         if args.unblind:
             suffix.append('unblind')

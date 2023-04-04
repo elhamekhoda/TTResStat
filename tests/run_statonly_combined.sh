@@ -1,0 +1,1 @@
+python scripts/run_trexfitter.py -s statonly_combined_test --ops wfl --statonly -c all -m 1000

@@ -5,67 +5,9 @@ import re
 
 import yaml
 
+from utils import parse_config_file, remove_quotes, write_config
 
-def has_indentation(line):
-    return line.startswith(' ') or line.startswith('\t')
-
-
-def parse_config_file(file_path):
-    """Parse a 2L config file into a dictionary. Each object type is a key in the dictionary, and the value is list of (object name, dictionary) pairs, where dictionary contains the object's attributes."""
-    with open(file_path, 'r') as f:
-        lines = f.readlines()
-
-    config = defaultdict(list)
-    current_obj_name = None
-    current_obj_type = None
-    current_obj_dict = {}
-    
-    for line in lines:
-        # Ignore comments and blank lines
-        stripped_line = line.strip()
-        if stripped_line.startswith('%') or stripped_line.startswith('#') or not stripped_line:
-            continue
-        
-        if has_indentation(line):
-            # This is a continuation of the current object
-            if ':' in stripped_line:
-                key, value = stripped_line.split(':', 1)
-                key = key.strip()
-                value = value.strip()
-                current_obj_dict[key] = value
-        else:
-            # This is a new object
-            # First, save the current object
-            if current_obj_name is not None:
-                config[current_obj_type].append((current_obj_name, current_obj_dict))
-            current_obj_dict = {}
-            # Now, parse the new object
-            if ':' in stripped_line:
-                current_obj_type, current_obj_name = stripped_line.split(':', 1)
-                current_obj_type = current_obj_type.strip()
-                current_obj_name = current_obj_name.strip()
-            else:
-                current_obj_type = None
-                current_obj_name = None
-
-    # Save the last object
-    if current_obj_name is not None:
-        config[current_obj_type].append((current_obj_name, current_obj_dict))
-
-    return config
-
-def write_config(config, file_path, statonly=False):
-    """Write a config dictionary to a file."""
-    with open(file_path, 'w') as f:
-        for obj_type, obj_pairs in config.items():
-            if obj_type.lower() == 'systematic' and statonly:
-                continue
-            for obj_name, obj_dict in obj_pairs:
-                f.write(f'{obj_type}: {obj_name}\n')
-                for key, value in sorted(obj_dict.items(), key=lambda x: x[0]):
-                    f.write(f'  {key}: {value}\n')
-                f.write('\n')
-
+bad_samples = ['zjets_LF_up', 'zjets_HF_up']
 
 def rename_samples(config, suffix):
     """Rename samples in the config file."""
@@ -101,9 +43,13 @@ def rename_samples(config, suffix):
                 obj_names = obj_name.split(';')
                 new_obj_names = []
                 for obj_name in obj_names:
+                    if remove_quotes(obj_name.strip()) in bad_samples:
+                        print('Ignoring bad sample: ' + remove_quotes(obj_name.strip()))
+                        continue
                     new_obj_names.append(rename_sample(obj_name.strip()))
                 new_obj_name = ';'.join(new_obj_names)
-                new_obj_pairs.append((new_obj_name, obj_dict))
+                if new_obj_name:
+                    new_obj_pairs.append((new_obj_name, obj_dict))
             config[obj_type] = new_obj_pairs
         else:
             # check other objects for references to the sample
@@ -170,7 +116,7 @@ def convert_ntuple_to_histogram_paths(config):
     return new_config
 
 def convert_config(config_path, statonly):
-    config = parse_config_file(config_path)
+    config = parse_config_file(config_path, statonly=statonly)
 
     # Rename samples
     rename_samples(config, '_dilep')
@@ -179,7 +125,7 @@ def convert_config(config_path, statonly):
     config = convert_ntuple_to_histogram_paths(config)
 
     new_config_path = Path(config_path).parent / 'ttRes2L_converted.tmp'
-    write_config(config, new_config_path, statonly)
+    write_config(config, new_config_path)
 
 
 
