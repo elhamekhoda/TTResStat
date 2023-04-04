@@ -37,8 +37,9 @@ def convert_histos_in_file(tfile, out_dir, path=''):
             region = region.lower()
             sample = sample.lower()
             # add _dilep to the sample name
-            sample = sample + '_dilep'
-            out_file = out_dir / f"{region}/{sample}.root"
+            if 'data' not in sample:
+                sample = sample + '_dilep'
+            out_file = out_dir / f"{region}/hist_{sample}.root"
             print(f"\t\t Writing to {out_file}...")
             out_file.parent.mkdir(exist_ok=True, parents=True)
             out_tfile = ROOT.TFile(str(out_file), "UPDATE")

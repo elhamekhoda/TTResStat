@@ -271,6 +271,9 @@ def get_1l_regions(settings: Settings):
         regions = "re1,re2,re3,rmu1,rmu2,rmu3"
     return regions
 
+def get_1l_signal_name(settings: Settings):
+    return f'{settings.signal_name}_{settings.mass}'
+
 def make_1l_config(settings: Settings):
     """Make the config for the 1l channel"""
 
@@ -298,7 +301,7 @@ def make_1l_config(settings: Settings):
     else:
         settings.histo_dir = settings.histo_dir / 'ttres1l' / template_name
         settings.histo_dir.mkdir(parents=True, exist_ok=True)
-    check_empty_histos(settings.histo_dir)
+    check_empty_histos(settings)
 
     # get md5sum of files in histo_dir, if any exist:
     md5sums = None
@@ -326,7 +329,7 @@ def make_1l_config(settings: Settings):
     # make command-line options for trexfitter
     opts = get_common_opts(settings, regions=regions)
     if settings.signal_name != 'all':
-        opts.append(f'Signal={settings.signal_name}_{settings.mass}')
+        opts.append(f'Signal={get_1l_signal_name(settings)}')
     opts = ':'.join(opts)
 
     return config_string, opts
@@ -364,6 +367,7 @@ def make_2l_config(settings: Settings):
     if settings.signal_injection_mass is not None:
         raise NotImplementedError("Signal injection not implemented for 2l")
     else:
+        #template_path = config_dir / 'ttres2L_converted_unnormalized.tmp'
         template_path = config_dir / "ttRes2L_converted.tmp"
         #template_path = config_dir / "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim.tmp"
         #template_path = config_dir / "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim.cfg"
@@ -402,20 +406,20 @@ def make_2l_config(settings: Settings):
         opts.append(f'Signal={signal_sample_name}_dilep')
 
         # add samples manually, for now
-        samples = f'''{signal_sample_name},ttbar_dilep,singleTop,zjets,diboson,ttV,ttH,fakes,fakes_ttbar,ttbar_dilep_ghost_nonRew,ttbar_dilep_PH7_nonRew,ttbar_dilep_aMCP8,ttbar_dilep_MECoff,ttbar_dilep_aMCH7,ttbar_dilep_hdamp,ttbar_dilep_FSRup,ttbar_dilep_FSRdown,ttbar_dilep_noEW,ttbar_dilep_inv,ttbar_dilep_altPDF,ttbar_dilep_oneEmission_topPt,ttbar_dilep_oneEmission_mtt,singleTop_PH7,singleTop_aMCP8,singleTop_DS,zjets_pTll_up,zjets_pTll_down'''
-        samples = ",".join([s + "_dilep" for s in samples.split(",")])
-        opts.append(f'''Samples={samples}''')
+        # samples = f'''{signal_sample_name},ttbar_dilep,singleTop,zjets,diboson,ttV,ttH,fakes,fakes_ttbar,ttbar_dilep_ghost_nonRew,ttbar_dilep_PH7_nonRew,ttbar_dilep_aMCP8,ttbar_dilep_MECoff,ttbar_dilep_aMCH7,ttbar_dilep_hdamp,ttbar_dilep_FSRup,ttbar_dilep_FSRdown,ttbar_dilep_noEW,ttbar_dilep_inv,ttbar_dilep_altPDF,ttbar_dilep_oneEmission_topPt,ttbar_dilep_oneEmission_mtt,singleTop_PH7,singleTop_aMCP8,singleTop_DS,zjets_pTll_up,zjets_pTll_down'''
+        # samples = ",".join([s + "_dilep" for s in samples.split(",")])
+        # opts.append(f'''Samples={samples}''')
         
     opts = ':'.join(opts)
 
     return config_string, opts
 
-def make_combined_config(settings: Settings, config_1l: str, config_2l: str):
+def make_combined_config(settings: Settings):
     # get path to parent directory of this script
     root_path = Path(os.path.realpath(__file__)).parent.parent
     config_dir = root_path / 'configs' / 'ttres1l2l'
 
-    template_path = config_dir / 'ttres1L2L.tmp'
+    template_path = config_dir / 'ttres1l2l.tmp'
 
     # read config template
     with template_path.open('r') as f:
@@ -425,7 +429,7 @@ def make_combined_config(settings: Settings, config_1l: str, config_2l: str):
     template_name = template_path.stem
     settings.histo_dir = settings.histo_dir / 'ttres1l2l' / template_name
     settings.histo_dir.mkdir(parents=True, exist_ok=True)
-    check_empty_histos(settings.histo_dir)
+    check_empty_histos(settings)
 
     # get md5sum of files in histo_dir, if any exist:
     md5sums = None
@@ -439,21 +443,21 @@ def make_combined_config(settings: Settings, config_1l: str, config_2l: str):
     # regions
     regions_1l = get_1l_regions(settings)
     regions_2l = get_2l_regions(settings)
+    settings.region_1l = regions_1l
+    settings.region_2l = regions_2l
+
+    # systematics -- TODO
 
     # common settings
     in_dir = Path(os.environ['DATA_DIR_1L2L'])
     config_string = add_common_settings_to_config_string(config_string, in_dir, settings)
 
     # make command-line options for trexfitter
-    opts = []
+    opts = get_common_opts(settings, regions=regions_1l + ',' + regions_2l)
     if settings.signal_name != 'all':
-        if settings.signal_name == 'ZprimeTC2':
-            signal_sample_name = f'{settings.signal_name}_{settings.mass}'
-        elif settings.signal_name == 'Grav':
-            signal_sample_name = f'{settings.signal_name}{settings.mass}'
-        elif settings.signal_name == 'KKg':
-            signal_sample_name = f'{settings.signal_name}MG{settings.mass}'
-    opts.append(f'Signal={signal_sample_name}')
+        signal_sample_1l = get_1l_signal_name(settings)
+        signal_sample_2l = get_2l_signal_name(settings)
+        opts.append(f'Signal={signal_sample_2l}_dilep,{signal_sample_1l}')
     opts = ':'.join(opts)
 
     return config_string, opts

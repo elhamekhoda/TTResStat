@@ -46,7 +46,11 @@ def rename_samples(config, suffix):
                     if remove_quotes(obj_name.strip()) in bad_samples:
                         print('Ignoring bad sample: ' + remove_quotes(obj_name.strip()))
                         continue
-                    new_obj_names.append(rename_sample(obj_name.strip()))
+                    if 'data' in obj_name.lower():
+                        print('including data sample without renaming...')
+                        new_obj_names.append(obj_name.strip())
+                    else:
+                        new_obj_names.append(rename_sample(obj_name.strip()))
                 new_obj_name = ';'.join(new_obj_names)
                 if new_obj_name:
                     new_obj_pairs.append((new_obj_name, obj_dict))
@@ -60,8 +64,14 @@ def rename_samples(config, suffix):
                 rename_samples_in_property(obj_dict, 'ReferenceSample')
                     
 
-def convert_ntuple_to_histogram_paths(config):
+def prepend(s, prefix):
+    # put prefix within the quotes, if necessary
+    if s.startswith('"') and s.endswith('"'):
+        return '"' + prefix + s[1:-1] + '"'
+    else:
+        return prefix + s
 
+def convert_ntuple_to_histogram_paths(config):
     # change job settings
     job_settings = config['Job'][0][1]
     job_settings['HistoPath'] = job_settings['NtuplePaths']
@@ -71,7 +81,7 @@ def convert_ntuple_to_histogram_paths(config):
         if 'ntuple' in key.lower():
             print('Deleting job setting: ' + key)
             del job_settings[key]
-    other_ntuple_options = ['MCweight', 'Selection', 'CustomIncludePaths', 'CustomFunctions']
+    other_ntuple_options = ['MCweight', 'Selection', 'CustomIncludePaths', 'CustomFunctions', 'Lumi']
     for option in other_ntuple_options:
         if option in job_settings:
             print('Deleting job setting: ' + option)
@@ -100,8 +110,10 @@ def convert_ntuple_to_histogram_paths(config):
     new_config = config.copy()
     for i, (sample_name, sample_dict) in enumerate(config['Sample']):
         sample_names = sample_name.split(';')
-        sample_dict['HistoFile'] = ';'.join([name.lower().strip() for name in sample_names])
-        sample_dict['NormalizedByTheory'] = 'FALSE'
+        sample_dict['HistoFile'] = ';'.join([prepend(name.lower().strip(), prefix='hist_') for name in sample_names])
+        if 'data' not in sample_name.lower():
+            # sample_dict['NormalizedByTheory'] = 'FALSE'
+            pass
         # delete any setting that has 'ntuple' in it
         for key in list(sample_dict.keys()):
             if 'ntuple' in key.lower():
@@ -115,7 +127,7 @@ def convert_ntuple_to_histogram_paths(config):
 
     return new_config
 
-def convert_config(config_path, statonly):
+def convert_config(config_path, statonly, output_name):
     config = parse_config_file(config_path, statonly=statonly)
 
     # Rename samples
@@ -124,19 +136,21 @@ def convert_config(config_path, statonly):
     # change ntuple paths to histogram paths
     config = convert_ntuple_to_histogram_paths(config)
 
-    new_config_path = Path(config_path).parent / 'ttRes2L_converted.tmp'
+    # add '.tmp' if need be
+    if not output_name.endswith('.tmp'):
+        output_name += '.tmp'
+    new_config_path = Path(config_path).parent / output_name
     write_config(config, new_config_path)
-
-
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("config", type=str, help="Path to the config file")
+    parser.add_argument('--output_name', type=str, default='ttRes2L_converted.tmp', help='Name of the output config file')
     parser.add_argument("--statonly", action="store_true", help="Ignore systematics")
 
     args = parser.parse_args()
 
-    convert_config(args.config, args.statonly)
+    convert_config(args.config, args.statonly, args.output_name)
 
 if __name__ == "__main__":
     main()

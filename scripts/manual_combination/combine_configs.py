@@ -1,6 +1,6 @@
 
 import os
-from utils import write_config, parse_config_file
+from utils import remove_quotes, write_config, parse_config_file
 
 import argparse
 
@@ -31,18 +31,29 @@ def combine_fit(fit_1l, fit_2l):
     return fit_combined
 
 
-def combine_sample(sample_1l, sample_2l):
+def combine_sample(sample_1l, sample_2l, regions_1l, regions_2l):
     sample_combined = []
     dict_1l = {k: v for k,v in sample_1l}
     dict_2l = {k: v for k,v in sample_2l}
     keys = set(dict_1l.keys()) | set(dict_2l.keys())
     for k in keys:
         if k not in dict_1l:
+            dict_2l[k]['Regions'] = ','.join(regions_2l)
             sample_combined.append((k, dict_2l[k]))
         elif k not in dict_2l:
+            dict_1l[k]['Regions'] = ','.join(regions_1l)
+            sample_combined.append((k, dict_1l[k]))
+        elif 'data' in k.lower():
             sample_combined.append((k, dict_1l[k]))
         else:
             raise RuntimeError('Sample is present in both 1l and 2l configs.')
+    
+    # sort sample_combined based on type, then name
+    sample_combined.sort(key=lambda x: (x[1]['Type'], x[0]))
+    # ensure that any sample with type 'Ghost' is at the front, while otherwise preserving the order
+    sample_combined.sort(key=lambda x: x[1]['Type'] == 'GHOST', reverse=True)
+
+
     return sample_combined
 
 def combine_systematic(systematic_1l, systematic_2l):
@@ -62,6 +73,11 @@ def combine_region(region_1l, region_2l):
             region_combined.append((key, region_1l[key]))
         else:
             raise RuntimeError('Region settings are different.')
+        
+    # sort region_combined based on type, then name
+    region_combined.sort(key=lambda x: (x[1]['Type'], x[0]))
+
+    
     return region_combined
 
 def combine_limit(limit_1l, limit_2l):
@@ -159,7 +175,7 @@ def combine_job(job_1l, job_2l):
         job_combined['Label'] = '"t#bar{t} 1-lepton/2-lepton search'
         diff_keys.remove('Label')
     if 'SmoothingOption' in diff_keys:
-        job_combined['SmoothingOption'] = '"COMMONTOOLSMOOTHPARABOLIC"'
+        job_combined['SmoothingOption'] = 'COMMONTOOLSMOOTHPARABOLIC'
         diff_keys.remove('SmoothingOption')
     if 'SystPruningShape' in diff_keys:
         job_combined['SystPruningShape'] = str(max(float(job_1l['SystPruningShape']), float(job_2l['SystPruningShape'])))
@@ -189,12 +205,14 @@ def combine_job(job_1l, job_2l):
             print(f'  1l: {job_1l[key]}')
             print(f'  2l: {job_2l[key]}')
         raise RuntimeError('Job settings are different.')
+    if 'InputName' in job_combined:
+        del job_combined['InputName']
     return job_combined
 
 def combine_significance(significance_1l, significance_2l):
     raise NotImplementedError
 
-def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type):
+def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type, regions_1l, regions_2l):
     assert len(obj_pairs_1l) > 0 or len(obj_pairs_2l) > 0, f'No objects of type {obj_type} found in either config'
     if len(obj_pairs_1l) == 0:
         return obj_pairs_2l
@@ -203,7 +221,7 @@ def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type):
     if obj_type == 'Fit':
         return [('fit', combine_fit(obj_pairs_1l[0][1], obj_pairs_2l[0][1]))]
     elif obj_type == 'Sample':
-        return combine_sample(obj_pairs_1l, obj_pairs_2l)
+        return combine_sample(obj_pairs_1l, obj_pairs_2l, regions_1l, regions_2l)
     elif obj_type == 'Systematic':
         return combine_systematic(obj_pairs_1l, obj_pairs_2l)
     elif obj_type == 'Region':
@@ -222,7 +240,6 @@ def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type):
         raise RuntimeError(f'Unknown object type {obj_type}')
 
 
-
 def combine_configs(config_1l, config_2l, out_dir, statonly=False):
     """Combine the 1l and 2l configs into a single config."""
     config_1l = parse_config_file(config_1l, statonly=statonly)
@@ -231,16 +248,17 @@ def combine_configs(config_1l, config_2l, out_dir, statonly=False):
     obj_types = set(config_1l.keys()) | set(config_2l.keys())
     type_order = ['Job', 'Options', 'Fit', 'Limit', 'Significance', 'Region', 'Sample', 'NormFactor', 'Systematic']
     config_combined = {}
+    regions_1l = set(remove_quotes(t[0]) for t in config_1l['Region'])
+    regions_2l = set(remove_quotes(t[0]) for t in config_2l['Region'])
     for obj_type in type_order:
         if obj_type not in obj_types:
             continue
-        combined_objects = combine_objects(config_1l[obj_type], config_2l[obj_type], obj_type=obj_type)
+        combined_objects = combine_objects(config_1l[obj_type], config_2l[obj_type], obj_type=obj_type, regions_1l=regions_1l, regions_2l=regions_2l)
         config_combined[obj_type] = combined_objects
 
     # write the combined config
     out_path = os.path.join(out_dir, 'ttres1l2l.tmp')
     write_config(config_combined, out_path)
-
 
 
 def main():

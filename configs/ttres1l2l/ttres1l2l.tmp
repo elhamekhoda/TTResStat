@@ -1,0 +1,1376 @@
+Job: ttres1l2l
+  AllowWrongRegionSample: TRUE
+  AtlasLabel: "Internal"
+  CmeLabel: "13 TeV"
+  CorrelationThreshold: 0.20
+  DebugLevel: 1
+  DoSummaryPlot: FALSE
+  HistoChecks: NOCRASH
+  HistoPath: "INPUTDIR/"
+  ImageFormat: "pdf","png"
+  InputFolder: "HISTODIR/"
+  Label: "t#bar{t} 1-lepton/2-lepton search
+  LegendNColumns: 2
+  LegendNColumnsMerge: 1
+  LegendNColumnsSummary: 1
+  LegendX1: 0.5
+  LumiLabel: "139 fb#kern[-0.5]{^{-1}}"
+  MCstatThreshold: 0.0001
+  OutputDir: "OUTPUTDIR/"
+  POI: "mu_Zprime"
+  PlotOptions: "NOSIG,NORMSIG,POISSONIZE,NOXERR,OPRATIO"
+  RankingMaxNP: 20
+  RankingPlot: "all"
+  RatioYmax: 1.5
+  RatioYmin: 0.0
+  ReadFrom: HIST
+  ReorderNPs: TRUE
+  SmoothingOption: COMMONTOOLSMOOTHPARABOLIC
+  SplitHistoFiles: TRUE
+  StatOnly: STATONLY
+  SystControlPlots: TRUE
+  SystErrorBars: TRUE
+  SystLarge: 0.90
+  SystPruningNorm: 0.005
+  SystPruningShape: 0.005
+  UseGammaPulls: TRUE
+
+Options: "myOptions"
+  SystPlotRatioRange: 20
+
+Fit: fit
+  FitBlind: BLIND
+  FitRegion: CRSR
+  FitType: SPLUSB
+  GetGoodnessOfFit: TRUE
+  POIAsimov: FIT_POIASIMOV
+  SaturatedModel: TRUE
+  SetRandomInitialNPval: 0.001
+  SetRandomInitialNPvalSeed: SEED
+  UseMinos: mu_Zprime
+
+Limit: limit
+  LimitBlind: BLIND
+  LimitType: ASYMPTOTIC
+  OutputPrefixName: SIGNALNAMESIGNALMASS
+  ParamName: "ZprimeMass"
+
+Significance: "significance"
+  ParamName: "ZprimeMass"
+  SignificanceBlind: FALSE
+
+Region: "DeltaPhi"
+  Binning: 0,0.5,0.8,0.9,0.95,1
+  HistoName: "deltaphi"
+  HistoPathSuff: "deltaphi"
+  Label: "Inclusive"
+  Type: SIGNAL
+  VariableTitle: "#Delta#it{#phi_{ll}/#pi}"
+
+Region: "be1"
+  HistoName: mtt_be1
+  HistoPathSuff: "be/"
+  Label: "be1"
+  LogScale: TRUE
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel: "be1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e8
+  Ymin: 1e-2
+
+Region: "be2"
+  HistoName: mtt_be2
+  HistoPathSuff: "be/"
+  Label: "be2"
+  LogScale: TRUE
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel: "be2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e8
+  Ymin: 1e-2
+
+Region: "be3"
+  HistoName: mtt_be3
+  HistoPathSuff: "be/"
+  Label: "be3"
+  LogScale: TRUE
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel: "be3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e8
+  Ymin: 1e-2
+
+Region: "bmu1"
+  HistoName: mtt_bmu1
+  HistoPathSuff: "bmu/"
+  Label: "bmu1"
+  LogScale: TRUE
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel: "bmu1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e8
+  Ymin: 1e-2
+
+Region: "bmu2"
+  HistoName: mtt_bmu2
+  HistoPathSuff: "bmu/"
+  Label: "bmu2"
+  LogScale: TRUE
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel: "bmu2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e8
+  Ymin: 1e-2
+
+Region: "bmu3"
+  HistoName: mtt_bmu3
+  HistoPathSuff: "bmu/"
+  Label: "bmu3"
+  LogScale: TRUE
+  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel: "bmu3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e8
+  Ymin: 1e-2
+
+Region: "mllbb"
+  Binning: 150,300,450,600,750,1000,1250,1500,2000,2500,3500
+  HistoName: "mllbb"
+  HistoPathSuff: "mllbb"
+  Label: "Inclusive"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+  YmaxScale: 3
+  Ymin: 1
+
+Region: "mllbb_DeltaPhi000to050"
+  Binning: 150,300,450,600,750,1000,1250,3500
+  HistoName: "mllbb_deltaphi000to050"
+  HistoPathSuff: "mllbb_deltaphi000to050"
+  IsBinOfRegion: "DeltaPhi":1
+  Label: "0. < #it{#Delta#phi_{ll}/#pi} < 0.5"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "mllbb_DeltaPhi050to080"
+  Binning: 150,300,450,600,750,1000,1250,1500,3500
+  HistoName: "mllbb_deltaphi050to080"
+  HistoPathSuff: "mllbb_deltaphi050to080"
+  IsBinOfRegion: "DeltaPhi":2
+  Label: "0.5 < #it{#Delta#phi_{ll}/#pi} < 0.8"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "mllbb_DeltaPhi080to090"
+  Binning: 150,300,450,600,750,1000,1250,1500,2000,3500
+  HistoName: "mllbb_deltaphi080to090"
+  HistoPathSuff: "mllbb_deltaphi080to090"
+  IsBinOfRegion: "DeltaPhi":3
+  Label: "0.8 < #it{#Delta#phi_{ll}/#pi} < 0.9"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "mllbb_DeltaPhi090to095"
+  Binning: 150,300,450,600,750,1000,1250,1500,2000,2500,3500
+  HistoName: "mllbb_deltaphi090to095"
+  HistoPathSuff: "mllbb_deltaphi090to095"
+  IsBinOfRegion: "DeltaPhi":4
+  Label: "0.9 < #it{#Delta#phi_{ll}/#pi} < 0.95"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "mllbb_DeltaPhi095to100"
+  Binning: 150,300,450,600,750,1000,1250,1500,2000,2500,3500
+  HistoName: "mllbb_deltaphi095to100"
+  HistoPathSuff: "mllbb_deltaphi095to100"
+  IsBinOfRegion: "DeltaPhi":5
+  Label: "0.95 < #it{#Delta#phi_{ll}/#pi} < 1.0"
+  LogScale: TRUE
+  Type: SIGNAL
+  VariableTitle: "#it{m_{llbb}} [GeV]"
+  Ymax: 1e9
+
+Region: "re1"
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName: mtt_re1
+  HistoPathSuff: "re/"
+  Label: "re1"
+  LogScale: TRUE
+  ShortLabel: "re1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e10
+  Ymin: 1e-2
+
+Region: "re2"
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName: mtt_re2
+  HistoPathSuff: "re/"
+  Label: "re2"
+  LogScale: TRUE
+  ShortLabel: "re2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e10
+  Ymin: 1e-2
+
+Region: "re3"
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName: mtt_re3
+  HistoPathSuff: "re/"
+  Label: "re3"
+  LogScale: TRUE
+  ShortLabel: "re3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e10
+  Ymin: 1e-2
+
+Region: "rmu1"
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName: mtt_rmu1
+  HistoPathSuff: "rmu/"
+  Label: "rmu1"
+  LogScale: TRUE
+  ShortLabel: "rmu1"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e10
+  Ymin: 1e-2
+
+Region: "rmu2"
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName: mtt_rmu2
+  HistoPathSuff: "rmu/"
+  Label: "rmu2"
+  LogScale: TRUE
+  ShortLabel: "rmu2"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e10
+  Ymin: 1e-2
+
+Region: "rmu3"
+  Binning: 320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName: mtt_rmu3
+  HistoPathSuff: "rmu/"
+  Label: "rmu3"
+  LogScale: TRUE
+  ShortLabel: "rmu3"
+  Type: SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax: 1e10
+  Ymin: 1e-2
+
+Sample: "singleTop_DS_dilep"
+  HistoFile: "hist_singletop_ds_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "singleTop_PH7_dilep"
+  HistoFile: "hist_singletop_ph7_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "singleTop_aMCP8_dilep"
+  HistoFile: "hist_singletop_amcp8_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "tt_af2"
+  HistoFile: "hist_tt_af2"
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Type: GHOST
+
+Sample: "tt_had"
+  HistoFile: "hist_tt_had"
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Type: GHOST
+
+Sample: "tt_hdamp"
+  HistoFile: "hist_tt_hdamp"
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Type: GHOST
+
+Sample: "tt_hs"
+  HistoFile: "hist_tt_hs"
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Type: GHOST
+
+Sample: "ttbar_dilep_FSRdown_dilep"
+  HistoFile: "hist_ttbar_dilep_fsrdown_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_FSRup_dilep"
+  HistoFile: "hist_ttbar_dilep_fsrup_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_MECoff_dilep"
+  HistoFile: "hist_ttbar_dilep_mecoff_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_PH7_nonRew_dilep"
+  HistoFile: "hist_ttbar_dilep_ph7_nonrew_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_aMCH7_dilep"
+  HistoFile: "hist_ttbar_dilep_amch7_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_aMCP8_dilep"
+  HistoFile: "hist_ttbar_dilep_amcp8_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_altPDF_dilep"
+  HistoFile: "hist_ttbar_dilep_altpdf_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_ghost_nonRew_dilep"
+  HistoFile: "hist_ttbar_dilep_ghost_nonrew_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_hdamp_dilep"
+  HistoFile: "hist_ttbar_dilep_hdamp_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_inv_dilep"
+  HistoFile: "hist_ttbar_dilep_inv_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_noEW_dilep"
+  HistoFile: "hist_ttbar_dilep_noew_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_oneEmission_mtt_dilep"
+  HistoFile: "hist_ttbar_dilep_oneemission_mtt_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "ttbar_dilep_oneEmission_topPt_dilep"
+  HistoFile: "hist_ttbar_dilep_oneemission_toppt_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "zjets_pTll_down_dilep"
+  HistoFile: "hist_zjets_ptll_down_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "zjets_pTll_up_dilep"
+  HistoFile: "hist_zjets_ptll_up_dilep"
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Type: GHOST
+
+Sample: "diboson"
+  FillColor: 98
+  HistoFile: "hist_vv"
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Title: "di-boson"
+  Type: BACKGROUND
+
+Sample: "diboson_dilep"
+  FillColor: 5
+  HistoFile: "hist_diboson_dilep"
+  LineColor: 1
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Title: "Diboson"
+  Type: BACKGROUND
+
+Sample: "fakes_dilep"
+  FillColor: 619
+  HistoFile: "hist_fakes_dilep"
+  LineColor: 1
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Title: "Fakes"
+  Type: BACKGROUND
+
+Sample: "fakes_ttbar_dilep"
+  FillColor: 619
+  HistoFile: "hist_fakes_ttbar_dilep"
+  LineColor: 1
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Title: "Fakes"
+  Type: BACKGROUND
+
+Sample: "qcd"
+  FillColor: 5
+  HistoFile: "hist_qcd_smooth"
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Title: "QCD"
+  Type: BACKGROUND
+  UseMCstat: FALSE
+
+Sample: "singleTop_dilep"
+  FillColor: 62
+  HistoFile: "hist_singletop_dilep"
+  LineColor: 1
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Title: "Single top"
+  Type: BACKGROUND
+
+Sample: "singletop"
+  FillColor: 62
+  HistoFile: "hist_singletop"
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Title: "singletop"
+  Type: BACKGROUND
+
+Sample: "tt"
+  HistoFile: "hist_tt"
+  LineColor: 1
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$t\overline{t}$"
+  Title: "t#bar{t}"
+  Type: BACKGROUND
+
+Sample: "ttH_dilep"
+  FillColor: 223
+  HistoFile: "hist_tth_dilep"
+  LineColor: 1
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Title: "#it{t#bar{t}+H}"
+  Type: BACKGROUND
+
+Sample: "ttV_dilep"
+  FillColor: 3
+  HistoFile: "hist_ttv_dilep"
+  LineColor: 1
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Title: "#it{t#bar{t}+V}"
+  Type: BACKGROUND
+
+Sample: "ttbar_dilep_dilep"
+  FillColor: 0
+  HistoFile: "hist_ttbar_dilep_dilep"
+  LineColor: 1
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  SeparateGammas: TRUE
+  TexTitle: "$t\bar{t}$ dilep."
+  Title: "#it{t#bar{t}} dilep."
+  Type: BACKGROUND
+
+Sample: "wjets"
+  FillColor: 863
+  HistoFile: "hist_wjets"
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Title: "W+jets"
+  Type: BACKGROUND
+
+Sample: "zjets"
+  FillColor: 800
+  HistoFile: "hist_zjets"
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  Title: "Z+jets"
+  Type: BACKGROUND
+
+Sample: "zjets_dilep"
+  FillColor: 95
+  HistoFile: "hist_zjets_dilep"
+  LineColor: 1
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  Title: "Z+jets"
+  Type: BACKGROUND
+
+Sample: "Data"
+  HistoFile: "hist_data"
+  Title: "Data"
+  Type: DATA
+
+Sample: "Grav1000_dilep"
+  FillColor: 4
+  HistoFile: "hist_grav1000_dilep"
+  LineColor: 4
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$G_{KK}$ (1 TeV)"
+  Title: "G_{KK} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav2000_dilep"
+  FillColor: 4
+  HistoFile: "hist_grav2000_dilep"
+  LineColor: 4
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$G_{KK}$ (2 TeV)"
+  Title: "G_{KK} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav3000_dilep"
+  FillColor: 4
+  HistoFile: "hist_grav3000_dilep"
+  LineColor: 4
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$G_{KK}$ (3 TeV)"
+  Title: "G_{KK} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav400_dilep"
+  FillColor: 4
+  HistoFile: "hist_grav400_dilep"
+  LineColor: 4
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$G_{KK}$ (0.4 TeV)"
+  Title: "G_{KK} (0.4 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav500_dilep"
+  FillColor: 4
+  HistoFile: "hist_grav500_dilep"
+  LineColor: 4
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$G_{KK}$ (0.5 TeV)"
+  Title: "G_{KK} (0.5 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav750_dilep"
+  FillColor: 4
+  HistoFile: "hist_grav750_dilep"
+  LineColor: 4
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$G_{KK}$ (0.75 TeV)"
+  Title: "G_{KK} (0.75 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav_1000"
+  FillColor: 632
+  HistoFile: "hist_grav1000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$G_{KK}$ (1 TeV)"
+  Title: "G_{KK} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav_2000"
+  FillColor: 632
+  HistoFile: "hist_grav2000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$G_{KK}$ (2 TeV)"
+  Title: "G_{KK} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav_3000"
+  FillColor: 632
+  HistoFile: "hist_grav3000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$G_{KK}$ (3 TeV)"
+  Title: "G_{KK} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav_400"
+  FillColor: 632
+  HistoFile: "hist_grav400"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$G_{KK}$ (0.4 TeV)"
+  Title: "G_{KK} (0.4 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav_500"
+  FillColor: 632
+  HistoFile: "hist_grav500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$G_{KK}$ (0.5 TeV)"
+  Title: "G_{KK} (0.5 TeV)"
+  Type: SIGNAL
+
+Sample: "Grav_750"
+  FillColor: 632
+  HistoFile: "hist_grav750"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$G_{KK}$ (0.75 TeV)"
+  Title: "G_{KK} (0.75 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG1000_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg1000_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (1 TeV)"
+  Title: "g_{KK} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG1500_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg1500_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (1.5 TeV)"
+  Title: "g_{KK} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG2000_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg2000_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (2 TeV)"
+  Title: "g_{KK} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG2500_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg2500_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (2.5 TeV)"
+  Title: "g_{KK} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG3000_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg3000_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (3 TeV)"
+  Title: "g_{KK} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG3500_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg3500_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (3.5 TeV)"
+  Title: "g_{KK} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG4000_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg4000_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (4 TeV)"
+  Title: "g_{KK} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG4500_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg4500_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (4.5 TeV)"
+  Title: "g_{KK} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG5000_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg5000_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (5 TeV)"
+  Title: "g_{KK} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgMG500_dilep"
+  FillColor: 3
+  HistoFile: "hist_kkgmg500_dilep"
+  LineColor: 3
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (0.5 TeV)"
+  Title: "g_{KK} (0.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY1000_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy1000_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (1 TeV)"
+  Title: "g_{KK} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY1500_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy1500_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (1.5 TeV)"
+  Title: "g_{KK} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY2000_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy2000_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (2 TeV)"
+  Title: "g_{KK} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY2500_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy2500_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (2.5 TeV)"
+  Title: "g_{KK} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY3000_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy3000_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (3 TeV)"
+  Title: "g_{KK} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY3500_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy3500_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (3.5 TeV)"
+  Title: "g_{KK} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY4000_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy4000_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (4 TeV)"
+  Title: "g_{KK} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY4500_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy4500_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (4.5 TeV)"
+  Title: "g_{KK} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY5000_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy5000_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (5 TeV)"
+  Title: "g_{KK} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKgPY500_dilep"
+  FillColor: 6
+  HistoFile: "hist_kkgpy500_dilep"
+  LineColor: 6
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$g_{KK}$ (0.5 TeV)"
+  Title: "g_{KK} (0.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_1000"
+  FillColor: 632
+  HistoFile: "hist_gluon1000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (1 TeV)"
+  Title: "g_{KK} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_1500"
+  FillColor: 632
+  HistoFile: "hist_gluon1500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (1.5 TeV)"
+  Title: "g_{KK} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_2000"
+  FillColor: 632
+  HistoFile: "hist_gluon2000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (2 TeV)"
+  Title: "g_{KK} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_2500"
+  FillColor: 632
+  HistoFile: "hist_gluon2500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (2.5 TeV)"
+  Title: "g_{KK} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_3000"
+  FillColor: 632
+  HistoFile: "hist_gluon3000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (3 TeV)"
+  Title: "g_{KK} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_3500"
+  FillColor: 632
+  HistoFile: "hist_gluon3500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (3.5 TeV)"
+  Title: "g_{KK} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_4000"
+  FillColor: 632
+  HistoFile: "hist_gluon4000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (4 TeV)"
+  Title: "g_{KK} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_4500"
+  FillColor: 632
+  HistoFile: "hist_gluon4500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (4.5 TeV)"
+  Title: "g_{KK} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_500"
+  FillColor: 632
+  HistoFile: "hist_gluon500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (0.5 TeV)"
+  Title: "g_{KK} (0.5 TeV)"
+  Type: SIGNAL
+
+Sample: "KKg_5000"
+  FillColor: 632
+  HistoFile: "hist_gluon5000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$g_{KK}$ (5 TeV)"
+  Title: "g_{KK} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_1000_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_1000_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (1 TeV)"
+  Title: "Z'_{PY} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_1250_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_1250_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (1.25 TeV)"
+  Title: "Z'_{PY} (1.25 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_1500_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_1500_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (1.5 TeV)"
+  Title: "Z'_{PY} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_1750_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_1750_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (1.75 TeV)"
+  Title: "Z'_{PY} (1.75 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_2000_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_2000_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (2 TeV)"
+  Title: "Z'_{PY} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_2500_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_2500_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (2.5 TeV)"
+  Title: "Z'_{PY} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_3000_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_3000_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (3 TeV)"
+  Title: "Z'_{PY} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_3500_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_3500_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (3.5 TeV)"
+  Title: "Z'_{PY} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_4000_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_4000_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (4 TeV)"
+  Title: "Z'_{PY} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_400_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_400_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (400 GeV)"
+  Title: "Z'_{PY} (400 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_4500_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_4500_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (4.5 TeV)"
+  Title: "Z'_{PY} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_5000_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_5000_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (5 TeV)"
+  Title: "Z'_{PY} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_500_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_500_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (500 GeV)"
+  Title: "Z'_{PY} (500 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimePY_750_dilep"
+  FillColor: 5
+  HistoFile: "hist_zprimepy_750_dilep"
+  LineColor: 5
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (750 GeV)"
+  Title: "Z'_{PY} (750 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1000"
+  FillColor: 632
+  HistoFile: "hist_zprime1000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (1 TeV)"
+  Title: "Z'_{TC2} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1000_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_1000_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (1 TeV)"
+  Title: "Z'_{TC2} (1 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1250"
+  FillColor: 632
+  HistoFile: "hist_zprime1000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (1.25 TeV)"
+  Title: "Z'_{TC2} (1.25 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1250_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_1250_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (1.25 TeV)"
+  Title: "Z'_{TC2} (1.25 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1500"
+  FillColor: 632
+  HistoFile: "hist_zprime1500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (1.5 TeV)"
+  Title: "Z'_{TC2} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1500_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_1500_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (1.5 TeV)"
+  Title: "Z'_{TC2} (1.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1750"
+  FillColor: 632
+  HistoFile: "hist_zprime1750"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (1.75 TeV)"
+  Title: "Z'_{TC2} (1.75 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_1750_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_1750_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (1.75 TeV)"
+  Title: "Z'_{TC2} (1.75 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_2000"
+  FillColor: 632
+  HistoFile: "hist_zprime2000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (2 TeV)"
+  Title: "Z'_{TC2} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_2000_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_2000_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (2 TeV)"
+  Title: "Z'_{TC2} (2 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_2250"
+  FillColor: 632
+  HistoFile: "hist_zprime2250"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (2.25 TeV)"
+  Title: "Z'_{TC2} (2.25 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_2500"
+  FillColor: 632
+  HistoFile: "hist_zprime2500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (2.5 TeV)"
+  Title: "Z'_{TC2} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_2500_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_2500_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (2.5 TeV)"
+  Title: "Z'_{TC2} (2.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_2750"
+  FillColor: 632
+  HistoFile: "hist_zprime2750"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (2.75 TeV)"
+  Title: "Z'_{TC2} (2.75 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_3000"
+  FillColor: 632
+  HistoFile: "hist_zprime3000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (3 TeV)"
+  Title: "Z'_{TC2} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_3000_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_3000_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (3 TeV)"
+  Title: "Z'_{TC2} (3 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_3500_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_3500_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (3.5 TeV)"
+  Title: "Z'_{TC2} (3.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_400"
+  FillColor: 632
+  HistoFile: "hist_zprime400"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (400 GeV)"
+  Title: "Z'_{TC2} (400 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_4000"
+  FillColor: 632
+  HistoFile: "hist_zprime4000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (4 TeV)"
+  Title: "Z'_{TC2} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_4000_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_4000_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (4 TeV)"
+  Title: "Z'_{TC2} (4 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_400_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_400_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (400 GeV)"
+  Title: "Z'_{TC2} (400 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_4500_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_4500_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (4.5 TeV)"
+  Title: "Z'_{TC2} (4.5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_500"
+  FillColor: 632
+  HistoFile: "hist_zprime500"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (500 GeV)"
+  Title: "Z'_{TC2} (500 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_5000"
+  FillColor: 632
+  HistoFile: "hist_zprime5000"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (5 TeV)"
+  Title: "Z'_{TC2} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_5000_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_5000_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (5 TeV)"
+  Title: "Z'_{TC2} (5 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_500_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_500_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (500 GeV)"
+  Title: "Z'_{TC2} (500 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_6000_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_6000_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (6 TeV)"
+  Title: "Z'_{TC2} (6 TeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_750"
+  FillColor: 632
+  HistoFile: "hist_zprime750"
+  LineColor: 632
+  NormalizedByTheory: TRUE
+  Regions: be2,rmu2,bmu1,re1,re2,rmu1,bmu3,bmu2,rmu3,be1,re3,be3
+  TexTitle: "$Z'$ (750 GeV)"
+  Title: "Z'_{TC2} (750 GeV)"
+  Type: SIGNAL
+
+Sample: "ZprimeTC2_750_dilep"
+  FillColor: 2
+  HistoFile: "hist_zprimetc2_750_dilep"
+  LineColor: 2
+  Regions: mllbb_DeltaPhi050to080,DeltaPhi,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi095to100,mllbb_DeltaPhi090to095
+  TexTitle: "$Z'$ (750 GeV)"
+  Title: "Z'_{TC2} (750 GeV)"
+  Type: SIGNAL
+
+NormFactor: "WjetsNorm_boosted1"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: be1,bmu1
+  Samples: wjets
+  Title: "k_{b1}(W+jets)"
+
+NormFactor: "mu_Zprime"
+  Max: 10000.0
+  Min: -200.0
+  Nominal: 0.0
+  Samples: "Zprime*","KKg*","Grav*"
+  Title: "#mu(Z't#bar{t})"
+
+NormFactor: "ttNorm_boosted"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: be1,be2,be3,bmu1,bmu2,bmu3
+  Samples: tt
+  Title: "k_{b}(t#bar{t})"
+
+NormFactor: "WjetsNorm_boosted3"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: be3,bmu3
+  Samples: wjets
+  Title: "k_{b3}(W+jets)"
+
+NormFactor: "WjetsNorm_resolved3"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: re3,rmu3
+  Samples: wjets
+  Title: "k_{r3}(W+jets)"
+
+NormFactor: "WjetsNorm_resolved2"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: re2,rmu2
+  Samples: wjets
+  Title: "k_{r2}(W+jets)"
+
+NormFactor: "k_tt"
+  Max: 2
+  Min: 0
+  Nominal: 1
+  Samples: "ttbar_dilep_dilep","fakes_ttbar_dilep"
+  Title: "k(#it{t#bar{t}})"
+
+NormFactor: "WjetsNorm_resolved1"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: re1,rmu1
+  Samples: wjets
+  Title: "k_{r1}(W+jets)"
+
+NormFactor: "WjetsNorm_boosted2"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: be2,bmu2
+  Samples: wjets
+  Title: "k_{b2}(W+jets)"
+
