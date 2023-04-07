@@ -29,7 +29,8 @@ def copy_limits_to_shared(channel, mass_out_dir, shared_limit_dir):
     try:
         limit_file = [f for f in run_limit_dir.glob('*.root')][0]
         shared_file = shared_limit_dir / limit_file.name
-        print('copying limit file from run limit directory: ', limit_file, ' to shared limit directory: ', shared_file)
+        print('copying limit file from run limit directory: ',
+              limit_file, ' to shared limit directory: ', shared_file)
         shutil.copy(limit_file, shared_file)
     except IndexError:
         print('error: no limit file found in run limit directory: ', run_limit_dir)
@@ -69,6 +70,7 @@ def write_configs(settings: Settings):
 
     return channel_to_config, channel_to_opts
 
+
 def submit_condor(settings: Settings, args):
     """Submit the trexfitter job to condor."""
     scripts_path = Path(__file__).parent.resolve()
@@ -82,12 +84,15 @@ def submit_condor(settings: Settings, args):
     with template_file.open('r') as f:
         text = f.read()
     ignore_keys = ['batch_system', 'masses', 'dry_run']
-    cmd = [f'--{k} {v}' for k, v in vars(args).items() if v is not None and type(v) is not bool and k not in ignore_keys]
-    cmd.extend([f'--{k}' for k, v in vars(args).items() if v is True and k not in ignore_keys])
+    cmd = [f'--{k} {v}' for k, v in vars(args).items() if v is not None and type(
+        v) is not bool and k not in ignore_keys]
+    cmd.extend([f'--{k}' for k, v in vars(args).items()
+               if v is True and k not in ignore_keys])
     cmd.append(f'--mass {settings.mass}')
     cmd.append('--use_existing_config')
     cmd = ' '.join(cmd)
-    text = text.replace('MASS_DIR', str(settings.mass_out_dir)).replace('SCRIPT_DIR', str(scripts_path)).replace('CMD', cmd)
+    text = text.replace('MASS_DIR', str(settings.mass_out_dir)).replace(
+        'SCRIPT_DIR', str(scripts_path)).replace('CMD', cmd)
     condor_sub_file = settings.mass_out_dir / f'condor.sub'
     with condor_sub_file.open('w') as f:
         f.write(text)
@@ -95,12 +100,15 @@ def submit_condor(settings: Settings, args):
     if not settings.dry_run:
         subprocess.call(['condor_submit', str(condor_sub_file)])
 
+
 def submit_batch(settings: Settings, args):
     """Submit the trexfitter job to the batch system."""
     if args.batch_system in ['af', 'af_short', 'lxplus_short']:
         submit_condor(settings, args)
     else:
-        raise NotImplementedError('Unrecognized batch system: {}'.format(args.batch_system))
+        raise NotImplementedError(
+            'Unrecognized batch system: {}'.format(args.batch_system))
+
 
 def run_trexfitter(settings: Settings, channel_to_config: Dict[str, Path], channel_to_opts: Dict[str, str]):
     """Run trexfitter for the specified parameters.
@@ -127,49 +135,72 @@ def run_trexfitter(settings: Settings, channel_to_config: Dict[str, Path], chann
             subprocess.call(cmd, shell=True)
 
     if settings.channel in ['1l', '2l', 'combined']:
-        call_trex_fitter(ops=settings.ops, opts=channel_to_opts[settings.channel], config=channel_to_config[settings.channel], log=f"ttres{settings.channel}.ans")
+        call_trex_fitter(ops=settings.ops, opts=channel_to_opts[settings.channel],
+                         config=channel_to_config[settings.channel], log=f"ttres{settings.channel}.ans")
     else:
         raise ValueError(f'Unrecognized channel: {settings.channel}')
-    
+
     if not settings.dry_run and 'l' in settings.ops:
-        copy_limits_to_shared(settings.channel, settings.mass_out_dir, settings.limit_dir)
+        copy_limits_to_shared(
+            settings.channel, settings.mass_out_dir, settings.limit_dir)
+
 
 def main():
-    parser = argparse.ArgumentParser(description="run single lepton and di-lepton channel combined fit using trex_fitter.")
-    parser.add_argument('--seed', default=42, type=int, help="random seed for trex-fitter.")
-    parser.add_argument('--dry_run', '-d', action='store_true', help="print trex-fitter commands without running them.")
-    parser.add_argument('--suffix', '-s', help="suffix to add to the output directory name.")
+    parser = argparse.ArgumentParser(
+        description="run single lepton and di-lepton channel combined fit using trex_fitter.")
+    parser.add_argument('--seed', default=42, type=int,
+                        help="random seed for trex-fitter.")
+    parser.add_argument('--dry_run', '-d', action='store_true',
+                        help="print trex-fitter commands without running them.")
+    parser.add_argument(
+        '--suffix', '-s', help="suffix to add to the output directory name.")
     parser.add_argument('--ops', default='mwfl', help="ops for trex-fitter.")
-    parser.add_argument('--opts', help="command-line options for trex-fitter (that are not already set in make_config).")
-    parser.add_argument('--channel', '-c', default='combined', choices=['1l', '2l', 'combined'], help="perform specified channel only.")
-    parser.add_argument('--signal', choices=['zprime', 'grav', 'gluon', 'all'], default='zprime', type=str, help="signal to use.")
+    parser.add_argument(
+        '--opts', help="command-line options for trex-fitter (that are not already set in make_config).")
+    parser.add_argument('--channel', '-c', default='combined',
+                        choices=['1l', '2l', 'combined'], help="perform specified channel only.")
+    parser.add_argument('--signal', choices=['zprime', 'grav', 'gluon',
+                        'all'], default='zprime', type=str, help="signal to use.")
     parser.add_argument("--region_1l",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
-                            help="Region to use for the 1l channel: boosted, resolved, combined")
+                        help="Region to use for the 1l channel: boosted, resolved, combined")
     parser.add_argument("--region_2l",       type=str,  default="mllbb_deltaphi", choices=['mllbb', 'deltaphi', 'mllbb_deltaphi'],
-                            help="Region to use for the 2l channel: mllbb")
-    parser.add_argument("--signal_injection_mass", '-sigm', type=int, default=None, help="mass of signal to inject.")
-    parser.add_argument("--signal_injection_name", '-sign', type=str, default=None, choices=['gluon', 'grav', 'zprime'], help="name of signal to inject.")
-    parser.add_argument("--unblind", action='store_true', help='unblind the analysis, if set')
-    parser.add_argument("--auto_injection_strength", type=float, help='injection strength for TRExFitter auto signal injection, if set')
-    parser.add_argument("--use_dilep_names", action="store_true", help="use dilepton naming scheme for systematics.")
-    parser.add_argument("--statonly", action="store_true", help="run stat-only fit.")
+                        help="Region to use for the 2l channel: mllbb")
+    parser.add_argument("--signal_injection_mass", '-sigm',
+                        type=int, default=None, help="mass of signal to inject.")
+    parser.add_argument("--signal_injection_name", '-sign', type=str, default=None,
+                        choices=['gluon', 'grav', 'zprime'], help="name of signal to inject.")
+    parser.add_argument("--unblind", action='store_true',
+                        help='unblind the analysis, if set')
+    parser.add_argument("--auto_injection_strength", type=float,
+                        help='injection strength for TRExFitter auto signal injection, if set')
+    parser.add_argument("--use_dilep_names", action="store_true",
+                        help="use dilepton naming scheme for systematics.")
+    parser.add_argument("--statonly", action="store_true",
+                        help="run stat-only fit.")
     parser.add_argument("--bonly", action="store_true", help="run b-only fit.")
-    parser.add_argument('--fit_mu_asimov', type=float, default=1.0, help="mu value for fit asimov data.")
-    parser.add_argument('--batch_system', choices=['af', 'af_short', 'lxplus_short'], default=None, type=str, help="submit jobs to specified batch system.")
-    parser.add_argument('--masses', '-m', default=None, type=str, help="Signal masses to scan (comma-separated list, e.g., 400,500,750).")
-    parser.add_argument('--use_existing_config', action='store_true', help='use existing config files instead of generating new ones.')
+    parser.add_argument('--fit_mu_asimov', type=float,
+                        default=1.0, help="mu value for fit asimov data.")
+    parser.add_argument('--batch_system', choices=['af', 'af_short', 'lxplus_short'],
+                        default=None, type=str, help="submit jobs to specified batch system.")
+    parser.add_argument('--masses', '-m', default=None, type=str,
+                        help="Signal masses to scan (comma-separated list, e.g., 400,500,750).")
+    parser.add_argument('--use_existing_config', action='store_true',
+                        help='use existing config files instead of generating new ones.')
+    parser.add_argument('--use_converted_config',
+                        action='store_true', help='use converted 2L config file.')
 
     args = parser.parse_args()
 
-
     if 'm' in args.ops:
-        raise ValueError('explicit multi-channel fit not supported. Create single config as described in readme, then use `-c combined`.')
+        raise ValueError(
+            'explicit multi-channel fit not supported. Create single config as described in readme, then use `-c combined`.')
 
     # Make appropriate directories
     timestamp = str(datetime.date.today())
     run_name = f'statResults_ttres1L2L_{timestamp}'
     if not args.suffix:
-        suffix = [f'{args.channel}', f'{args.signal}', f'fitmu-{args.fit_mu_asimov}']
+        suffix = [f'{args.channel}', f'{args.signal}',
+                  f'fitmu-{args.fit_mu_asimov}']
         if args.channel in ['1l', 'combined']:
             suffix.append(f'region1l-{args.region_1l}')
         if args.channel in ['2l', 'combined']:
@@ -181,12 +212,14 @@ def main():
         if args.bonly:
             suffix.append('bonly')
         if args.signal_injection_mass:
-            suffix.append(f'siginject-{args.signal_injection_name}-{args.signal_injection_mass}')
+            suffix.append(
+                f'siginject-{args.signal_injection_name}-{args.signal_injection_mass}')
         if args.auto_injection_strength:
             suffix.append(f'autoinject-{args.auto_injection_strength}')
         if args.opts:
-            raise NotImplementedError('Cannot use opts with default suffix. Please specify a suffix.')
-        
+            raise NotImplementedError(
+                'Cannot use opts with default suffix. Please specify a suffix.')
+
         suffix = '_'.join(suffix)
     else:
         suffix = args.suffix
@@ -219,15 +252,16 @@ def main():
     else:
         raise NotImplementedError(f'Unknown signal {args.signal}')
 
-
     # Set mass points to scan
     if args.masses is None:
         if args.signal == 'zprime':
-            masses = [500, 750, 1000, 1250, 1500, 1750, 2000, 2500, 3000, 4000, 5000]
+            masses = [500, 750, 1000, 1250, 1500,
+                      1750, 2000, 2500, 3000, 4000, 5000]
         elif args.signal == 'grav':
             masses = [400, 500, 750, 1000, 2000, 3000]
         elif args.signal == 'gluon':
-            masses = [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000]
+            masses = [500, 1000, 1500, 2000, 2500,
+                      3000, 3500, 4000, 4500, 5000]
     else:
         masses = args.masses.split(',')
 
@@ -236,18 +270,20 @@ def main():
         mass = int(mass)
         mass_out_dir = (run_dir / f'{args.signal}_{str(mass)}').resolve()
         mass_out_dir.mkdir(exist_ok=True, parents=True)
-        
-        settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l, use_dilep_names=args.use_dilep_names, 
-                            signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name, 
-                            unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly, 
-                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed, opts=args.opts)
+
+        settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l, use_dilep_names=args.use_dilep_names,
+                            signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name,
+                            unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly,
+                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed, opts=args.opts, use_converted_config=args.use_converted_config)
 
         channel_to_config, channel_to_opts = write_configs(settings)
 
         if args.batch_system:
             submit_batch(settings, args)
         else:
-            run_trexfitter(settings=settings, channel_to_config=channel_to_config, channel_to_opts=channel_to_opts)
+            run_trexfitter(
+                settings=settings, channel_to_config=channel_to_config, channel_to_opts=channel_to_opts)
+
 
 if __name__ == "__main__":
     main()

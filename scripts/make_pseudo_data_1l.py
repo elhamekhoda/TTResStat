@@ -4,11 +4,13 @@ from shutil import copyfile, rmtree
 
 from ROOT import *
 
+
 def get_contents(histogram):
     contents = []
     for bin in range(histogram.GetNbinsX()):
         contents.append(histogram.GetBinContent(bin))
     return contents
+
 
 def get_errors(histogram):
     errors = []
@@ -16,16 +18,19 @@ def get_errors(histogram):
         errors.append(histogram.GetBinError(bin))
     return errors
 
+
 def make_pseudo_data(signal_name, mass, mu):
     """Generate pseudo-data for the specified parameters."""
-    
+
     scripts_path = Path(__file__).parent.resolve()
     histo_dir = (scripts_path / '..' / 'histograms').resolve()
 
     original_trexfitter_histograms = histo_dir / 'ttres1l/tt1lep_config_wbtagSR_1b2b'
-    injected_trexfitter_histograms = histo_dir / f'ttres1l/tt1lep_config_wbtagSR_1b2b_signal_injection/{signal_name}_{mass}_mu{mu}'
+    injected_trexfitter_histograms = histo_dir / \
+        f'ttres1l/tt1lep_config_wbtagSR_1b2b_signal_injection/{signal_name}_{mass}_mu{mu}'
     if injected_trexfitter_histograms.exists():
-        print(f'Pseudo-data already exists for {signal_name} {mass}. Deleting...')
+        print(
+            f'Pseudo-data already exists for {signal_name} {mass}. Deleting...')
         rmtree(injected_trexfitter_histograms)
     injected_trexfitter_histograms.mkdir(parents=True, exist_ok=True)
     # copy histo files from original to new directory
@@ -34,13 +39,15 @@ def make_pseudo_data(signal_name, mass, mu):
         copyfile(f, injected_trexfitter_histograms / f.name)
 
     backgrounds = ['tt', 'wjets', 'singletop', 'qcd', 'zjets', 'diboson']
-    
+
     for region in "be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3".split(','):
         print(f'Injecting signal into {region}...')
-        histo_path = injected_trexfitter_histograms / f'ttRes1L_{region}_histos.root'
+        histo_path = injected_trexfitter_histograms / \
+            f'ttRes1L_{region}_histos.root'
         trex_histogram_tfile = TFile(str(histo_path), 'update')
         for suffix in ['_regBin', '']:
-            h_data = trex_histogram_tfile.Get(f'{region}/Data/nominal/{region}_Data{suffix}')
+            h_data = trex_histogram_tfile.Get(
+                f'{region}/Data/nominal/{region}_Data{suffix}')
             h_data.Reset('ICES')
             signal_histogram_name = f'{region}/{signal_name}_{mass}/nominal/{region}_{signal_name}_{mass}{suffix}'
             print('\t Getting signal histogram: ', signal_histogram_name)
@@ -51,8 +58,10 @@ def make_pseudo_data(signal_name, mass, mu):
             # print('\t\t signal errors: ', get_errors(h_asimov))
             for b in backgrounds:
                 background_histogram_name = f'{region}/{b}/nominal/{region}_{b}{suffix}'
-                print('\t Getting background histogram: ', background_histogram_name)
-                h_background = trex_histogram_tfile.Get(background_histogram_name)
+                print('\t Getting background histogram: ',
+                      background_histogram_name)
+                h_background = trex_histogram_tfile.Get(
+                    background_histogram_name)
                 if b == 'qcd':
                     h_background_f = TH1F()
                     h_background.Copy(h_background_f)
@@ -65,16 +74,22 @@ def make_pseudo_data(signal_name, mass, mu):
             print('\t\t Asimov errors: ', get_errors(h_data))
             h_data.SetTitle(f'{signal_name}_{mass} injection')
             trex_histogram_tfile.cd(f'{region}/Data/nominal')
-            print('\t Writing data histogram: ', f'{region}/Data/nominal/{region}_Data{suffix}')
+            print('\t Writing data histogram: ',
+                  f'{region}/Data/nominal/{region}_Data{suffix}')
             print('\t Overwriting data histogram: ', h_data.GetName())
             h_data.Write("", TObject.kOverwrite)
         trex_histogram_tfile.Close()
 
+
 def main():
-    parser = argparse.ArgumentParser(description='Make pseudo-data for a given signal.')
-    parser.add_argument("--signal_injection_mass", '-sigm', type=int, default=None, help="mass of signal to inject.")
-    parser.add_argument("--signal_injection_name", '-sign', type=str, default=None, choices=['gluon', 'grav', 'zprime'], help="name of signal to inject.")
-    parser.add_argument("--mu_injection", '-mu', type=float, default=1.0, help="mu value to inject.")
+    parser = argparse.ArgumentParser(
+        description='Make pseudo-data for a given signal.')
+    parser.add_argument("--signal_injection_mass", '-sigm',
+                        type=int, default=None, help="mass of signal to inject.")
+    parser.add_argument("--signal_injection_name", '-sign', type=str, default=None,
+                        choices=['gluon', 'grav', 'zprime'], help="name of signal to inject.")
+    parser.add_argument("--mu_injection", '-mu', type=float,
+                        default=1.0, help="mu value to inject.")
 
     args = parser.parse_args()
     if args.signal_injection_name == 'zprime':
@@ -84,9 +99,11 @@ def main():
     elif args.signal_injection_name == 'gluon':
         signal_name = 'KKg'
     else:
-        raise NotImplementedError(f'Unknown signal {args.signal_injection_name}')
+        raise NotImplementedError(
+            f'Unknown signal {args.signal_injection_name}')
 
-    make_pseudo_data(signal_name, args.signal_injection_mass, args.mu_injection)
+    make_pseudo_data(signal_name, args.signal_injection_mass,
+                     args.mu_injection)
 
 
 if __name__ == '__main__':
