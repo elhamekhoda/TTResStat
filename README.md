@@ -51,8 +51,8 @@ See descriptions in `run_trexfitter.py` for information on arguments.
 
 
 ### Step 2: Read TRExFitter outputs and make limit plot
-Use `plotLimit.py` script
+Use `plot_limit.py` script
 ```python
-python scripts/plotLimit.py --indir TREX_FILES --outdir OUT_PLOTS --suff SUFFIX
+python scripts/plot_limit.py {path/to/run/dir}
 ```
 _run from the main directiory_
