@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 from os import path
-from sigXsec_1lep import *
+from sigXsec_1lep import zprime_xs, grav_xs, gluon_xs
 from ROOT import *
 import argparse
 from datetime import datetime
@@ -46,8 +46,13 @@ def plot_limits(run_dir):
 
     if settings['signal'] == 'zprime':
         signal_name = 'ZprimeTC2'
+        xs = zprime_xs
     elif settings['signal'] == 'grav':
-        raise NotImplementedError('Graviton not implemented yet')
+        signal_name = 'Grav'
+        xs = grav_xs
+    elif settings['signal'] == 'gluon':
+        signal_name = 'KKg'
+        xs = gluon_xs
     else:
         raise NotImplementedError('Signal {} not implemented'.format(settings['signal']))
     
@@ -64,11 +69,23 @@ def plot_limits(run_dir):
     #clim.SetGridx()
     #clim.SetGridy()
 
-    h = TH1F("h", "", 12, 0.50, 5.5);
+    if settings['signal'] == 'zprime':
+        h = TH1F("h", "", 12, 0.50, 5);
+    elif settings['signal'] == 'grav':
+        h = TH1F("h", "", 12, 0.50, 3.);
+    elif settings['signal'] == 'gluon':
+        h = TH1F("h", "", 12, 0.50, 5);
     #h.GetYaxis().SetRangeUser(1e-4, 20);
-    h.GetYaxis().SetRangeUser(5*1e-4, 100);
-    h.GetYaxis().SetTitle("#sigma(pp #rightarrow Z') #times B(Z' #rightarrow t#bar{t}) [pb]");
-    h.GetXaxis().SetTitle("m_{Z'} [TeV]");
+    h.GetYaxis().SetRangeUser(5*1e-4, 1e3);
+    if settings['signal'] == 'zprime':
+        h.GetYaxis().SetTitle("#sigma(pp #rightarrow Z') #times B(Z' #rightarrow t#bar{t}) [pb]");
+        h.GetXaxis().SetTitle("m_{Z'} [TeV]");
+    elif settings['signal'] == 'grav':
+        h.GetYaxis().SetTitle("#sigma(pp #rightarrow G_{KK}) #times B(G_{KK} #rightarrow t#bar{t}) [pb]");
+        h.GetXaxis().SetTitle("m_{G_{KK}} [TeV]");
+    elif settings['signal'] == 'gluon':
+        h.GetYaxis().SetTitle("#sigma(pp #rightarrow g_{KK}) #times B(g_{KK} #rightarrow t#bar{t}) [pb]");
+        h.GetXaxis().SetTitle("m_{g_{KK}} [TeV]");
     h.GetXaxis().SetTitleOffset(1.3);
     h.GetXaxis().SetLabelSize(0.05);
     h.GetXaxis().SetTitleSize(0.05);
@@ -119,14 +136,15 @@ def plot_limits(run_dir):
         cross_section = xs[outname]
         ftxt.write('xsec      '+str(cross_section)+'\n')
         ftxt.close()
-        print (mass[outname],"TeV\tlimits in pb, exp: %10f (1 sigma: +%10f -%10f), (2 sigma: +%10f -%10f)" % (muexp*cross_section, muexp_p1*cross_section, muexp_m1*cross_section, muexp_p2*cross_section, muexp_m2*cross_section))
-        sigma1.SetPoint(idx, mass[outname], muexp*cross_section)
+        m_tev = m / 1000.
+        print (m_tev,"TeV\tlimits in pb, exp: %10f (1 sigma: +%10f -%10f), (2 sigma: +%10f -%10f)" % (muexp*cross_section, muexp_p1*cross_section, muexp_m1*cross_section, muexp_p2*cross_section, muexp_m2*cross_section))
+        sigma1.SetPoint(idx, m_tev, muexp*cross_section)
         sigma1.SetPointError(idx, 0, 0, muexp_m1*cross_section, muexp_p1*cross_section)
-        sigma2.SetPoint(idx, mass[outname], muexp*cross_section)
+        sigma2.SetPoint(idx, m_tev, muexp*cross_section)
         sigma2.SetPointError(idx, 0, 0, muexp_m2*cross_section, muexp_p2*cross_section)
-        xsec.SetPoint(idx, mass[outname], cross_section)
-        exp.SetPoint(idx, mass[outname], muexp*cross_section)
-        #obs.SetPoint(idx, mass[outname], muobs*cross_section)
+        xsec.SetPoint(idx, m_tev, cross_section)
+        exp.SetPoint(idx, m_tev, muexp*cross_section)
+        #obs.SetPoint(idx, m_tev, muobs*cross_section)
         idx += 1
 
     exp.SetLineWidth(2);
@@ -152,10 +170,9 @@ def plot_limits(run_dir):
     exp.SetLineColor(kBlue);
 
     l.AddEntry(exp, "Expected 95% CL upper limit", "L")
-    #l.AddEntry(obs, "Observed 95% CL upper limit (stat-only)", "L")
-    l.AddEntry(sigma1, "Expected 95% CL upper limit #pm 1 #sigma", "F")
-    l.AddEntry(sigma2, "Expected 95% CL upper limit #pm 2 #sigma", "F")
-    l.AddEntry(xsec, "LO Z'_{TC2}(#Gamma/m=1.2%) cross-section #times 1.3", "L")
+    l.AddEntry(sigma1, "#pm 1 #sigma", "F")
+    l.AddEntry(sigma2, "#pm 2 #sigma", "F")
+    l.AddEntry(xsec, "LO theory cross-section", "L")
 
     sigma2.Draw("3");
     sigma1.Draw("3");
@@ -171,9 +188,7 @@ def plot_limits(run_dir):
     stampLumiText(139, 0.2, 0.83, "#sqrt{s} = 13 TeV", 0.04)
 
     for i in ['.eps', '.png', '.pdf']:
-        clim.SaveAs(str(out_dir/("mass_limit%s"%(i))))
-
-    i=0
+        clim.SaveAs(str(out_dir/f"{settings['signal']}_{settings['channel']}_limit{i}"))
 
     for i in range(3000, 5000, 1):
         #print i, xsec.Eval(i/1000.0), exp.Eval(i/1000.0)
@@ -184,8 +199,7 @@ def plot_limits(run_dir):
             print ("======================================")
             break
 
-
-    fout = TFile(str(out_dir/("mass_limit.root")),"RECREATE")
+    fout = TFile(str(out_dir/(f"{settings['signal']}_{settings['channel']}_limit.root")),"RECREATE")
     xsec.Write("theory")
     exp.Write("expected")
     #obs.Write("observed")
