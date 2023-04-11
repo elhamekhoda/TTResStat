@@ -718,3 +718,1855 @@ NormFactor: "k_tt"
   Samples: "ttbar_dilep_dilep","fakes_ttbar_dilep"
   Title: "k(#it{t#bar{t}})"
 
+Systematic: "ZjetsNorm_LF"
+  Category: "Modelling"
+  SampleUp: "zjets_LF_up_dilep"
+  Samples: "zjets_dilep"
+  SubCategory: "Z+jets background"
+  Symmetrisation: ONESIDED
+  Title: "#it{Z}+light jets norm."
+  Type: HISTO
+
+Systematic: "ZjetsNorm_HF"
+  Category: "Modelling"
+  SampleUp: "zjets_HF_up_dilep"
+  Samples: "zjets_dilep"
+  SubCategory: "Z+jets background"
+  Symmetrisation: ONESIDED
+  Title: "#it{Z}+HF jets norm."
+  Type: HISTO
+
+Systematic: "Zjets_pTll"
+  Category: "Modelling"
+  SampleDown: "zjets_pTll_down_dilep"
+  SampleUp: "zjets_pTll_up_dilep"
+  Samples: "zjets_dilep"
+  SubCategory: "Z+jets background"
+  Title: "#it{Z}+HF jets #it{p}_{T} modelling"
+  Type: HISTO
+
+Systematic: "FakesNorm_el"
+  Category: "Modelling"
+  Samples: "fakes_dilep","fakes_ttbar_dilep"
+  Smoothing: 40
+  SubCategory: "Fake-lepton background"
+  Symmetrisation: ONESIDED
+  Title: "Fakes & NP norm. (e)"
+  Type: HISTO
+  WeightSufUp: "(1.+0.3*isFake_el)"
+
+Systematic: "FakesNorm_mu"
+  Category: "Modelling"
+  Samples: "fakes_dilep","fakes_ttbar_dilep"
+  Smoothing: 40
+  SubCategory: "Fake-lepton background"
+  Symmetrisation: ONESIDED
+  Title: "Fakes & NP norm. (#mu)"
+  Type: HISTO
+  WeightSufUp: "(1.+0.3*isFake_mu)"
+
+Systematic: "ttVNorm"
+  Category: "Modelling"
+  OverallDown: -0.30
+  OverallUp: 0.30
+  Samples: "ttV_dilep"
+  SubCategory: "ttV background"
+  Title: "#it{t#bar{t}+V} norm."
+  Type: OVERALL
+
+Systematic: "DibosonNorm"
+  Category: "Modelling"
+  OverallDown: -0.50
+  OverallUp: 0.50
+  Samples: "diboson_dilep"
+  SubCategory: "Diboson background"
+  Title: "Diboson norm."
+  Type: OVERALL
+
+Systematic: "SingleTopNorm"
+  Category: "Modelling"
+  OverallDown: -0.05
+  OverallUp: 0.05
+  Samples: "singleTop_dilep"
+  SubCategory: "Single top background"
+  Title: "Single top norm."
+  Type: OVERALL
+
+Systematic: "singleTop_PS"
+  Category: "Modelling"
+  SampleUp: "singleTop_PH7_dilep"
+  Samples: "singleTop_dilep"
+  Smoothing: 40
+  SubCategory: "Parton shower"
+  Symmetrisation: ONESIDED
+  Title: "Single top PS & had."
+
+Systematic: "singleTop_Gen"
+  Category: "Modelling"
+  SampleUp: "singleTop_aMCP8_dilep"
+  Samples: "singleTop_dilep"
+  Smoothing: 40
+  SubCategory: "ME-PS matching"
+  Symmetrisation: ONESIDED
+  Title: "Single top ME-PS matching"
+
+Systematic: "singleTop_DSDR"
+  Category: "Modelling"
+  SampleUp: "singleTop_DS_dilep"
+  Samples: "singleTop_dilep"
+  Smoothing: 40
+  SubCategory: "Diagram subtraction model"
+  Symmetrisation: ONESIDED
+  Title: "Single top DS vs. DR"
+
+Systematic: "ttbar_PS_noRew_Shape"
+  Category: "Modelling"
+  Decorrelate: REGION
+  DropNorm: "all"
+  ReferenceSample: "ttbar_dilep_ghost_nonRew_dilep"
+  SampleUp: "ttbar_dilep_PH7_nonRew_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "Parton shower"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PS & had. (Shape)"
+  Type: HISTO
+
+Systematic: "ttbar_PS_noRew_Acc"
+  Category: "Modelling"
+  Decorrelate: REGION
+  DropShapeIn: "all"
+  ReferenceSample: "ttbar_dilep_ghost_nonRew_dilep"
+  SampleUp: "ttbar_dilep_PH7_nonRew_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "Parton shower"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PS & had. (Acc.)"
+  Type: HISTO
+
+Systematic: "ttbar_ME_old_Shape"
+  Category: "Modelling"
+  Decorrelate: REGION
+  DropNorm: "all"
+  ReferenceSample: "ttbar_dilep_MECoff_dilep"
+  SampleUp: "ttbar_dilep_aMCP8_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "ME-PS matching"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} ME-PS match. (Shape)"
+  Type: HISTO
+
+Systematic: "ttbar_ME_old_Acc"
+  Category: "Modelling"
+  Decorrelate: REGION
+  DropShapeIn: "all"
+  ReferenceSample: "ttbar_dilep_MECoff_dilep"
+  SampleUp: "ttbar_dilep_aMCP8_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "ME-PS matching"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} ME-PS match. (Acc.)"
+  Type: HISTO
+
+Systematic: "ttbar_ISR_hdamp_Shape"
+  Category: "Modelling"
+  Decorrelate: REGION
+  DropNorm: "all"
+  SampleUp: "ttbar_dilep_hdamp_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt ISR"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} ISR (#it{h_{damp}}) (Shape)"
+  Type: HISTO
+
+Systematic: "ttbar_ISR_hdamp_Acc"
+  Category: "Modelling"
+  Decorrelate: REGION
+  DropShapeIn: "all"
+  SampleUp: "ttbar_dilep_hdamp_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt ISR"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} ISR (#it{h_{damp}}) (Acc.)"
+  Type: HISTO
+
+Systematic: "ttbar_ISR_muF"
+  Category: "Modelling"
+  IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt ISR"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} ISR (#it{#mu_{F}})"
+  Type: HISTO
+  WeightSufDown: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,9,0)*(1./1.024340)*weight_muFdown"
+  WeightSufUp: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,8,0)*(1./0.981424)*weight_muFup"
+
+Systematic: "ttbar_ISR_muR"
+  Category: "Modelling"
+  IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt ISR"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} ISR (#it{#mu_{R}})"
+  Type: HISTO
+  WeightSufDown: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,7,0)*(1./1.109480)*weight_muRdown"
+  WeightSufUp: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,6,0)*(1./0.898749)*weight_muRup"
+
+Systematic: "ttbar_ISR_A14"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt ISR"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} ISR (A14)"
+  Type: HISTO
+  WeightSufDown: "(1./0.999991)*weight_a14_down"
+  WeightSufUp: "(1./1.000010)*weight_a14_up"
+
+Systematic: "ttbar_FSR_Shape"
+  Category: "Modelling"
+  Decorrelate: REGION
+  DropNorm: "all"
+  SampleDown: "ttbar_dilep_FSRdown_dilep"
+  SampleUp: "ttbar_dilep_FSRup_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt FSR"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} FSR (Shape)"
+  Type: HISTO
+
+Systematic: "ttbar_FSR_Acc"
+  Category: "Modelling"
+  Decorrelate: REGION
+  DropShapeIn: "all"
+  SampleDown: "ttbar_dilep_FSRdown_dilep"
+  SampleUp: "ttbar_dilep_FSRup_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt FSR"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} FSR (Acc.)"
+  Type: HISTO
+
+Systematic: "ttbar_PDFs_0"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 0"
+  Type: HISTO
+  WeightSufUp: "weight_pdf0"
+
+Systematic: "ttbar_PDFs_1"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 1"
+  Type: HISTO
+  WeightSufUp: "weight_pdf1"
+
+Systematic: "ttbar_PDFs_2"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 2"
+  Type: HISTO
+  WeightSufUp: "weight_pdf2"
+
+Systematic: "ttbar_PDFs_3"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 3"
+  Type: HISTO
+  WeightSufUp: "weight_pdf3"
+
+Systematic: "ttbar_PDFs_4"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 4"
+  Type: HISTO
+  WeightSufUp: "weight_pdf4"
+
+Systematic: "ttbar_PDFs_5"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 5"
+  Type: HISTO
+  WeightSufUp: "weight_pdf5"
+
+Systematic: "ttbar_PDFs_6"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 6"
+  Type: HISTO
+  WeightSufUp: "weight_pdf6"
+
+Systematic: "ttbar_PDFs_7"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 7"
+  Type: HISTO
+  WeightSufUp: "weight_pdf7"
+
+Systematic: "ttbar_PDFs_8"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 8"
+  Type: HISTO
+  WeightSufUp: "weight_pdf8"
+
+Systematic: "ttbar_PDFs_9"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 9"
+  Type: HISTO
+  WeightSufUp: "weight_pdf9"
+
+Systematic: "ttbar_PDFs_10"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 10"
+  Type: HISTO
+  WeightSufUp: "weight_pdf10"
+
+Systematic: "ttbar_PDFs_11"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 11"
+  Type: HISTO
+  WeightSufUp: "weight_pdf11"
+
+Systematic: "ttbar_PDFs_12"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 12"
+  Type: HISTO
+  WeightSufUp: "weight_pdf12"
+
+Systematic: "ttbar_PDFs_13"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 13"
+  Type: HISTO
+  WeightSufUp: "weight_pdf13"
+
+Systematic: "ttbar_PDFs_14"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 14"
+  Type: HISTO
+  WeightSufUp: "weight_pdf14"
+
+Systematic: "ttbar_PDFs_15"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 15"
+  Type: HISTO
+  WeightSufUp: "weight_pdf15"
+
+Systematic: "ttbar_PDFs_16"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 16"
+  Type: HISTO
+  WeightSufUp: "weight_pdf16"
+
+Systematic: "ttbar_PDFs_17"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 17"
+  Type: HISTO
+  WeightSufUp: "weight_pdf17"
+
+Systematic: "ttbar_PDFs_18"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 18"
+  Type: HISTO
+  WeightSufUp: "weight_pdf18"
+
+Systematic: "ttbar_PDFs_19"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 19"
+  Type: HISTO
+  WeightSufUp: "weight_pdf19"
+
+Systematic: "ttbar_PDFs_20"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 20"
+  Type: HISTO
+  WeightSufUp: "weight_pdf20"
+
+Systematic: "ttbar_PDFs_21"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 21"
+  Type: HISTO
+  WeightSufUp: "weight_pdf21"
+
+Systematic: "ttbar_PDFs_22"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 22"
+  Type: HISTO
+  WeightSufUp: "weight_pdf22"
+
+Systematic: "ttbar_PDFs_23"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 23"
+  Type: HISTO
+  WeightSufUp: "weight_pdf23"
+
+Systematic: "ttbar_PDFs_24"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 24"
+  Type: HISTO
+  WeightSufUp: "weight_pdf24"
+
+Systematic: "ttbar_PDFs_25"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 25"
+  Type: HISTO
+  WeightSufUp: "weight_pdf25"
+
+Systematic: "ttbar_PDFs_26"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 26"
+  Type: HISTO
+  WeightSufUp: "weight_pdf26"
+
+Systematic: "ttbar_PDFs_27"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 27"
+  Type: HISTO
+  WeightSufUp: "weight_pdf27"
+
+Systematic: "ttbar_PDFs_28"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 28"
+  Type: HISTO
+  WeightSufUp: "weight_pdf28"
+
+Systematic: "ttbar_PDFs_29"
+  Category: "Modelling"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} PDF 29"
+  Type: HISTO
+  WeightSufUp: "weight_pdf29"
+
+Systematic: "ttbar_NNLO_pdf"
+  Category: "Modelling"
+  IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO PDFs"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} NNLO PDFs"
+  Type: HISTO
+  WeightSufDown: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-4)"
+  WeightSufUp: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,4)"
+
+Systematic: "ttbar_NNLO_muRtopPt"
+  Category: "Modelling"
+  IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO scales"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} NNLO mu_{R} (#it{p}_{T}(#it{t}))"
+  Type: HISTO
+  WeightSufDown: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-11)"
+  WeightSufUp: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,11)"
+
+Systematic: "ttbar_NNLO_muFtopPt"
+  Category: "Modelling"
+  IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO scales"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} NNLO mu_{F} (#it{p}_{T}(#it{t}))"
+  Type: HISTO
+  WeightSufDown: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-21)"
+  WeightSufUp: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,21)"
+
+Systematic: "ttbar_NNLO_muRmtt"
+  Category: "Modelling"
+  IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO scales"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} NNLO mu_{R} (#it{m}(#it{t#bar{t}}))"
+  Type: HISTO
+  WeightSufDown: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-12)"
+  WeightSufUp: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,12)"
+
+Systematic: "ttbar_NNLO_muFmtt"
+  Category: "Modelling"
+  IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO scales"
+  Symmetrisation: TWOSIDED
+  Title: "#it{t#bar{t}} NNLO mu_{F} (#it{m}(#it{t#bar{t}}))"
+  Type: HISTO
+  WeightSufDown: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,-22)"
+  WeightSufUp: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,22)"
+
+Systematic: "ttbar_invRew"
+  Category: "Modelling"
+  SampleUp: "ttbar_dilep_inv_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO method"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} rew. order"
+  Type: HISTO
+
+Systematic: "ttbar_NNLO_altPDF"
+  Category: "Modelling"
+  SampleUp: "ttbar_dilep_altPDF_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO PDFs"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} rew. NN vs LUX PDFs"
+  Type: HISTO
+
+Systematic: "ttbar_NNLO_oneEmission_topPt"
+  Category: "Modelling"
+  SampleUp: "ttbar_dilep_oneEmission_topPt_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO method"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} rew. One-emission (#it{p}_{T}(#it{t}))"
+  Type: HISTO
+
+Systematic: "ttbar_NNLO_oneEmission_mtt"
+  Category: "Modelling"
+  SampleUp: "ttbar_dilep_oneEmission_mtt_dilep"
+  Samples: "ttbar_dilep_dilep"
+  Smoothing: 40
+  SubCategory: "tt NNLO method"
+  Symmetrisation: ONESIDED
+  Title: "#it{t#bar{t}} rew. One-emission (#it{m}(#it{t#bar{t}}))"
+  Type: HISTO
+
+Systematic: "Lumi"
+  Category: "Instrumental"
+  OverallDown: -0.021
+  OverallUp: 0.021
+  SubCategory: "Luminosity"
+  Title: "Luminosity"
+  Type: OVERALL
+
+Systematic: "pileup"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Pileup"
+  Symmetrisation: TWOSIDED
+  Title: "Pileup reweighting"
+  Type: HISTO
+  WeightSufDown: "weight_pileup_down"
+  WeightSufUp: "weight_pileup_up"
+
+Systematic: "JER_DataVsMC_MC16"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_DataVsMC_MC16__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_DataVsMC_MC16__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_DataVsMC_MC16__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_DataVsMC_MC16__1up_PseudoData"
+  NtupleNameDown: "JET_JER_DataVsMC_MC16__1down"
+  NtupleNameDownSubtractSample: "JET_JER_DataVsMC_MC16__1down_PseudoData"
+  NtupleNameUp: "JET_JER_DataVsMC_MC16__1up"
+  NtupleNameUpSubtractSample: "JET_JER_DataVsMC_MC16__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (Data vs. MC)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP1"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_1__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_1__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_1__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_1__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_1__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_1__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_1__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_1__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 1)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP2"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_2__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_2__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_2__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_2__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_2__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_2__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_2__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_2__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 2)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP3"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_3__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_3__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_3__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_3__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_3__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_3__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_3__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_3__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 3)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP4"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_4__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_4__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_4__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_4__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_4__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_4__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_4__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_4__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 4)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP5"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_5__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_5__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_5__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_5__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_5__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_5__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_5__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_5__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 5)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP6"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_6__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_6__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_6__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_6__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_6__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_6__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_6__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_6__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 6)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP7"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_7__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_7__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_7__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_7__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_7__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_7__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_7__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_7__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 7)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP8"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_8__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_8__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_8__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_8__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_8__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_8__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_8__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_8__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 8)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP9"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_9__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_9__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_9__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_9__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_9__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_9__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_9__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_9__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 9)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP10"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_10__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_10__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_10__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_10__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_10__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_10__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_10__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_10__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 10)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP11"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_11__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_11__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_11__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_11__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_11__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_11__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_11__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_11__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (effective NP 11)"
+  Type: HISTO
+
+Systematic: "JER_EffectiveNP_12restTerm"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_JER_EffectiveNP_12restTerm__1down"
+  NtupleFileSufDownSubtractSample: "__JET_JER_EffectiveNP_12restTerm__1down_PseudoData"
+  NtupleFileSufUp: "__JET_JER_EffectiveNP_12restTerm__1up"
+  NtupleFileSufUpSubtractSample: "__JET_JER_EffectiveNP_12restTerm__1up_PseudoData"
+  NtupleNameDown: "JET_JER_EffectiveNP_12restTerm__1down"
+  NtupleNameDownSubtractSample: "JET_JER_EffectiveNP_12restTerm__1down_PseudoData"
+  NtupleNameUp: "JET_JER_EffectiveNP_12restTerm__1up"
+  NtupleNameUpSubtractSample: "JET_JER_EffectiveNP_12restTerm__1up_PseudoData"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JER"
+  Symmetrisation: TWOSIDED
+  Title: "JER (EffNP1 12RestTerm)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Statistical1"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Statistical1__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Statistical1__1up"
+  NtupleNameDown: "JET_EffectiveNP_Statistical1__1down"
+  NtupleNameUp: "JET_EffectiveNP_Statistical1__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP stat. 1)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Statistical2"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Statistical2__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Statistical2__1up"
+  NtupleNameDown: "JET_EffectiveNP_Statistical2__1down"
+  NtupleNameUp: "JET_EffectiveNP_Statistical2__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP stat. 2)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Statistical3"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Statistical3__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Statistical3__1up"
+  NtupleNameDown: "JET_EffectiveNP_Statistical3__1down"
+  NtupleNameUp: "JET_EffectiveNP_Statistical3__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP stat. 3)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Statistical4"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Statistical4__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Statistical4__1up"
+  NtupleNameDown: "JET_EffectiveNP_Statistical4__1down"
+  NtupleNameUp: "JET_EffectiveNP_Statistical4__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP stat. 4)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Statistical5"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Statistical5__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Statistical5__1up"
+  NtupleNameDown: "JET_EffectiveNP_Statistical5__1down"
+  NtupleNameUp: "JET_EffectiveNP_Statistical5__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP stat. 5)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Statistical6"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Statistical6__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Statistical6__1up"
+  NtupleNameDown: "JET_EffectiveNP_Statistical6__1down"
+  NtupleNameUp: "JET_EffectiveNP_Statistical6__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP stat. 6)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Modelling1"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Modelling1__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Modelling1__1up"
+  NtupleNameDown: "JET_EffectiveNP_Modelling1__1down"
+  NtupleNameUp: "JET_EffectiveNP_Modelling1__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP modelling 1)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Modelling2"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Modelling2__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Modelling2__1up"
+  NtupleNameDown: "JET_EffectiveNP_Modelling2__1down"
+  NtupleNameUp: "JET_EffectiveNP_Modelling2__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP modelling 2)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Modelling3"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Modelling3__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Modelling3__1up"
+  NtupleNameDown: "JET_EffectiveNP_Modelling3__1down"
+  NtupleNameUp: "JET_EffectiveNP_Modelling3__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP modelling 3)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Modelling4"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Modelling4__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Modelling4__1up"
+  NtupleNameDown: "JET_EffectiveNP_Modelling4__1down"
+  NtupleNameUp: "JET_EffectiveNP_Modelling4__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP modelling 4)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Detector1"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Detector1__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Detector1__1up"
+  NtupleNameDown: "JET_EffectiveNP_Detector1__1down"
+  NtupleNameUp: "JET_EffectiveNP_Detector1__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP detector 1)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Detector2"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Detector2__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Detector2__1up"
+  NtupleNameDown: "JET_EffectiveNP_Detector2__1down"
+  NtupleNameUp: "JET_EffectiveNP_Detector2__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP detector 2)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Mixed1"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Mixed1__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Mixed1__1up"
+  NtupleNameDown: "JET_EffectiveNP_Mixed1__1down"
+  NtupleNameUp: "JET_EffectiveNP_Mixed1__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP mixed 1)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Mixed2"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Mixed2__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Mixed2__1up"
+  NtupleNameDown: "JET_EffectiveNP_Mixed2__1down"
+  NtupleNameUp: "JET_EffectiveNP_Mixed2__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP mixed 2)"
+  Type: HISTO
+
+Systematic: "JES_EffectiveNP_Mixed3"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EffectiveNP_Mixed3__1down"
+  NtupleFileSufUp: "__JET_EffectiveNP_Mixed3__1up"
+  NtupleNameDown: "JET_EffectiveNP_Mixed3__1down"
+  NtupleNameUp: "JET_EffectiveNP_Mixed3__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (effective NP mixed 3)"
+  Type: HISTO
+
+Systematic: "JES_EtaNonClos_negEta"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EtaIntercalibration_NonClosure_negEta__1down"
+  NtupleFileSufUp: "__JET_EtaIntercalibration_NonClosure_negEta__1up"
+  NtupleNameDown: "JET_EtaIntercalibration_NonClosure_negEta__1down"
+  NtupleNameUp: "JET_EtaIntercalibration_NonClosure_negEta__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (#eta non-closure, negative #eta)"
+  Type: HISTO
+
+Systematic: "JES_EtaNonClos_posEta"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EtaIntercalibration_NonClosure_posEta__1down"
+  NtupleFileSufUp: "__JET_EtaIntercalibration_NonClosure_posEta__1up"
+  NtupleNameDown: "JET_EtaIntercalibration_NonClosure_posEta__1down"
+  NtupleNameUp: "JET_EtaIntercalibration_NonClosure_posEta__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (#eta non-closure, positive #eta)"
+  Type: HISTO
+
+Systematic: "JES_EtaNonClos_highE"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EtaIntercalibration_NonClosure_highE__1down"
+  NtupleFileSufUp: "__JET_EtaIntercalibration_NonClosure_highE__1up"
+  NtupleNameDown: "JET_EtaIntercalibration_NonClosure_highE__1down"
+  NtupleNameUp: "JET_EtaIntercalibration_NonClosure_highE__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (#eta non-closure, high #it{E})"
+  Type: HISTO
+
+Systematic: "JES_EtatotStat"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EtaIntercalibration_TotalStat__1down"
+  NtupleFileSufUp: "__JET_EtaIntercalibration_TotalStat__1up"
+  NtupleNameDown: "JET_EtaIntercalibration_TotalStat__1down"
+  NtupleNameUp: "JET_EtaIntercalibration_TotalStat__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (#eta, tot., stat.)"
+  Type: HISTO
+
+Systematic: "JES_EtaModelling"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EtaIntercalibration_Modelling__1down"
+  NtupleFileSufUp: "__JET_EtaIntercalibration_Modelling__1up"
+  NtupleNameDown: "JET_EtaIntercalibration_Modelling__1down"
+  NtupleNameUp: "JET_EtaIntercalibration_Modelling__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (#eta, modelling)"
+  Type: HISTO
+
+Systematic: "JES_EtaNonClos_2018data"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_EtaIntercalibration_NonClosure_2018data__1down"
+  NtupleFileSufUp: "__JET_EtaIntercalibration_NonClosure_2018data__1up"
+  NtupleNameDown: "JET_EtaIntercalibration_NonClosure_2018data__1down"
+  NtupleNameUp: "JET_EtaIntercalibration_NonClosure_2018data__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (#eta non-closure, 2018 data)"
+  Type: HISTO
+
+Systematic: "JES_Pileup_PtTerm"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_Pileup_PtTerm__1down"
+  NtupleFileSufUp: "__JET_Pileup_PtTerm__1up"
+  NtupleNameDown: "JET_Pileup_PtTerm__1down"
+  NtupleNameUp: "JET_Pileup_PtTerm__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (pileup #it{p}_{T} term)"
+  Type: HISTO
+
+Systematic: "JES_Pileup_OffsetNPV"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_Pileup_OffsetNPV__1down"
+  NtupleFileSufUp: "__JET_Pileup_OffsetNPV__1up"
+  NtupleNameDown: "JET_Pileup_OffsetNPV__1down"
+  NtupleNameUp: "JET_Pileup_OffsetNPV__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (pileup offset NPV)"
+  Type: HISTO
+
+Systematic: "JES_Pileup_OffsetMu"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_Pileup_OffsetMu__1down"
+  NtupleFileSufUp: "__JET_Pileup_OffsetMu__1up"
+  NtupleNameDown: "JET_Pileup_OffsetMu__1down"
+  NtupleNameUp: "JET_Pileup_OffsetMu__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (pileup offset #mu)"
+  Type: HISTO
+
+Systematic: "JES_Pileup_RhoTopology"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_Pileup_RhoTopology__1down"
+  NtupleFileSufUp: "__JET_Pileup_RhoTopology__1up"
+  NtupleNameDown: "JET_Pileup_RhoTopology__1down"
+  NtupleNameUp: "JET_Pileup_RhoTopology__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (pileup #rho topology)"
+  Type: HISTO
+
+Systematic: "JES_Flavor_Comp"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_Flavor_Composition__1down"
+  NtupleFileSufUp: "__JET_Flavor_Composition__1up"
+  NtupleNameDown: "JET_Flavor_Composition__1down"
+  NtupleNameUp: "JET_Flavor_Composition__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (flavour composition)"
+  Type: HISTO
+
+Systematic: "JES_Flavor_Resp"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_Flavor_Response__1down"
+  NtupleFileSufUp: "__JET_Flavor_Response__1up"
+  NtupleNameDown: "JET_Flavor_Response__1down"
+  NtupleNameUp: "JET_Flavor_Response__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (flavour response)"
+  Type: HISTO
+
+Systematic: "JES_BJES_Resp"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_BJES_Response__1down"
+  NtupleFileSufUp: "__JET_BJES_Response__1up"
+  NtupleNameDown: "JET_BJES_Response__1down"
+  NtupleNameUp: "JET_BJES_Response__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (#it{b}-JES response)"
+  Type: HISTO
+
+Systematic: "JES_MC16"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_PunchThrough_MC16__1down"
+  NtupleFileSufUp: "__JET_PunchThrough_MC16__1up"
+  NtupleNameDown: "JET_PunchThrough_MC16__1down"
+  NtupleNameUp: "JET_PunchThrough_MC16__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (punch-through)"
+  Type: HISTO
+
+Systematic: "JES_SinglePart"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__JET_SingleParticle_HighPt__1down"
+  NtupleFileSufUp: "__JET_SingleParticle_HighPt__1up"
+  NtupleNameDown: "JET_SingleParticle_HighPt__1down"
+  NtupleNameUp: "JET_SingleParticle_HighPt__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "JES"
+  Symmetrisation: TWOSIDED
+  Title: "JES (single particle)"
+  Type: HISTO
+
+Systematic: "MET_SoftTrk_Scale"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__MET_SoftTrk_Scale__1down"
+  NtupleFileSufUp: "__MET_SoftTrk_Scale__1up"
+  NtupleNameDown: "MET_SoftTrk_Scale__1down"
+  NtupleNameUp: "MET_SoftTrk_Scale__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "MET"
+  Symmetrisation: TWOSIDED
+  Title: "#it{E}_{T}^{miss} (soft track scale)"
+  Type: HISTO
+
+Systematic: "MET_SoftTrk_ResoPara"
+  Category: "Instrumental"
+  NtupleFileSufUp: "__MET_SoftTrk_ResoPara"
+  NtupleNameUp: "MET_SoftTrk_ResoPara"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "MET"
+  Symmetrisation: ONESIDED
+  Title: "#it{E}_{T}^{miss} (soft track resolution, para.)"
+  Type: HISTO
+
+Systematic: "MET_SoftTrk_ResoPerp"
+  Category: "Instrumental"
+  NtupleFileSufUp: "__MET_SoftTrk_ResoPerp"
+  NtupleNameUp: "MET_SoftTrk_ResoPerp"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "MET"
+  Symmetrisation: ONESIDED
+  Title: "#it{E}_{T}^{miss} (soft track resolution, perp.)"
+  Type: HISTO
+
+Systematic: "btag_b_0"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 0)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b0_down"
+  WeightSufUp: "weight_btag_b0_up"
+
+Systematic: "btag_b_1"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 1)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b1_down"
+  WeightSufUp: "weight_btag_b1_up"
+
+Systematic: "btag_b_2"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 2)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b2_down"
+  WeightSufUp: "weight_btag_b2_up"
+
+Systematic: "btag_b_3"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 3)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b3_down"
+  WeightSufUp: "weight_btag_b3_up"
+
+Systematic: "btag_b_4"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 4)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b4_down"
+  WeightSufUp: "weight_btag_b4_up"
+
+Systematic: "btag_b_5"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 5)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b5_down"
+  WeightSufUp: "weight_btag_b5_up"
+
+Systematic: "btag_b_6"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 6)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b6_down"
+  WeightSufUp: "weight_btag_b6_up"
+
+Systematic: "btag_b_7"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 7)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b7_down"
+  WeightSufUp: "weight_btag_b7_up"
+
+Systematic: "btag_b_8"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{b}, NP 8)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_b8_down"
+  WeightSufUp: "weight_btag_b8_up"
+
+Systematic: "btag_c_0"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{c}, NP 0)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_c0_down"
+  WeightSufUp: "weight_btag_c0_up"
+
+Systematic: "btag_c_1"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{c}, NP 1)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_c1_down"
+  WeightSufUp: "weight_btag_c1_up"
+
+Systematic: "btag_c_2"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{c}, NP 2)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_c2_down"
+  WeightSufUp: "weight_btag_c2_up"
+
+Systematic: "btag_c_3"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{c}, NP 3)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_c3_down"
+  WeightSufUp: "weight_btag_c3_up"
+
+Systematic: "btag_light_0"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (light, NP 0)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_light0_down"
+  WeightSufUp: "weight_btag_light0_up"
+
+Systematic: "btag_light_1"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (light, NP 1)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_light1_down"
+  WeightSufUp: "weight_btag_light1_up"
+
+Systematic: "btag_light_2"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (light, NP 2)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_light2_down"
+  WeightSufUp: "weight_btag_light2_up"
+
+Systematic: "btag_light_3"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (light, NP 3)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_light3_down"
+  WeightSufUp: "weight_btag_light3_up"
+
+Systematic: "btag_extrap"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (high-#it{p}_{T} extrap.)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_extrap_down"
+  WeightSufUp: "weight_btag_extrap_up"
+
+Systematic: "btag_extrap_c"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "b-tagging"
+  Symmetrisation: TWOSIDED
+  Title: "#it{b}-tagging eff. (#it{c}#rightarrow#it{#tau} extrapolation)"
+  Type: HISTO
+  WeightSufDown: "weight_btag_extrap_c_down"
+  WeightSufUp: "weight_btag_extrap_c_up"
+
+Systematic: "jvt"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "JVT"
+  Symmetrisation: TWOSIDED
+  Title: "JVT"
+  Type: HISTO
+  WeightSufDown: "weight_jvt_down"
+  WeightSufUp: "weight_jvt_up"
+
+Systematic: "MUON_Sagitta"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__MUON_SAGITTA_RESBIAS__1down"
+  NtupleFileSufUp: "__MUON_SAGITTA_RESBIAS__1up"
+  NtupleNameDown: "MUON_SAGITTA_RESBIAS__1down"
+  NtupleNameUp: "MUON_SAGITTA_RESBIAS__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon sagitta resolution bias"
+  Type: HISTO
+
+Systematic: "MUON_Scale"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__MUON_SCALE__1down"
+  NtupleFileSufUp: "__MUON_SCALE__1up"
+  NtupleNameDown: "MUON_SCALE__1down"
+  NtupleNameUp: "MUON_SCALE__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon momentum scale"
+  Type: HISTO
+
+Systematic: "MUON_ID"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__MUON_ID__1down"
+  NtupleFileSufUp: "__MUON_ID__1up"
+  NtupleNameDown: "MUON_ID__1down"
+  NtupleNameUp: "MUON_ID__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon momentum resolution (ID)"
+  Type: HISTO
+
+Systematic: "MUON_MS"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__MUON_MS__1down"
+  NtupleFileSufUp: "__MUON_MS__1up"
+  NtupleNameDown: "MUON_MS__1down"
+  NtupleNameUp: "MUON_MS__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon momentum resolution (MS)"
+  Type: HISTO
+
+Systematic: "EG_SCALE_ALL"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__EG_SCALE_ALL__1down"
+  NtupleFileSufUp: "__EG_SCALE_ALL__1up"
+  NtupleNameDown: "EG_SCALE_ALL__1down"
+  NtupleNameUp: "EG_SCALE_ALL__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Electron energy scale"
+  Type: HISTO
+
+Systematic: "EG_RESOLUTION_ALL"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__EG_RESOLUTION_ALL__1down"
+  NtupleFileSufUp: "__EG_RESOLUTION_ALL__1up"
+  NtupleNameDown: "EG_RESOLUTION_ALL__1down"
+  NtupleNameUp: "EG_RESOLUTION_ALL__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Electron energy resolution"
+  Type: HISTO
+
+Systematic: "EG_SCALE_AF2"
+  Category: "Instrumental"
+  NtupleFileSufDown: "__EG_SCALE_AF2__1down"
+  NtupleFileSufUp: "__EG_SCALE_AF2__1up"
+  NtupleNameDown: "EG_SCALE_AF2__1down"
+  NtupleNameUp: "EG_SCALE_AF2__1up"
+  NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  Smoothing: 40
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Electron energy scale AF2"
+  Type: HISTO
+
+Systematic: "leptonSF_EL_SF_Trigger"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Electron trigger SF"
+  Type: HISTO
+  WeightSufDown: "weight_elTrigger_down"
+  WeightSufUp: "weight_elTrigger_up"
+
+Systematic: "leptonSF_EL_SF_Reco"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Electron reconstruction SF"
+  Type: HISTO
+  WeightSufDown: "weight_elReco_down"
+  WeightSufUp: "weight_elReco_up"
+
+Systematic: "leptonSF_EL_SF_ID"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Electron identification SF"
+  Type: HISTO
+  WeightSufDown: "weight_elId_down"
+  WeightSufUp: "weight_elId_up"
+
+Systematic: "leptonSF_EL_SF_Isol"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Electron isolation SF"
+  Type: HISTO
+  WeightSufDown: "weight_elIso_down"
+  WeightSufUp: "weight_elIso_up"
+
+Systematic: "leptonSF_MU_SF_Trigger_STAT"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon trigger SF (stat.)"
+  Type: HISTO
+  WeightSufDown: "weight_muTrigger_stat_down"
+  WeightSufUp: "weight_muTrigger_stat_up"
+
+Systematic: "leptonSF_MU_SF_Trigger_SYST"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon trigger SF (syst.)"
+  Type: HISTO
+  WeightSufDown: "weight_muTrigger_syst_down"
+  WeightSufUp: "weight_muTrigger_syst_up"
+
+Systematic: "leptonSF_MU_SF_ID_STAT"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon identification SF (stat.)"
+  Type: HISTO
+  WeightSufDown: "weight_muId_stat_down"
+  WeightSufUp: "weight_muId_stat_up"
+
+Systematic: "leptonSF_MU_SF_ID_SYST"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon identification SF (syst.)"
+  Type: HISTO
+  WeightSufDown: "weight_muId_syst_down"
+  WeightSufUp: "weight_muId_syst_up"
+
+Systematic: "leptonSF_MU_SF_Isol_STAT"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon isolation SF (stat.)"
+  Type: HISTO
+  WeightSufDown: "weight_muIso_stat_down"
+  WeightSufUp: "weight_muIso_stat_up"
+
+Systematic: "leptonSF_MU_SF_Isol_SYST"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon isolation SF (syst.)"
+  Type: HISTO
+  WeightSufDown: "weight_muIso_syst_down"
+  WeightSufUp: "weight_muIso_syst_up"
+
+Systematic: "leptonSF_MU_SF_TTVA_STAT"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon TTVA SF (stat.)"
+  Type: HISTO
+  WeightSufDown: "weight_muTTVA_stat_down"
+  WeightSufUp: "weight_muTTVA_stat_up"
+
+Systematic: "leptonSF_MU_SF_TTVA_SYST"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: TWOSIDED
+  Title: "Muon TTVA SF (syst.)"
+  Type: HISTO
+  WeightSufDown: "weight_muTTVA_syst_down"
+  WeightSufUp: "weight_muTTVA_syst_up"
+
+Systematic: "leptonSF_EL_eleInJet_flat"
+  Category: "Instrumental"
+  Samples: "ttbar_dilep_dilep","singleTop_dilep","zjets_dilep","diboson_dilep","ttV_dilep","ttH_dilep"
+  SubCategory: "Leptons"
+  Symmetrisation: ONESIDED
+  Title: "Electron identification SF (close-by-jet)"
+  Type: HISTO
+  WeightSufUp: "((!has_1elCloseToJet)*(1.) + (has_1elCloseToJet && !has_2elCloseToJet)*(1.-0.10) + (has_2elCloseToJet)*(1.-0.10)*(1.-0.10))"
+

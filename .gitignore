@@ -43,3 +43,5 @@ scripts/cp_configs.sh
 scripts/make_siginj_configs.sh
 *.png
 data
+scripts/compare_histo_contents.py
+tests/tmp.ipynb

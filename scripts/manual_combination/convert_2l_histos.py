@@ -6,6 +6,7 @@ bad_samples = ['zjets_LF_up', 'zjets_HF_up']
 
 lumi = 139000 % 36100 + 44300 + 58600
 
+
 def convert_histos_in_file(tfile, out_dir, path=''):
     for key in tfile.GetListOfKeys():
         obj = key.ReadObj()
@@ -26,13 +27,13 @@ def convert_histos_in_file(tfile, out_dir, path=''):
             region = path_parts[0]
             sample = path_parts[1]
             systematic = path_parts[2]
-            if systematic != 'nominal':
-                # ignore systematics, for now
-                continue
+            # remove 'region_sample_systematic_' from the name to get the variation
+            variation = name[len(region) + len(sample) + len(systematic) + 3:]
             if sample in bad_samples:
                 print(f"\t\t Ignoring bad sample {sample}...")
                 continue
-            variation = obj.GetName()
+            if systematic == 'Lumi':
+                continue
             # write lowercase
             region = region.lower()
             sample = sample.lower()
@@ -40,14 +41,19 @@ def convert_histos_in_file(tfile, out_dir, path=''):
             if 'data' not in sample:
                 sample = sample + '_dilep'
             out_file = out_dir / f"{region}/hist_{sample}.root"
-            print(f"\t\t Writing to {out_file}...")
+            print(f"\t\t {out_file}")
             out_file.parent.mkdir(exist_ok=True, parents=True)
             out_tfile = ROOT.TFile(str(out_file), "UPDATE")
             out_tfile.cd()
             # divide the weights by the luminosity, as it will be added back in later
             # obj.Scale(1./lumi)
             # write the histogram as a clone, so that the original histogram is not modified
-            obj.Write(region)
+            if systematic == 'nominal':
+                print(f"\t\t\t {region}")
+                obj.Write(region)
+            else:
+                print(f"\t\t\t {region}_{systematic}_{variation}")
+                obj.Write(f"{region}_{systematic}_{variation}")
             out_tfile.Close()
             # cd back to the original directory
             tfile.cd()
@@ -79,10 +85,13 @@ def convert_histos(histo_dir, out_dir):
         # close the input file
         tfile.Close()
 
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('histo_dir', type=str, help='Path to the histogram directory')
-    parser.add_argument('out_dir', type=str, help='Path to the output directory')
+    parser.add_argument('histo_dir', type=str,
+                        help='Path to the histogram directory')
+    parser.add_argument('out_dir', type=str,
+                        help='Path to the output directory')
 
     args = parser.parse_args()
 
@@ -90,7 +99,7 @@ def main():
     out_dir = Path(args.out_dir)
 
     out_dir.mkdir(exist_ok=True, parents=True)
-    
+
     convert_histos(histo_dir, out_dir)
 
 

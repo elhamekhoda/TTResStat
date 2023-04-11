@@ -805,8 +805,6 @@ Systematic:          "ttbar_NNLO_oneEmission_topPt"                        ;"ttb
   
 % --- Instrumental
 
-% -- Luminosity and Pileup
-
 Systematic:           "Lumi"
   Title:              "Luminosity"
   Type:               OVERALL
@@ -828,7 +826,7 @@ Systematic:           "pileup"
 
 % -- Jets & MET
 
-% JER ---
+% --- JER 
 
 Systematic:          "JER_DataVsMC_MC16";"JER_EffectiveNP1";"JER_EffectiveNP2";"JER_EffectiveNP3";"JER_EffectiveNP4";"JER_EffectiveNP5";"JER_EffectiveNP6";"JER_EffectiveNP7";"JER_EffectiveNP8";"JER_EffectiveNP9";"JER_EffectiveNP10";"JER_EffectiveNP11"
   Title:             "JER (Data vs. MC)";"JER (effective NP 1)";"JER (effective NP 2)";"JER (effective NP 3)";"JER (effective NP 4)";"JER (effective NP 5)";"JER (effective NP 6)";"JER (effective NP 7)";"JER (effective NP 8)";"JER (effective NP 9)";"JER (effective NP 10)";"JER (effective NP 11)"
@@ -874,7 +872,7 @@ Systematic:          "JER_EffectiveNP_12restTerm"
   SubCategory:       "JER"
   Smoothing:         40  
 
-% JES ---
+% --- JES 
 
 Systematic:          "JES_EffectiveNP_Statistical1";"JES_EffectiveNP_Statistical2";"JES_EffectiveNP_Statistical3";"JES_EffectiveNP_Statistical4";"JES_EffectiveNP_Statistical5";"JES_EffectiveNP_Statistical6"
   Title:             "JES (effective NP stat. 1)";"JES (effective NP stat. 2)";"JES (effective NP stat. 3)";"JES (effective NP stat. 4)";"JES (effective NP stat. 5)";"JES (effective NP stat. 6)"
@@ -1036,7 +1034,7 @@ Systematic:          "JES_SinglePart"
   SubCategory:       "JES"
   Smoothing:         40
   
-% MET ---
+% --- MET 
 
 Systematic:          "MET_SoftTrk_Scale"
   Title:             "#it{E}_{T}^{miss} (soft track scale)"
@@ -1067,7 +1065,7 @@ Systematic:          "MET_SoftTrk_ResoPara";"MET_SoftTrk_ResoPerp"
   SubCategory:       "MET"
   Smoothing:         40
   
-% b-tagging ---
+% --- b-tagging 
   
 Systematic:           "btag_b_0";"btag_b_1";"btag_b_2";"btag_b_3";"btag_b_4";"btag_b_5";"btag_b_6";"btag_b_7";"btag_b_8"                                                         
   Title:              "#it{b}-tagging eff. (#it{b}, NP 0)";"#it{b}-tagging eff. (#it{b}, NP 1)";"#it{b}-tagging eff. (#it{b}, NP 2)";"#it{b}-tagging eff. (#it{b}, NP 3)";"#it{b}-tagging eff. (#it{b}, NP 4)";"#it{b}-tagging eff. (#it{b}, NP 5)";"#it{b}-tagging eff. (#it{b}, NP 6)";"#it{b}-tagging eff. (#it{b}, NP 7)";"#it{b}-tagging eff. (#it{b}, NP 8)"
@@ -1113,7 +1111,7 @@ Systematic:           "btag_extrap"                                   ;"btag_ext
   SubCategory:        "b-tagging"
   Category:           "Instrumental"
 
-% JVT ---
+% --- JVT 
   
 Systematic:           "jvt"
   Title:              "JVT"
@@ -1128,7 +1126,7 @@ Systematic:           "jvt"
 
 % -- Leptons
 
-% Scale and Resolution ---
+% --- Scale and Resolution 
 
 Systematic:          "MUON_Sagitta";"MUON_Scale";"MUON_ID";"MUON_MS"
   Title:             "Muon sagitta resolution bias";"Muon momentum scale";"Muon momentum resolution (ID)";"Muon momentum resolution (MS)"
