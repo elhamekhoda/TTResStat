@@ -20,7 +20,7 @@ def copy_limits_to_shared(channel, mass_out_dir, shared_limit_dir):
         shared_limit_dir (Path): directory to copy the limit file to
     """
     if channel == 'combined':
-        limit_run = 'ttres1l2l'
+        limit_run = 'ttRes1L2L'
     elif channel == '2l':
         limit_run = 'ttRes2L_fit_inverted_deltaEta_2dRew_slim_SysAll_V24'
     elif channel == '1l':
@@ -36,7 +36,7 @@ def copy_limits_to_shared(channel, mass_out_dir, shared_limit_dir):
         print('error: no limit file found in run limit directory: ', run_limit_dir)
 
 
-def write_configs(settings: Settings):
+def write_configs(settings: Settings, use_existing_config: bool = False):
     """Write the trexfitter config files for the specified channel.
     Returns:
         channel_to_config (Dict[str, Path]): mapping from channel to the path of the config file
@@ -51,20 +51,23 @@ def write_configs(settings: Settings):
 
     if settings.channel == '1l':
         template_text, opts = make_1l_config(copy.deepcopy(settings))
-        with ttres1L_config.open('w+') as f:
-            f.write(template_text)
+        if not use_existing_config:
+            with ttres1L_config.open('w+') as f:
+                f.write(template_text)
         channel_to_config['1l'] = ttres1L_config
         channel_to_opts['1l'] = opts
     if settings.channel == '2l':
         template_text, opts = make_2l_config(copy.deepcopy(settings))
-        with ttres2L_config.open('w+') as f:
-            f.write(template_text)
+        if not use_existing_config:
+            with ttres2L_config.open('w+') as f:
+                f.write(template_text)
         channel_to_config['2l'] = ttres2L_config
         channel_to_opts['2l'] = opts
     if settings.channel == 'combined':
         template_text, opts = make_combined_config(copy.deepcopy(settings))
-        with ttres1L2L_config.open('w+') as f:
-            f.write(template_text)
+        if not use_existing_config:
+            with ttres1L2L_config.open('w+') as f:
+                f.write(template_text)
         channel_to_config['combined'] = ttres1L2L_config
         channel_to_opts['combined'] = opts
 
@@ -164,7 +167,7 @@ def main():
     parser.add_argument("--region_1l",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
                         help="Region to use for the 1l channel: boosted, resolved, combined")
     parser.add_argument("--region_2l",       type=str,  default="mllbb_deltaphi", choices=['mllbb', 'deltaphi', 'mllbb_deltaphi'],
-                        help="Region to use for the 2l channel: mllbb")
+                        help="Region to use for the 2l channel: mllbb, deltaphi, mllbb_deltaphi")
     parser.add_argument("--signal_injection_mass", '-sigm',
                         type=int, default=None, help="mass of signal to inject.")
     parser.add_argument("--signal_injection_name", '-sign', type=str, default=None,
@@ -190,6 +193,17 @@ def main():
                         action='store_true', help='use converted 2L config file.')
 
     args = parser.parse_args()
+
+    if args.channel == 'combined' and ('h' in args.ops or 'n' in args.ops):
+        raise ValueError(
+            'cannot run combined fit with histogram or ntuple step. Please manually combine the trexfitter histograms by combining from the 1l and 2l channels, e.g. with `python scripts/manual_combination/combine_histos.py histograms/ttres1l/tt1lep_config_wbtagSR_1b2b histograms/ttres2l histograms/ttres1l2l`')
+
+    if args.channel == 'combined' and args.signal in ['gluon', 'grav']:
+        raise NotImplementedError('combined fit not implemented for gluon or graviton. We need to unify the naming scheme for the 1l and 2l channels.')
+
+    if args.channel == 'combined' and args.signal == 'all':
+        raise ValueError(
+            'cannot run combined fit with all signals. Choose one signal.')
 
     if 'm' in args.ops:
         raise ValueError(
@@ -276,7 +290,7 @@ def main():
                             unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly,
                             bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed, opts=args.opts, use_converted_config=args.use_converted_config)
 
-        channel_to_config, channel_to_opts = write_configs(settings)
+        channel_to_config, channel_to_opts = write_configs(settings, use_existing_config=args.use_existing_config)
 
         if args.batch_system:
             submit_batch(settings, args)

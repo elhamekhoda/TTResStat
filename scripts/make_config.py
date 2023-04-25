@@ -228,10 +228,10 @@ def add_common_settings_to_config_string(config_string: str, in_dir: Path, setti
     return config_string
 
 
-def add_systematics_to_1l_config_string(config_string: str, settings: Settings):
+def add_systematics_to_1l_config_string(config_string: str, regions, use_dilep_names):
     # sys blocks
-    sysmaps = makeSysList(settings.region_1l,
-                          use_dilep_names=settings.use_dilep_names)
+    sysmaps = makeSysList(regions,
+                          use_dilep_names=use_dilep_names)
     JES_sys_block = writeSysBlock(sysmaps["JES_sys"])
     JER_sys_block = writeSysBlock(sysmaps["JER_sys"])
     JMR_sys_block = writeSysBlock(sysmaps["JMR_sys"])
@@ -357,7 +357,7 @@ def make_1l_config(settings: Settings):
 
     if not settings.statonly:
         config_string = add_systematics_to_1l_config_string(
-            config_string, settings)
+            config_string, settings.region_1l, settings.use_dilep_names)
 
     in_dir = Path(os.environ['DATA_DIR_1L'])
     config_string = add_common_settings_to_config_string(
@@ -443,7 +443,7 @@ def make_2l_config(settings: Settings):
     opts = get_common_opts(settings, regions=regions)
     if settings.signal_name != 'all':
         signal_sample_name = get_2l_signal_name(settings)
-        opts.append(f'Signal={signal_sample_name}_dilep')
+        opts.append(f'Signal={signal_sample_name}')
 
         # add samples manually, for now
         # samples = f'''{signal_sample_name},ttbar_dilep,singleTop,zjets,diboson,ttV,ttH,fakes,fakes_ttbar,ttbar_dilep_ghost_nonRew,ttbar_dilep_PH7_nonRew,ttbar_dilep_aMCP8,ttbar_dilep_MECoff,ttbar_dilep_aMCH7,ttbar_dilep_hdamp,ttbar_dilep_FSRup,ttbar_dilep_FSRdown,ttbar_dilep_noEW,ttbar_dilep_inv,ttbar_dilep_altPDF,ttbar_dilep_oneEmission_topPt,ttbar_dilep_oneEmission_mtt,singleTop_PH7,singleTop_aMCP8,singleTop_DS,zjets_pTll_up,zjets_pTll_down'''
@@ -468,8 +468,9 @@ def make_combined_config(settings: Settings):
 
     # set histo path
     template_name = template_path.stem
-    settings.histo_dir = settings.histo_dir / 'ttres1l2l' / template_name
-    settings.histo_dir.mkdir(parents=True, exist_ok=True)
+    settings.histo_dir = settings.histo_dir / 'ttres1l2l'
+    if not settings.histo_dir.exists():
+        raise ValueError(f"Histo dir {settings.histo_dir} does not exist. You can make it with a command like: `python scripts/manual_combination/combine_histos.py histograms/ttres1l/tt1lep_config_wbtagSR_1b2b histograms/ttres2l histograms/ttres1l2l`")
     check_empty_histos(settings)
 
     # get md5sum of files in histo_dir, if any exist:
@@ -496,11 +497,20 @@ def make_combined_config(settings: Settings):
         config_string, in_dir, settings)
 
     # make command-line options for trexfitter
-    opts = get_common_opts(settings, regions=regions_1l + ',' + regions_2l)
+    # if there are any 1l and 2l regions, join them with a comma
+    regions = ''
+    if regions_1l:
+        regions += regions_1l
+    if regions_1l and regions_2l:
+        regions += ','
+    if regions_2l:
+        regions += regions_2l
+    opts = get_common_opts(settings, regions=regions)
     if settings.signal_name != 'all':
-        signal_sample_1l = get_1l_signal_name(settings)
-        signal_sample_2l = get_2l_signal_name(settings)
-        opts.append(f'Signals={signal_sample_2l}_dilep,{signal_sample_1l}')
+        signal_sample = get_2l_signal_name(settings)
+        opts.append(f'Signal={signal_sample}')
+    else: 
+        raise NotImplementedError("all signals not implemented for 1l2l")
     opts = ':'.join(opts)
 
     return config_string, opts

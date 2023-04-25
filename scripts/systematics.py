@@ -566,6 +566,22 @@ sys_dilepNamesMap['jvtSF'] = 'jvt'
 sys_dilepNamesMap['pileupSF'] = 'pileup'
 sys_dilepNamesMap['lumi'] = 'Lumi'
 
+# combine all _dilepNamesMaps into a single map
+dilepNamesMap = OrderedDict()
+dilepNamesMap.update(JES_dilepNamesMap_category)
+dilepNamesMap.update(JER_dilepNamesMap)
+# dilepNamesMap.update(JMS_dilepNamesMap_category)
+# dilepNamesMap.update(JMR_dilepNamesMap_category)
+dilepNamesMap.update(btag_dilepNamesMap)
+# dilepNamesMap.update(toptag_dilepNamesMap)
+dilepNamesMap.update(MET_scale_dilepNamesMap)
+dilepNamesMap.update(MET_res_dilepNamesMap)
+dilepNamesMap.update(EG_dilepNamesMap)
+dilepNamesMap.update(MUON_dilepNamesMap)
+dilepNamesMap.update(sys_dilepNamesMap)
+
+
+
 sysNames = OrderedDict()
 sysNames["jvtSF"] ="jvt"
 sysNames["pileupSF"] ="pileup"
