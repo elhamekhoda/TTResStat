@@ -4,21 +4,24 @@ from collections import defaultdict
 def has_indentation(line):
     return line.startswith(' ') or line.startswith('\t')
 
-def remove_quotes(str):
-    if str.startswith('"') and str.endswith('"'):
-        return str[1:-1]
+def remove_quotes(s):
+    # check if s is not a string
+    if not isinstance(s, str):
+        return [remove_quotes(a) for a in s]
+    if s.startswith('"') and s.endswith('"'):
+        return s[1:-1]
     else:
-        return str
+        return s
 
 def split_objects(config, sep=';'):
     """Split objects with names separated by semicolons."""
     new_config = defaultdict(list)
     for obj_type, obj_pairs in config.items():
         for obj_name, obj_dict in obj_pairs:
-            obj_names = obj_name.split(sep)
+            obj_names = [x for x in obj_name.split(sep) if x]
             unified_keys = set()
             for key, value in obj_dict.items():
-                obj_dict[key] = value.split(sep)
+                obj_dict[key] = [v for v in value.split(sep) if v]
                 if len(obj_dict[key]) == 1:
                     unified_keys.add(key)
                 elif len(obj_dict[key]) != len(obj_names):
