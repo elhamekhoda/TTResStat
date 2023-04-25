@@ -1,8 +1,127 @@
 
-import os
-from utils import remove_quotes, write_config, parse_config_file
-
 import argparse
+import os
+import sys
+
+from utils import parse_config_file, remove_quotes, write_config
+
+bad_samples = ['zjets_LF_up', 'zjets_HF_up']
+bad_systematics = ['ZjetsNorm_LF', 'ZjetsNorm_HF']
+
+bad_signal = 'ZprimePY'
+
+def rename_samples(config, suffix, name_map):
+    """Rename samples in the config file."""
+
+    def rename_sample(obj_name):
+        obj_name = obj_name.strip()
+        old_name = remove_quotes(obj_name)
+        if old_name in name_map:
+            new_name = name_map[old_name]
+            if obj_name.startswith('"') and obj_name.endswith('"'):
+                return '"' + new_name + '"'
+            else:
+                return new_name
+        else:
+            return obj_name
+
+        
+    def rename_samples_in_property(obj_dict, property):
+        if property in obj_dict:
+            sample_sections = obj_dict[property].split(';')
+            new_sample_sections = []
+            for sample_section in sample_sections:
+                samples = sample_section.split(',')
+                new_samples = []
+                for sample in samples:
+                    sample = sample.strip()
+                    if '*' in sample:
+                        print('Ignoring wildcard sample: ' + sample)
+                        new_samples.append(sample)
+                        continue
+                    new_samples.append(rename_sample(sample))
+                new_sample_sections.append(','.join(new_samples))
+            obj_dict[property] = ';'.join(new_sample_sections)
+
+    for obj_type, obj_pairs in config.items():
+        if obj_type.lower() == 'sample':
+            new_obj_pairs = []
+            for obj_name, obj_dict in obj_pairs:
+                obj_names = obj_name.split(';')
+                new_obj_names = []
+                for obj_name in obj_names:
+                    if remove_quotes(obj_name.strip()) in bad_samples:
+                        print('Ignoring bad sample: ' + remove_quotes(obj_name.strip()))
+                        continue
+                    if 'data' in obj_name.lower():
+                        print('including data sample without renaming...')
+                        new_obj_names.append(obj_name.strip())
+                    else:
+                        new_obj_names.append(rename_sample(obj_name.strip()))
+                new_obj_name = ';'.join(new_obj_names)
+                if new_obj_name:
+                    new_obj_pairs.append((new_obj_name, obj_dict))
+            config[obj_type] = new_obj_pairs
+        else:
+            # check other objects for references to the sample
+            for obj_name, obj_dict in obj_pairs:
+                rename_samples_in_property(obj_dict, 'Samples')
+                rename_samples_in_property(obj_dict, 'SampleUp')
+                rename_samples_in_property(obj_dict, 'SampleDown')
+                rename_samples_in_property(obj_dict, 'ReferenceSample')
+                    
+
+def prepend(s, prefix):
+    # put prefix within the quotes, if necessary
+    if s.startswith('"') and s.endswith('"'):
+        return '"' + prefix + s[1:-1] + '"'
+    else:
+        return prefix + s
+
+
+# def rename_1l(config_1l):
+#     samples = config_1l['Sample']
+#     new_samples = []
+#     zprime_samples = []
+#     grav_samples = []
+#     kkg_samples = []
+#     for sample_name, sample_dict in samples:
+#         sample_name = remove_quotes(sample_name)
+#         if 'Zprime' in sample_name:
+#             mass = sample_name.split('_')[1]
+#             new_sample_name = f'"ZprimeTC21L_{mass}"'
+#             new_samples.append((new_sample_name, sample_dict))
+#             zprime_samples.append(new_sample_name)
+#         elif 'Grav' in sample_name:
+#             mass = sample_name.split('_')[1]
+#             new_sample_name = f'"Grav1L{mass}"'
+#             new_samples.append((new_sample_name, sample_dict))
+#             grav_samples.append(new_sample_name)
+#         elif 'KKg' in sample_name:
+#             mass = sample_name.split('_')[1]
+#             new_sample_name = f'"KKgMG1L{mass}"'
+#             new_samples.append((new_sample_name, sample_dict))
+#             kkg_samples.append(new_sample_name)
+#         else:
+#             new_samples.append((sample_name, sample_dict))
+#     config_1l['Sample'] = new_samples
+
+#     systematics = config_1l['Systematic']
+#     new_systematics = []
+#     for sys_name, sys_dict in systematics:
+#         samples = sys_dict['Samples'].split(',')
+#         new_samples = []
+#         for sample in samples:
+#             if 'Zprime' in sample:
+#                 new_samples.extend(zprime_samples)
+#             elif 'Grav' in sample:
+#                 new_samples.extend(grav_samples)
+#             elif 'KKg' in sample:
+#                 new_samples.extend(kkg_samples)
+#             else:
+#                 new_samples.append(sample)
+#         sys_dict['Samples'] = ','.join(new_samples)
+    
 
 
 def combine_fit(fit_1l, fit_2l):
@@ -37,6 +156,9 @@ def combine_sample(sample_1l, sample_2l, regions_1l, regions_2l):
     dict_2l = {k: v for k,v in sample_2l}
     keys = set(dict_1l.keys()) | set(dict_2l.keys())
     for k in keys:
+        if remove_quotes(k) in bad_samples:
+            print('Ignoring bad sample: ' + k)
+            continue
         if k not in dict_1l:
             dict_2l[k]['Regions'] = ','.join(regions_2l)
             sample_combined.append((k, dict_2l[k]))
@@ -46,18 +168,82 @@ def combine_sample(sample_1l, sample_2l, regions_1l, regions_2l):
         elif 'data' in k.lower():
             sample_combined.append((k, dict_1l[k]))
         else:
-            raise RuntimeError('Sample is present in both 1l and 2l configs.')
+            print('Warning: sample ' + k + ' is in both 1l and 2l configs. Combining them.')
+            sample_combined.append((k, dict_1l[k]))
     
     # sort sample_combined based on type, then name
     sample_combined.sort(key=lambda x: (x[1]['Type'], x[0]))
     # ensure that any sample with type 'Ghost' is at the front, while otherwise preserving the order
     sample_combined.sort(key=lambda x: x[1]['Type'] == 'GHOST', reverse=True)
 
-
     return sample_combined
 
-def combine_systematic(systematic_1l, systematic_2l):
-    breakpoint()
+def combine_systematic(systematic_1l, systematic_2l, regions_1l, regions_2l, background_samples_1l, background_samples_2l, min_syst, max_syst):
+    systematic_combined = []
+    dict_1l = {k: v for k,v in systematic_1l}
+    dict_2l = {k: v for k,v in systematic_2l}
+    keys = set(dict_1l.keys()) | set(dict_2l.keys())
+    for k in keys:
+        if remove_quotes(k) in bad_systematics:
+            print('Ignoring bad systematic: ' + k)
+            continue
+        if k not in dict_1l:
+            obj_dict = dict_2l[k]
+            obj_dict['Regions'] = ','.join(regions_2l)
+            systematic_combined.append((k, obj_dict))
+        elif k not in dict_2l:
+            obj_dict = dict_1l[k]
+            obj_dict['Regions'] = ','.join(regions_1l)
+            systematic_combined.append((k, obj_dict))
+        else:
+            print('Warning: systematic ' + k + ' is in both 1l and 2l configs. Combining them.')
+            obj_dict = dict_1l[k]
+            obj_dict['Regions'] = ','.join(regions_1l.union(regions_2l))  
+            if 'Samples' in obj_dict and 'Samples' in dict_2l[k]:
+                obj_dict['Samples'] = ','.join(set(remove_quotes(obj_dict['Samples'].split(','))).union(set(remove_quotes(dict_2l[k]['Samples'].split(',')))))
+            elif 'Samples' in dict_2l[k] or 'Samples' in obj_dict:
+                if 'Samples' in dict_2l[k]:
+                    # add background_samples_1l to the list of samples
+                    obj_dict['Samples'] = ','.join(set(remove_quotes(dict_2l[k]['Samples'].split(','))).union(background_samples_1l))
+                else:
+                    # add background_samples_2l to the list of samples
+                    obj_dict['Samples'] = ','.join(set(remove_quotes(obj_dict['Samples'].split(','))).union(background_samples_2l))
+                
+                print('CHECK CAREFULLY: Samples are not present in one config but are present in the other. Using the union of the listed samples with background samples from the other channel:')
+                print('  ' + obj_dict['Samples'])
+            if 'Samples' in obj_dict:
+                # sort samples by name and add quotes
+                obj_dict['Samples'] = ','.join(sorted(remove_quotes(obj_dict['Samples'].split(','))))
+                obj_dict['Samples'] = ','.join(['"' + s + '"' for s in obj_dict['Samples'].split(',')])
+            # compare Symmetrisation
+            if obj_dict.get('Symmetrisation', None) != dict_2l[k].get('Symmetrisation', None):
+                print('Warning: Symmetrisation is different for systematic ' + k + '. Using Symmetrisation from 1l config.')
+            systematic_combined.append((k, obj_dict))
+    
+    # Eliminate signal samples from systematics, for now
+    print('***Removing signal samples from systematics***')
+    for i, (k, obj_dict) in enumerate(systematic_combined):
+        if 'Samples' in obj_dict:
+            samples = remove_quotes(obj_dict['Samples'].split(','))
+            samples = [s for s in samples if (not s.startswith('Zprime') and not s.startswith('Grav') and not s.startswith('KKg'))]
+            systematic_combined[i] = (k, obj_dict)
+            systematic_combined[i][1]['Samples'] = ','.join(['"' + s + '"' for s in samples])
+
+
+
+    # sort systematic_combined based on Category, Subcategory (if it exists), then Name
+    systematic_combined.sort(key=lambda x: (x[1]['Category'], x[1].get('Subcategory', ''), x[0]))
+
+    # limit the systematics to the range specified by min_syst and max_syst
+    num_systs = len(systematic_combined)
+    if min_syst < 0:
+        min_syst = 0
+    if max_syst > num_systs or max_syst < 0:
+        max_syst = num_systs
+    systematic_combined = systematic_combined[min_syst:max_syst]
+
+    return systematic_combined
+
 
 def combine_region(region_1l, region_2l):
     region_1l = {k: v for k,v in region_1l}
@@ -198,6 +384,9 @@ def combine_job(job_1l, job_2l):
     if 'PlotOptions' in diff_keys:
         job_combined['PlotOptions'] = '"NOSIG,NORMSIG,POISSONIZE,NOXERR,OPRATIO"'
         diff_keys.remove('PlotOptions')
+    if 'ReadFrom' in diff_keys:
+        job_combined['ReadFrom'] = 'HIST'
+        diff_keys.remove('ReadFrom')
     if diff_keys:
         print('The following job settings are different in the two configs:')
         for key in diff_keys:
@@ -212,7 +401,7 @@ def combine_job(job_1l, job_2l):
 def combine_significance(significance_1l, significance_2l):
     raise NotImplementedError
 
-def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type, regions_1l, regions_2l):
+def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type, regions_1l, regions_2l, background_samples_1l, background_samples_2l, min_syst, max_syst):
     assert len(obj_pairs_1l) > 0 or len(obj_pairs_2l) > 0, f'No objects of type {obj_type} found in either config'
     if len(obj_pairs_1l) == 0:
         return obj_pairs_2l
@@ -223,7 +412,7 @@ def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type, regions_1l, regions_2l
     elif obj_type == 'Sample':
         return combine_sample(obj_pairs_1l, obj_pairs_2l, regions_1l, regions_2l)
     elif obj_type == 'Systematic':
-        return combine_systematic(obj_pairs_1l, obj_pairs_2l)
+        return combine_systematic(obj_pairs_1l, obj_pairs_2l, regions_1l, regions_2l, background_samples_1l, background_samples_2l, min_syst, max_syst)
     elif obj_type == 'Region':
         return combine_region(obj_pairs_1l, obj_pairs_2l)
     elif obj_type == 'Limit':
@@ -233,16 +422,17 @@ def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type, regions_1l, regions_2l
     elif obj_type == 'NormFactor':
         return combine_normfactor(obj_pairs_1l, obj_pairs_2l)
     elif obj_type == 'Job':
-        return [('ttres1l2l', combine_job(obj_pairs_1l[0][1], obj_pairs_2l[0][1]))]
+        return [('ttRes1L2L', combine_job(obj_pairs_1l[0][1], obj_pairs_2l[0][1]))]
     elif obj_type == 'Significance':
         return [('significance', combine_significance(obj_pairs_1l[0][1], obj_pairs_2l[0][1]))]
     else:
         raise RuntimeError(f'Unknown object type {obj_type}')
 
 
-def combine_configs(config_1l, config_2l, out_dir, statonly=False):
+def combine_configs(config_1l, config_2l, out_dir, statonly=False, min_syst=-1, max_syst=-1):
     """Combine the 1l and 2l configs into a single config."""
     config_1l = parse_config_file(config_1l, statonly=statonly)
+    # config_1l = rename_1l(config_1l)
     config_2l = parse_config_file(config_2l, statonly=statonly)
     # go through each object type and combine the objects
     obj_types = set(config_1l.keys()) | set(config_2l.keys())
@@ -250,10 +440,12 @@ def combine_configs(config_1l, config_2l, out_dir, statonly=False):
     config_combined = {}
     regions_1l = set(remove_quotes(t[0]) for t in config_1l['Region'])
     regions_2l = set(remove_quotes(t[0]) for t in config_2l['Region'])
+    background_samples_1l = set(remove_quotes(t[0]) for t in config_1l['Sample'] if t[1]['Type'] == 'BACKGROUND')
+    background_samples_2l = set(remove_quotes(t[0]) for t in config_2l['Sample'] if t[1]['Type'] == 'BACKGROUND')
     for obj_type in type_order:
         if obj_type not in obj_types:
             continue
-        combined_objects = combine_objects(config_1l[obj_type], config_2l[obj_type], obj_type=obj_type, regions_1l=regions_1l, regions_2l=regions_2l)
+        combined_objects = combine_objects(config_1l[obj_type], config_2l[obj_type], obj_type=obj_type, regions_1l=regions_1l, regions_2l=regions_2l, background_samples_1l=background_samples_1l, background_samples_2l=background_samples_2l, min_syst=min_syst, max_syst=max_syst)
         config_combined[obj_type] = combined_objects
 
     # write the combined config
@@ -267,9 +459,11 @@ def main():
     parser.add_argument("config_2l", type=str, help="Path to the 2l config file")
     parser.add_argument("out_dir", type=str, help="Path to the output directory")
     parser.add_argument("--statonly", action="store_true", help="Ignore systematics")
+    parser.add_argument('--min_syst', default=-1, type=int, help='Minimum systematics to include')
+    parser.add_argument('--max_syst', default=-1, type=int, help='Maximum systematics to include')
 
     args = parser.parse_args()
-    combine_configs(args.config_1l, args.config_2l, args.out_dir, args.statonly)
+    combine_configs(args.config_1l, args.config_2l, args.out_dir, args.statonly, args.min_syst, args.max_syst)
 
 if __name__ == "__main__":
     main()
