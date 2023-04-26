@@ -38,7 +38,6 @@ class Settings:
     bonly: bool
     dry_run: bool
     exclude_systematics: list
-    use_converted_config: bool
 
 
 class sys_group:
@@ -405,8 +404,6 @@ def make_2l_config(settings: Settings):
 
     if settings.signal_injection_mass is not None:
         raise NotImplementedError("Signal injection not implemented for 2l")
-    elif settings.use_converted_config:
-        template_path = config_dir / "ttRes2L_converted.tmp"
     else:
         template_path = config_dir / "ttRes2L_v12_fit_inverted_deltaEta_2dRew_slim.tmp"
 
