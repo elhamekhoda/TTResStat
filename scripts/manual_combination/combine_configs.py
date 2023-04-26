@@ -3,7 +3,8 @@ import argparse
 import os
 import sys
 
-from utils import parse_config_file, remove_quotes, write_config
+from utils import add_quotes, parse_config_file, remove_quotes, write_config
+from combine_histos import make_sample_map
 
 bad_samples = ['zjets_LF_up', 'zjets_HF_up']
 bad_systematics = ['ZjetsNorm_LF', 'ZjetsNorm_HF']
@@ -79,48 +80,34 @@ def prepend(s, prefix):
         return prefix + s
 
 
-# def rename_1l(config_1l):
-#     samples = config_1l['Sample']
-#     new_samples = []
-#     zprime_samples = []
-#     grav_samples = []
-#     kkg_samples = []
-#     for sample_name, sample_dict in samples:
-#         sample_name = remove_quotes(sample_name)
-#         if 'Zprime' in sample_name:
-#             mass = sample_name.split('_')[1]
-#             new_sample_name = f'"ZprimeTC21L_{mass}"'
-#             new_samples.append((new_sample_name, sample_dict))
-#             zprime_samples.append(new_sample_name)
-#         elif 'Grav' in sample_name:
-#             mass = sample_name.split('_')[1]
-#             new_sample_name = f'"Grav1L{mass}"'
-#             new_samples.append((new_sample_name, sample_dict))
-#             grav_samples.append(new_sample_name)
-#         elif 'KKg' in sample_name:
-#             mass = sample_name.split('_')[1]
-#             new_sample_name = f'"KKgMG1L{mass}"'
-#             new_samples.append((new_sample_name, sample_dict))
-#             kkg_samples.append(new_sample_name)
-#         else:
-#             new_samples.append((sample_name, sample_dict))
-#     config_1l['Sample'] = new_samples
-
-#     systematics = config_1l['Systematic']
-#     new_systematics = []
-#     for sys_name, sys_dict in systematics:
-#         samples = sys_dict['Samples'].split(',')
-#         new_samples = []
-#         for sample in samples:
-#             if 'Zprime' in sample:
-#                 new_samples.extend(zprime_samples)
-#             elif 'Grav' in sample:
-#                 new_samples.extend(grav_samples)
-#             elif 'KKg' in sample:
-#                 new_samples.extend(kkg_samples)
-#             else:
-#                 new_samples.append(sample)
-#         sys_dict['Samples'] = ','.join(new_samples)
+def rename_1l(config_1l):
+    new_config = config_1l.copy()
+    samples = config_1l['Sample']
+    new_samples = []
+    zprime_samples = []
+    grav_samples = []
+    kkg_samples = []
+    for sample_name, sample_dict in samples:
+        sample_name = remove_quotes(sample_name)
+        if 'Zprime' in sample_name:
+            mass = sample_name.split('_')[1]
+            new_sample_name = f'"ZprimeTC2_{mass}"'
+            new_samples.append((new_sample_name, sample_dict))
+            zprime_samples.append(new_sample_name)
+        elif 'Grav' in sample_name:
+            mass = sample_name.split('_')[1]
+            new_sample_name = f'"Grav{mass}"'
+            new_samples.append((new_sample_name, sample_dict))
+            grav_samples.append(new_sample_name)
+        elif 'KKg' in sample_name:
+            mass = sample_name.split('_')[1]
+            new_sample_name = f'"KKgMG{mass}"'
+            new_samples.append((new_sample_name, sample_dict))
+            kkg_samples.append(new_sample_name)
+        else:
+            new_samples.append((add_quotes(sample_name), sample_dict))
+    new_config['Sample'] = new_samples
+    return new_config
     
 
 
@@ -228,8 +215,6 @@ def combine_systematic(systematic_1l, systematic_2l, regions_1l, regions_2l, bac
             samples = [s for s in samples if (not s.startswith('Zprime') and not s.startswith('Grav') and not s.startswith('KKg'))]
             systematic_combined[i] = (k, obj_dict)
             systematic_combined[i][1]['Samples'] = ','.join(['"' + s + '"' for s in samples])
-
-
 
     # sort systematic_combined based on Category, Subcategory (if it exists), then Name
     systematic_combined.sort(key=lambda x: (x[1]['Category'], x[1].get('Subcategory', ''), x[0]))
@@ -432,7 +417,7 @@ def combine_objects(obj_pairs_1l, obj_pairs_2l, obj_type, regions_1l, regions_2l
 def combine_configs(config_1l, config_2l, out_dir, statonly=False, min_syst=-1, max_syst=-1):
     """Combine the 1l and 2l configs into a single config."""
     config_1l = parse_config_file(config_1l, statonly=statonly)
-    # config_1l = rename_1l(config_1l)
+    config_1l = rename_1l(config_1l)
     config_2l = parse_config_file(config_2l, statonly=statonly)
     # go through each object type and combine the objects
     obj_types = set(config_1l.keys()) | set(config_2l.keys())

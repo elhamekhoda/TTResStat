@@ -12,6 +12,15 @@ def remove_quotes(s):
         return s[1:-1]
     else:
         return s
+    
+def add_quotes(s):
+    # check if s is not a string
+    if not isinstance(s, str):
+        return [add_quotes(a) for a in s]
+    if s.startswith('"') and s.endswith('"'):
+        return s
+    else:
+        return '"' + s + '"'
 
 def split_objects(config, sep=';'):
     """Split objects with names separated by semicolons."""
