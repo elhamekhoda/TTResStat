@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 import os
 from os import path
-from sigXsec_1lep import zprime_xs, grav_xs, gluon_xs
+import sys
 from ROOT import *
 import argparse
 from datetime import datetime
 from pathlib import Path
 import json
 
+from sigXsec_1lep import zprime_xs, grav_xs, gluon_xs
 
 def stampATLAS(text, x, y):
     t = TLatex()
@@ -70,8 +71,6 @@ def plot_limits(run_dir):
     l.SetBorderSize(0)
     l.SetTextSize(0.03)
     l.SetTextFont(42)
-    # clim.SetGridx()
-    # clim.SetGridy()
 
     if settings['signal'] == 'zprime':
         h = TH1F("h", "", 12, 0.50, 5)
@@ -107,7 +106,6 @@ def plot_limits(run_dir):
     length = len(limit_files)
     xsec = TGraph(length)
     exp = TGraph(length)
-    # obs = TGraph(length);
     exp_statonly = TGraph(length)
     sigma1 = TGraphAsymmErrors(length)
     sigma2 = TGraphAsymmErrors(length)
@@ -120,7 +118,6 @@ def plot_limits(run_dir):
         tree = f.stats
         for ev in range(tree.GetEntries()):
             tree.GetEntry(ev)
-            # muobs = getattr(tree,'obs_upperlimit')
             muexp = getattr(tree, 'exp_upperlimit')
             exp_p2 = getattr(tree, 'exp_upperlimit_plus2')
             exp_p1 = getattr(tree, 'exp_upperlimit_plus1')
@@ -133,7 +130,6 @@ def plot_limits(run_dir):
             muexp_m2 = abs(-muexp + exp_m2)
 
         ftxt = open(out_dir/('limit_'+outname+'_limitBLIND.txt'), 'w')
-        # ftxt.write('muobs     '+str(muobs)+'\n')
         ftxt.write('muexp     '+str(muexp)+'\n')
         ftxt.write('muexp_p2  '+str(muexp_p2)+'\n')
         ftxt.write('muexp_p1  '+str(muexp_p1)+'\n')
@@ -157,13 +153,8 @@ def plot_limits(run_dir):
         idx += 1
 
     exp.SetLineWidth(2)
-    # obs.SetLineWidth(2);
     exp.SetMarkerStyle(20)
-    # obs.SetMarkerStyle(20);
     exp.SetMarkerSize(1.0)
-    # obs.SetMarkerSize(1.0);
-    # obs.SetMarkerColor(kMagenta);
-    # obs.SetLineColor(kBlack);
     xsec.SetLineWidth(3)
     xsec.SetLineColor(kRed)
     sigma2.SetFillStyle(1001)
@@ -187,7 +178,6 @@ def plot_limits(run_dir):
     sigma1.Draw("3")
     exp.Draw("LP")
     xsec.Draw("L")
-    # obs.Draw("L")
     l.Draw()
     clim.SetLogy(1)
 
@@ -201,9 +191,7 @@ def plot_limits(run_dir):
             str(out_dir/f"{settings['signal']}_{settings['channel']}_limit{i}"))
 
     for i in range(3000, 5000, 1):
-        # print i, xsec.Eval(i/1000.0), exp.Eval(i/1000.0)
         if 10000*xsec.Eval(i/1000.0) < 10000*exp.Eval(i/1000.0):
-            # if 10000*(exp.Eval(i/1000.0) - xsec.Eval(i/1000.0)) > 1e-8:
             print("======================================")
             print("\033[31;1mThe expected limit is %s GeV\033[0m" % i)
             print("======================================")

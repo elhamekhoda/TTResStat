@@ -23,7 +23,7 @@ Job: "ttRes1L"
   SystPruningNorm: 0.005
   CorrelationThreshold: 0.20
   ImageFormat: "pdf","png"
-  PlotOptions: "YIELDS","NORMSIG","NORATIO"
+  PlotOptions: "NOSIG"
   RatioYmax: 1.5
   RatioYmin: 0.6
   StatOnly: STATONLY
@@ -86,7 +86,7 @@ NormFactor: "ttNorm_boosted"
   Min: 0.5
   Max: 1.5
   Samples: tt
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3
+  Regions: b1,be2,be3,bmu2,bmu3
 
 NormFactor: "WjetsNorm_boosted1"
   Title: "k_{b1}(W+jets)"
@@ -94,7 +94,7 @@ NormFactor: "WjetsNorm_boosted1"
   Min: 0.5
   Max: 1.5
   Samples: wjets
-  Regions: be1,bmu1
+  Regions: b1
 
 NormFactor: "WjetsNorm_boosted2"
   Title: "k_{b2}(W+jets)"
@@ -140,17 +140,18 @@ NormFactor: "WjetsNorm_resolved3"
 % % --- REGIONS --- %
 % % --------------- %
 
-Region: "be1"
+Region: "b1"
   Type: SIGNAL
   VariableTitle: "m_{t#bar{t}} [GeV]"
-  Label: "be1"
-  ShortLabel: "be1"
-  HistoPathSuff: "be/"
-  HistoName: mtt_be1
+  Label: "b1"
+  ShortLabel: "b1"
+  HistoPathSuffs: "b/"
+  HistoNames: mtt_be1, mtt_bmu1
   LogScale: TRUE
   Ymin:1e-2
   Ymax:1e8
   Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+
 
 Region: "be2"
   Type: SIGNAL
@@ -171,18 +172,6 @@ Region: "be3"
   ShortLabel: "be3"
   HistoPathSuff: "be/"
   HistoName: mtt_be3
-  LogScale: TRUE
-  Ymin:1e-2
-  Ymax:1e8
-  Rebinning: 400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
-
-Region: "bmu1"
-  Type: SIGNAL
-  VariableTitle: "m_{t#bar{t}} [GeV]"
-  Label: "bmu1"
-  ShortLabel: "bmu1"
-  HistoPathSuff: "bmu/"
-  HistoName: mtt_bmu1
   LogScale: TRUE
   Ymin:1e-2
   Ymax:1e8
@@ -406,225 +395,3 @@ Sample: "Data"
   Title: "Data"
   Type: DATA
   HistoFile: "hist_data"
-
-% % --------------- %
-% % - SYSTEMATICS - %
-% % --------------- %
-
-
-% ///////////-----                        -----/////////// %
-% ///////////----- LUMINOSITY and PILE-UP -----/////////// %
-% ///////////-----                        -----/////////// %
-
-Systematic: "Lumi"
-  Title: "Luminosity"
-  Type: OVERALL
-  OverallUp:    0.017
-  OverallDown: -0.017
-  Samples: "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
-  Category: Instrumental
-
-Systematic: "pileup"
-  Title: "pileup modeling"
-  Type: HISTO
-  HistoNameSufUp: "pileupSF__1up"
-  HistoNameSufDown: "pileupSF__1down"
-  % Smoothing: 40   % weight syst -> Smoothing removal needs to be done
-  Samples: "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
-  Symmetrisation: TWOSIDED
-  Category: Instrumental
-
-Systematic: "jvt";
-  Title: "JVT"
-  Type: HISTO
-  HistoNameSufUp: "jvtSF__1up"
-  HistoNameSufDown: "jvtSF__1down";
-  Samples: "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
-  Symmetrisation: TWOSIDED
-  % Smoothing: 40
-  Category: Instrumental
-
-Systematic: "tt_Xsec"
-  Title: "#it{t#bar{t}} XS"
-  Type: OVERALL
-  OverallUp:    0.1
-  OverallDown: -0.1
-  Samples: tt
-  Regions: re1,re2,re3,rmu1,rmu2,rmu3
-  Category: "Modelling"
-
-%-------------------------------------------------------------
-% ttbar hard-scattering uncertainty
-%-------------------------------------------------------------
-
-%Systematic:          "ttbar_hs"
-%  SampleUp:          "tt_hs"
-%  Samples:           "tt"
-%  Type:              HISTO
-%  Title:             "#it{t#bar{t}} HS"
-%  Symmetrisation:    ONESIDED
-%  Smoothing:         40
-%  SubCategory:       "Parton shower"
-%  Category:          "Modelling"
-%  %Decorrelate:       REGION
-%  %DropNorm:          "all"
-%  ReferenceSample:   "tt_af2"
-
-Systematic:          "ttbar_hsShape"
-  SampleUp:          "tt_hs"
-  Samples:           "tt"
-  Type:              HISTO
-  Title:             "#it{t#bar{t}} HS (shape)"
-  Symmetrisation:    ONESIDED
-  Smoothing:         40
-  SubCategory:       "Parton shower"
-  Category:          "Modelling"
-  Decorrelate:       REGION
-  DropNorm:          "all"
-  ReferenceSample:   "tt_af2"
-
-Systematic:          "ttbar_hsAcc"
-  SampleUp:          "tt_hs"
-  Samples:           "tt"
-  Type:              HISTO
-  Title:             "#it{t#bar{t}} HS (acc.)"
-  Symmetrisation:    ONESIDED
-  Smoothing:         40
-  SubCategory:       "Parton shower"
-  Category:          "Modelling"
-  Decorrelate:       REGION
-  DropShapeIn:          "all"
-  ReferenceSample:   "tt_af2"
-
-%-------------------------------------------------------------
-% ttbar Hadronization uncertainty
-%-------------------------------------------------------------
-
-
-Systematic:          "ttbar_hadShape"
-  SampleUp:          "tt_had"
-  Samples:           "tt"
-  Type:              HISTO
-  Title:             "#it{t#bar{t}} Had (shape)"
-  Symmetrisation:    ONESIDED
-  Smoothing:         40
-  SubCategory:       "Parton shower"
-  Category:          "Modelling"
-  Decorrelate:       REGION
-  DropNorm:          "all"
-  ReferenceSample:   "tt_af2"
-
-Systematic:          "ttbar_hadAcc"
-  SampleUp:          "tt_had"
-  Samples:           "tt"
-  Type:              HISTO
-  Title:             "#it{t#bar{t}} Had (acc.)"
-  Symmetrisation:    ONESIDED
-  Smoothing:         40
-  SubCategory:       "Parton shower"
-  Category:          "Modelling"
-  Decorrelate:       REGION
-  DropShapeIn:          "all"
-  ReferenceSample:   "tt_af2"
-
-
-%-------------------------------------------------------------
-% ttbar ISR hdamp uncertainty
-%-------------------------------------------------------------
-
-Systematic:          "ttbar_hdampShape"
-  SampleUp:          "tt_hdamp"
-  Samples:           "tt"
-  Type:              HISTO
-  Title:             "#it{t#bar{t}} hdamp (shape)"
-  Symmetrisation:    ONESIDED
-  Smoothing:         40
-  SubCategory:       "ISR hdamp"
-  Category:          "Modelling"
-  Decorrelate:       REGION
-  DropNorm:          "all"
-  ReferenceSample:   "tt_af2"
-
-Systematic:          "ttbar_hdampAcc"
-  SampleUp:          "tt_hdamp"
-  Samples:           "tt"
-  Type:              HISTO
-  Title:             "#it{t#bar{t}} hdamp (acc.)"
-  Symmetrisation:    ONESIDED
-  Smoothing:         40
-  SubCategory:       "ISR hdamp"
-  Category:          "Modelling"
-  Decorrelate:       REGION
-  DropShapeIn:          "all"
-  ReferenceSample:   "tt_af2"
-
-
-%-------------------------------------------------------------
-% QCD flat uncertainty: 30%
-%-------------------------------------------------------------
-
-
-Systematic: "qcd"
-  Title: "QCD"
-  Type: OVERALL
-  OverallUp:    0.30
-  OverallDown: -0.30
-  Samples: qcd
-  Category: Instrumental
-
-%Systematic: "qcd_e"
-%  Title: "QCD (boost)"
-%  Type: OVERALL
-%  OverallUp:    0.30
-%  OverallDown: -0.30
-%  Samples: qcd
-%  Regions: be1, be2, be3, re1, re2, re3
-%  Category: Instrumental
-
-%Systematic: "qcd_mu"
-%  Title: "QCD (boost)"
-%  Type: OVERALL
-%  OverallUp:    0.30
-%  OverallDown: -0.30
-%  Samples: qcd
-%  Regions: bmu1, bmu2, bmu3, rmu1, rmu2, rmu3
-%  Category: Instrumental
-
-% ///////////-----                    -----/////////// %
-% ///////////----- EXP UNCERTAINTIES  -----/////////// %
-% ///////////-----                    -----/////////// %
-
-% BTAG_SYS
-
-% TOPTAG_SYS
-
-% JES_SYS
-
-% JMR_SYS
-
-% JER_SYS
-
-% JMS_SYS
-
-% MET_SCALE
-
-% MET_RES
-
-% EG_SYS
-
-% MUON_SYS
-
-% TTGEN_SYS
-
-% TTMUF_SYS
-
-% TTPDF_SYS
-
-% TTNNLO_SYS
-
-
-% ///////////-----                    -----/////////// %
-% ///////////----- SIGNAL SYSTEMATICS -----/////////// %
-% ///////////-----                    -----/////////// %
-
-

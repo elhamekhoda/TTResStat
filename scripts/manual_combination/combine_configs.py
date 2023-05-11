@@ -3,8 +3,10 @@ import argparse
 import os
 import sys
 
-from utils import add_quotes, parse_config_file, remove_quotes, write_config
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from combine_histos import make_sample_map
+from config_utils import add_quotes, parse_config_file, remove_quotes, write_config
 
 bad_samples = ['zjets_LF_up', 'zjets_HF_up']
 bad_systematics = ['ZjetsNorm_LF', 'ZjetsNorm_HF']
@@ -176,25 +178,25 @@ def combine_systematic(systematic_1l, systematic_2l, regions_1l, regions_2l, bac
             continue
         if k not in dict_1l:
             obj_dict = dict_2l[k]
-            obj_dict['Regions'] = ','.join(regions_2l)
+            obj_dict['Regions'] = ','.join(sorted(regions_2l))
             systematic_combined.append((k, obj_dict))
         elif k not in dict_2l:
             obj_dict = dict_1l[k]
-            obj_dict['Regions'] = ','.join(regions_1l)
+            obj_dict['Regions'] = ','.join(sorted(regions_1l))
             systematic_combined.append((k, obj_dict))
         else:
             print('Warning: systematic ' + k + ' is in both 1l and 2l configs. Combining them.')
             obj_dict = dict_1l[k]
-            obj_dict['Regions'] = ','.join(regions_1l.union(regions_2l))  
+            obj_dict['Regions'] = ','.join(sorted(regions_1l.union(regions_2l)))  
             if 'Samples' in obj_dict and 'Samples' in dict_2l[k]:
-                obj_dict['Samples'] = ','.join(set(remove_quotes(obj_dict['Samples'].split(','))).union(set(remove_quotes(dict_2l[k]['Samples'].split(',')))))
+                obj_dict['Samples'] = ','.join(sorted(set(remove_quotes(obj_dict['Samples'].split(','))).union(set(remove_quotes(dict_2l[k]['Samples'].split(','))))))
             elif 'Samples' in dict_2l[k] or 'Samples' in obj_dict:
                 if 'Samples' in dict_2l[k]:
                     # add background_samples_1l to the list of samples
-                    obj_dict['Samples'] = ','.join(set(remove_quotes(dict_2l[k]['Samples'].split(','))).union(background_samples_1l))
+                    obj_dict['Samples'] = ','.join(sorted(set(remove_quotes(dict_2l[k]['Samples'].split(','))).union(background_samples_1l)))
                 else:
                     # add background_samples_2l to the list of samples
-                    obj_dict['Samples'] = ','.join(set(remove_quotes(obj_dict['Samples'].split(','))).union(background_samples_2l))
+                    obj_dict['Samples'] = ','.join(sorted(set(remove_quotes(obj_dict['Samples'].split(','))).union(background_samples_2l)))
                 
                 print('CHECK CAREFULLY: Samples are not present in one config but are present in the other. Using the union of the listed samples with background samples from the other channel:')
                 print('  ' + obj_dict['Samples'])
@@ -214,7 +216,7 @@ def combine_systematic(systematic_1l, systematic_2l, regions_1l, regions_2l, bac
             samples = remove_quotes(obj_dict['Samples'].split(','))
             samples = [s for s in samples if (not s.startswith('Zprime') and not s.startswith('Grav') and not s.startswith('KKg'))]
             systematic_combined[i] = (k, obj_dict)
-            systematic_combined[i][1]['Samples'] = ','.join(['"' + s + '"' for s in samples])
+            systematic_combined[i][1]['Samples'] = ','.join(['"' + s + '"' for s in sorted(samples)])
 
     # sort systematic_combined based on Category, Subcategory (if it exists), then Name
     systematic_combined.sort(key=lambda x: (x[1]['Category'], x[1].get('Subcategory', ''), x[0]))

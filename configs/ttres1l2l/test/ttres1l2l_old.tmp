@@ -292,125 +292,125 @@ Region: "rmu3"
 
 Sample: "singleTop_DS"
   NtupleFiles: "sintop_wt_dilep_DS_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "singleTop_PH7"
   NtupleFiles: "sintop_wt_dilep_PH7_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "singleTop_aMCP8"
   NtupleFiles: "sintop_wt_dilep_aMCP8_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "tt_af2"
   HistoFile: "hist_tt_af2"
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Type: GHOST
 
 Sample: "tt_had"
   HistoFile: "hist_tt_had"
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Type: GHOST
 
 Sample: "tt_hdamp"
   HistoFile: "hist_tt_hdamp"
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Type: GHOST
 
 Sample: "tt_hs"
   HistoFile: "hist_tt_hs"
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Type: GHOST
 
 Sample: "ttbar_dilep_FSRdown"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)*weight_FSRdown"
   NtupleFiles: "ttbar_dil_mca","ttbar_dil_mcd","ttbar_dil_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_FSRup"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)*weight_FSRup"
   NtupleFiles: "ttbar_dil_mca","ttbar_dil_mcd","ttbar_dil_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_MECoff"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,-1,0)"
   NtupleFiles: "ttbar_dil_MECoff_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_PH7_nonRew"
   NtupleFiles: "ttbar_dil_PH7_mca","ttbar_dil_PH7_mcd","ttbar_dil_PH7_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_aMCH7"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,2,0)"
   NtupleFiles: "ttbar_dil_aMCH7_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_aMCP8"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,4,0)"
   NtupleFiles: "ttbar_dil_aMCP8_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_altPDF"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,200)"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_ghost_nonRew"
   NtupleFiles: "ttbar_dil_mca","ttbar_dil_mcd","ttbar_dil_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_hdamp"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,5,0)"
   NtupleFiles: "ttbar_dil_hdamp_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_inv"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,1000)"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_noEW"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,100)"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_oneEmission_mtt"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)*( ttMass==ttMass ? 9.62236e-01 + sqrt( 2.78789e-06 * ttMass/1e3 ) : 1. )"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "ttbar_dilep_oneEmission_topPt"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)*( TopPt > 0 ? 9.78044e-01 + sqrt( 4.35553e-06 * TopPt/1e3 ) : 1. )"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "zjets_pTll_down"
   MCweight: "(1.*(!isHF) + 1.17*(1-0.0002*(PTll/1e3))*(isHF))"
   NtupleFiles: "zjets_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "zjets_pTll_up"
   MCweight: "(1.*(!isHF) + 1.17*(1-0.0006*(PTll/1e3))*(isHF))"
   NtupleFiles: "zjets_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Type: GHOST
 
 Sample: "diboson"
@@ -424,7 +424,7 @@ Sample: "fakes"
   FillColor: 619
   LineColor: 1
   NtupleFiles: "wjets_mc*","sintop_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Selection: "!isRealDilep"
   Title: "Fakes"
   Type: BACKGROUND
@@ -434,7 +434,7 @@ Sample: "fakes_ttbar"
   LineColor: 1
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
   NtupleFiles: "ttbar_nah_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Selection: "!isRealDilep"
   Title: "Fakes"
   Type: BACKGROUND
@@ -443,7 +443,7 @@ Sample: "qcd"
   FillColor: 5
   HistoFile: "hist_qcd_smooth"
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Title: "QCD"
   Type: BACKGROUND
   UseMCstat: FALSE
@@ -452,7 +452,7 @@ Sample: "singleTop"
   FillColor: 62
   LineColor: 1
   NtupleFiles: "sintop_wt_dilep_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Selection: "isRealDilep"
   Title: "Single top"
   Type: BACKGROUND
@@ -461,7 +461,7 @@ Sample: "singletop"
   FillColor: 62
   HistoFile: "hist_singletop"
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Title: "singletop"
   Type: BACKGROUND
 
@@ -469,7 +469,7 @@ Sample: "tt"
   HistoFile: "hist_tt"
   LineColor: 1
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   TexTitle: "$t\overline{t}$"
   Title: "t#bar{t}"
   Type: BACKGROUND
@@ -478,7 +478,7 @@ Sample: "ttH"
   FillColor: 223
   LineColor: 1
   NtupleFiles: "ttH_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Title: "#it{t#bar{t}+H}"
   Type: BACKGROUND
 
@@ -486,7 +486,7 @@ Sample: "ttV"
   FillColor: 3
   LineColor: 1
   NtupleFiles: "ttV_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Title: "#it{t#bar{t}+V}"
   Type: BACKGROUND
 
@@ -495,7 +495,7 @@ Sample: "ttbar_dilep"
   LineColor: 1
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
   NtupleFiles: "ttbar_dil_mca","ttbar_dil_mcd","ttbar_dil_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Selection: "isRealDilep"
   SeparateGammas: TRUE
   TexTitle: "$t\bar{t}$ dilep."
@@ -506,7 +506,7 @@ Sample: "wjets"
   FillColor: 863
   HistoFile: "hist_wjets"
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Title: "W+jets"
   Type: BACKGROUND
 
@@ -670,7 +670,7 @@ Sample: "KKgPY1000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg1000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (1 TeV)"
   Title: "g_{KK} (1 TeV)"
   Type: SIGNAL
@@ -679,7 +679,7 @@ Sample: "KKgPY1500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg1500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (1.5 TeV)"
   Title: "g_{KK} (1.5 TeV)"
   Type: SIGNAL
@@ -688,7 +688,7 @@ Sample: "KKgPY2000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg2000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (2 TeV)"
   Title: "g_{KK} (2 TeV)"
   Type: SIGNAL
@@ -697,7 +697,7 @@ Sample: "KKgPY2500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg2500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (2.5 TeV)"
   Title: "g_{KK} (2.5 TeV)"
   Type: SIGNAL
@@ -706,7 +706,7 @@ Sample: "KKgPY3000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg3000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (3 TeV)"
   Title: "g_{KK} (3 TeV)"
   Type: SIGNAL
@@ -715,7 +715,7 @@ Sample: "KKgPY3500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg3500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (3.5 TeV)"
   Title: "g_{KK} (3.5 TeV)"
   Type: SIGNAL
@@ -724,7 +724,7 @@ Sample: "KKgPY4000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg4000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (4 TeV)"
   Title: "g_{KK} (4 TeV)"
   Type: SIGNAL
@@ -733,7 +733,7 @@ Sample: "KKgPY4500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg4500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (4.5 TeV)"
   Title: "g_{KK} (4.5 TeV)"
   Type: SIGNAL
@@ -742,7 +742,7 @@ Sample: "KKgPY500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (0.5 TeV)"
   Title: "g_{KK} (0.5 TeV)"
   Type: SIGNAL
@@ -751,7 +751,7 @@ Sample: "KKgPY5000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg5000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$g_{KK}$ (5 TeV)"
   Title: "g_{KK} (5 TeV)"
   Type: SIGNAL
@@ -760,7 +760,7 @@ Sample: "ZprimePY_1000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime1000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (1 TeV)"
   Title: "Z'_{PY} (1 TeV)"
   Type: SIGNAL
@@ -769,7 +769,7 @@ Sample: "ZprimePY_1250"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime1250_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (1.25 TeV)"
   Title: "Z'_{PY} (1.25 TeV)"
   Type: SIGNAL
@@ -778,7 +778,7 @@ Sample: "ZprimePY_1500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime1500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (1.5 TeV)"
   Title: "Z'_{PY} (1.5 TeV)"
   Type: SIGNAL
@@ -787,7 +787,7 @@ Sample: "ZprimePY_1750"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime1750_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (1.75 TeV)"
   Title: "Z'_{PY} (1.75 TeV)"
   Type: SIGNAL
@@ -796,7 +796,7 @@ Sample: "ZprimePY_2000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime2000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (2 TeV)"
   Title: "Z'_{PY} (2 TeV)"
   Type: SIGNAL
@@ -805,7 +805,7 @@ Sample: "ZprimePY_2500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime2500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (2.5 TeV)"
   Title: "Z'_{PY} (2.5 TeV)"
   Type: SIGNAL
@@ -814,7 +814,7 @@ Sample: "ZprimePY_3000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime3000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (3 TeV)"
   Title: "Z'_{PY} (3 TeV)"
   Type: SIGNAL
@@ -823,7 +823,7 @@ Sample: "ZprimePY_3500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime3500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (3.5 TeV)"
   Title: "Z'_{PY} (3.5 TeV)"
   Type: SIGNAL
@@ -832,7 +832,7 @@ Sample: "ZprimePY_400"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime400_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (400 GeV)"
   Title: "Z'_{PY} (400 GeV)"
   Type: SIGNAL
@@ -841,7 +841,7 @@ Sample: "ZprimePY_4000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime4000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (4 TeV)"
   Title: "Z'_{PY} (4 TeV)"
   Type: SIGNAL
@@ -850,7 +850,7 @@ Sample: "ZprimePY_4500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime4500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (4.5 TeV)"
   Title: "Z'_{PY} (4.5 TeV)"
   Type: SIGNAL
@@ -859,7 +859,7 @@ Sample: "ZprimePY_500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (500 GeV)"
   Title: "Z'_{PY} (500 GeV)"
   Type: SIGNAL
@@ -868,7 +868,7 @@ Sample: "ZprimePY_5000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime5000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (5 TeV)"
   Title: "Z'_{PY} (5 TeV)"
   Type: SIGNAL
@@ -877,7 +877,7 @@ Sample: "ZprimePY_750"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime750_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (750 GeV)"
   Title: "Z'_{PY} (750 GeV)"
   Type: SIGNAL
@@ -932,7 +932,7 @@ Sample: "ZprimeTC2_2250"
   HistoFile: "hist_zprime2250"
   LineColor: 632
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   TexTitle: "$Z'$ (2.25 TeV)"
   Title: "Z'_{TC2} (2.25 TeV)"
   Type: SIGNAL
@@ -951,7 +951,7 @@ Sample: "ZprimeTC2_2750"
   HistoFile: "hist_zprime2750"
   LineColor: 632
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   TexTitle: "$Z'$ (2.75 TeV)"
   Title: "Z'_{TC2} (2.75 TeV)"
   Type: SIGNAL
@@ -969,7 +969,7 @@ Sample: "ZprimeTC2_3500"
   FillColor: 2
   LineColor: 2
   NtupleFiles: "zprimeTC2_3500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (3.5 TeV)"
   Title: "Z'_{TC2} (3.5 TeV)"
   Type: SIGNAL
@@ -996,7 +996,7 @@ Sample: "ZprimeTC2_4500"
   FillColor: 2
   LineColor: 2
   NtupleFiles: "zprimeTC2_4500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (4.5 TeV)"
   Title: "Z'_{TC2} (4.5 TeV)"
   Type: SIGNAL
@@ -1023,7 +1023,7 @@ Sample: "ZprimeTC2_6000"
   FillColor: 2
   LineColor: 2
   NtupleFiles: "zprimeTC2_6000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   TexTitle: "$Z'$ (6 TeV)"
   Title: "Z'_{TC2} (6 TeV)"
   Type: SIGNAL
@@ -1045,6 +1045,21 @@ NormFactor: "WjetsNorm_boosted1"
   Samples: wjets
   Title: "k_{b1}(W+jets)"
 
+NormFactor: "k_tt"
+  Max: 2
+  Min: 0
+  Nominal: 1
+  Samples: "ttbar_dilep","fakes_ttbar"
+  Title: "k(#it{t#bar{t}})"
+
+NormFactor: "ttNorm_boosted"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: be1,be2,be3,bmu1,bmu2,bmu3
+  Samples: tt
+  Title: "k_{b}(t#bar{t})"
+
 NormFactor: "WjetsNorm_resolved1"
   Max: 1.5
   Min: 0.5
@@ -1052,6 +1067,13 @@ NormFactor: "WjetsNorm_resolved1"
   Regions: re1,rmu1
   Samples: wjets
   Title: "k_{r1}(W+jets)"
+
+NormFactor: "mu_Zprime"
+  Max: 10000.0
+  Min: -200.0
+  Nominal: 0.0
+  Samples: "Zprime*","KKg*","Grav*"
+  Title: "#mu(Z't#bar{t})"
 
 NormFactor: "WjetsNorm_resolved3"
   Max: 1.5
@@ -1069,12 +1091,13 @@ NormFactor: "WjetsNorm_resolved2"
   Samples: wjets
   Title: "k_{r2}(W+jets)"
 
-NormFactor: "k_tt"
-  Max: 2
-  Min: 0
+NormFactor: "WjetsNorm_boosted3"
+  Max: 1.5
+  Min: 0.5
   Nominal: 1
-  Samples: "ttbar_dilep","fakes_ttbar"
-  Title: "k(#it{t#bar{t}})"
+  Regions: be3,bmu3
+  Samples: wjets
+  Title: "k_{b3}(W+jets)"
 
 NormFactor: "WjetsNorm_boosted2"
   Max: 1.5
@@ -1084,34 +1107,11 @@ NormFactor: "WjetsNorm_boosted2"
   Samples: wjets
   Title: "k_{b2}(W+jets)"
 
-NormFactor: "ttNorm_boosted"
-  Max: 1.5
-  Min: 0.5
-  Nominal: 1
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3
-  Samples: tt
-  Title: "k_{b}(t#bar{t})"
-
-NormFactor: "WjetsNorm_boosted3"
-  Max: 1.5
-  Min: 0.5
-  Nominal: 1
-  Regions: be3,bmu3
-  Samples: wjets
-  Title: "k_{b3}(W+jets)"
-
-NormFactor: "mu_Zprime"
-  Max: 10000.0
-  Min: -200.0
-  Nominal: 0.0
-  Samples: "Zprime*","KKg*","Grav*"
-  Title: "#mu(Z't#bar{t})"
-
 Systematic: "EG_RESOLUTION_ALL"
   Category: "EG"
   HistoNameSufDown: "EG_RESOLUTION_ALL__1down"
   HistoNameSufUp: "EG_RESOLUTION_ALL__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1122,7 +1122,7 @@ Systematic: "EG_SCALE_ALL"
   Category: "EG"
   HistoNameSufDown: "EG_SCALE_ALL__1down"
   HistoNameSufUp: "EG_SCALE_ALL__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1133,8 +1133,8 @@ Systematic: "eChargeMisIDStatSF"
   Category: "EG"
   HistoNameSufDown: "eChargeMisIDStatSF__1down"
   HistoNameSufUp: "eChargeMisIDStatSF__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "EL ChargeMisIDStatSF"
@@ -1144,8 +1144,8 @@ Systematic: "eChargeMisIDSystSF"
   Category: "EG"
   HistoNameSufDown: "eChargeMisIDSystSF__1down"
   HistoNameSufUp: "eChargeMisIDSystSF__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "EL ChargeMisIDSystSF"
@@ -1155,8 +1155,8 @@ Systematic: "eChargeSF"
   Category: "EG"
   HistoNameSufDown: "eChargeSF__1down"
   HistoNameSufUp: "eChargeSF__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "EL ChargeSF"
@@ -1166,7 +1166,7 @@ Systematic: "leptonSF_EL_SF_ID"
   Category: "EG"
   HistoNameSufDown: "eIDSF__1down"
   HistoNameSufUp: "eIDSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1177,7 +1177,7 @@ Systematic: "leptonSF_EL_SF_Isol"
   Category: "EG"
   HistoNameSufDown: "eIsolSF__1down"
   HistoNameSufUp: "eIsolSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1188,7 +1188,7 @@ Systematic: "leptonSF_EL_SF_Reco"
   Category: "EG"
   HistoNameSufDown: "eRecoSF__1down"
   HistoNameSufUp: "eRecoSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1199,7 +1199,7 @@ Systematic: "leptonSF_EL_SF_Trigger"
   Category: "EG"
   HistoNameSufDown: "eTrigSF__1down"
   HistoNameSufUp: "eTrigSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1214,8 +1214,8 @@ Systematic: "EG_SCALE_AF2"
   NtupleNameUp: "EG_SCALE_AF2__1up"
   NtuplePathsDown: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
   NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
-  Samples: "diboson","singleTop","ttH","ttV","ttbar_dilep","zjets"
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
+  Samples: "ttbar_dilep","singleTop","zjets","diboson","ttV","ttH"
   Smoothing: 40
   SubCategory: "Leptons"
   Symmetrisation: TWOSIDED
@@ -1236,8 +1236,8 @@ Systematic: "JER_DataVsMC_MC16"
   NtuplePathsDownSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
   NtuplePathsUp: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
   NtuplePathsUpSubtractSample: "/gpfs/atlas/public/ttRes_ntuples_V24/MinNtuples-V24-Syst/"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
-  Samples: "diboson","singleTop","ttH","ttV","ttbar_dilep","zjets"
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
+  Samples: "ttbar_dilep","singleTop","zjets","diboson","ttV","ttH"
   Smoothing: 40
   SubCategory: "JER"
   Symmetrisation: TWOSIDED
@@ -1246,8 +1246,8 @@ Systematic: "JER_DataVsMC_MC16"
 
 Systematic: "leptonSF_EL_eleInJet_flat"
   Category: "Instrumental"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
-  Samples: "diboson","singleTop","ttH","ttV","ttbar_dilep","zjets"
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
+  Samples: "ttbar_dilep","singleTop","zjets","diboson","ttV","ttH"
   SubCategory: "Leptons"
   Symmetrisation: ONESIDED
   Title: "Electron identification SF (close-by-jet)"
@@ -1256,8 +1256,8 @@ Systematic: "leptonSF_EL_eleInJet_flat"
 
 Systematic: "leptonSF_MU_SF_TTVA_STAT"
   Category: "Instrumental"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
-  Samples: "diboson","singleTop","ttH","ttV","ttbar_dilep","zjets"
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
+  Samples: "ttbar_dilep","singleTop","zjets","diboson","ttV","ttH"
   SubCategory: "Leptons"
   Symmetrisation: TWOSIDED
   Title: "Muon TTVA SF (stat.)"
@@ -1267,8 +1267,8 @@ Systematic: "leptonSF_MU_SF_TTVA_STAT"
 
 Systematic: "leptonSF_MU_SF_TTVA_SYST"
   Category: "Instrumental"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
-  Samples: "diboson","singleTop","ttH","ttV","ttbar_dilep","zjets"
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
+  Samples: "ttbar_dilep","singleTop","zjets","diboson","ttV","ttH"
   SubCategory: "Leptons"
   Symmetrisation: TWOSIDED
   Title: "Muon TTVA SF (syst.)"
@@ -1280,7 +1280,7 @@ Systematic: "JER_EffectiveNP1"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_1__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1291,7 +1291,7 @@ Systematic: "JER_EffectiveNP10"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_10__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_10__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1302,7 +1302,7 @@ Systematic: "JER_EffectiveNP11"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_11__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_11__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1313,7 +1313,7 @@ Systematic: "JER_EffectiveNP2"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_2__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_2__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1324,7 +1324,7 @@ Systematic: "JER_EffectiveNP3"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_3__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_3__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1335,7 +1335,7 @@ Systematic: "JER_EffectiveNP4"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_4__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_4__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1346,7 +1346,7 @@ Systematic: "JER_EffectiveNP5"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_5__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_5__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1357,7 +1357,7 @@ Systematic: "JER_EffectiveNP6"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_6__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_6__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1368,7 +1368,7 @@ Systematic: "JER_EffectiveNP7"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_7__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_7__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1379,7 +1379,7 @@ Systematic: "JER_EffectiveNP8"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_8__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_8__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1390,7 +1390,7 @@ Systematic: "JER_EffectiveNP9"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_9__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_9__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1401,7 +1401,7 @@ Systematic: "JER_EffectiveNP_12restTerm"
   Category: "JER"
   HistoNameSufDown: "JET_JER_EffectiveNP_12restTerm__1down"
   HistoNameSufUp: "JET_JER_EffectiveNP_12restTerm__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1412,8 +1412,8 @@ Systematic: "JET_JER_AllOthers"
   Category: "JER"
   HistoNameSufDown: "JET_JER_AllOthers__1down"
   HistoNameSufUp: "JET_JER_AllOthers__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER Allother"
@@ -1423,8 +1423,8 @@ Systematic: "JET_JER_DataVsMC_R10_MC16"
   Category: "JER"
   HistoNameSufDown: "JET_JER_DataVsMC_R10_MC16__1down"
   HistoNameSufUp: "JET_JER_DataVsMC_R10_MC16__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER DataVsMC"
@@ -1434,8 +1434,8 @@ Systematic: "JET_JER_dijet_R10_closure"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_closure__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_closure__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER closure"
@@ -1445,8 +1445,8 @@ Systematic: "JET_JER_dijet_R10_jesEffNP1"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_jesEffNP1__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_jesEffNP1__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER NP1"
@@ -1456,8 +1456,8 @@ Systematic: "JET_JER_dijet_R10_jesEffNP3"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_jesEffNP3__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_jesEffNP3__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER NP3"
@@ -1467,8 +1467,8 @@ Systematic: "JET_JER_dijet_R10_jesEffNP4"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_jesEffNP4__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_jesEffNP4__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER NP4"
@@ -1478,8 +1478,8 @@ Systematic: "JET_JER_dijet_R10_jesEtaIntMod"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_jesEtaIntMod__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_jesEtaIntMod__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER #eta-int. Modeling"
@@ -1489,8 +1489,8 @@ Systematic: "JET_JER_dijet_R10_jesFlavComp"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_jesFlavComp__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_jesFlavComp__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER flav comp."
@@ -1500,8 +1500,8 @@ Systematic: "JET_JER_dijet_R10_jesFlavResp"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_jesFlavResp__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_jesFlavResp__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER flav resp."
@@ -1511,8 +1511,8 @@ Systematic: "JET_JER_dijet_R10_mcgenerator"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_mcgenerator__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_mcgenerator__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER MC-gen"
@@ -1522,8 +1522,8 @@ Systematic: "JET_JER_dijet_R10_selection"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_selection__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_selection__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER evnt sel"
@@ -1533,8 +1533,8 @@ Systematic: "JET_JER_dijet_R10_stat"
   Category: "JER"
   HistoNameSufDown: "JET_JER_dijet_R10_stat__1down"
   HistoNameSufUp: "JET_JER_dijet_R10_stat__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JER NP stat"
@@ -1544,7 +1544,7 @@ Systematic: "JES_BJES_Resp"
   Category: "JES"
   HistoNameSufDown: "JET_BJES_Response__1down"
   HistoNameSufUp: "JET_BJES_Response__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1555,7 +1555,7 @@ Systematic: "JES_EffectiveNP_Detector1"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Detector1__1down"
   HistoNameSufUp: "JET_EffectiveNP_Detector1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1566,7 +1566,7 @@ Systematic: "JES_EffectiveNP_Detector2"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Detector2__1down"
   HistoNameSufUp: "JET_EffectiveNP_Detector2__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1577,7 +1577,7 @@ Systematic: "JES_EffectiveNP_Mixed1"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Mixed1__1down"
   HistoNameSufUp: "JET_EffectiveNP_Mixed1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1588,7 +1588,7 @@ Systematic: "JES_EffectiveNP_Mixed2"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Mixed2__1down"
   HistoNameSufUp: "JET_EffectiveNP_Mixed2__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1599,7 +1599,7 @@ Systematic: "JES_EffectiveNP_Mixed3"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Mixed3__1down"
   HistoNameSufUp: "JET_EffectiveNP_Mixed3__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1610,7 +1610,7 @@ Systematic: "JES_EffectiveNP_Modelling1"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Modelling1__1down"
   HistoNameSufUp: "JET_EffectiveNP_Modelling1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1621,7 +1621,7 @@ Systematic: "JES_EffectiveNP_Modelling2"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Modelling2__1down"
   HistoNameSufUp: "JET_EffectiveNP_Modelling2__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1632,7 +1632,7 @@ Systematic: "JES_EffectiveNP_Modelling3"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Modelling3__1down"
   HistoNameSufUp: "JET_EffectiveNP_Modelling3__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1643,7 +1643,7 @@ Systematic: "JES_EffectiveNP_Modelling4"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Modelling4__1down"
   HistoNameSufUp: "JET_EffectiveNP_Modelling4__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1654,7 +1654,7 @@ Systematic: "JES_EffectiveNP_Statistical1"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Statistical1__1down"
   HistoNameSufUp: "JET_EffectiveNP_Statistical1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1665,7 +1665,7 @@ Systematic: "JES_EffectiveNP_Statistical2"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Statistical2__1down"
   HistoNameSufUp: "JET_EffectiveNP_Statistical2__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1676,7 +1676,7 @@ Systematic: "JES_EffectiveNP_Statistical3"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Statistical3__1down"
   HistoNameSufUp: "JET_EffectiveNP_Statistical3__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1687,7 +1687,7 @@ Systematic: "JES_EffectiveNP_Statistical4"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Statistical4__1down"
   HistoNameSufUp: "JET_EffectiveNP_Statistical4__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1698,7 +1698,7 @@ Systematic: "JES_EffectiveNP_Statistical5"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Statistical5__1down"
   HistoNameSufUp: "JET_EffectiveNP_Statistical5__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1709,7 +1709,7 @@ Systematic: "JES_EffectiveNP_Statistical6"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_Statistical6__1down"
   HistoNameSufUp: "JET_EffectiveNP_Statistical6__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1720,7 +1720,7 @@ Systematic: "JES_EtaModelling"
   Category: "JES"
   HistoNameSufDown: "JET_EtaIntercalibration_Modelling__1down"
   HistoNameSufUp: "JET_EtaIntercalibration_Modelling__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1731,7 +1731,7 @@ Systematic: "JES_EtaNonClos_2018data"
   Category: "JES"
   HistoNameSufDown: "JET_EtaIntercalibration_NonClosure_2018data__1down"
   HistoNameSufUp: "JET_EtaIntercalibration_NonClosure_2018data__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1742,7 +1742,7 @@ Systematic: "JES_EtaNonClos_highE"
   Category: "JES"
   HistoNameSufDown: "JET_EtaIntercalibration_NonClosure_highE__1down"
   HistoNameSufUp: "JET_EtaIntercalibration_NonClosure_highE__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1753,7 +1753,7 @@ Systematic: "JES_EtaNonClos_negEta"
   Category: "JES"
   HistoNameSufDown: "JET_EtaIntercalibration_NonClosure_negEta__1down"
   HistoNameSufUp: "JET_EtaIntercalibration_NonClosure_negEta__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1764,7 +1764,7 @@ Systematic: "JES_EtaNonClos_posEta"
   Category: "JES"
   HistoNameSufDown: "JET_EtaIntercalibration_NonClosure_posEta__1down"
   HistoNameSufUp: "JET_EtaIntercalibration_NonClosure_posEta__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1775,7 +1775,7 @@ Systematic: "JES_EtatotStat"
   Category: "JES"
   HistoNameSufDown: "JET_EtaIntercalibration_TotalStat__1down"
   HistoNameSufUp: "JET_EtaIntercalibration_TotalStat__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1786,7 +1786,7 @@ Systematic: "JES_Flavor_Comp"
   Category: "JES"
   HistoNameSufDown: "JET_Flavor_Composition__1down"
   HistoNameSufUp: "JET_Flavor_Composition__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1797,7 +1797,7 @@ Systematic: "JES_Flavor_Resp"
   Category: "JES"
   HistoNameSufDown: "JET_Flavor_Response__1down"
   HistoNameSufUp: "JET_Flavor_Response__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1808,7 +1808,7 @@ Systematic: "JES_MC16"
   Category: "JES"
   HistoNameSufDown: "JET_PunchThrough_MC16__1down"
   HistoNameSufUp: "JET_PunchThrough_MC16__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1819,7 +1819,7 @@ Systematic: "JES_Pileup_OffsetMu"
   Category: "JES"
   HistoNameSufDown: "JET_Pileup_OffsetMu__1down"
   HistoNameSufUp: "JET_Pileup_OffsetMu__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1830,7 +1830,7 @@ Systematic: "JES_Pileup_OffsetNPV"
   Category: "JES"
   HistoNameSufDown: "JET_Pileup_OffsetNPV__1down"
   HistoNameSufUp: "JET_Pileup_OffsetNPV__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1841,7 +1841,7 @@ Systematic: "JES_Pileup_PtTerm"
   Category: "JES"
   HistoNameSufDown: "JET_Pileup_PtTerm__1down"
   HistoNameSufUp: "JET_Pileup_PtTerm__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1852,7 +1852,7 @@ Systematic: "JES_Pileup_RhoTopology"
   Category: "JES"
   HistoNameSufDown: "JET_Pileup_RhoTopology__1down"
   HistoNameSufUp: "JET_Pileup_RhoTopology__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1863,7 +1863,7 @@ Systematic: "JES_SinglePart"
   Category: "JES"
   HistoNameSufDown: "JET_SingleParticle_HighPt__1down"
   HistoNameSufUp: "JET_SingleParticle_HighPt__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -1874,8 +1874,8 @@ Systematic: "JET_EffectiveNP_R10_Detector1"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Detector1__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Detector1__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES det1"
@@ -1885,8 +1885,8 @@ Systematic: "JET_EffectiveNP_R10_Detector2"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Detector2__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Detector2__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES det2"
@@ -1896,8 +1896,8 @@ Systematic: "JET_EffectiveNP_R10_Mixed1"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Mixed1__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Mixed1__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES Mixed1"
@@ -1907,8 +1907,8 @@ Systematic: "JET_EffectiveNP_R10_Mixed2"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Mixed2__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Mixed2__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES Mixed2"
@@ -1918,8 +1918,8 @@ Systematic: "JET_EffectiveNP_R10_Mixed3"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Mixed3__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Mixed3__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES Mixed3"
@@ -1929,8 +1929,8 @@ Systematic: "JET_EffectiveNP_R10_Mixed4"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Mixed4__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Mixed4__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES Mixed4"
@@ -1940,8 +1940,8 @@ Systematic: "JET_EffectiveNP_R10_Modelling1"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Modelling1__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Modelling1__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES Modelling1"
@@ -1951,8 +1951,8 @@ Systematic: "JET_EffectiveNP_R10_Modelling2"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Modelling2__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Modelling2__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES Modelling2"
@@ -1962,8 +1962,8 @@ Systematic: "JET_EffectiveNP_R10_Modelling3"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Modelling3__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Modelling3__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES Modelling3"
@@ -1973,8 +1973,8 @@ Systematic: "JET_EffectiveNP_R10_Modelling4"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Modelling4__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Modelling4__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES Modelling4"
@@ -1984,8 +1984,8 @@ Systematic: "JET_EffectiveNP_R10_Statistical1"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Statistical1__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Statistical1__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES stat1"
@@ -1995,8 +1995,8 @@ Systematic: "JET_EffectiveNP_R10_Statistical2"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Statistical2__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Statistical2__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES stat2"
@@ -2006,8 +2006,8 @@ Systematic: "JET_EffectiveNP_R10_Statistical3"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Statistical3__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Statistical3__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES stat3"
@@ -2017,8 +2017,8 @@ Systematic: "JET_EffectiveNP_R10_Statistical4"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Statistical4__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Statistical4__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES stat4"
@@ -2028,8 +2028,8 @@ Systematic: "JET_EffectiveNP_R10_Statistical5"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Statistical5__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Statistical5__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES stat5"
@@ -2039,8 +2039,8 @@ Systematic: "JET_EffectiveNP_R10_Statistical6"
   Category: "JES"
   HistoNameSufDown: "JET_EffectiveNP_R10_Statistical6__1down"
   HistoNameSufUp: "JET_EffectiveNP_R10_Statistical6__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES stat6"
@@ -2050,8 +2050,8 @@ Systematic: "JET_EtaIntercalibration_R10_TotalStat"
   Category: "JES"
   HistoNameSufDown: "JET_EtaIntercalibration_R10_TotalStat__1down"
   HistoNameSufUp: "JET_EtaIntercalibration_R10_TotalStat__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES #eta-int stat"
@@ -2061,8 +2061,8 @@ Systematic: "JET_LargeR_TopologyUncertainty_V"
   Category: "JES"
   HistoNameSufDown: "JET_LargeR_TopologyUncertainty_V__1down"
   HistoNameSufUp: "JET_LargeR_TopologyUncertainty_V__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES #eta-int V"
@@ -2072,8 +2072,8 @@ Systematic: "JET_LargeR_TopologyUncertainty_top"
   Category: "JES"
   HistoNameSufDown: "JET_LargeR_TopologyUncertainty_top__1down"
   HistoNameSufUp: "JET_LargeR_TopologyUncertainty_top__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JES #eta-int top"
@@ -2083,8 +2083,8 @@ Systematic: "COMB_Flat20Smoothed_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_Flat20Smoothed_JMR__1down"
   HistoNameSufUp: "COMB_Flat20Smoothed_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB Flat20smoothed"
@@ -2094,8 +2094,8 @@ Systematic: "COMB_MCData_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_MCData_JMR__1down"
   HistoNameSufUp: "COMB_MCData_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB MCData"
@@ -2105,8 +2105,8 @@ Systematic: "COMB_MCLargeR_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_MCLargeR_JMR__1down"
   HistoNameSufUp: "COMB_MCLargeR_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB MCLargeR jet"
@@ -2116,8 +2116,8 @@ Systematic: "COMB_MCME_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_MCME_JMR__1down"
   HistoNameSufUp: "COMB_MCME_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB MCME"
@@ -2127,8 +2127,8 @@ Systematic: "COMB_MCPS_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_MCPS_JMR__1down"
   HistoNameSufUp: "COMB_MCPS_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB MCPS"
@@ -2138,8 +2138,8 @@ Systematic: "COMB_MCRAD_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_MCRAD_JMR__1down"
   HistoNameSufUp: "COMB_MCRAD_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB MCRAD"
@@ -2149,8 +2149,8 @@ Systematic: "COMB_MCSmallJET_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_MCSmallJET_JMR__1down"
   HistoNameSufUp: "COMB_MCSmallJET_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB MCSmall jet"
@@ -2160,8 +2160,8 @@ Systematic: "COMB_OutsideCalib_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_OutsideCalib_JMR__1down"
   HistoNameSufUp: "COMB_OutsideCalib_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB outsideCalib"
@@ -2171,8 +2171,8 @@ Systematic: "COMB_SHAPE_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_SHAPE_JMR__1down"
   HistoNameSufUp: "COMB_SHAPE_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB shape"
@@ -2182,8 +2182,8 @@ Systematic: "COMB_Smoothing_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_Smoothing_JMR__1down"
   HistoNameSufUp: "COMB_Smoothing_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB smoothing"
@@ -2193,8 +2193,8 @@ Systematic: "COMB_Stat_JMR"
   Category: "JMR"
   HistoNameSufDown: "COMB_Stat_JMR__1down"
   HistoNameSufUp: "COMB_Stat_JMR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "JMR COMB Stat"
@@ -2204,8 +2204,8 @@ Systematic: "JET_JMS_FF_AllOthers"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_FF_AllOthers__1down"
   HistoNameSufUp: "JET_JMS_FF_AllOthers__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS FF AllOthers"
@@ -2215,8 +2215,8 @@ Systematic: "JET_JMS_FF_InterpolationDifference"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_FF_InterpolationDifference__1down"
   HistoNameSufUp: "JET_JMS_FF_InterpolationDifference__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS FF int."
@@ -2226,8 +2226,8 @@ Systematic: "JET_JMS_FF_LargerSample"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_FF_LargerSample__1down"
   HistoNameSufUp: "JET_JMS_FF_LargerSample__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS FF_LargerSample"
@@ -2237,8 +2237,8 @@ Systematic: "JET_JMS_FF_MatrixElement"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_FF_MatrixElement__1down"
   HistoNameSufUp: "JET_JMS_FF_MatrixElement__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS FF ME"
@@ -2248,8 +2248,8 @@ Systematic: "JET_JMS_FF_PartonShower"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_FF_PartonShower__1down"
   HistoNameSufUp: "JET_JMS_FF_PartonShower__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS FF PS"
@@ -2259,8 +2259,8 @@ Systematic: "JET_JMS_FF_Shape"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_FF_Shape__1down"
   HistoNameSufUp: "JET_JMS_FF_Shape__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS FF shape"
@@ -2270,8 +2270,8 @@ Systematic: "JET_JMS_FF_Stat"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_FF_Stat__1down"
   HistoNameSufUp: "JET_JMS_FF_Stat__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS FF stat"
@@ -2281,8 +2281,8 @@ Systematic: "JET_JMS_Rtrk_Generator"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Generator__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Generator__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} gen."
@@ -2292,8 +2292,8 @@ Systematic: "JET_JMS_Rtrk_Generator_InterpolationDifference"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Generator_InterpolationDifference__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Generator_InterpolationDifference__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} gen. int."
@@ -2303,8 +2303,8 @@ Systematic: "JET_JMS_Rtrk_InterpolationDifference"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_InterpolationDifference__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_InterpolationDifference__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} int."
@@ -2314,8 +2314,8 @@ Systematic: "JET_JMS_Rtrk_Stat1"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Stat1__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Stat1__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} stat1"
@@ -2325,8 +2325,8 @@ Systematic: "JET_JMS_Rtrk_Stat2"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Stat2__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Stat2__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} stat2"
@@ -2336,8 +2336,8 @@ Systematic: "JET_JMS_Rtrk_Stat3"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Stat3__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Stat3__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} stat3"
@@ -2347,8 +2347,8 @@ Systematic: "JET_JMS_Rtrk_Stat4"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Stat4__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Stat4__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} stat4"
@@ -2358,8 +2358,8 @@ Systematic: "JET_JMS_Rtrk_Stat5"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Stat5__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Stat5__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} stat5"
@@ -2369,8 +2369,8 @@ Systematic: "JET_JMS_Rtrk_Stat6"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Stat6__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Stat6__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} stat6"
@@ -2380,8 +2380,8 @@ Systematic: "JET_JMS_Rtrk_Tracking"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Rtrk_Tracking__1down"
   HistoNameSufUp: "JET_JMS_Rtrk_Tracking__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS R_{trk} tracking"
@@ -2391,8 +2391,8 @@ Systematic: "JET_JMS_Topology_QCD"
   Category: "JMS"
   HistoNameSufDown: "JET_JMS_Topology_QCD__1down"
   HistoNameSufUp: "JET_JMS_Topology_QCD__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "AKT10 JMS topo QCD"
@@ -2401,7 +2401,7 @@ Systematic: "JET_JMS_Topology_QCD"
 Systematic: "MET_SoftTrk_ResoPara"
   Category: "MET-res"
   HistoNameSufUp: "MET_SoftTrk_ResoPara"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -2411,7 +2411,7 @@ Systematic: "MET_SoftTrk_ResoPara"
 Systematic: "MET_SoftTrk_ResoPerp"
   Category: "MET-res"
   HistoNameSufUp: "MET_SoftTrk_ResoPerp"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -2422,7 +2422,7 @@ Systematic: "MET_SoftTrk_Scale"
   Category: "MET-scale"
   HistoNameSufDown: "MET_SoftTrk_Scale__1down"
   HistoNameSufUp: "MET_SoftTrk_Scale__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2433,7 +2433,7 @@ Systematic: "MUON_ID"
   Category: "MUON"
   HistoNameSufDown: "MUON_ID__1down"
   HistoNameSufUp: "MUON_ID__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2444,7 +2444,7 @@ Systematic: "MUON_MS"
   Category: "MUON"
   HistoNameSufDown: "MUON_MS__1down"
   HistoNameSufUp: "MUON_MS__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2455,8 +2455,8 @@ Systematic: "MUON_SAGITTA_RHO"
   Category: "MUON"
   HistoNameSufDown: "MUON_SAGITTA_RHO__1down"
   HistoNameSufUp: "MUON_SAGITTA_RHO__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "Muon sagitta rho"
@@ -2466,7 +2466,7 @@ Systematic: "MUON_Sagitta"
   Category: "MUON"
   HistoNameSufDown: "MUON_SAGITTA_RESBIAS__1down"
   HistoNameSufUp: "MUON_SAGITTA_RESBIAS__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2477,7 +2477,7 @@ Systematic: "MUON_Scale"
   Category: "MUON"
   HistoNameSufDown: "MUON_SCALE__1down"
   HistoNameSufUp: "MUON_SCALE__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2488,7 +2488,7 @@ Systematic: "leptonSF_MU_SF_ID_STAT"
   Category: "MUON"
   HistoNameSufDown: "muIDStatSF__1down"
   HistoNameSufUp: "muIDStatSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2499,7 +2499,7 @@ Systematic: "leptonSF_MU_SF_ID_SYST"
   Category: "MUON"
   HistoNameSufDown: "muIDSystSF__1down"
   HistoNameSufUp: "muIDSystSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2510,7 +2510,7 @@ Systematic: "leptonSF_MU_SF_Isol_STAT"
   Category: "MUON"
   HistoNameSufDown: "muIsolStatSF__1down"
   HistoNameSufUp: "muIsolStatSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2521,7 +2521,7 @@ Systematic: "leptonSF_MU_SF_Isol_SYST"
   Category: "MUON"
   HistoNameSufDown: "muIsolSystSF__1down"
   HistoNameSufUp: "muIsolSystSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2532,7 +2532,7 @@ Systematic: "leptonSF_MU_SF_Trigger_STAT"
   Category: "MUON"
   HistoNameSufDown: "muTrigStatSF__1down"
   HistoNameSufUp: "muTrigStatSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2543,7 +2543,7 @@ Systematic: "leptonSF_MU_SF_Trigger_SYST"
   Category: "MUON"
   HistoNameSufDown: "muTrigSystSF__1down"
   HistoNameSufUp: "muTrigSystSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -2554,7 +2554,7 @@ Systematic: "DibosonNorm"
   Category: "Modelling"
   OverallDown: -0.50
   OverallUp: 0.50
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "diboson"
   SubCategory: "Diboson background"
   Title: "Diboson norm."
@@ -2562,7 +2562,7 @@ Systematic: "DibosonNorm"
 
 Systematic: "FakesNorm_el"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "fakes","fakes_ttbar"
   Smoothing: 40
   SubCategory: "Fake-lepton background"
@@ -2573,7 +2573,7 @@ Systematic: "FakesNorm_el"
 
 Systematic: "FakesNorm_mu"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "fakes","fakes_ttbar"
   Smoothing: 40
   SubCategory: "Fake-lepton background"
@@ -2586,7 +2586,7 @@ Systematic: "SingleTopNorm"
   Category: "Modelling"
   OverallDown: -0.05
   OverallUp: 0.05
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "singleTop"
   SubCategory: "Single top background"
   Title: "Single top norm."
@@ -2594,7 +2594,7 @@ Systematic: "SingleTopNorm"
 
 Systematic: "Zjets_pTll"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleDown: "zjets_pTll_down"
   SampleUp: "zjets_pTll_up"
   Samples: "zjets"
@@ -2604,7 +2604,7 @@ Systematic: "Zjets_pTll"
 
 Systematic: "singleTop_DSDR"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "singleTop_DS"
   Samples: "singleTop"
   Smoothing: 40
@@ -2614,7 +2614,7 @@ Systematic: "singleTop_DSDR"
 
 Systematic: "singleTop_Gen"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "singleTop_aMCP8"
   Samples: "singleTop"
   Smoothing: 40
@@ -2624,7 +2624,7 @@ Systematic: "singleTop_Gen"
 
 Systematic: "singleTop_PS"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "singleTop_PH7"
   Samples: "singleTop"
   Smoothing: 40
@@ -2636,7 +2636,7 @@ Systematic: "ttVNorm"
   Category: "Modelling"
   OverallDown: -0.30
   OverallUp: 0.30
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttV"
   SubCategory: "ttV background"
   Title: "#it{t#bar{t}+V} norm."
@@ -2646,7 +2646,7 @@ Systematic: "tt_Xsec"
   Category: "Modelling"
   OverallDown: -0.1
   OverallUp: 0.1
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Title: "#it{t#bar{t}} XS"
   Type: OVERALL
@@ -2655,7 +2655,7 @@ Systematic: "ttbar_FSR_Acc"
   Category: "Modelling"
   Decorrelate: REGION
   DropShapeIn: "all"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleDown: "ttbar_dilep_FSRdown"
   SampleUp: "ttbar_dilep_FSRup"
   Samples: "ttbar_dilep"
@@ -2669,7 +2669,7 @@ Systematic: "ttbar_FSR_Shape"
   Category: "Modelling"
   Decorrelate: REGION
   DropNorm: "all"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleDown: "ttbar_dilep_FSRdown"
   SampleUp: "ttbar_dilep_FSRup"
   Samples: "ttbar_dilep"
@@ -2681,7 +2681,7 @@ Systematic: "ttbar_FSR_Shape"
 
 Systematic: "ttbar_ISR_A14"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "tt ISR"
@@ -2695,7 +2695,7 @@ Systematic: "ttbar_ISR_hdamp_Acc"
   Category: "Modelling"
   Decorrelate: REGION
   DropShapeIn: "all"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_hdamp"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -2708,7 +2708,7 @@ Systematic: "ttbar_ISR_hdamp_Shape"
   Category: "Modelling"
   Decorrelate: REGION
   DropNorm: "all"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_hdamp"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -2720,7 +2720,7 @@ Systematic: "ttbar_ISR_hdamp_Shape"
 Systematic: "ttbar_ISR_muF"
   Category: "Modelling"
   IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "tt ISR"
@@ -2733,7 +2733,7 @@ Systematic: "ttbar_ISR_muF"
 Systematic: "ttbar_ISR_muR"
   Category: "Modelling"
   IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "tt ISR"
@@ -2748,7 +2748,7 @@ Systematic: "ttbar_ME_old_Acc"
   Decorrelate: REGION
   DropShapeIn: "all"
   ReferenceSample: "ttbar_dilep_MECoff"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_aMCP8"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -2762,7 +2762,7 @@ Systematic: "ttbar_ME_old_Shape"
   Decorrelate: REGION
   DropNorm: "all"
   ReferenceSample: "ttbar_dilep_MECoff"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_aMCP8"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -2773,7 +2773,7 @@ Systematic: "ttbar_ME_old_Shape"
 
 Systematic: "ttbar_NNLO_altPDF"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_altPDF"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -2785,7 +2785,7 @@ Systematic: "ttbar_NNLO_altPDF"
 Systematic: "ttbar_NNLO_muFmtt"
   Category: "Modelling"
   IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "tt NNLO scales"
@@ -2798,7 +2798,7 @@ Systematic: "ttbar_NNLO_muFmtt"
 Systematic: "ttbar_NNLO_muFtopPt"
   Category: "Modelling"
   IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "tt NNLO scales"
@@ -2811,7 +2811,7 @@ Systematic: "ttbar_NNLO_muFtopPt"
 Systematic: "ttbar_NNLO_muRmtt"
   Category: "Modelling"
   IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "tt NNLO scales"
@@ -2824,7 +2824,7 @@ Systematic: "ttbar_NNLO_muRmtt"
 Systematic: "ttbar_NNLO_muRtopPt"
   Category: "Modelling"
   IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "tt NNLO scales"
@@ -2836,7 +2836,7 @@ Systematic: "ttbar_NNLO_muRtopPt"
 
 Systematic: "ttbar_NNLO_oneEmission_mtt"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_oneEmission_mtt"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -2847,7 +2847,7 @@ Systematic: "ttbar_NNLO_oneEmission_mtt"
 
 Systematic: "ttbar_NNLO_oneEmission_topPt"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_oneEmission_topPt"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -2859,7 +2859,7 @@ Systematic: "ttbar_NNLO_oneEmission_topPt"
 Systematic: "ttbar_NNLO_pdf"
   Category: "Modelling"
   IgnoreWeight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "tt NNLO PDFs"
@@ -2871,7 +2871,7 @@ Systematic: "ttbar_NNLO_pdf"
 
 Systematic: "ttbar_PDFs_0"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2882,7 +2882,7 @@ Systematic: "ttbar_PDFs_0"
 
 Systematic: "ttbar_PDFs_1"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2893,7 +2893,7 @@ Systematic: "ttbar_PDFs_1"
 
 Systematic: "ttbar_PDFs_10"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2904,7 +2904,7 @@ Systematic: "ttbar_PDFs_10"
 
 Systematic: "ttbar_PDFs_11"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2915,7 +2915,7 @@ Systematic: "ttbar_PDFs_11"
 
 Systematic: "ttbar_PDFs_12"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2926,7 +2926,7 @@ Systematic: "ttbar_PDFs_12"
 
 Systematic: "ttbar_PDFs_13"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2937,7 +2937,7 @@ Systematic: "ttbar_PDFs_13"
 
 Systematic: "ttbar_PDFs_14"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2948,7 +2948,7 @@ Systematic: "ttbar_PDFs_14"
 
 Systematic: "ttbar_PDFs_15"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2959,7 +2959,7 @@ Systematic: "ttbar_PDFs_15"
 
 Systematic: "ttbar_PDFs_16"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2970,7 +2970,7 @@ Systematic: "ttbar_PDFs_16"
 
 Systematic: "ttbar_PDFs_17"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2981,7 +2981,7 @@ Systematic: "ttbar_PDFs_17"
 
 Systematic: "ttbar_PDFs_18"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -2992,7 +2992,7 @@ Systematic: "ttbar_PDFs_18"
 
 Systematic: "ttbar_PDFs_19"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3003,7 +3003,7 @@ Systematic: "ttbar_PDFs_19"
 
 Systematic: "ttbar_PDFs_2"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3014,7 +3014,7 @@ Systematic: "ttbar_PDFs_2"
 
 Systematic: "ttbar_PDFs_20"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3025,7 +3025,7 @@ Systematic: "ttbar_PDFs_20"
 
 Systematic: "ttbar_PDFs_21"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3036,7 +3036,7 @@ Systematic: "ttbar_PDFs_21"
 
 Systematic: "ttbar_PDFs_22"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3047,7 +3047,7 @@ Systematic: "ttbar_PDFs_22"
 
 Systematic: "ttbar_PDFs_23"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3058,7 +3058,7 @@ Systematic: "ttbar_PDFs_23"
 
 Systematic: "ttbar_PDFs_24"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3069,7 +3069,7 @@ Systematic: "ttbar_PDFs_24"
 
 Systematic: "ttbar_PDFs_25"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3080,7 +3080,7 @@ Systematic: "ttbar_PDFs_25"
 
 Systematic: "ttbar_PDFs_26"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3091,7 +3091,7 @@ Systematic: "ttbar_PDFs_26"
 
 Systematic: "ttbar_PDFs_27"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3102,7 +3102,7 @@ Systematic: "ttbar_PDFs_27"
 
 Systematic: "ttbar_PDFs_28"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3113,7 +3113,7 @@ Systematic: "ttbar_PDFs_28"
 
 Systematic: "ttbar_PDFs_29"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3124,7 +3124,7 @@ Systematic: "ttbar_PDFs_29"
 
 Systematic: "ttbar_PDFs_3"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3135,7 +3135,7 @@ Systematic: "ttbar_PDFs_3"
 
 Systematic: "ttbar_PDFs_4"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3146,7 +3146,7 @@ Systematic: "ttbar_PDFs_4"
 
 Systematic: "ttbar_PDFs_5"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3157,7 +3157,7 @@ Systematic: "ttbar_PDFs_5"
 
 Systematic: "ttbar_PDFs_6"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3168,7 +3168,7 @@ Systematic: "ttbar_PDFs_6"
 
 Systematic: "ttbar_PDFs_7"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3179,7 +3179,7 @@ Systematic: "ttbar_PDFs_7"
 
 Systematic: "ttbar_PDFs_8"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3190,7 +3190,7 @@ Systematic: "ttbar_PDFs_8"
 
 Systematic: "ttbar_PDFs_9"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   Samples: "ttbar_dilep"
   Smoothing: 40
   SubCategory: "PDFs"
@@ -3204,7 +3204,7 @@ Systematic: "ttbar_PS_noRew_Acc"
   Decorrelate: REGION
   DropShapeIn: "all"
   ReferenceSample: "ttbar_dilep_ghost_nonRew"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_PH7_nonRew"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -3218,7 +3218,7 @@ Systematic: "ttbar_PS_noRew_Shape"
   Decorrelate: REGION
   DropNorm: "all"
   ReferenceSample: "ttbar_dilep_ghost_nonRew"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_PH7_nonRew"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -3232,7 +3232,7 @@ Systematic: "ttbar_hadAcc"
   Decorrelate: REGION
   DropShapeIn: "all"
   ReferenceSample: "tt_af2"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   SampleUp: "tt_had"
   Samples: "tt"
   Smoothing: 40
@@ -3246,7 +3246,7 @@ Systematic: "ttbar_hadShape"
   Decorrelate: REGION
   DropNorm: "all"
   ReferenceSample: "tt_af2"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   SampleUp: "tt_had"
   Samples: "tt"
   Smoothing: 40
@@ -3260,7 +3260,7 @@ Systematic: "ttbar_hdampAcc"
   Decorrelate: REGION
   DropShapeIn: "all"
   ReferenceSample: "tt_af2"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   SampleUp: "tt_hdamp"
   Samples: "tt"
   Smoothing: 40
@@ -3274,7 +3274,7 @@ Systematic: "ttbar_hdampShape"
   Decorrelate: REGION
   DropNorm: "all"
   ReferenceSample: "tt_af2"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   SampleUp: "tt_hdamp"
   Samples: "tt"
   Smoothing: 40
@@ -3288,7 +3288,7 @@ Systematic: "ttbar_hsAcc"
   Decorrelate: REGION
   DropShapeIn: "all"
   ReferenceSample: "tt_af2"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   SampleUp: "tt_hs"
   Samples: "tt"
   Smoothing: 40
@@ -3302,7 +3302,7 @@ Systematic: "ttbar_hsShape"
   Decorrelate: REGION
   DropNorm: "all"
   ReferenceSample: "tt_af2"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   SampleUp: "tt_hs"
   Samples: "tt"
   Smoothing: 40
@@ -3313,7 +3313,7 @@ Systematic: "ttbar_hsShape"
 
 Systematic: "ttbar_invRew"
   Category: "Modelling"
-  Regions: DeltaPhi,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100
+  Regions: mllbb_DeltaPhi050to080,mllbb,mllbb_DeltaPhi095to100,mllbb_DeltaPhi000to050,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090
   SampleUp: "ttbar_dilep_inv"
   Samples: "ttbar_dilep"
   Smoothing: 40
@@ -3326,7 +3326,7 @@ Systematic: "btag_b_0"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_0__1down"
   HistoNameSufUp: "btagbSF_0__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3337,7 +3337,7 @@ Systematic: "btag_b_1"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_1__1down"
   HistoNameSufUp: "btagbSF_1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3348,7 +3348,7 @@ Systematic: "btag_b_2"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_2__1down"
   HistoNameSufUp: "btagbSF_2__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3359,7 +3359,7 @@ Systematic: "btag_b_3"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_3__1down"
   HistoNameSufUp: "btagbSF_3__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3370,7 +3370,7 @@ Systematic: "btag_b_4"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_4__1down"
   HistoNameSufUp: "btagbSF_4__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3381,7 +3381,7 @@ Systematic: "btag_b_5"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_5__1down"
   HistoNameSufUp: "btagbSF_5__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3392,7 +3392,7 @@ Systematic: "btag_b_6"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_6__1down"
   HistoNameSufUp: "btagbSF_6__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3403,7 +3403,7 @@ Systematic: "btag_b_7"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_7__1down"
   HistoNameSufUp: "btagbSF_7__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3414,7 +3414,7 @@ Systematic: "btag_b_8"
   Category: "b-tag"
   HistoNameSufDown: "btagbSF_8__1down"
   HistoNameSufUp: "btagbSF_8__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3425,7 +3425,7 @@ Systematic: "btag_c_0"
   Category: "b-tag"
   HistoNameSufDown: "btagcSF_0__1down"
   HistoNameSufUp: "btagcSF_0__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3436,7 +3436,7 @@ Systematic: "btag_c_1"
   Category: "b-tag"
   HistoNameSufDown: "btagcSF_1__1down"
   HistoNameSufUp: "btagcSF_1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3447,7 +3447,7 @@ Systematic: "btag_c_2"
   Category: "b-tag"
   HistoNameSufDown: "btagcSF_2__1down"
   HistoNameSufUp: "btagcSF_2__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3458,7 +3458,7 @@ Systematic: "btag_c_3"
   Category: "b-tag"
   HistoNameSufDown: "btagcSF_3__1down"
   HistoNameSufUp: "btagcSF_3__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3469,7 +3469,7 @@ Systematic: "btag_extrap"
   Category: "b-tag"
   HistoNameSufDown: "btageSF_0__1down"
   HistoNameSufUp: "btageSF_0__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3480,7 +3480,7 @@ Systematic: "btag_extrap_c"
   Category: "b-tag"
   HistoNameSufDown: "btageSF_1__1down"
   HistoNameSufUp: "btageSF_1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3491,7 +3491,7 @@ Systematic: "btag_light_0"
   Category: "b-tag"
   HistoNameSufDown: "btaglSF_0__1down"
   HistoNameSufUp: "btaglSF_0__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3502,7 +3502,7 @@ Systematic: "btag_light_1"
   Category: "b-tag"
   HistoNameSufDown: "btaglSF_1__1down"
   HistoNameSufUp: "btaglSF_1__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3513,7 +3513,7 @@ Systematic: "btag_light_2"
   Category: "b-tag"
   HistoNameSufDown: "btaglSF_2__1down"
   HistoNameSufUp: "btaglSF_2__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3524,7 +3524,7 @@ Systematic: "btag_light_3"
   Category: "b-tag"
   HistoNameSufDown: "btaglSF_3__1down"
   HistoNameSufUp: "btaglSF_3__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3535,8 +3535,8 @@ Systematic: "toptagSF_0"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_0__1down"
   HistoNameSufUp: "toptagSF_0__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (Dijet modelling)"
@@ -3546,8 +3546,8 @@ Systematic: "toptagSF_1"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_1__1down"
   HistoNameSufUp: "toptagSF_1__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (#gamma+jets modelling)"
@@ -3557,8 +3557,8 @@ Systematic: "toptagSF_10"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_10__1down"
   HistoNameSufUp: "toptagSF_10__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (SigSF prop.)"
@@ -3568,8 +3568,8 @@ Systematic: "toptagSF_11"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_11__1down"
   HistoNameSufUp: "toptagSF_11__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (SigSF stat.)"
@@ -3579,8 +3579,8 @@ Systematic: "toptagSF_13"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_13__1down"
   HistoNameSufUp: "toptagSF_13__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (GlobalOther)"
@@ -3590,8 +3590,8 @@ Systematic: "toptagSF_14"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_14__1down"
   HistoNameSufUp: "toptagSF_14__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (GlobalSignal)"
@@ -3601,8 +3601,8 @@ Systematic: "toptagSF_15"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_15__1down"
   HistoNameSufUp: "toptagSF_15__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (bTag, B0)"
@@ -3612,8 +3612,8 @@ Systematic: "toptagSF_16"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_16__1down"
   HistoNameSufUp: "toptagSF_16__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (bTag, Light0)"
@@ -3623,8 +3623,8 @@ Systematic: "toptagSF_17"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_17__1down"
   HistoNameSufUp: "toptagSF_17__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (bTag, Light1)"
@@ -3634,8 +3634,8 @@ Systematic: "toptagSF_2"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_2__1down"
   HistoNameSufUp: "toptagSF_2__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (t#bar{t} modelling, had.)"
@@ -3645,8 +3645,8 @@ Systematic: "toptagSF_3"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_3__1down"
   HistoNameSufUp: "toptagSF_3__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (t#bar{t} modelling, ME)"
@@ -3656,8 +3656,8 @@ Systematic: "toptagSF_4"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_4__1down"
   HistoNameSufUp: "toptagSF_4__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (t#bar{t} modelling, rad.)"
@@ -3667,8 +3667,8 @@ Systematic: "toptagSF_5"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_5__1down"
   HistoNameSufUp: "toptagSF_5__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (Dijet Stat.)"
@@ -3678,8 +3678,8 @@ Systematic: "toptagSF_6"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_6__1down"
   HistoNameSufUp: "toptagSF_6__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (#gamma+jets stat.)"
@@ -3689,8 +3689,8 @@ Systematic: "toptagSF_7"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_7__1down"
   HistoNameSufUp: "toptagSF_7__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (BGSF Prop.)"
@@ -3700,8 +3700,8 @@ Systematic: "toptagSF_8"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_8__1down"
   HistoNameSufUp: "toptagSF_8__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (SigSF BinVariation)"
@@ -3711,8 +3711,8 @@ Systematic: "toptagSF_9"
   Category: "top-tag"
   HistoNameSufDown: "toptagSF_9__1down"
   HistoNameSufUp: "toptagSF_9__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
-  Samples: "diboson","singletop","tt","wjets","zjets"
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
+  Samples: "tt","singletop","diboson","wjets","zjets"
   Smoothing: 40
   Symmetrisation: TWOSIDED
   Title: "top-tag (high-p_{T} ext.  had.)"
@@ -3722,7 +3722,7 @@ Systematic: "ttNNLOrec_toppt"
   Category: "tt_NNLO"
   HistoNameSufDown: "ttNNLOrec_toppt__1down"
   HistoNameSufUp: "ttNNLOrec_toppt__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3733,7 +3733,7 @@ Systematic: "ttNNLOrec_ttmass"
   Category: "tt_NNLO"
   HistoNameSufDown: "ttNNLOrec_ttmass__1down"
   HistoNameSufUp: "ttNNLOrec_ttmass__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3745,7 +3745,7 @@ Systematic: "tt_FSR"
   Decorrelate: REGION
   HistoNameSufDown: "tt_FSR__1down"
   HistoNameSufUp: "tt_FSR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3757,7 +3757,7 @@ Systematic: "tt_ISR"
   Decorrelate: REGION
   HistoNameSufDown: "tt_ISR__1down"
   HistoNameSufUp: "tt_ISR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3769,7 +3769,7 @@ Systematic: "tt_muF"
   Decorrelate: REGION
   HistoNameSufDown: "tt_muF__1down"
   HistoNameSufUp: "tt_muF__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3781,7 +3781,7 @@ Systematic: "tt_muR"
   Decorrelate: REGION
   HistoNameSufDown: "tt_muR__1down"
   HistoNameSufUp: "tt_muR__1up"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: TWOSIDED
@@ -3791,7 +3791,7 @@ Systematic: "tt_muR"
 Systematic: "tt_pdf_1"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_1"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3801,7 +3801,7 @@ Systematic: "tt_pdf_1"
 Systematic: "tt_pdf_10"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_10"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3811,7 +3811,7 @@ Systematic: "tt_pdf_10"
 Systematic: "tt_pdf_11"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_11"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3821,7 +3821,7 @@ Systematic: "tt_pdf_11"
 Systematic: "tt_pdf_12"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_12"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3831,7 +3831,7 @@ Systematic: "tt_pdf_12"
 Systematic: "tt_pdf_13"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_13"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3841,7 +3841,7 @@ Systematic: "tt_pdf_13"
 Systematic: "tt_pdf_14"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_14"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3851,7 +3851,7 @@ Systematic: "tt_pdf_14"
 Systematic: "tt_pdf_15"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_15"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3861,7 +3861,7 @@ Systematic: "tt_pdf_15"
 Systematic: "tt_pdf_16"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_16"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3871,7 +3871,7 @@ Systematic: "tt_pdf_16"
 Systematic: "tt_pdf_17"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_17"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3881,7 +3881,7 @@ Systematic: "tt_pdf_17"
 Systematic: "tt_pdf_18"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_18"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3891,7 +3891,7 @@ Systematic: "tt_pdf_18"
 Systematic: "tt_pdf_19"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_19"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3901,7 +3901,7 @@ Systematic: "tt_pdf_19"
 Systematic: "tt_pdf_2"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_2"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3911,7 +3911,7 @@ Systematic: "tt_pdf_2"
 Systematic: "tt_pdf_20"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_20"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3921,7 +3921,7 @@ Systematic: "tt_pdf_20"
 Systematic: "tt_pdf_21"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_21"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3931,7 +3931,7 @@ Systematic: "tt_pdf_21"
 Systematic: "tt_pdf_22"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_22"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3941,7 +3941,7 @@ Systematic: "tt_pdf_22"
 Systematic: "tt_pdf_23"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_23"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3951,7 +3951,7 @@ Systematic: "tt_pdf_23"
 Systematic: "tt_pdf_24"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_24"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3961,7 +3961,7 @@ Systematic: "tt_pdf_24"
 Systematic: "tt_pdf_25"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_25"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3971,7 +3971,7 @@ Systematic: "tt_pdf_25"
 Systematic: "tt_pdf_26"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_26"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3981,7 +3981,7 @@ Systematic: "tt_pdf_26"
 Systematic: "tt_pdf_27"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_27"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -3991,7 +3991,7 @@ Systematic: "tt_pdf_27"
 Systematic: "tt_pdf_28"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_28"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4001,7 +4001,7 @@ Systematic: "tt_pdf_28"
 Systematic: "tt_pdf_29"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_29"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4011,7 +4011,7 @@ Systematic: "tt_pdf_29"
 Systematic: "tt_pdf_3"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_3"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4021,7 +4021,7 @@ Systematic: "tt_pdf_3"
 Systematic: "tt_pdf_30"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_30"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4031,7 +4031,7 @@ Systematic: "tt_pdf_30"
 Systematic: "tt_pdf_4"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_4"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4041,7 +4041,7 @@ Systematic: "tt_pdf_4"
 Systematic: "tt_pdf_5"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_5"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4051,7 +4051,7 @@ Systematic: "tt_pdf_5"
 Systematic: "tt_pdf_6"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_6"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4061,7 +4061,7 @@ Systematic: "tt_pdf_6"
 Systematic: "tt_pdf_7"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_7"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4071,7 +4071,7 @@ Systematic: "tt_pdf_7"
 Systematic: "tt_pdf_8"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_8"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4081,7 +4081,7 @@ Systematic: "tt_pdf_8"
 Systematic: "tt_pdf_9"
   Category: "tt_pdf"
   HistoNameSufUp: "tt_pdf_9"
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "tt"
   Smoothing: 40
   Symmetrisation: ONESIDED
@@ -4092,7 +4092,7 @@ Systematic: "Lumi"
   Category: Instrumental
   OverallDown: -0.017
   OverallUp: 0.017
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","fakes","fakes_ttbar","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Title: "Luminosity"
   Type: OVERALL
@@ -4101,7 +4101,7 @@ Systematic: "jvt"
   Category: Instrumental
   HistoNameSufDown: "jvtSF__1down"
   HistoNameSufUp: "jvtSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Symmetrisation: TWOSIDED
   Title: "JVT"
@@ -4111,7 +4111,7 @@ Systematic: "pileup"
   Category: Instrumental
   HistoNameSufDown: "pileupSF__1down"
   HistoNameSufUp: "pileupSF__1up"
-  Regions: DeltaPhi,be1,be2,be3,bmu1,bmu2,bmu3,mllbb,mllbb_DeltaPhi000to050,mllbb_DeltaPhi050to080,mllbb_DeltaPhi080to090,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,rmu3,mllbb,bmu3,mllbb_DeltaPhi095to100,be3,rmu2,re3,mllbb_DeltaPhi090to095,DeltaPhi,mllbb_DeltaPhi080to090,re1,rmu1,mllbb_DeltaPhi050to080,re2,bmu1,bmu2,mllbb_DeltaPhi000to050,be1
   Samples: "diboson","singleTop","singletop","tt","ttH","ttV","ttbar_dilep","wjets","zjets"
   Symmetrisation: TWOSIDED
   Title: "pileup modeling"
@@ -4121,7 +4121,7 @@ Systematic: "qcd"
   Category: Instrumental
   OverallDown: -0.30
   OverallUp: 0.30
-  Regions: be1,be2,be3,bmu1,bmu2,bmu3,re1,re2,re3,rmu1,rmu2,rmu3
+  Regions: be2,re1,rmu1,rmu3,re2,bmu3,bmu1,be3,bmu2,rmu2,re3,be1
   Samples: "qcd"
   Title: "QCD"
   Type: OVERALL

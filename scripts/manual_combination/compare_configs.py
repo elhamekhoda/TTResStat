@@ -1,6 +1,11 @@
 from collections import defaultdict
-from utils import parse_config_file, split_objects
+import sys
+import os
 import argparse
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from config_utils import parse_config_file, split_objects
+
 
 def compare_configs(config_1l, config_2l):
     """Compare the configs using parser in utils and print the differences."""

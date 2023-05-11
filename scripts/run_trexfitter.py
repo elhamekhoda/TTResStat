@@ -83,7 +83,7 @@ def submit_condor(settings: Settings, args):
         template_name = 'af_short.tmp'
     elif args.batch_system == 'lxplus_short':
         template_name = 'lxplus_short.tmp'
-    template_file = scripts_path / template_name
+    template_file = scripts_path / 'batch_templates' / template_name
     with template_file.open('r') as f:
         text = f.read()
     ignore_keys = ['batch_system', 'masses', 'dry_run']
@@ -164,9 +164,9 @@ def main():
                         choices=['1l', '2l', 'combined'], help="perform specified channel only.")
     parser.add_argument('--signal', choices=['zprime', 'grav', 'gluon',
                         'all'], default='zprime', type=str, help="signal to use.")
-    parser.add_argument("--region_1l",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined'],
+    parser.add_argument("--region_1l",       type=str,  default="combined", choices=['boosted', 'resolved', 'combined', 'none'],
                         help="Region to use for the 1l channel: boosted, resolved, combined")
-    parser.add_argument("--region_2l",       type=str,  default="mllbb_deltaphi", choices=['mllbb', 'deltaphi', 'mllbb_deltaphi'],
+    parser.add_argument("--region_2l",       type=str,  default="mllbb_deltaphi", choices=['mllbb', 'deltaphi', 'mllbb_deltaphi', 'none'],
                         help="Region to use for the 2l channel: mllbb, deltaphi, mllbb_deltaphi")
     parser.add_argument("--signal_injection_mass", '-sigm',
                         type=int, default=None, help="mass of signal to inject.")
@@ -176,28 +176,25 @@ def main():
                         help='unblind the analysis, if set')
     parser.add_argument("--auto_injection_strength", type=float,
                         help='injection strength for TRExFitter auto signal injection, if set')
-    parser.add_argument("--use_dilep_names", action="store_true",
-                        help="use dilepton naming scheme for systematics.")
     parser.add_argument("--statonly", action="store_true",
                         help="run stat-only fit.")
     parser.add_argument("--bonly", action="store_true", help="run b-only fit.")
     parser.add_argument('--fit_mu_asimov', type=float,
-                        default=1.0, help="mu value for fit asimov data.")
+                        default=0.0, help="mu value for fit asimov data.")
     parser.add_argument('--batch_system', choices=['af', 'af_short', 'lxplus_short'],
                         default=None, type=str, help="submit jobs to specified batch system.")
     parser.add_argument('--masses', '-m', default=None, type=str,
                         help="Signal masses to scan (comma-separated list, e.g., 400,500,750).")
     parser.add_argument('--use_existing_config', action='store_true',
                         help='use existing config files instead of generating new ones.')
+    parser.add_argument('--template', type=str, default=None, help='template config file to use.')
+    
 
     args = parser.parse_args()
 
     if args.channel == 'combined' and ('h' in args.ops or 'n' in args.ops):
         raise ValueError(
             'cannot run combined fit with histogram or ntuple step. Please manually combine the trexfitter histograms by combining from the 1l and 2l channels, e.g. with `python scripts/manual_combination/combine_histos.py histograms/ttres1l/tt1lep_config_wbtagSR_1b2b histograms/ttres2l histograms/ttres1l2l`')
-
-    if args.channel == 'combined' and args.signal in ['gluon', 'grav']:
-        raise NotImplementedError('combined fit not implemented for gluon or graviton. We need to unify the naming scheme for the 1l and 2l channels.')
 
     if args.channel == 'combined' and args.signal == 'all':
         raise ValueError(
@@ -277,16 +274,24 @@ def main():
     else:
         masses = args.masses.split(',')
 
+    # template config file
+    template_path = args.template
+    if template_path is not None:
+        template_path = Path(template_path).resolve()
+        if not template_path.exists():
+            raise FileNotFoundError(
+                f'Could not find template config file {template_path}')
+
     # Run trexfitter for each mass point
     for mass in masses:
         mass = int(mass)
         mass_out_dir = (run_dir / f'{args.signal}_{str(mass)}').resolve()
         mass_out_dir.mkdir(exist_ok=True, parents=True)
 
-        settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l, use_dilep_names=args.use_dilep_names,
+        settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l,
                             signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name,
                             unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly,
-                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed, opts=args.opts)
+                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed, opts=args.opts, template_path=template_path)
 
         channel_to_config, channel_to_opts = write_configs(settings, use_existing_config=args.use_existing_config)
 

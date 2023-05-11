@@ -45,18 +45,17 @@ def split_objects(config, sep=';'):
                 new_config[obj_type].append((obj_name.strip(), new_obj_dict))
     return new_config
 
-def parse_config_file(file_path, statonly=False):
-    """Parse a 2L config file into a dictionary. Each object type is a key in the dictionary, and the value is list of (object name, dictionary) pairs, where dictionary contains the object's attributes.
+def parse_config_string(config_string, statonly=False):
+    """Parse a config string into a dictionary. Each object type is a key in the dictionary, and the value is list of (object name, dictionary) pairs, where dictionary contains the object's attributes.
     
     Parameters
     ----------
-    file_path : str
-        Path to the config file
+    config_string : str
+        The config string
     statonly : bool
         If True, ignore systematics"""
     
-    with open(file_path, 'r') as f:
-        lines = f.readlines()
+    lines = config_string.split('\n')
 
     config = defaultdict(list)
     current_obj_name = None
@@ -105,14 +104,47 @@ def parse_config_file(file_path, statonly=False):
 
     return config
 
+def parse_config_file(file_path, statonly=False):
+    """Parse a config file into a dictionary. Each object type is a key in the dictionary, and the value is list of (object name, dictionary) pairs, where dictionary contains the object's attributes.
+    
+    Parameters
+    ----------
+    file_path : str
+        Path to the config file
+    statonly : bool
+        If True, ignore systematics"""
+    
+    with open(file_path, 'r') as f:
+        config_string = f.read()
+    
+    return parse_config_string(config_string, statonly)
+
+def config_to_string(config, statonly):
+    config_string = ''
+    for obj_type, obj_pairs in config.items():
+        if obj_type.lower() == 'systematic' and statonly:
+            continue
+        for obj_name, obj_dict in obj_pairs:
+            config_string += f'{obj_type}: {obj_name}\n'
+            for key, value in sorted(obj_dict.items(), key=lambda x: x[0]):
+                config_string += f'  {key}: {value}\n'
+            config_string += '\n'
+    return config_string
+
 def write_config(config, file_path, statonly=False):
     """Write a config dictionary to a file."""
     with open(file_path, 'w') as f:
-        for obj_type, obj_pairs in config.items():
-            if obj_type.lower() == 'systematic' and statonly:
-                continue
-            for obj_name, obj_dict in obj_pairs:
-                f.write(f'{obj_type}: {obj_name}\n')
-                for key, value in sorted(obj_dict.items(), key=lambda x: x[0]):
-                    f.write(f'  {key}: {value}\n')
-                f.write('\n')
+        f.write(config_to_string(config, statonly))
+
+
+
+def main():
+    from pathlib import Path
+    nosig_config_path = Path('/home/schuya/ttres1lepstat/run/statResults_ttres1L2L_2023-05-09_1l_nosigsyst_test/zprime_4000/ttres1L.config')
+    nosig_config = parse_config_file(nosig_config_path)
+    out_path = nosig_config_path.parent / 'ttres1L_nosigsyst_test.config'
+    write_config(nosig_config, out_path)
+
+
+if __name__ == '__main__':
+    main()

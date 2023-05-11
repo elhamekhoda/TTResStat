@@ -11,6 +11,7 @@ from pathlib import Path
 
 import ROOT
 from systematics import *
+from config_utils import parse_config_string, config_to_string
 
 today = datetime.date(datetime.now())
 
@@ -20,6 +21,7 @@ class Settings:
     mass_out_dir: Path
     limit_dir: Path
     histo_dir: Path
+    template_path: Path
     channel: str
     signal_name: str
     signal_injection_name: str
@@ -32,7 +34,6 @@ class Settings:
     seed: int
     auto_injection_strength: float
     fit_mu_asimov: float
-    use_dilep_names: bool
     unblind: bool
     statonly: bool
     bonly: bool
@@ -227,7 +228,7 @@ def add_common_settings_to_config_string(config_string: str, in_dir: Path, setti
     return config_string
 
 
-def add_systematics_to_1l_config_string(config_string: str, regions, use_dilep_names):
+def add_systematics_to_1l_config_string(config_string: str, regions, use_dilep_names=False):
     # sys blocks
     sysmaps = makeSysList(regions,
                           use_dilep_names=use_dilep_names)
@@ -290,6 +291,18 @@ def get_common_opts(settings: Settings, regions: str):
     opts.append(f'Regions={regions}')
     return opts
 
+def merge_opts(settings: Settings, auto_opts: list):
+    # override any setting in auto_opts with settings.opts
+    if settings.opts:
+        manual_opts = settings.opts.split(':')
+        # compare keys
+        manual_opts_dict = {k.split('=')[0]: k.split('=')[1] for k in manual_opts}
+        auto_opts_dict = {k.split('=')[0]: k.split('=')[1] for k in auto_opts}
+        for k, v in manual_opts_dict.items():
+            auto_opts_dict[k] = v
+        auto_opts = [f'{k}={v}' for k, v in auto_opts_dict.items()]
+    return auto_opts
+
 
 def get_1l_regions(settings: Settings):
     if settings.region_1l == 'combined':
@@ -298,6 +311,11 @@ def get_1l_regions(settings: Settings):
         regions = "be1,be2,be3,bmu1,bmu2,bmu3"
     elif settings.region_1l == 'resolved':
         regions = "re1,re2,re3,rmu1,rmu2,rmu3"
+    elif settings.region_1l == 'none':
+        regions = ""
+    else:
+        raise ValueError(
+            f"Unknown region_1l option: {settings.region_1l}. Possible options are 'combined', 'boosted', 'resolved' and 'none'")
     return regions
 
 
@@ -312,10 +330,14 @@ def make_1l_config(settings: Settings):
     root_path = Path(os.path.realpath(__file__)).parent.parent
     config_dir = root_path / 'configs' / 'ttres1l'
 
-    if settings.signal_injection_mass is not None:
-        template_path = config_dir / "tt1lep_config_wbtagSR_1b2b_signal_injection.tmp"
+    if settings.template_path is None:
+        if settings.signal_injection_mass is not None:
+            raise NotImplementedError('need to add all syst version of signal injection config')
+            # template_path = config_dir / "tt1lep_config_wbtagSR_1b2b_signal_injection.tmp"
+        else:
+            template_path = config_dir / "all_systs" / "ttRes1L_wbtagSR_1b2b.tmp"
     else:
-        template_path = config_dir / "tt1lep_config_wbtagSR_1b2b.tmp"
+        template_path = settings.template_path
 
     # set histogram path
     template_name = template_path.stem
@@ -354,9 +376,9 @@ def make_1l_config(settings: Settings):
     regions = get_1l_regions(settings)
     settings.region_1l = regions
 
-    if not settings.statonly:
-        config_string = add_systematics_to_1l_config_string(
-            config_string, settings.region_1l, settings.use_dilep_names)
+    # if not settings.statonly:
+    #     config_string = add_systematics_to_1l_config_string(
+    #         config_string, settings.region_1l)
 
     in_dir = Path(os.environ['DATA_DIR_1L'])
     config_string = add_common_settings_to_config_string(
@@ -366,6 +388,7 @@ def make_1l_config(settings: Settings):
     opts = get_common_opts(settings, regions=regions)
     if settings.signal_name != 'all':
         opts.append(f'Signal={get_1l_signal_name(settings)}')
+    opts = merge_opts(settings, opts)
     opts = ':'.join(opts)
 
     return config_string, opts
@@ -378,6 +401,8 @@ def get_2l_regions(settings: Settings):
         regions = "DeltaPhi"
     elif settings.region_2l == 'mllbb_deltaphi':
         regions = "mllbb_DeltaPhi*"
+    elif settings.region_2l == 'none':
+        regions = ""
     else:
         raise ValueError(f"Unknown region {settings.region_2l}")
     return regions
@@ -446,7 +471,7 @@ def make_2l_config(settings: Settings):
         # samples = f'''{signal_sample_name},ttbar_dilep,singleTop,zjets,diboson,ttV,ttH,fakes,fakes_ttbar,ttbar_dilep_ghost_nonRew,ttbar_dilep_PH7_nonRew,ttbar_dilep_aMCP8,ttbar_dilep_MECoff,ttbar_dilep_aMCH7,ttbar_dilep_hdamp,ttbar_dilep_FSRup,ttbar_dilep_FSRdown,ttbar_dilep_noEW,ttbar_dilep_inv,ttbar_dilep_altPDF,ttbar_dilep_oneEmission_topPt,ttbar_dilep_oneEmission_mtt,singleTop_PH7,singleTop_aMCP8,singleTop_DS,zjets_pTll_up,zjets_pTll_down'''
         # samples = ",".join([s + "_dilep" for s in samples.split(",")])
         # opts.append(f'''Samples={samples}''')
-
+    opts = merge_opts(settings, opts)
     opts = ':'.join(opts)
 
     return config_string, opts
@@ -492,6 +517,8 @@ def make_combined_config(settings: Settings):
     in_dir = Path(os.environ['DATA_DIR_1L2L'])
     config_string = add_common_settings_to_config_string(
         config_string, in_dir, settings)
+    
+    config = parse_config_string(config_string)
 
     # make command-line options for trexfitter
     # if there are any 1l and 2l regions, join them with a comma
@@ -508,6 +535,7 @@ def make_combined_config(settings: Settings):
         opts.append(f'Signal={signal_sample}')
     else: 
         raise NotImplementedError("all signals not implemented for 1l2l")
+    opts = merge_opts(settings, opts)
     opts = ':'.join(opts)
 
     return config_string, opts

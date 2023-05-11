@@ -292,125 +292,125 @@ Region: "rmu3"
 
 Sample: "singleTop_DS"
   NtupleFiles: "sintop_wt_dilep_DS_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "singleTop_PH7"
   NtupleFiles: "sintop_wt_dilep_PH7_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "singleTop_aMCP8"
   NtupleFiles: "sintop_wt_dilep_aMCP8_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "tt_af2"
   HistoFile: "hist_tt_af2"
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   Type: GHOST
 
 Sample: "tt_had"
   HistoFile: "hist_tt_had"
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   Type: GHOST
 
 Sample: "tt_hdamp"
   HistoFile: "hist_tt_hdamp"
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   Type: GHOST
 
 Sample: "tt_hs"
   HistoFile: "hist_tt_hs"
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   Type: GHOST
 
 Sample: "ttbar_dilep_FSRdown"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)*weight_FSRdown"
   NtupleFiles: "ttbar_dil_mca","ttbar_dil_mcd","ttbar_dil_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_FSRup"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)*weight_FSRup"
   NtupleFiles: "ttbar_dil_mca","ttbar_dil_mcd","ttbar_dil_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_MECoff"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,-1,0)"
   NtupleFiles: "ttbar_dil_MECoff_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_PH7_nonRew"
   NtupleFiles: "ttbar_dil_PH7_mca","ttbar_dil_PH7_mcd","ttbar_dil_PH7_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_aMCH7"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,2,0)"
   NtupleFiles: "ttbar_dil_aMCH7_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_aMCP8"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,4,0)"
   NtupleFiles: "ttbar_dil_aMCP8_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_altPDF"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,200)"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_ghost_nonRew"
   NtupleFiles: "ttbar_dil_mca","ttbar_dil_mcd","ttbar_dil_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_hdamp"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,5,0)"
   NtupleFiles: "ttbar_dil_hdamp_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_inv"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,1000)"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_noEW"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0,100)"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_oneEmission_mtt"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)*( ttMass==ttMass ? 9.62236e-01 + sqrt( 2.78789e-06 * ttMass/1e3 ) : 1. )"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "ttbar_dilep_oneEmission_topPt"
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)*( TopPt > 0 ? 9.78044e-01 + sqrt( 4.35553e-06 * TopPt/1e3 ) : 1. )"
   NtupleFiles: "ttbar_dil_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "zjets_pTll_down"
   MCweight: "(1.*(!isHF) + 1.17*(1-0.0002*(PTll/1e3))*(isHF))"
   NtupleFiles: "zjets_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "zjets_pTll_up"
   MCweight: "(1.*(!isHF) + 1.17*(1-0.0006*(PTll/1e3))*(isHF))"
   NtupleFiles: "zjets_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Type: GHOST
 
 Sample: "diboson"
@@ -424,7 +424,7 @@ Sample: "fakes"
   FillColor: 619
   LineColor: 1
   NtupleFiles: "wjets_mc*","sintop_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Selection: "!isRealDilep"
   Title: "Fakes"
   Type: BACKGROUND
@@ -434,7 +434,7 @@ Sample: "fakes_ttbar"
   LineColor: 1
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
   NtupleFiles: "ttbar_nah_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Selection: "!isRealDilep"
   Title: "Fakes"
   Type: BACKGROUND
@@ -443,7 +443,7 @@ Sample: "qcd"
   FillColor: 5
   HistoFile: "hist_qcd_smooth"
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   Title: "QCD"
   Type: BACKGROUND
   UseMCstat: FALSE
@@ -452,7 +452,7 @@ Sample: "singleTop"
   FillColor: 62
   LineColor: 1
   NtupleFiles: "sintop_wt_dilep_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Selection: "isRealDilep"
   Title: "Single top"
   Type: BACKGROUND
@@ -461,7 +461,7 @@ Sample: "singletop"
   FillColor: 62
   HistoFile: "hist_singletop"
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   Title: "singletop"
   Type: BACKGROUND
 
@@ -469,7 +469,7 @@ Sample: "tt"
   HistoFile: "hist_tt"
   LineColor: 1
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   TexTitle: "$t\overline{t}$"
   Title: "t#bar{t}"
   Type: BACKGROUND
@@ -478,7 +478,7 @@ Sample: "ttH"
   FillColor: 223
   LineColor: 1
   NtupleFiles: "ttH_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Title: "#it{t#bar{t}+H}"
   Type: BACKGROUND
 
@@ -486,7 +486,7 @@ Sample: "ttV"
   FillColor: 3
   LineColor: 1
   NtupleFiles: "ttV_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Title: "#it{t#bar{t}+V}"
   Type: BACKGROUND
 
@@ -495,7 +495,7 @@ Sample: "ttbar_dilep"
   LineColor: 1
   MCweight: "RecursiveReweighting_2d_2022(TopPt/1e3,AntiTopPt/1e3,ttMass/1e3,0)"
   NtupleFiles: "ttbar_dil_mca","ttbar_dil_mcd","ttbar_dil_mce"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   Selection: "isRealDilep"
   SeparateGammas: TRUE
   TexTitle: "$t\bar{t}$ dilep."
@@ -506,7 +506,7 @@ Sample: "wjets"
   FillColor: 863
   HistoFile: "hist_wjets"
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   Title: "W+jets"
   Type: BACKGROUND
 
@@ -670,7 +670,7 @@ Sample: "KKgPY1000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg1000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (1 TeV)"
   Title: "g_{KK} (1 TeV)"
   Type: SIGNAL
@@ -679,7 +679,7 @@ Sample: "KKgPY1500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg1500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (1.5 TeV)"
   Title: "g_{KK} (1.5 TeV)"
   Type: SIGNAL
@@ -688,7 +688,7 @@ Sample: "KKgPY2000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg2000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (2 TeV)"
   Title: "g_{KK} (2 TeV)"
   Type: SIGNAL
@@ -697,7 +697,7 @@ Sample: "KKgPY2500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg2500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (2.5 TeV)"
   Title: "g_{KK} (2.5 TeV)"
   Type: SIGNAL
@@ -706,7 +706,7 @@ Sample: "KKgPY3000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg3000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (3 TeV)"
   Title: "g_{KK} (3 TeV)"
   Type: SIGNAL
@@ -715,7 +715,7 @@ Sample: "KKgPY3500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg3500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (3.5 TeV)"
   Title: "g_{KK} (3.5 TeV)"
   Type: SIGNAL
@@ -724,7 +724,7 @@ Sample: "KKgPY4000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg4000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (4 TeV)"
   Title: "g_{KK} (4 TeV)"
   Type: SIGNAL
@@ -733,7 +733,7 @@ Sample: "KKgPY4500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg4500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (4.5 TeV)"
   Title: "g_{KK} (4.5 TeV)"
   Type: SIGNAL
@@ -742,7 +742,7 @@ Sample: "KKgPY500"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (0.5 TeV)"
   Title: "g_{KK} (0.5 TeV)"
   Type: SIGNAL
@@ -751,7 +751,7 @@ Sample: "KKgPY5000"
   FillColor: 6
   LineColor: 6
   NtupleFiles: "kkg5000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$g_{KK}$ (5 TeV)"
   Title: "g_{KK} (5 TeV)"
   Type: SIGNAL
@@ -760,7 +760,7 @@ Sample: "ZprimePY_1000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime1000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (1 TeV)"
   Title: "Z'_{PY} (1 TeV)"
   Type: SIGNAL
@@ -769,7 +769,7 @@ Sample: "ZprimePY_1250"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime1250_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (1.25 TeV)"
   Title: "Z'_{PY} (1.25 TeV)"
   Type: SIGNAL
@@ -778,7 +778,7 @@ Sample: "ZprimePY_1500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime1500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (1.5 TeV)"
   Title: "Z'_{PY} (1.5 TeV)"
   Type: SIGNAL
@@ -787,7 +787,7 @@ Sample: "ZprimePY_1750"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime1750_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (1.75 TeV)"
   Title: "Z'_{PY} (1.75 TeV)"
   Type: SIGNAL
@@ -796,7 +796,7 @@ Sample: "ZprimePY_2000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime2000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (2 TeV)"
   Title: "Z'_{PY} (2 TeV)"
   Type: SIGNAL
@@ -805,7 +805,7 @@ Sample: "ZprimePY_2500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime2500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (2.5 TeV)"
   Title: "Z'_{PY} (2.5 TeV)"
   Type: SIGNAL
@@ -814,7 +814,7 @@ Sample: "ZprimePY_3000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime3000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (3 TeV)"
   Title: "Z'_{PY} (3 TeV)"
   Type: SIGNAL
@@ -823,7 +823,7 @@ Sample: "ZprimePY_3500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime3500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (3.5 TeV)"
   Title: "Z'_{PY} (3.5 TeV)"
   Type: SIGNAL
@@ -832,7 +832,7 @@ Sample: "ZprimePY_400"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime400_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (400 GeV)"
   Title: "Z'_{PY} (400 GeV)"
   Type: SIGNAL
@@ -841,7 +841,7 @@ Sample: "ZprimePY_4000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime4000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (4 TeV)"
   Title: "Z'_{PY} (4 TeV)"
   Type: SIGNAL
@@ -850,7 +850,7 @@ Sample: "ZprimePY_4500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime4500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (4.5 TeV)"
   Title: "Z'_{PY} (4.5 TeV)"
   Type: SIGNAL
@@ -859,7 +859,7 @@ Sample: "ZprimePY_500"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (500 GeV)"
   Title: "Z'_{PY} (500 GeV)"
   Type: SIGNAL
@@ -868,7 +868,7 @@ Sample: "ZprimePY_5000"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime5000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (5 TeV)"
   Title: "Z'_{PY} (5 TeV)"
   Type: SIGNAL
@@ -877,7 +877,7 @@ Sample: "ZprimePY_750"
   FillColor: 5
   LineColor: 5
   NtupleFiles: "zprime750_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (750 GeV)"
   Title: "Z'_{PY} (750 GeV)"
   Type: SIGNAL
@@ -932,7 +932,7 @@ Sample: "ZprimeTC2_2250"
   HistoFile: "hist_zprime2250"
   LineColor: 632
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   TexTitle: "$Z'$ (2.25 TeV)"
   Title: "Z'_{TC2} (2.25 TeV)"
   Type: SIGNAL
@@ -951,7 +951,7 @@ Sample: "ZprimeTC2_2750"
   HistoFile: "hist_zprime2750"
   LineColor: 632
   NormalizedByTheory: TRUE
-  Regions: be1,bmu1,be2,re3,rmu1,rmu2,bmu3,rmu3,bmu2,re2,re1,be3
+  Regions: re3,rmu2,bmu3,bmu2,rmu1,re2,rmu3,re1,be2,be3,bmu1,be1
   TexTitle: "$Z'$ (2.75 TeV)"
   Title: "Z'_{TC2} (2.75 TeV)"
   Type: SIGNAL
@@ -969,7 +969,7 @@ Sample: "ZprimeTC2_3500"
   FillColor: 2
   LineColor: 2
   NtupleFiles: "zprimeTC2_3500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (3.5 TeV)"
   Title: "Z'_{TC2} (3.5 TeV)"
   Type: SIGNAL
@@ -996,7 +996,7 @@ Sample: "ZprimeTC2_4500"
   FillColor: 2
   LineColor: 2
   NtupleFiles: "zprimeTC2_4500_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (4.5 TeV)"
   Title: "Z'_{TC2} (4.5 TeV)"
   Type: SIGNAL
@@ -1023,7 +1023,7 @@ Sample: "ZprimeTC2_6000"
   FillColor: 2
   LineColor: 2
   NtupleFiles: "zprimeTC2_6000_mc*"
-  Regions: mllbb_DeltaPhi050to080,mllbb_DeltaPhi090to095,mllbb_DeltaPhi095to100,mllbb_DeltaPhi080to090,mllbb_DeltaPhi000to050,DeltaPhi,mllbb
+  Regions: DeltaPhi,mllbb_DeltaPhi090to095,mllbb_DeltaPhi050to080,mllbb_DeltaPhi000to050,mllbb_DeltaPhi080to090,mllbb,mllbb_DeltaPhi095to100
   TexTitle: "$Z'$ (6 TeV)"
   Title: "Z'_{TC2} (6 TeV)"
   Type: SIGNAL
@@ -1037,13 +1037,21 @@ Sample: "ZprimeTC2_750"
   Title: "Z'_{TC2} (750 GeV)"
   Type: SIGNAL
 
-NormFactor: "WjetsNorm_boosted1"
+NormFactor: "WjetsNorm_boosted3"
   Max: 1.5
   Min: 0.5
   Nominal: 1
-  Regions: be1,bmu1
+  Regions: be3,bmu3
   Samples: wjets
-  Title: "k_{b1}(W+jets)"
+  Title: "k_{b3}(W+jets)"
+
+NormFactor: "WjetsNorm_boosted2"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: be2,bmu2
+  Samples: wjets
+  Title: "k_{b2}(W+jets)"
 
 NormFactor: "WjetsNorm_resolved1"
   Max: 1.5
@@ -1061,6 +1069,14 @@ NormFactor: "WjetsNorm_resolved3"
   Samples: wjets
   Title: "k_{r3}(W+jets)"
 
+NormFactor: "WjetsNorm_boosted1"
+  Max: 1.5
+  Min: 0.5
+  Nominal: 1
+  Regions: be1,bmu1
+  Samples: wjets
+  Title: "k_{b1}(W+jets)"
+
 NormFactor: "WjetsNorm_resolved2"
   Max: 1.5
   Min: 0.5
@@ -1076,13 +1092,12 @@ NormFactor: "k_tt"
   Samples: "ttbar_dilep","fakes_ttbar"
   Title: "k(#it{t#bar{t}})"
 
-NormFactor: "WjetsNorm_boosted2"
-  Max: 1.5
-  Min: 0.5
-  Nominal: 1
-  Regions: be2,bmu2
-  Samples: wjets
-  Title: "k_{b2}(W+jets)"
+NormFactor: "mu_Zprime"
+  Max: 10000.0
+  Min: -200.0
+  Nominal: 0.0
+  Samples: "Zprime*","KKg*","Grav*"
+  Title: "#mu(Z't#bar{t})"
 
 NormFactor: "ttNorm_boosted"
   Max: 1.5
@@ -1091,21 +1106,6 @@ NormFactor: "ttNorm_boosted"
   Regions: be1,be2,be3,bmu1,bmu2,bmu3
   Samples: tt
   Title: "k_{b}(t#bar{t})"
-
-NormFactor: "WjetsNorm_boosted3"
-  Max: 1.5
-  Min: 0.5
-  Nominal: 1
-  Regions: be3,bmu3
-  Samples: wjets
-  Title: "k_{b3}(W+jets)"
-
-NormFactor: "mu_Zprime"
-  Max: 10000.0
-  Min: -200.0
-  Nominal: 0.0
-  Samples: "Zprime*","KKg*","Grav*"
-  Title: "#mu(Z't#bar{t})"
 
 Systematic: "EG_RESOLUTION_ALL"
   Category: "EG"
