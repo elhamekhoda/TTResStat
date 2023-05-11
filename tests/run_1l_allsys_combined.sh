@@ -1,1 +1,0 @@
-python scripts/run_trexfitter.py -c 1l --ops wfl --batch_system af_short

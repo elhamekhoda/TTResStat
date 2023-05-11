@@ -1,1 +1,0 @@
-python scripts/run_trexfitter.py --ops wfl -s 2l_allsys -c 2l --signal zprime --batch_system af_short
