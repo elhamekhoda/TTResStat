@@ -253,7 +253,7 @@ Region: "rmu3"
 
 Sample: "ZprimeTC2_400";"ZprimeTC2_500";"ZprimeTC2_750";"ZprimeTC2_1000";"ZprimeTC2_1250";"ZprimeTC2_1500";"ZprimeTC2_1750";"ZprimeTC2_2000";"ZprimeTC2_2250";"ZprimeTC2_2500";"ZprimeTC2_2750";"ZprimeTC2_3000";"ZprimeTC2_4000";"ZprimeTC2_5000"
   FillColor:          632
-  HistoFile:          "hist_zprime400"    ;"hist_zprime500"    ;"hist_zprime750"    ;"hist_zprime1000" ;"hist_zprime1000"    ;"hist_zprime1500"   ;"hist_zprime1750"    ;"hist_zprime2000" ;"hist_zprime2250"    ;"hist_zprime2500"   ;"hist_zprime2750"    ;"hist_zprime3000" ;"hist_zprime4000" ;"hist_zprime5000" 
+  HistoFile:          "hist_zprime400"    ;"hist_zprime500"    ;"hist_zprime750"    ;"hist_zprime1000" ;"hist_zprime1250"    ;"hist_zprime1500"   ;"hist_zprime1750"    ;"hist_zprime2000" ;"hist_zprime2250"    ;"hist_zprime2500"   ;"hist_zprime2750"    ;"hist_zprime3000" ;"hist_zprime4000" ;"hist_zprime5000" 
   LineColor:          632
   NormalizedByTheory: TRUE
   TexTitle:           "$Z'$ (400 GeV)"    ;"$Z'$ (500 GeV)"    ;"$Z'$ (750 GeV)"    ;"$Z'$ (1 TeV)"    ;"$Z'$ (1.25 TeV)"    ;"$Z'$ (1.5 TeV)"    ;"$Z'$ (1.75 TeV)"    ;"$Z'$ (2 TeV)"    ;"$Z'$ (2.25 TeV)"    ;"$Z'$ (2.5 TeV)"    ;"$Z'$ (2.75 TeV)"    ;"$Z'$ (3 TeV)"    ;"$Z'$ (4 TeV)"    ;"$Z'$ (5 TeV)"    

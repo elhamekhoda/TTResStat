@@ -46,3 +46,4 @@ data
 scripts/compare_histo_contents.py
 tests/tmp.ipynb
 scripts/misc/exploration.ipynb
+scripts/misc/compare_files.sh

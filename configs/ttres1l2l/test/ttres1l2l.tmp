@@ -893,7 +893,7 @@ Sample: "ZprimeTC2_1000"
 
 Sample: "ZprimeTC2_1250"
   FillColor: 632
-  HistoFile: "hist_zprime1000"
+  HistoFile: "hist_zprime1250"
   LineColor: 632
   NormalizedByTheory: TRUE
   TexTitle: "$Z'$ (1.25 TeV)"
