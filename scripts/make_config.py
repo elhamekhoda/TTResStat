@@ -11,7 +11,7 @@ from pathlib import Path
 
 import ROOT
 from systematics import *
-from config_utils import parse_config_string, config_to_string
+from config_utils import parse_config_string, config_to_string, parse_config_file
 
 today = datetime.date(datetime.now())
 
@@ -38,6 +38,7 @@ class Settings:
     statonly: bool
     bonly: bool
     dry_run: bool
+    local_histos: bool
     exclude_systematics: list
 
 
@@ -188,44 +189,51 @@ def makeSysList(regions, use_dilep_names=False):
     return {s.group_name: s for s in sys_groups}
 
 
-def add_common_settings_to_config_string(config_string: str, in_dir: Path, settings: Settings):
-    config_string = config_string.replace("INPUTDIR", str(in_dir))
-    config_string = config_string.replace("HISTODIR", str(settings.histo_dir))
+def add_common_settings_to_config(config: dict, in_dir: Path, settings: Settings):
+    # job settings
+    job_name = [k for k in config['Job'].keys()][0]
+    job_config = config['Job'][job_name]
+    job_config['HistoPath'] = str(in_dir) + '/'
+    if settings.local_histos:
+        # remove InputFolder
+        job_config.pop('InputFolder', None)
+    else:
+        job_config['InputFolder'] = str(settings.histo_dir) + '/'
+    job_config['StatOnly'] = "TRUE" if settings.statonly else "FALSE"
+    job_config['OutputDir'] = str(settings.mass_out_dir) + '/'
 
-    if settings.unblind:
-        config_string = config_string.replace("BLIND", "FALSE")
-    else:
-        config_string = config_string.replace("BLIND", "TRUE")
-    if settings.signal_injection_mass is not None:
-        config_string = config_string.replace(
-            "INJMASS", str(settings.signal_injection_mass))
-        config_string = config_string.replace(
-            "INJNAME", str(settings.signal_injection_name))
-    if settings.auto_injection_strength is not None:
-        config_string = config_string.replace(
-            "AUTOINJSTRENGTH", str(settings.auto_injection_strength))
-        config_string = config_string.replace("AUTOINJ", "TRUE")
-    else:
-        config_string = config_string.replace("AUTOINJSTRENGTH", "0.0")
-        config_string = config_string.replace("AUTOINJ", "FALSE")
-
-    if settings.statonly:
-        config_string = config_string.replace("STATONLY", "TRUE")
-    else:
-        config_string = config_string.replace("STATONLY", "FALSE")
+    # fit settings
+    fit_name = [k for k in config['Fit'].keys()][0]
+    fit_config = config['Fit'][fit_name]
+    blind_str = "FALSE" if settings.unblind else "TRUE"
+    fit_config['FitBlind'] = blind_str
+    fit_config['POIAsimov'] = str(settings.fit_mu_asimov)
+    fit_config['SetRandomInitialNPvalSeed'] = str(settings.seed)
 
     if settings.bonly:
-        config_string = config_string.replace("SPLUSB", "BONLY")
+        fit_config['FitType'] = "BONLY"
+    else:
+        fit_config['FitType'] = "SPLUSB"
 
-    config_string = config_string.replace(
-        "OUTPUTDIR", str(settings.mass_out_dir))
-    config_string = config_string.replace("SIGNALNAME", settings.signal_name)
-    config_string = config_string.replace("SIGNALMASS", str(settings.mass))
-    config_string = config_string.replace(
-        "FIT_POIASIMOV", str(settings.fit_mu_asimov))
-    config_string = config_string.replace("SEED", str(settings.seed))
+    # limit settings
+    limit_name = [k for k in config['Limit'].keys()][0]
+    limit_config = config['Limit'][limit_name]
+    limit_config['LimitBlind'] = blind_str
+    limit_config['OutputPrefixName'] = f'{settings.signal_name}{str(settings.mass)}'
 
-    return config_string
+    if settings.auto_injection_strength is not None:
+        limit_config['SignalInjectionValue'] = str(
+            settings.auto_injection_strength)
+        limit_config['SignalInjection'] = "TRUE"
+    else:
+        limit_config['SignalInjection'] = "FALSE"
+
+    # sample settings
+    if settings.signal_injection_mass is not None:
+        data_config = config['Sample']['"Data"']
+        data_config['HistoFile'] = f'"hist_{settings.signal_injection_name}{settings.signal_injection_mass}_pseudodata"'
+
+    return config
 
 
 def add_systematics_to_1l_config_string(config_string: str, regions, use_dilep_names=False):
@@ -369,8 +377,9 @@ def make_1l_config(settings: Settings):
                     md5 in zip(histo_files, md5sums)]))
 
     # read config template
-    with template_path.open('r') as f:
-        config_string = f.read()
+    config = parse_config_file(template_path)
+    # with template_path.open('r') as f:
+    #     config_string = f.read()
 
     # regions
     regions = get_1l_regions(settings)
@@ -381,8 +390,8 @@ def make_1l_config(settings: Settings):
     #         config_string, settings.region_1l)
 
     in_dir = Path(os.environ['DATA_DIR_1L'])
-    config_string = add_common_settings_to_config_string(
-        config_string, in_dir, settings)
+    config = add_common_settings_to_config(
+        config, in_dir, settings)
 
     # make command-line options for trexfitter
     opts = get_common_opts(settings, regions=regions)
@@ -391,6 +400,7 @@ def make_1l_config(settings: Settings):
     opts = merge_opts(settings, opts)
     opts = ':'.join(opts)
 
+    config_string = config_to_string(config, settings.statonly)
     return config_string, opts
 
 

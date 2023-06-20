@@ -188,6 +188,7 @@ def main():
     parser.add_argument('--use_existing_config', action='store_true',
                         help='use existing config files instead of generating new ones.')
     parser.add_argument('--template', type=str, default=None, help='template config file to use.')
+    parser.add_argument('--local_histos', action='store_true', help="don't copy histograms to shared area.")
     
 
     args = parser.parse_args()
@@ -291,7 +292,7 @@ def main():
         settings = Settings(mass_out_dir=mass_out_dir, channel=args.channel, mass=mass, signal_name=signal_name, region_1l=args.region_1l, region_2l=args.region_2l,
                             signal_injection_mass=args.signal_injection_mass, signal_injection_name=args.signal_injection_name,
                             unblind=args.unblind, auto_injection_strength=args.auto_injection_strength, statonly=args.statonly,
-                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed, opts=args.opts, template_path=template_path)
+                            bonly=args.bonly, ops=args.ops, limit_dir=limit_dir, exclude_systematics=exclude_systematics, dry_run=args.dry_run, histo_dir=histo_dir, fit_mu_asimov=args.fit_mu_asimov, seed=args.seed, opts=args.opts, template_path=template_path, local_histos=args.local_histos)
 
         channel_to_config, channel_to_opts = write_configs(settings, use_existing_config=args.use_existing_config)
 

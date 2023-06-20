@@ -13,7 +13,7 @@ Job: "ttRes1L"
   InputFolder: "HISTODIR/"
   SplitHistoFiles: TRUE
   DebugLevel: 1
-  SystControlPlots: FALSE
+  SystControlPlots: TRUE
   SystErrorBars: TRUE
   UseGammaPulls: TRUE
   RankingPlot: "all"
@@ -604,6 +604,7 @@ Systematic: "btag_b_0";"btag_b_1";"btag_b_2";"btag_b_3";"btag_b_4";"btag_b_5";"b
   HistoNameSufDown: "btagbSF_0__1down";"btagbSF_1__1down";"btagbSF_2__1down";"btagbSF_3__1down";"btagbSF_4__1down";"btagbSF_5__1down";"btagbSF_6__1down";"btagbSF_7__1down";"btagbSF_8__1down";"btagcSF_0__1down";"btagcSF_1__1down";"btagcSF_2__1down";"btagcSF_3__1down";"btageSF_0__1down";"btageSF_1__1down";"btaglSF_0__1down";"btaglSF_1__1down";"btaglSF_2__1down";"btaglSF_3__1down";
   Symmetrisation: TWOSIDED
   Category: "b-tag"
+  SubCategory: "b-tag"
   Smoothing: 40
 
 
@@ -616,6 +617,7 @@ Systematic: "toptagSF_0";"toptagSF_1";"toptagSF_2";"toptagSF_3";"toptagSF_4";"to
   HistoNameSufDown: "toptagSF_0__1down";"toptagSF_1__1down";"toptagSF_2__1down";"toptagSF_3__1down";"toptagSF_4__1down";"toptagSF_5__1down";"toptagSF_6__1down";"toptagSF_7__1down";"toptagSF_8__1down";"toptagSF_9__1down";"toptagSF_10__1down";"toptagSF_11__1down";"toptagSF_13__1down";"toptagSF_14__1down";"toptagSF_15__1down";"toptagSF_16__1down";"toptagSF_17__1down";
   Symmetrisation: TWOSIDED
   Category: "top-tag"
+  SubCategory: "top-tag"
   Smoothing: 40
 
 
@@ -628,6 +630,7 @@ Systematic: "JES_EffectiveNP_Modelling1";"JES_EffectiveNP_Modelling2";"JES_Effec
   HistoNameSufDown: "JET_EffectiveNP_Modelling1__1down";"JET_EffectiveNP_Modelling2__1down";"JET_EffectiveNP_Modelling3__1down";"JET_EffectiveNP_Modelling4__1down";"JET_EffectiveNP_Mixed1__1down";"JET_EffectiveNP_Mixed2__1down";"JET_EffectiveNP_Mixed3__1down";"JET_EffectiveNP_Detector1__1down";"JET_EffectiveNP_Detector2__1down";"JET_EffectiveNP_Statistical1__1down";"JET_EffectiveNP_Statistical2__1down";"JET_EffectiveNP_Statistical3__1down";"JET_EffectiveNP_Statistical4__1down";"JET_EffectiveNP_Statistical5__1down";"JET_EffectiveNP_Statistical6__1down";"JET_Pileup_OffsetMu__1down";"JET_Pileup_OffsetNPV__1down";"JET_Pileup_PtTerm__1down";"JET_Pileup_RhoTopology__1down";"JET_Flavor_Composition__1down";"JET_Flavor_Response__1down";"JET_BJES_Response__1down";"JET_PunchThrough_MC16__1down";"JET_SingleParticle_HighPt__1down";"JET_EtaIntercalibration_Modelling__1down";"JET_EtaIntercalibration_TotalStat__1down";"JET_EtaIntercalibration_NonClosure_highE__1down";"JET_EtaIntercalibration_NonClosure_posEta__1down";"JET_EtaIntercalibration_NonClosure_negEta__1down";"JET_EtaIntercalibration_NonClosure_2018data__1down";"JET_EffectiveNP_R10_Modelling1__1down";"JET_EffectiveNP_R10_Modelling2__1down";"JET_EffectiveNP_R10_Modelling3__1down";"JET_EffectiveNP_R10_Modelling4__1down";"JET_EffectiveNP_R10_Mixed1__1down";"JET_EffectiveNP_R10_Mixed2__1down";"JET_EffectiveNP_R10_Mixed3__1down";"JET_EffectiveNP_R10_Mixed4__1down";"JET_EffectiveNP_R10_Statistical1__1down";"JET_EffectiveNP_R10_Statistical2__1down";"JET_EffectiveNP_R10_Statistical3__1down";"JET_EffectiveNP_R10_Statistical4__1down";"JET_EffectiveNP_R10_Statistical5__1down";"JET_EffectiveNP_R10_Statistical6__1down";"JET_EffectiveNP_R10_Detector1__1down";"JET_EffectiveNP_R10_Detector2__1down";"JET_EtaIntercalibration_R10_TotalStat__1down";"JET_LargeR_TopologyUncertainty_top__1down";"JET_LargeR_TopologyUncertainty_V__1down";
   Symmetrisation: TWOSIDED
   Category: "JES"
+  SubCategory: "JES"
   Smoothing: 40
 
 
@@ -640,6 +643,7 @@ Systematic: "COMB_MCData_JMR";"COMB_MCME_JMR";"COMB_MCPS_JMR";"COMB_MCRAD_JMR";"
   HistoNameSufDown: "COMB_MCData_JMR__1down";"COMB_MCME_JMR__1down";"COMB_MCPS_JMR__1down";"COMB_MCRAD_JMR__1down";"COMB_MCSmallJET_JMR__1down";"COMB_MCLargeR_JMR__1down";"COMB_Stat_JMR__1down";"COMB_SHAPE_JMR__1down";"COMB_Smoothing_JMR__1down";"COMB_Flat20Smoothed_JMR__1down";"COMB_OutsideCalib_JMR__1down";
   Symmetrisation: TWOSIDED
   Category: "JMR"
+  SubCategory: "JMR"
   Smoothing: 40
 
 
@@ -652,6 +656,7 @@ Systematic: "JER_EffectiveNP1";"JER_EffectiveNP2";"JER_EffectiveNP3";"JER_Effect
   HistoNameSufDown: "JET_JER_EffectiveNP_1__1down";"JET_JER_EffectiveNP_2__1down";"JET_JER_EffectiveNP_3__1down";"JET_JER_EffectiveNP_4__1down";"JET_JER_EffectiveNP_5__1down";"JET_JER_EffectiveNP_6__1down";"JET_JER_EffectiveNP_7__1down";"JET_JER_EffectiveNP_8__1down";"JET_JER_EffectiveNP_9__1down";"JET_JER_EffectiveNP_10__1down";"JET_JER_EffectiveNP_11__1down";"JET_JER_EffectiveNP_12restTerm__1down";"JET_JER_DataVsMC_R10_MC16__1down";"JET_JER_dijet_R10_closure__1down";"JET_JER_dijet_R10_selection__1down";"JET_JER_dijet_R10_jesEffNP1__1down";"JET_JER_dijet_R10_jesEffNP3__1down";"JET_JER_dijet_R10_jesEffNP4__1down";"JET_JER_dijet_R10_jesEtaIntMod__1down";"JET_JER_dijet_R10_jesFlavComp__1down";"JET_JER_dijet_R10_jesFlavResp__1down";"JET_JER_dijet_R10_mcgenerator__1down";"JET_JER_dijet_R10_stat__1down";"JET_JER_AllOthers__1down";
   Symmetrisation: TWOSIDED
   Category: "JER"
+  SubCategory: "JER"
   Smoothing: 40
 
 
@@ -664,6 +669,7 @@ Systematic: "JET_JMS_Rtrk_Stat1";"JET_JMS_Rtrk_Stat2";"JET_JMS_Rtrk_Stat3";"JET_
   HistoNameSufDown: "JET_JMS_Rtrk_Stat1__1down";"JET_JMS_Rtrk_Stat2__1down";"JET_JMS_Rtrk_Stat3__1down";"JET_JMS_Rtrk_Stat4__1down";"JET_JMS_Rtrk_Stat5__1down";"JET_JMS_Rtrk_Stat6__1down";"JET_JMS_Rtrk_Tracking__1down";"JET_JMS_Rtrk_Generator__1down";"JET_JMS_Rtrk_Generator_InterpolationDifference__1down";"JET_JMS_Rtrk_InterpolationDifference__1down";"JET_JMS_FF_LargerSample__1down";"JET_JMS_FF_MatrixElement__1down";"JET_JMS_FF_PartonShower__1down";"JET_JMS_FF_Shape__1down";"JET_JMS_FF_Stat__1down";"JET_JMS_FF_InterpolationDifference__1down";"JET_JMS_FF_AllOthers__1down";"JET_JMS_Topology_QCD__1down";
   Symmetrisation: TWOSIDED
   Category: "JMS"
+  SubCategory: "JMS"
   Smoothing: 40
 
 
@@ -676,6 +682,7 @@ Systematic: "MET_SoftTrk_Scale";
   HistoNameSufDown: "MET_SoftTrk_Scale__1down";
   Symmetrisation: TWOSIDED
   Category: "MET-scale"
+  SubCategory: "MET-scale"
   Smoothing: 40
 
 
@@ -687,6 +694,7 @@ Systematic: "MET_SoftTrk_ResoPara";"MET_SoftTrk_ResoPerp";
   HistoNameSufUp: "MET_SoftTrk_ResoPara";"MET_SoftTrk_ResoPerp";
   Symmetrisation: ONESIDED
   Category: "MET-res"
+  SubCategory: "MET-res"
   Smoothing: 40
 
 
@@ -699,6 +707,7 @@ Systematic: "EG_RESOLUTION_ALL";"EG_SCALE_ALL";"eChargeMisIDStatSF";"eChargeMisI
   HistoNameSufDown: "EG_RESOLUTION_ALL__1down";"EG_SCALE_ALL__1down";"eChargeMisIDStatSF__1down";"eChargeMisIDSystSF__1down";"eChargeSF__1down";"eIDSF__1down";"eIsolSF__1down";"eRecoSF__1down";"eTrigSF__1down";
   Symmetrisation: TWOSIDED
   Category: "EG"
+  SubCategory: "EG"
   Smoothing: 40
 
 
@@ -711,6 +720,7 @@ Systematic: "MUON_Sagitta";"MUON_SAGITTA_RHO";"MUON_Scale";"MUON_ID";"MUON_MS";"
   HistoNameSufDown: "MUON_SAGITTA_RESBIAS__1down";"MUON_SAGITTA_RHO__1down";"MUON_SCALE__1down";"MUON_ID__1down";"MUON_MS__1down";"muIDStatSF__1down";"muIDSystSF__1down";"muIsolStatSF__1down";"muIsolSystSF__1down";"muTrigStatSF__1down";"muTrigSystSF__1down";
   Symmetrisation: TWOSIDED
   Category: "MUON"
+  SubCategory: "MUON"
   Smoothing: 40
 
 
@@ -723,6 +733,7 @@ Systematic: "tt_muR";"tt_muF";"tt_ISR";"tt_FSR";
   HistoNameSufDown: "tt_muR__1down";"tt_muF__1down";"tt_ISR__1down";"tt_FSR__1down";
   Symmetrisation: TWOSIDED
   Category: "tt_gen"
+  SubCategory: "tt_gen"
   Smoothing: 40
   Decorrelate:  REGION
 
@@ -737,6 +748,7 @@ Systematic: "tt_pdf_1";"tt_pdf_2";"tt_pdf_3";"tt_pdf_4";"tt_pdf_5";"tt_pdf_6";"t
   HistoNameSufUp: "tt_pdf_1";"tt_pdf_2";"tt_pdf_3";"tt_pdf_4";"tt_pdf_5";"tt_pdf_6";"tt_pdf_7";"tt_pdf_8";"tt_pdf_9";"tt_pdf_10";"tt_pdf_11";"tt_pdf_12";"tt_pdf_13";"tt_pdf_14";"tt_pdf_15";"tt_pdf_16";"tt_pdf_17";"tt_pdf_18";"tt_pdf_19";"tt_pdf_20";"tt_pdf_21";"tt_pdf_22";"tt_pdf_23";"tt_pdf_24";"tt_pdf_25";"tt_pdf_26";"tt_pdf_27";"tt_pdf_28";"tt_pdf_29";"tt_pdf_30";
   Symmetrisation: ONESIDED
   Category: "tt_pdf"
+  SubCategory: "tt_pdf"
   Smoothing: 40
 
 
@@ -749,6 +761,7 @@ Systematic: "ttNNLOrec_toppt";"ttNNLOrec_ttmass";
   HistoNameSufDown: "ttNNLOrec_toppt__1down";"ttNNLOrec_ttmass__1down";
   Symmetrisation: TWOSIDED
   Category: "tt_NNLO"
+  SubCategory: "tt_NNLO"
   Smoothing: 40
 
 

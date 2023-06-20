@@ -13,7 +13,7 @@ Job: "ttRes1L"
   InputFolder: "HISTODIR/"
   SplitHistoFiles: TRUE
   DebugLevel: 1
-  SystControlPlots: FALSE
+  SystControlPlots: TRUE
   SystErrorBars: TRUE
   UseGammaPulls: TRUE
   RankingPlot: "all"

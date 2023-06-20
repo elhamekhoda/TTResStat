@@ -1,0 +1,556 @@
+Job: "ttRes1L"
+  AtlasLabel:            Internal
+  CmeLabel:              "13 TeV"
+  CorrelationThreshold:  0.20
+  DebugLevel:            1
+  HistoChecks:           NOCRASH
+  HistoPath:             "INPUTDIR/"
+  ImageFormat:           "pdf","png"
+  InputFolder:           "HISTODIR/"
+  Label:                 "t#bar{t} 1-lepton Search"
+  LegendNColumns:        1
+  LegendNColumnsMerge:   1
+  LegendNColumnsSummary: 1
+  LumiLabel:             "139 fb^{-1}"
+  OutputDir:             "OUTPUTDIR/"
+  POI:                   "mu_Zprime"
+  PlotOptions:           "NOSIG"
+  RankingMaxNP:          20
+  RankingPlot:           "all"
+  RatioYmax:             1.5
+  RatioYmin:             0.6
+  ReadFrom:              HIST
+  SmoothingOption:       COMMONTOOLSMOOTHPARABOLIC #MAXVARIATION #TTBARRESONANCE #COMMONTOOLSMOOTHPARABOLIC
+  SplitHistoFiles:       TRUE
+  StatOnly:              STATONLY
+  SystControlPlots:      TRUE
+  SystErrorBars:         TRUE
+  SystPruningNorm:       0.005
+  SystPruningShape:      0.005
+  UseGammaPulls:         TRUE
+
+Fit: "SPLUSB_CRSR_Asimov"
+  FitBlind:                  BLIND
+  FitRegion:                 CRSR
+  FitType:                   SPLUSB
+  GetGoodnessOfFit:          TRUE
+  POIAsimov:                 FIT_POIASIMOV
+  SetRandomInitialNPval:     0.01
+  SetRandomInitialNPvalSeed: SEED
+  UseMinos:                  mu_Zprime
+
+Limit: "tt1lep_limit"
+  LimitBlind:       BLIND
+  LimitType:        ASYMPTOTIC
+  OutputPrefixName: SIGNALNAMESIGNALMASS
+
+NormFactor: "mu_Zprime"
+  Max:     5
+  Min:     -5
+  Nominal: 0
+  Samples: "Zprime*","KKg*","Grav*"
+  Title:   "#mu(Z't#bar{t})"
+
+NormFactor: "ttNorm_boosted"
+  Max:     1.5
+  Min:     0.5
+  Nominal: 1
+  Regions: be1,be2,be3,bmu1,bmu2,bmu3
+  Samples: tt
+  Title:   "k_{b}(t#bar{t})"
+
+NormFactor: "WjetsNorm_boosted1"
+  Max:     1.5
+  Min:     0.5
+  Nominal: 1
+  Regions: be1,bmu1
+  Samples: wjets
+  Title:   "k_{b1}(W+jets)"
+
+NormFactor: "WjetsNorm_boosted2"
+  Max:     1.5
+  Min:     0.5
+  Nominal: 1
+  Regions: be2,bmu2
+  Samples: wjets
+  Title:   "k_{b2}(W+jets)"
+
+NormFactor: "WjetsNorm_boosted3"
+  Max:     1.5
+  Min:     0.5
+  Nominal: 1
+  Regions: be3,bmu3
+  Samples: wjets
+  Title:   "k_{b3}(W+jets)"
+
+NormFactor: "WjetsNorm_resolved1"
+  Max:     1.5
+  Min:     0.5
+  Nominal: 1
+  Regions: re1,rmu1
+  Samples: wjets
+  Title:   "k_{r1}(W+jets)"
+
+NormFactor: "WjetsNorm_resolved2"
+  Max:     1.5
+  Min:     0.5
+  Nominal: 1
+  Regions: re2,rmu2
+  Samples: wjets
+  Title:   "k_{r2}(W+jets)"
+
+NormFactor: "WjetsNorm_resolved3"
+  Max:     1.5
+  Min:     0.5
+  Nominal: 1
+  Regions: re3,rmu3
+  Samples: wjets
+  Title:   "k_{r3}(W+jets)"
+
+Region: "be1"
+  HistoName:     mtt_be1
+  HistoPathSuff: "be/"
+  Label:         "be1"
+  LogScale:      TRUE
+  Rebinning:     400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel:    "be1"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e8
+  Ymin:          1e-2
+
+Region: "be2"
+  HistoName:     mtt_be2
+  HistoPathSuff: "be/"
+  Label:         "be2"
+  LogScale:      TRUE
+  Rebinning:     400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel:    "be2"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e8
+  Ymin:          1e-2
+
+Region: "be3"
+  HistoName:     mtt_be3
+  HistoPathSuff: "be/"
+  Label:         "be3"
+  LogScale:      TRUE
+  Rebinning:     400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel:    "be3"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e8
+  Ymin:          1e-2
+
+Region: "bmu1"
+  HistoName:     mtt_bmu1
+  HistoPathSuff: "bmu/"
+  Label:         "bmu1"
+  LogScale:      TRUE
+  Rebinning:     400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel:    "bmu1"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e8
+  Ymin:          1e-2
+
+Region: "bmu2"
+  HistoName:     mtt_bmu2
+  HistoPathSuff: "bmu/"
+  Label:         "bmu2"
+  LogScale:      TRUE
+  Rebinning:     400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel:    "bmu2"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e8
+  Ymin:          1e-2
+
+Region: "bmu3"
+  HistoName:     mtt_bmu3
+  HistoPathSuff: "bmu/"
+  Label:         "bmu3"
+  LogScale:      TRUE
+  Rebinning:     400,500,600,700,800,920,1040,1160,1280,1400,1550,1700,1850,2000,2150,2500,3000,3500,4500,6000
+  ShortLabel:    "bmu3"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e8
+  Ymin:          1e-2
+
+Region: "re1"
+  Binning:       320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName:     mtt_re1
+  HistoPathSuff: "re/"
+  Label:         "re1"
+  LogScale:      TRUE
+  ShortLabel:    "re1"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e10
+  Ymin:          1e-2
+
+Region: "re2"
+  Binning:       320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName:     mtt_re2
+  HistoPathSuff: "re/"
+  Label:         "re2"
+  LogScale:      TRUE
+  ShortLabel:    "re2"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e10
+  Ymin:          1e-2
+
+Region: "re3"
+  Binning:       320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName:     mtt_re3
+  HistoPathSuff: "re/"
+  Label:         "re3"
+  LogScale:      TRUE
+  ShortLabel:    "re3"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e10
+  Ymin:          1e-2
+
+Region: "rmu1"
+  Binning:       320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName:     mtt_rmu1
+  HistoPathSuff: "rmu/"
+  Label:         "rmu1"
+  LogScale:      TRUE
+  ShortLabel:    "rmu1"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e10
+  Ymin:          1e-2
+
+Region: "rmu2"
+  Binning:       320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName:     mtt_rmu2
+  HistoPathSuff: "rmu/"
+  Label:         "rmu2"
+  LogScale:      TRUE
+  ShortLabel:    "rmu2"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e10
+  Ymin:          1e-2
+
+Region: "rmu3"
+  Binning:       320,400,480,560,640,720,800,920,1040,1160,1280,1400,1550,1700,2000,3000
+  HistoName:     mtt_rmu3
+  HistoPathSuff: "rmu/"
+  Label:         "rmu3"
+  LogScale:      TRUE
+  ShortLabel:    "rmu3"
+  Type:          SIGNAL
+  VariableTitle: "m_{t#bar{t}} [GeV]"
+  Ymax:          1e10
+  Ymin:          1e-2
+
+Sample: "ZprimeTC2_400";"ZprimeTC2_500";"ZprimeTC2_750";"ZprimeTC2_1000";"ZprimeTC2_1250";"ZprimeTC2_1500";"ZprimeTC2_1750";"ZprimeTC2_2000";"ZprimeTC2_2250";"ZprimeTC2_2500";"ZprimeTC2_2750";"ZprimeTC2_3000";"ZprimeTC2_4000";"ZprimeTC2_5000"
+  FillColor:          632
+  HistoFile:          "hist_zprime400"    ;"hist_zprime500"    ;"hist_zprime750"    ;"hist_zprime1000" ;"hist_zprime1000"    ;"hist_zprime1500"   ;"hist_zprime1750"    ;"hist_zprime2000" ;"hist_zprime2250"    ;"hist_zprime2500"   ;"hist_zprime2750"    ;"hist_zprime3000" ;"hist_zprime4000" ;"hist_zprime5000" 
+  LineColor:          632
+  NormalizedByTheory: TRUE
+  TexTitle:           "$Z'$ (400 GeV)"    ;"$Z'$ (500 GeV)"    ;"$Z'$ (750 GeV)"    ;"$Z'$ (1 TeV)"    ;"$Z'$ (1.25 TeV)"    ;"$Z'$ (1.5 TeV)"    ;"$Z'$ (1.75 TeV)"    ;"$Z'$ (2 TeV)"    ;"$Z'$ (2.25 TeV)"    ;"$Z'$ (2.5 TeV)"    ;"$Z'$ (2.75 TeV)"    ;"$Z'$ (3 TeV)"    ;"$Z'$ (4 TeV)"    ;"$Z'$ (5 TeV)"    
+  Title:              "Z'_{TC2} (400 GeV)";"Z'_{TC2} (500 GeV)";"Z'_{TC2} (750 GeV)";"Z'_{TC2} (1 TeV)";"Z'_{TC2} (1.25 TeV)";"Z'_{TC2} (1.5 TeV)";"Z'_{TC2} (1.75 TeV)";"Z'_{TC2} (2 TeV)";"Z'_{TC2} (2.25 TeV)";"Z'_{TC2} (2.5 TeV)";"Z'_{TC2} (2.75 TeV)";"Z'_{TC2} (3 TeV)";"Z'_{TC2} (4 TeV)";"Z'_{TC2} (5 TeV)"
+  Type:               SIGNAL
+
+Sample: "Grav_400";"Grav_500";"Grav_750";"Grav_1000";"Grav_2000";"Grav_3000"
+  FillColor:          632
+  HistoFile:          "hist_grav400"      ;"hist_grav500"      ;"hist_grav750"       ;"hist_grav1000"   ;"hist_grav2000"   ;"hist_grav3000"   
+  LineColor:          632
+  NormalizedByTheory: TRUE
+  TexTitle:           "$G_{KK}$ (0.4 TeV)";"$G_{KK}$ (0.5 TeV)";"$G_{KK}$ (0.75 TeV)";"$G_{KK}$ (1 TeV)";"$G_{KK}$ (2 TeV)";"$G_{KK}$ (3 TeV)"
+  Title:              "G_{KK} (0.4 TeV)"  ;"G_{KK} (0.5 TeV)"  ;"G_{KK} (0.75 TeV)"  ;"G_{KK} (1 TeV)"  ;"G_{KK} (2 TeV)"  ;"G_{KK} (3 TeV)"  
+  Type:               SIGNAL
+
+Sample: "KKg_500";"KKg_1000";"KKg_1500";"KKg_2000";"KKg_2500";"KKg_3000";"KKg_3500";"KKg_4000";"KKg_4500";"KKg_5000"
+  FillColor:          632
+  HistoFile:          "hist_gluon500"     ;"hist_gluon1000"  ;"hist_gluon1500"    ;"hist_gluon2000"  ;"hist_gluon2500"    ;"hist_gluon3000"  ;"hist_gluon3500"    ;"hist_gluon4000"  ;"hist_gluon4500"    ;"hist_gluon5000"  
+  LineColor:          632
+  NormalizedByTheory: TRUE
+  TexTitle:           "$g_{KK}$ (0.5 TeV)";"$g_{KK}$ (1 TeV)";"$g_{KK}$ (1.5 TeV)";"$g_{KK}$ (2 TeV)";"$g_{KK}$ (2.5 TeV)";"$g_{KK}$ (3 TeV)";"$g_{KK}$ (3.5 TeV)";"$g_{KK}$ (4 TeV)";"$g_{KK}$ (4.5 TeV)";"$g_{KK}$ (5 TeV)"
+  Title:              "g_{KK} (0.5 TeV)"  ;"g_{KK} (1 TeV)"  ;"g_{KK} (1.5 TeV)"  ;"g_{KK} (2 TeV)"  ;"g_{KK} (2.5 TeV)"  ;"g_{KK} (3 TeV)"  ;"g_{KK} (3.5 TeV)"  ;"g_{KK} (4 TeV)"  ;"g_{KK} (4.5 TeV)"  ;"g_{KK} (5 TeV)"  
+  Type:               SIGNAL
+
+Systematic: "Lumi"
+  Category:    Instrumental
+  OverallDown: -0.017
+  OverallUp:   0.017
+  Samples:     "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
+  Title:       "Luminosity"
+  Type:        OVERALL
+
+Systematic: "pileup"
+  Category:         Instrumental
+  HistoNameSufDown: "pileupSF__1down"
+  HistoNameSufUp:   "pileupSF__1up"
+  Samples:          "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
+  Symmetrisation:   TWOSIDED
+  Title:            "pileup modeling"
+  Type:             HISTO
+
+Systematic: "jvt"
+  Category:         Instrumental
+  HistoNameSufDown: "jvtSF__1down"
+  HistoNameSufUp:   "jvtSF__1up"
+  Samples:          "Zprime*","KKg*","Grav*","tt","singletop","diboson","wjets","zjets"
+  Symmetrisation:   TWOSIDED
+  Title:            "JVT"
+  Type:             HISTO
+
+Systematic: "tt_Xsec"
+  Category:    "Modelling"
+  OverallDown: -0.1
+  OverallUp:   0.1
+  Regions:     re1,re2,re3,rmu1,rmu2,rmu3
+  Samples:     tt
+  Title:       "#it{t#bar{t}} XS"
+  Type:        OVERALL
+
+Systematic: "qcd"
+  Category:    Instrumental
+  OverallDown: -0.30
+  OverallUp:   0.30
+  Samples:     qcd
+  Title:       "QCD"
+  Type:        OVERALL
+
+Systematic: "ttbar_hsShape"
+  Category:        "Modelling"
+  Decorrelate:     REGION
+  DropNorm:        "all"
+  ReferenceSample: "tt_af2"
+  SampleUp:        "tt_hs"
+  Samples:         "tt"
+  Smoothing:       40
+  SubCategory:     "Parton shower"
+  Symmetrisation:  ONESIDED
+  Title:           "#it{t#bar{t}} HS (shape)"
+  Type:            HISTO
+
+Systematic: "ttbar_hsAcc"
+  Category:        "Modelling"
+  Decorrelate:     REGION
+  DropShapeIn:     "all"
+  ReferenceSample: "tt_af2"
+  SampleUp:        "tt_hs"
+  Samples:         "tt"
+  Smoothing:       40
+  SubCategory:     "Parton shower"
+  Symmetrisation:  ONESIDED
+  Title:           "#it{t#bar{t}} HS (acc.)"
+  Type:            HISTO
+
+Systematic: "ttbar_hadShape"
+  Category:        "Modelling"
+  Decorrelate:     REGION
+  DropNorm:        "all"
+  ReferenceSample: "tt_af2"
+  SampleUp:        "tt_had"
+  Samples:         "tt"
+  Smoothing:       40
+  SubCategory:     "Parton shower"
+  Symmetrisation:  ONESIDED
+  Title:           "#it{t#bar{t}} Had (shape)"
+  Type:            HISTO
+
+Systematic: "ttbar_hadAcc"
+  Category:        "Modelling"
+  Decorrelate:     REGION
+  DropShapeIn:     "all"
+  ReferenceSample: "tt_af2"
+  SampleUp:        "tt_had"
+  Samples:         "tt"
+  Smoothing:       40
+  SubCategory:     "Parton shower"
+  Symmetrisation:  ONESIDED
+  Title:           "#it{t#bar{t}} Had (acc.)"
+  Type:            HISTO
+
+Systematic: "ttbar_hdampShape"
+  Category:        "Modelling"
+  Decorrelate:     REGION
+  DropNorm:        "all"
+  ReferenceSample: "tt_af2"
+  SampleUp:        "tt_hdamp"
+  Samples:         "tt"
+  Smoothing:       40
+  SubCategory:     "ISR hdamp"
+  Symmetrisation:  ONESIDED
+  Title:           "#it{t#bar{t}} hdamp (shape)"
+  Type:            HISTO
+
+Systematic: "ttbar_hdampAcc"
+  Category:        "Modelling"
+  Decorrelate:     REGION
+  DropShapeIn:     "all"
+  ReferenceSample: "tt_af2"
+  SampleUp:        "tt_hdamp"
+  Samples:         "tt"
+  Smoothing:       40
+  SubCategory:     "ISR hdamp"
+  Symmetrisation:  ONESIDED
+  Title:           "#it{t#bar{t}} hdamp (acc.)"
+  Type:            HISTO
+
+Systematic: "btag_b_0";"btag_b_1";"btag_b_2";"btag_b_3";"btag_b_4";"btag_b_5";"btag_b_6";"btag_b_7";"btag_b_8";"btag_c_0";"btag_c_1";"btag_c_2";"btag_c_3";"btag_extrap";"btag_extrap_c";"btag_light_0";"btag_light_1";"btag_light_2";"btag_light_3"
+  Category:         "b-tag"
+  HistoNameSufDown: "btagbSF_0__1down";"btagbSF_1__1down";"btagbSF_2__1down";"btagbSF_3__1down";"btagbSF_4__1down";"btagbSF_5__1down";"btagbSF_6__1down";"btagbSF_7__1down";"btagbSF_8__1down";"btagcSF_0__1down";"btagcSF_1__1down";"btagcSF_2__1down";"btagcSF_3__1down";"btageSF_0__1down";"btageSF_1__1down";"btaglSF_0__1down" ;"btaglSF_1__1down" ;"btaglSF_2__1down" ;"btaglSF_3__1down" 
+  HistoNameSufUp:   "btagbSF_0__1up"  ;"btagbSF_1__1up"  ;"btagbSF_2__1up"  ;"btagbSF_3__1up"  ;"btagbSF_4__1up"  ;"btagbSF_5__1up"  ;"btagbSF_6__1up"  ;"btagbSF_7__1up"  ;"btagbSF_8__1up"  ;"btagcSF_0__1up"  ;"btagcSF_1__1up"  ;"btagcSF_2__1up"  ;"btagcSF_3__1up"  ;"btageSF_0__1up"  ;"btageSF_1__1up"  ;"btaglSF_0__1up"   ;"btaglSF_1__1up"   ;"btaglSF_2__1up"   ;"btaglSF_3__1up"   
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "b-tag"
+  Symmetrisation:   TWOSIDED
+  Title:            "b-tag (E0)"      ;"b-tag (E1)"      ;"b-tag (E2)"      ;"b-tag (E3)"      ;"b-tag (E4)"      ;"b-tag (E5)"      ;"b-tag (E6)"      ;"b-tag (E7)"      ;"b-tag (E8)"      ;"c-mistag (E0)"   ;"c-mistag (E1)"   ;"c-mistag (E2)"   ;"c-mistag (E3)"   ;"b-tag extrap."   ;"c-mistag extrap.";"light-mistag (E0)";"light-mistag (E1)";"light-mistag (E2)";"light-mistag (E3)"
+  Type:             HISTO
+
+Systematic: "toptagSF_0";"toptagSF_1";"toptagSF_2";"toptagSF_3";"toptagSF_4";"toptagSF_5";"toptagSF_6";"toptagSF_7";"toptagSF_8";"toptagSF_9";"toptagSF_10";"toptagSF_11";"toptagSF_13";"toptagSF_14";"toptagSF_15";"toptagSF_16";"toptagSF_17"
+  Category:         "top-tag"
+  HistoNameSufDown: "toptagSF_0__1down"        ;"toptagSF_1__1down"              ;"toptagSF_2__1down"                 ;"toptagSF_3__1down"               ;"toptagSF_4__1down"                 ;"toptagSF_5__1down"    ;"toptagSF_6__1down"          ;"toptagSF_7__1down"   ;"toptagSF_8__1down"           ;"toptagSF_9__1down"              ;"toptagSF_10__1down"   ;"toptagSF_11__1down"   ;"toptagSF_13__1down"   ;"toptagSF_14__1down"    ;"toptagSF_15__1down";"toptagSF_16__1down"    ;"toptagSF_17__1down"    
+  HistoNameSufUp:   "toptagSF_0__1up"          ;"toptagSF_1__1up"                ;"toptagSF_2__1up"                   ;"toptagSF_3__1up"                 ;"toptagSF_4__1up"                   ;"toptagSF_5__1up"      ;"toptagSF_6__1up"            ;"toptagSF_7__1up"     ;"toptagSF_8__1up"             ;"toptagSF_9__1up"                ;"toptagSF_10__1up"     ;"toptagSF_11__1up"     ;"toptagSF_13__1up"     ;"toptagSF_14__1up"      ;"toptagSF_15__1up"  ;"toptagSF_16__1up"      ;"toptagSF_17__1up"      
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "top-tag"
+  Symmetrisation:   TWOSIDED
+  Title:            "top-tag (Dijet modelling)";"top-tag (#gamma+jets modelling)";"top-tag (t#bar{t} modelling, had.)";"top-tag (t#bar{t} modelling, ME)";"top-tag (t#bar{t} modelling, rad.)";"top-tag (Dijet Stat.)";"top-tag (#gamma+jets stat.)";"top-tag (BGSF Prop.)";"top-tag (SigSF BinVariation)";"top-tag (high-p_{T} ext.  had.)";"top-tag (SigSF prop.)";"top-tag (SigSF stat.)";"top-tag (GlobalOther)";"top-tag (GlobalSignal)";"top-tag (bTag, B0)";"top-tag (bTag, Light0)";"top-tag (bTag, Light1)"
+  Type:             HISTO
+
+Systematic: "JES_EffectiveNP_Modelling1";"JES_EffectiveNP_Modelling2";"JES_EffectiveNP_Modelling3";"JES_EffectiveNP_Modelling4";"JES_EffectiveNP_Mixed1";"JES_EffectiveNP_Mixed2";"JES_EffectiveNP_Mixed3";"JES_EffectiveNP_Detector1";"JES_EffectiveNP_Detector2";"JES_EffectiveNP_Statistical1";"JES_EffectiveNP_Statistical2";"JES_EffectiveNP_Statistical3";"JES_EffectiveNP_Statistical4";"JES_EffectiveNP_Statistical5";"JES_EffectiveNP_Statistical6";"JES_Pileup_OffsetMu";"JES_Pileup_OffsetNPV";"JES_Pileup_PtTerm";"JES_Pileup_RhoTopology";"JES_Flavor_Comp";"JES_Flavor_Resp";"JES_BJES_Resp";"JES_MC16";"JES_SinglePart";"JES_EtaModelling";"JES_EtatotStat";"JES_EtaNonClos_highE";"JES_EtaNonClos_posEta";"JES_EtaNonClos_negEta";"JES_EtaNonClos_2018data";"JET_EffectiveNP_R10_Modelling1";"JET_EffectiveNP_R10_Modelling2";"JET_EffectiveNP_R10_Modelling3";"JET_EffectiveNP_R10_Modelling4";"JET_EffectiveNP_R10_Mixed1";"JET_EffectiveNP_R10_Mixed2";"JET_EffectiveNP_R10_Mixed3";"JET_EffectiveNP_R10_Mixed4";"JET_EffectiveNP_R10_Statistical1";"JET_EffectiveNP_R10_Statistical2";"JET_EffectiveNP_R10_Statistical3";"JET_EffectiveNP_R10_Statistical4";"JET_EffectiveNP_R10_Statistical5";"JET_EffectiveNP_R10_Statistical6";"JET_EffectiveNP_R10_Detector1";"JET_EffectiveNP_R10_Detector2";"JET_EtaIntercalibration_R10_TotalStat";"JET_LargeR_TopologyUncertainty_top";"JET_LargeR_TopologyUncertainty_V"
+  Category:         "JES"
+  HistoNameSufDown: "JET_EffectiveNP_Modelling1__1down";"JET_EffectiveNP_Modelling2__1down";"JET_EffectiveNP_Modelling3__1down";"JET_EffectiveNP_Modelling4__1down";"JET_EffectiveNP_Mixed1__1down";"JET_EffectiveNP_Mixed2__1down";"JET_EffectiveNP_Mixed3__1down";"JET_EffectiveNP_Detector1__1down";"JET_EffectiveNP_Detector2__1down";"JET_EffectiveNP_Statistical1__1down";"JET_EffectiveNP_Statistical2__1down";"JET_EffectiveNP_Statistical3__1down";"JET_EffectiveNP_Statistical4__1down";"JET_EffectiveNP_Statistical5__1down";"JET_EffectiveNP_Statistical6__1down";"JET_Pileup_OffsetMu__1down";"JET_Pileup_OffsetNPV__1down";"JET_Pileup_PtTerm__1down";"JET_Pileup_RhoTopology__1down";"JET_Flavor_Composition__1down";"JET_Flavor_Response__1down";"JET_BJES_Response__1down";"JET_PunchThrough_MC16__1down";"JET_SingleParticle_HighPt__1down";"JET_EtaIntercalibration_Modelling__1down";"JET_EtaIntercalibration_TotalStat__1down";"JET_EtaIntercalibration_NonClosure_highE__1down";"JET_EtaIntercalibration_NonClosure_posEta__1down";"JET_EtaIntercalibration_NonClosure_negEta__1down";"JET_EtaIntercalibration_NonClosure_2018data__1down";"JET_EffectiveNP_R10_Modelling1__1down";"JET_EffectiveNP_R10_Modelling2__1down";"JET_EffectiveNP_R10_Modelling3__1down";"JET_EffectiveNP_R10_Modelling4__1down";"JET_EffectiveNP_R10_Mixed1__1down";"JET_EffectiveNP_R10_Mixed2__1down";"JET_EffectiveNP_R10_Mixed3__1down";"JET_EffectiveNP_R10_Mixed4__1down";"JET_EffectiveNP_R10_Statistical1__1down";"JET_EffectiveNP_R10_Statistical2__1down";"JET_EffectiveNP_R10_Statistical3__1down";"JET_EffectiveNP_R10_Statistical4__1down";"JET_EffectiveNP_R10_Statistical5__1down";"JET_EffectiveNP_R10_Statistical6__1down";"JET_EffectiveNP_R10_Detector1__1down";"JET_EffectiveNP_R10_Detector2__1down";"JET_EtaIntercalibration_R10_TotalStat__1down";"JET_LargeR_TopologyUncertainty_top__1down";"JET_LargeR_TopologyUncertainty_V__1down"
+  HistoNameSufUp:   "JET_EffectiveNP_Modelling1__1up"  ;"JET_EffectiveNP_Modelling2__1up"  ;"JET_EffectiveNP_Modelling3__1up"  ;"JET_EffectiveNP_Modelling4__1up"  ;"JET_EffectiveNP_Mixed1__1up"  ;"JET_EffectiveNP_Mixed2__1up"  ;"JET_EffectiveNP_Mixed3__1up"  ;"JET_EffectiveNP_Detector1__1up"  ;"JET_EffectiveNP_Detector2__1up"  ;"JET_EffectiveNP_Statistical1__1up"  ;"JET_EffectiveNP_Statistical2__1up"  ;"JET_EffectiveNP_Statistical3__1up"  ;"JET_EffectiveNP_Statistical4__1up"  ;"JET_EffectiveNP_Statistical5__1up"  ;"JET_EffectiveNP_Statistical6__1up"  ;"JET_Pileup_OffsetMu__1up"  ;"JET_Pileup_OffsetNPV__1up"  ;"JET_Pileup_PtTerm__1up"  ;"JET_Pileup_RhoTopology__1up"  ;"JET_Flavor_Composition__1up"  ;"JET_Flavor_Response__1up"  ;"JET_BJES_Response__1up"  ;"JET_PunchThrough_MC16__1up"  ;"JET_SingleParticle_HighPt__1up"  ;"JET_EtaIntercalibration_Modelling__1up"  ;"JET_EtaIntercalibration_TotalStat__1up"  ;"JET_EtaIntercalibration_NonClosure_highE__1up"  ;"JET_EtaIntercalibration_NonClosure_posEta__1up"  ;"JET_EtaIntercalibration_NonClosure_negEta__1up"  ;"JET_EtaIntercalibration_NonClosure_2018data__1up"  ;"JET_EffectiveNP_R10_Modelling1__1up"  ;"JET_EffectiveNP_R10_Modelling2__1up"  ;"JET_EffectiveNP_R10_Modelling3__1up"  ;"JET_EffectiveNP_R10_Modelling4__1up"  ;"JET_EffectiveNP_R10_Mixed1__1up"  ;"JET_EffectiveNP_R10_Mixed2__1up"  ;"JET_EffectiveNP_R10_Mixed3__1up"  ;"JET_EffectiveNP_R10_Mixed4__1up"  ;"JET_EffectiveNP_R10_Statistical1__1up"  ;"JET_EffectiveNP_R10_Statistical2__1up"  ;"JET_EffectiveNP_R10_Statistical3__1up"  ;"JET_EffectiveNP_R10_Statistical4__1up"  ;"JET_EffectiveNP_R10_Statistical5__1up"  ;"JET_EffectiveNP_R10_Statistical6__1up"  ;"JET_EffectiveNP_R10_Detector1__1up"  ;"JET_EffectiveNP_R10_Detector2__1up"  ;"JET_EtaIntercalibration_R10_TotalStat__1up"  ;"JET_LargeR_TopologyUncertainty_top__1up"  ;"JET_LargeR_TopologyUncertainty_V__1up"  
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "JES"
+  Symmetrisation:   TWOSIDED
+  Title:            "AKT4 JES Modelling1"              ;"AKT4 JES Modelling2"              ;"AKT4 JES Modelling3"              ;"AKT4 JES Modelling4"              ;"AKT4 JES Mixed1"              ;"AKT4 JES Mixed2"              ;"AKT4 JES Mixed3"              ;"AKT4 JES det1"                   ;"AKT4 JES det2"                   ;"AKT4 JES stat1"                     ;"AKT4 JES stat2"                     ;"AKT4 JES stat3"                     ;"AKT4 JES stat4"                     ;"AKT4 JES stat5"                     ;"AKT4 JES stat6"                     ;"AKT4 JES pileup offset mu" ;"AKT4 JES pileup offset NPV" ;"AKT4 JES pileup pT term" ;"AKT4 JES pileup RhoTopo"      ;"AKT4 JES flav comp."          ;"AKT4 JES flav resp."       ;"AKT4 b-JES"              ;"AKT4 PunchThrough"           ;"AKT4 single part."               ;"AKT4 #eta-int. Modeling"                 ;"AKT4 JES #eta-int. TotalStat"            ;"AKT4 JES #eta-int. highE"                       ;"AKT4 JES #eta-int. posEta"                       ;"AKT4 JES #eta-int. negEta"                       ;"AKT4 JES #eta-int. 2018data"                       ;"AKT10 JES Modelling1"                 ;"AKT10 JES Modelling2"                 ;"AKT10 JES Modelling3"                 ;"AKT10 JES Modelling4"                 ;"AKT10 JES Mixed1"                 ;"AKT10 JES Mixed2"                 ;"AKT10 JES Mixed3"                 ;"AKT10 JES Mixed4"                 ;"AKT10 JES stat1"                        ;"AKT10 JES stat2"                        ;"AKT10 JES stat3"                        ;"AKT10 JES stat4"                        ;"AKT10 JES stat5"                        ;"AKT10 JES stat6"                        ;"AKT10 JES det1"                      ;"AKT10 JES det2"                      ;"AKT10 JES #eta-int stat"                     ;"AKT10 JES #eta-int top"                   ;"AKT10 JES #eta-int V"                   
+  Type:             HISTO
+
+Systematic: "COMB_MCData_JMR";"COMB_MCME_JMR";"COMB_MCPS_JMR";"COMB_MCRAD_JMR";"COMB_MCSmallJET_JMR";"COMB_MCLargeR_JMR";"COMB_Stat_JMR";"COMB_SHAPE_JMR";"COMB_Smoothing_JMR";"COMB_Flat20Smoothed_JMR";"COMB_OutsideCalib_JMR"
+  Category:         "JMR"
+  HistoNameSufDown: "COMB_MCData_JMR__1down";"COMB_MCME_JMR__1down";"COMB_MCPS_JMR__1down";"COMB_MCRAD_JMR__1down";"COMB_MCSmallJET_JMR__1down";"COMB_MCLargeR_JMR__1down";"COMB_Stat_JMR__1down";"COMB_SHAPE_JMR__1down";"COMB_Smoothing_JMR__1down";"COMB_Flat20Smoothed_JMR__1down";"COMB_OutsideCalib_JMR__1down"
+  HistoNameSufUp:   "COMB_MCData_JMR__1up"  ;"COMB_MCME_JMR__1up"  ;"COMB_MCPS_JMR__1up"  ;"COMB_MCRAD_JMR__1up"  ;"COMB_MCSmallJET_JMR__1up"  ;"COMB_MCLargeR_JMR__1up"  ;"COMB_Stat_JMR__1up"  ;"COMB_SHAPE_JMR__1up"  ;"COMB_Smoothing_JMR__1up"  ;"COMB_Flat20Smoothed_JMR__1up"  ;"COMB_OutsideCalib_JMR__1up"  
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "JMR"
+  Symmetrisation:   TWOSIDED
+  Title:            "JMR COMB MCData"       ;"JMR COMB MCME"       ;"JMR COMB MCPS"       ;"JMR COMB MCRAD"       ;"JMR COMB MCSmall jet"      ;"JMR COMB MCLargeR jet"   ;"JMR COMB Stat"       ;"JMR COMB shape"       ;"JMR COMB smoothing"       ;"JMR COMB Flat20smoothed"       ;"JMR COMB outsideCalib"       
+  Type:             HISTO
+
+Systematic: "JER_EffectiveNP1";"JER_EffectiveNP2";"JER_EffectiveNP3";"JER_EffectiveNP4";"JER_EffectiveNP5";"JER_EffectiveNP6";"JER_EffectiveNP7";"JER_EffectiveNP8";"JER_EffectiveNP9";"JER_EffectiveNP10";"JER_EffectiveNP11";"JER_EffectiveNP_12restTerm";"JET_JER_DataVsMC_R10_MC16";"JET_JER_dijet_R10_closure";"JET_JER_dijet_R10_selection";"JET_JER_dijet_R10_jesEffNP1";"JET_JER_dijet_R10_jesEffNP3";"JET_JER_dijet_R10_jesEffNP4";"JET_JER_dijet_R10_jesEtaIntMod";"JET_JER_dijet_R10_jesFlavComp";"JET_JER_dijet_R10_jesFlavResp";"JET_JER_dijet_R10_mcgenerator";"JET_JER_dijet_R10_stat";"JET_JER_AllOthers"
+  Category:         "JER"
+  HistoNameSufDown: "JET_JER_EffectiveNP_1__1down";"JET_JER_EffectiveNP_2__1down";"JET_JER_EffectiveNP_3__1down";"JET_JER_EffectiveNP_4__1down";"JET_JER_EffectiveNP_5__1down";"JET_JER_EffectiveNP_6__1down";"JET_JER_EffectiveNP_7__1down";"JET_JER_EffectiveNP_8__1down";"JET_JER_EffectiveNP_9__1down";"JET_JER_EffectiveNP_10__1down";"JET_JER_EffectiveNP_11__1down";"JET_JER_EffectiveNP_12restTerm__1down";"JET_JER_DataVsMC_R10_MC16__1down";"JET_JER_dijet_R10_closure__1down";"JET_JER_dijet_R10_selection__1down";"JET_JER_dijet_R10_jesEffNP1__1down";"JET_JER_dijet_R10_jesEffNP3__1down";"JET_JER_dijet_R10_jesEffNP4__1down";"JET_JER_dijet_R10_jesEtaIntMod__1down";"JET_JER_dijet_R10_jesFlavComp__1down";"JET_JER_dijet_R10_jesFlavResp__1down";"JET_JER_dijet_R10_mcgenerator__1down";"JET_JER_dijet_R10_stat__1down";"JET_JER_AllOthers__1down"
+  HistoNameSufUp:   "JET_JER_EffectiveNP_1__1up"  ;"JET_JER_EffectiveNP_2__1up"  ;"JET_JER_EffectiveNP_3__1up"  ;"JET_JER_EffectiveNP_4__1up"  ;"JET_JER_EffectiveNP_5__1up"  ;"JET_JER_EffectiveNP_6__1up"  ;"JET_JER_EffectiveNP_7__1up"  ;"JET_JER_EffectiveNP_8__1up"  ;"JET_JER_EffectiveNP_9__1up"  ;"JET_JER_EffectiveNP_10__1up"  ;"JET_JER_EffectiveNP_11__1up"  ;"JET_JER_EffectiveNP_12restTerm__1up"  ;"JET_JER_DataVsMC_R10_MC16__1up"  ;"JET_JER_dijet_R10_closure__1up"  ;"JET_JER_dijet_R10_selection__1up"  ;"JET_JER_dijet_R10_jesEffNP1__1up"  ;"JET_JER_dijet_R10_jesEffNP3__1up"  ;"JET_JER_dijet_R10_jesEffNP4__1up"  ;"JET_JER_dijet_R10_jesEtaIntMod__1up"  ;"JET_JER_dijet_R10_jesFlavComp__1up"  ;"JET_JER_dijet_R10_jesFlavResp__1up"  ;"JET_JER_dijet_R10_mcgenerator__1up"  ;"JET_JER_dijet_R10_stat__1up"  ;"JET_JER_AllOthers__1up"  
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "JER"
+  Symmetrisation:   TWOSIDED
+  Title:            "AKT4 JER NP1"                ;"AKT4 JER NP2"                ;"AKT4 JER NP3"                ;"AKT4 JER NP4"                ;"AKT4 JER NP5"                ;"AKT4 JER NP6"                ;"AKT4 JER NP7"                ;"AKT4 JER NP8"                ;"AKT4 JER NP9"                ;"AKT4 JER NP10"                ;"AKT4 JER NP11"                ;"AKT4 JER NP12"                        ;"AKT10 JER DataVsMC"              ;"AKT10 JER closure"               ;"AKT10 JER evnt sel"                ;"AKT10 JER NP1"                     ;"AKT10 JER NP3"                     ;"AKT10 JER NP4"                     ;"AKT10 JER #eta-int. Modeling"         ;"AKT10 JER flav comp."                ;"AKT10 JER flav resp."                ;"AKT10 JER MC-gen"                    ;"AKT10 JER NP stat"            ;"AKT10 JER Allother"      
+  Type:             HISTO
+
+Systematic: "JET_JMS_Rtrk_Stat1";"JET_JMS_Rtrk_Stat2";"JET_JMS_Rtrk_Stat3";"JET_JMS_Rtrk_Stat4";"JET_JMS_Rtrk_Stat5";"JET_JMS_Rtrk_Stat6";"JET_JMS_Rtrk_Tracking";"JET_JMS_Rtrk_Generator";"JET_JMS_Rtrk_Generator_InterpolationDifference";"JET_JMS_Rtrk_InterpolationDifference";"JET_JMS_FF_LargerSample";"JET_JMS_FF_MatrixElement";"JET_JMS_FF_PartonShower";"JET_JMS_FF_Shape";"JET_JMS_FF_Stat";"JET_JMS_FF_InterpolationDifference";"JET_JMS_FF_AllOthers";"JET_JMS_Topology_QCD"
+  Category:         "JMS"
+  HistoNameSufDown: "JET_JMS_Rtrk_Stat1__1down";"JET_JMS_Rtrk_Stat2__1down";"JET_JMS_Rtrk_Stat3__1down";"JET_JMS_Rtrk_Stat4__1down";"JET_JMS_Rtrk_Stat5__1down";"JET_JMS_Rtrk_Stat6__1down";"JET_JMS_Rtrk_Tracking__1down";"JET_JMS_Rtrk_Generator__1down";"JET_JMS_Rtrk_Generator_InterpolationDifference__1down";"JET_JMS_Rtrk_InterpolationDifference__1down";"JET_JMS_FF_LargerSample__1down";"JET_JMS_FF_MatrixElement__1down";"JET_JMS_FF_PartonShower__1down";"JET_JMS_FF_Shape__1down";"JET_JMS_FF_Stat__1down";"JET_JMS_FF_InterpolationDifference__1down";"JET_JMS_FF_AllOthers__1down";"JET_JMS_Topology_QCD__1down"
+  HistoNameSufUp:   "JET_JMS_Rtrk_Stat1__1up"  ;"JET_JMS_Rtrk_Stat2__1up"  ;"JET_JMS_Rtrk_Stat3__1up"  ;"JET_JMS_Rtrk_Stat4__1up"  ;"JET_JMS_Rtrk_Stat5__1up"  ;"JET_JMS_Rtrk_Stat6__1up"  ;"JET_JMS_Rtrk_Tracking__1up"  ;"JET_JMS_Rtrk_Generator__1up"  ;"JET_JMS_Rtrk_Generator_InterpolationDifference__1up"  ;"JET_JMS_Rtrk_InterpolationDifference__1up"  ;"JET_JMS_FF_LargerSample__1up"  ;"JET_JMS_FF_MatrixElement__1up"  ;"JET_JMS_FF_PartonShower__1up"  ;"JET_JMS_FF_Shape__1up"  ;"JET_JMS_FF_Stat__1up"  ;"JET_JMS_FF_InterpolationDifference__1up"  ;"JET_JMS_FF_AllOthers__1up"  ;"JET_JMS_Topology_QCD__1up"  
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "JMS"
+  Symmetrisation:   TWOSIDED
+  Title:            "AKT10 JMS R_{trk} stat1"  ;"AKT10 JMS R_{trk} stat2"  ;"AKT10 JMS R_{trk} stat3"  ;"AKT10 JMS R_{trk} stat4"  ;"AKT10 JMS R_{trk} stat5"  ;"AKT10 JMS R_{trk} stat6"  ;"AKT10 JMS R_{trk} tracking"  ;"AKT10 JMS R_{trk} gen."       ;"AKT10 JMS R_{trk} gen. int."                          ;"AKT10 JMS R_{trk} int."                     ;"AKT10 JMS FF_LargerSample"     ;"AKT10 JMS FF ME"                ;"AKT10 JMS FF PS"               ;"AKT10 JMS FF shape"     ;"AKT10 JMS FF stat"     ;"AKT10 JMS FF int."                        ;"AKT10 JMS FF AllOthers"     ;"AKT10 JMS topo QCD"         
+  Type:             HISTO
+
+Systematic: "MET_SoftTrk_Scale"
+  Category:         "MET-scale"
+  HistoNameSufDown: "MET_SoftTrk_Scale__1down"
+  HistoNameSufUp:   "MET_SoftTrk_Scale__1up"
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "MET-scale"
+  Symmetrisation:   TWOSIDED
+  Title:            "E_{T}^{miss} soft track scale"
+  Type:             HISTO
+
+Systematic: "MET_SoftTrk_ResoPara";"MET_SoftTrk_ResoPerp"
+  Category:       "MET-res"
+  HistoNameSufUp: "MET_SoftTrk_ResoPara"                      ;"MET_SoftTrk_ResoPerp"                      
+  Regions:        be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:        Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:      40
+  SubCategory:    "MET-res"
+  Symmetrisation: ONESIDED
+  Title:          "E_{T}^{miss} soft track resolution (para.)";"E_{T}^{miss} soft track resolution (perp.)"
+  Type:           HISTO
+
+Systematic: "EG_RESOLUTION_ALL";"EG_SCALE_ALL";"eChargeMisIDStatSF";"eChargeMisIDSystSF";"eChargeSF";"leptonSF_EL_SF_ID";"leptonSF_EL_SF_Isol";"leptonSF_EL_SF_Reco";"leptonSF_EL_SF_Trigger"
+  Category:         "EG"
+  HistoNameSufDown: "EG_RESOLUTION_ALL__1down";"EG_SCALE_ALL__1down";"eChargeMisIDStatSF__1down";"eChargeMisIDSystSF__1down";"eChargeSF__1down";"eIDSF__1down";"eIsolSF__1down";"eRecoSF__1down";"eTrigSF__1down"
+  HistoNameSufUp:   "EG_RESOLUTION_ALL__1up"  ;"EG_SCALE_ALL__1up"  ;"eChargeMisIDStatSF__1up"  ;"eChargeMisIDSystSF__1up"  ;"eChargeSF__1up"  ;"eIDSF__1up"  ;"eIsolSF__1up"  ;"eRecoSF__1up"  ;"eTrigSF__1up"  
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "EG"
+  Symmetrisation:   TWOSIDED
+  Title:            "EL res"                  ;"EL scale"           ;"EL ChargeMisIDStatSF"     ;"EL ChargeMisIDSystSF"     ;"EL ChargeSF"     ;"EL IDSF"     ;"EL IsoSF"      ;"EL RecoSF"     ;"EL TrigSF"     
+  Type:             HISTO
+
+Systematic: "MUON_Sagitta";"MUON_SAGITTA_RHO";"MUON_Scale";"MUON_ID";"MUON_MS";"leptonSF_MU_SF_ID_STAT";"leptonSF_MU_SF_ID_SYST";"leptonSF_MU_SF_Isol_STAT";"leptonSF_MU_SF_Isol_SYST";"leptonSF_MU_SF_Trigger_STAT";"leptonSF_MU_SF_Trigger_SYST"
+  Category:         "MUON"
+  HistoNameSufDown: "MUON_SAGITTA_RESBIAS__1down";"MUON_SAGITTA_RHO__1down";"MUON_SCALE__1down";"MUON_ID__1down";"MUON_MS__1down";"muIDStatSF__1down";"muIDSystSF__1down";"muIsolStatSF__1down";"muIsolSystSF__1down";"muTrigStatSF__1down";"muTrigSystSF__1down"
+  HistoNameSufUp:   "MUON_SAGITTA_RESBIAS__1up"  ;"MUON_SAGITTA_RHO__1up"  ;"MUON_SCALE__1up"  ;"MUON_ID__1up"  ;"MUON_MS__1up"  ;"muIDStatSF__1up"  ;"muIDSystSF__1up"  ;"muIsolStatSF__1up"  ;"muIsolSystSF__1up"  ;"muTrigStatSF__1up"  ;"muTrigSystSF__1up"  
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          Zprime*,KKg*,Grav*,tt,singletop,diboson,wjets,zjets
+  Smoothing:        40
+  SubCategory:      "MUON"
+  Symmetrisation:   TWOSIDED
+  Title:            "Muon sagitta resbias"       ;"Muon sagitta rho"       ;"Muon scale"       ;"Muon ID"       ;"Muon MS"       ;"Muon IDStatSF"    ;"Muon IDSystSF"    ;"Muon IsolStatSF"    ;"Muon IsolSystSF"    ;"Muon TrigStatSF"    ;"Muon TrigSystSF"    
+  Type:             HISTO
+
+Systematic: "tt_muR";"tt_muF";"tt_ISR";"tt_FSR"
+  Category:         "tt_gen"
+  Decorrelate:      REGION
+  HistoNameSufDown: "tt_muR__1down"         ;"tt_muF__1down"         ;"tt_ISR__1down"            ;"tt_FSR__1down"            
+  HistoNameSufUp:   "tt_muR__1up"           ;"tt_muF__1up"           ;"tt_ISR__1up"              ;"tt_FSR__1up"              
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          tt
+  Smoothing:        40
+  SubCategory:      "tt_gen"
+  Symmetrisation:   TWOSIDED
+  Title:            "t#bar{t} #mu_{R} Scale";"t#bar{t} #mu_{F} Scale";"t#bar{t} ISR (#alpha_{S})";"t#bar{t} FSR (#alpha_{S})"
+  Type:             HISTO
+
+Systematic: "tt_pdf_1";"tt_pdf_2";"tt_pdf_3";"tt_pdf_4";"tt_pdf_5";"tt_pdf_6";"tt_pdf_7";"tt_pdf_8";"tt_pdf_9";"tt_pdf_10";"tt_pdf_11";"tt_pdf_12";"tt_pdf_13";"tt_pdf_14";"tt_pdf_15";"tt_pdf_16";"tt_pdf_17";"tt_pdf_18";"tt_pdf_19";"tt_pdf_20";"tt_pdf_21";"tt_pdf_22";"tt_pdf_23";"tt_pdf_24";"tt_pdf_25";"tt_pdf_26";"tt_pdf_27";"tt_pdf_28";"tt_pdf_29";"tt_pdf_30"
+  Category:       "tt_pdf"
+  HistoNameSufUp: "tt_pdf_1"      ;"tt_pdf_2"      ;"tt_pdf_3"      ;"tt_pdf_4"      ;"tt_pdf_5"      ;"tt_pdf_6"      ;"tt_pdf_7"      ;"tt_pdf_8"      ;"tt_pdf_9"      ;"tt_pdf_10"      ;"tt_pdf_11"      ;"tt_pdf_12"      ;"tt_pdf_13"      ;"tt_pdf_14"      ;"tt_pdf_15"      ;"tt_pdf_16"      ;"tt_pdf_17"      ;"tt_pdf_18"      ;"tt_pdf_19"      ;"tt_pdf_20"      ;"tt_pdf_21"      ;"tt_pdf_22"      ;"tt_pdf_23"      ;"tt_pdf_24"      ;"tt_pdf_25"      ;"tt_pdf_26"      ;"tt_pdf_27"      ;"tt_pdf_28"      ;"tt_pdf_29"      ;"tt_pdf_30"      
+  Regions:        be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:        tt
+  Smoothing:      40
+  SubCategory:    "tt_pdf"
+  Symmetrisation: ONESIDED
+  Title:          "t#bar{t} PDF 1";"t#bar{t} PDF 2";"t#bar{t} PDF 3";"t#bar{t} PDF 4";"t#bar{t} PDF 5";"t#bar{t} PDF 6";"t#bar{t} PDF 7";"t#bar{t} PDF 8";"t#bar{t} PDF 9";"t#bar{t} PDF 10";"t#bar{t} PDF 11";"t#bar{t} PDF 12";"t#bar{t} PDF 13";"t#bar{t} PDF 14";"t#bar{t} PDF 15";"t#bar{t} PDF 16";"t#bar{t} PDF 17";"t#bar{t} PDF 18";"t#bar{t} PDF 19";"t#bar{t} PDF 20";"t#bar{t} PDF 21";"t#bar{t} PDF 22";"t#bar{t} PDF 23";"t#bar{t} PDF 24";"t#bar{t} PDF 25";"t#bar{t} PDF 26";"t#bar{t} PDF 27";"t#bar{t} PDF 28";"t#bar{t} PDF 29";"t#bar{t} PDF 30"
+  Type:           HISTO
+
+Systematic: "ttNNLOrec_toppt";"ttNNLOrec_ttmass"
+  Category:         "tt_NNLO"
+  HistoNameSufDown: "ttNNLOrec_toppt__1down"         ;"ttNNLOrec_ttmass__1down"           
+  HistoNameSufUp:   "ttNNLOrec_toppt__1up"           ;"ttNNLOrec_ttmass__1up"             
+  Regions:          be1,be2,be3,re1,re2,re3,bmu1,bmu2,bmu3,rmu1,rmu2,rmu3
+  Samples:          tt
+  Smoothing:        40
+  SubCategory:      "tt_NNLO"
+  Symmetrisation:   TWOSIDED
+  Title:            "t#bar{t} NNLO scale (p_{T} (t))";"t#bar{t} NNLO scale (m (t#bar{t}))"
+  Type:             HISTO
+

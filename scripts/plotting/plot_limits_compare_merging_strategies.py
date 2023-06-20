@@ -7,6 +7,7 @@ import argparse
 from datetime import datetime
 from pathlib import Path
 import json
+from array import array
 
 from sigXsec_1lep import zprime_xs, grav_xs, gluon_xs
 
@@ -33,7 +34,48 @@ def stampLumiText(lumi, x, y, text, size):
     t.DrawLatex(x, y, text+", "+str(lumi)+" fb^{-1}")
 
 
-def plot_limits(dir_1l, dir_2l, dir_combined):
+def ratio_graph(graph1, graph2):
+    # Create dictionaries of x:y for each graph
+    x1_to_y1 = {graph1.GetX()[i]: graph1.GetY()[i] for i in range(graph1.GetN())}
+    x2_to_y2 = {graph2.GetX()[i]: graph2.GetY()[i] for i in range(graph2.GetN())}
+
+    # Create a list of (x, y) pairs where y is the ratio of y values for matching x in both graphs
+    ratio_points = [(x1, y1 / x2_to_y2[x1]) for x1, y1 in x1_to_y1.items() if x1 in x2_to_y2 and x2_to_y2[x1] != 0]
+
+    # Create the ratio graph
+    ratio_graph_ = TGraph(len(ratio_points), array('d', [x for x, y in ratio_points]), array('d', [y for x, y in ratio_points]))
+
+    return ratio_graph_
+
+def draw_ratio_pad(ratio_pad, exp_original, graph1, graph2, graph3):
+    ratio_pad.cd()
+    ratio_pad.SetGridy()
+
+    # Define the ratio graphs
+    ratio_graph_1_0 = ratio_graph(graph1, exp_original)
+    ratio_graph_2_0 = ratio_graph(graph2, exp_original)
+    ratio_graph_3_0 = ratio_graph(graph3, exp_original)
+
+    # Adjust y-axis range if needed
+    min_y = min(ratio_graph_1_0.GetY())
+    max_y = max(ratio_graph_1_0.GetY())
+
+    # Create a frame to draw in the pad
+    frame = ratio_pad.DrawFrame(0.50, min_y * 0.8, 5, max_y * 1.2)
+    frame.GetXaxis().SetTitle("m_{Z'} [TeV]")
+    frame.GetYaxis().SetTitle("Merge/Original")
+
+    # Draw the ratio graphs
+    for ratio_graph_ in [ratio_graph_1_0, ratio_graph_2_0, ratio_graph_3_0]:
+        n_points = ratio_graph_.GetN()
+
+        for i in range(n_points):
+            x = ratio_graph_.GetX()[i]
+            y = ratio_graph_.GetY()[i]
+            print("x: {}, y: {}".format(x, y))
+        ratio_graph_.Draw("same")
+
+def plot_limits(original_dir, btag_dir, lepton_dir, btag_lepton_dir):
     # Setting up ATLAS style
     dirpath = os.path.dirname(os.path.realpath(__file__))
     gROOT.SetBatch()
@@ -45,7 +87,7 @@ def plot_limits(dir_1l, dir_2l, dir_combined):
     gStyle.SetPadTickY(1)
 
     # get args from json file
-    with open(path.join(dir_combined, 'settings.json')) as f:
+    with open(path.join(lepton_dir, 'settings.json')) as f:
         settings = json.load(f)
 
     if settings['signal'] == 'zprime':
@@ -61,10 +103,26 @@ def plot_limits(dir_1l, dir_2l, dir_combined):
         raise NotImplementedError(
             'Signal {} not implemented'.format(settings['signal']))
 
-    out_dir = Path(dir_combined) / 'plots'
+    out_dir = Path(btag_lepton_dir) / 'plots'
     out_dir.mkdir(exist_ok=True)
 
-    clim = TCanvas("clim", "", 1000, 700)
+    # clim = TCanvas("clim", "", 1000, 700)
+    # Setting up the canvas
+    clim = TCanvas("clim", "", 1000, 800)
+    clim.Divide(1, 2)
+
+    pad1 = clim.cd(1)
+    pad1.SetPad(0.01, 0.25, 0.99, 0.99)
+    pad1.SetLogy(1)
+    pad1.SetBottomMargin(0)
+
+    pad2 = clim.cd(2)
+    pad2.SetPad(0.01, 0.01, 0.99, 0.24)
+    pad2.SetTopMargin(0)
+    pad2.SetBottomMargin(0.25)
+
+    # Move back to the main pad
+    pad1.cd()
 
     l = TLegend(0.44, 0.65, 0.89, 0.85)
     l.SetBorderSize(0)
@@ -96,30 +154,28 @@ def plot_limits(dir_1l, dir_2l, dir_combined):
     h.GetXaxis().SetTitleSize(0.05)
     h.Draw("hist")
 
-    limit_files_1l = [l for l in Path(dir_1l / 'limits').glob('*.root')]
-    limit_files_2l = [l for l in Path(dir_2l / 'limits').glob('*.root')]
-    limit_files_comb = [l for l in Path(dir_combined / 'limits').glob('*.root')]
+    limit_files_original = [l for l in Path(original_dir / 'limits').glob('*.root')]
+    limit_files_btag = [l for l in Path(btag_dir / 'limits').glob('*.root')]
+    limit_files_lepton = [l for l in Path(lepton_dir / 'limits').glob('*.root')]
+    limit_files_btag_lepton = [l for l in Path(btag_lepton_dir / 'limits').glob('*.root')]
 
     def get_mass(filename):
         return int(filename.stem.split('_')[0].replace(signal_name, ''))
 
-    limit_files_1l.sort(key=get_mass)
-    limit_files_2l.sort(key=get_mass)
-    limit_files_comb.sort(key=get_mass)
-    # remove mass = 500 from lists
-    # limit_files_2l = limit_files_2l[1:]
-    # limit_files_comb = limit_files_comb[1:]
-
-
+    limit_files_original.sort(key=get_mass)
+    limit_files_btag.sort(key=get_mass)
+    limit_files_lepton.sort(key=get_mass)
+    limit_files_btag_lepton.sort(key=get_mass)
     
 
-    length = len(limit_files_comb)
+    length = len(limit_files_lepton)
     xsec = TGraph(length)
-    exp_1l = TGraph(length)
-    exp_2l = TGraph(length)
-    exp_comb = TGraph(length)
+    exp_original = TGraph(length)
+    exp_btag = TGraph(length)
+    exp_lepton = TGraph(length)
+    exp_btag_lepton = TGraph(length)
 
-    for exp, limit_files in zip([exp_1l, exp_2l, exp_comb], [limit_files_1l, limit_files_2l, limit_files_comb]):
+    for exp, limit_files in zip([exp_original, exp_btag, exp_lepton, exp_btag_lepton], [limit_files_original, limit_files_btag, limit_files_lepton, limit_files_btag_lepton]):
         idx = 0
         for limit_file in limit_files:
             m = get_mass(limit_file)
@@ -128,7 +184,16 @@ def plot_limits(dir_1l, dir_2l, dir_combined):
             tree = f.stats
             for ev in range(tree.GetEntries()):
                 tree.GetEntry(ev)
+                # muexp = getattr(tree, 'exp_upperlimit')
                 muexp = getattr(tree, 'exp_upperlimit')
+                # exp_p2 = getattr(tree, 'exp_upperlimit_plus2')
+                # exp_p1 = getattr(tree, 'exp_upperlimit_plus1')
+                # exp_m2 = getattr(tree, 'exp_upperlimit_minus2')
+                exp_m1 = getattr(tree, 'exp_upperlimit_minus1')
+
+                # muexp_p2 = abs(-muexp + exp_p2)
+                muexp_m1 = abs(-muexp + exp_m1)
+                muexp = muexp_m1
             cross_section = xs[outname]
             m_tev = m / 1000.
             xsec.SetPoint(idx, m_tev, cross_section)
@@ -137,7 +202,7 @@ def plot_limits(dir_1l, dir_2l, dir_combined):
 
     xsec.SetLineWidth(3)
     xsec.SetLineColor(kRed)
-    for exp, color, style in zip([exp_1l, exp_2l, exp_comb], [kBlack, kBlue, 28], [kSolid, kDotted, kDotted]):
+    for exp, color, style in zip([exp_original, exp_btag, exp_lepton, exp_btag_lepton], [kBlack, kBlue, 28, 35], [kSolid, kDotted, kDotted, kDashed]):
         exp.SetLineColor(color)
         exp.SetLineStyle(style)
         exp.SetLineWidth(2)
@@ -147,19 +212,23 @@ def plot_limits(dir_1l, dir_2l, dir_combined):
         exp.Draw("LP")
 
 
-    l.AddEntry(exp_1l, "Expected 95% CL upper limit (orig)", "L")
-    l.AddEntry(exp_2l, "Expected 95% CL upper limit (merge btag)", "L")
-    l.AddEntry(exp_comb, "Expected 95% CL upper limit (merge lepton)", "L")
+    l.AddEntry(exp_original, "Expected 95% CL upper limit -1 #sigma (orig)", "L")
+    l.AddEntry(exp_btag, "Expected 95% CL upper limit -1 #sigma (merge btag)", "L")
+    l.AddEntry(exp_lepton, "Expected 95% CL upper limit -1 #sigma (merge lepton)", "L")
+    l.AddEntry(exp_btag_lepton, "Expected 95% CL upper limit -1 #sigma (merge btag+lepton)", "L")
     l.AddEntry(xsec, "LO theory cross-section", "L")
 
     xsec.Draw("L")
     l.Draw()
-    clim.SetLogy(1)
+    # clim.SetLogy(1)
+    stampATLAS("Work in Progress", 0.2, 0.88)
+    stampLumiText(139, 0.2, 0.83, "#sqrt{s} = 13 TeV", 0.04)
+
+    draw_ratio_pad(pad2, exp_original, exp_btag, exp_lepton, exp_btag_lepton)
 
     gPad.RedrawAxis()
 
-    stampATLAS("Work in Progress", 0.2, 0.88)
-    stampLumiText(139, 0.2, 0.83, "#sqrt{s} = 13 TeV", 0.04)
+    
 
     for i in ['.eps', '.png', '.pdf']:
         clim.SaveAs(
@@ -171,9 +240,10 @@ def main():
     parser.add_argument('dir_original', type=Path)
     parser.add_argument('dir_merge_btag', type=Path)
     parser.add_argument('dir_merge_leptons', type=Path)
+    parser.add_argument('dir_merge_btag_leptons', type=Path)
 
     args = parser.parse_args()
-    plot_limits(args.dir_original, args.dir_merge_btag, args.dir_merge_leptons)
+    plot_limits(args.dir_original, args.dir_merge_btag, args.dir_merge_leptons, args.dir_merge_btag_leptons)
 
 
 if __name__ == "__main__":

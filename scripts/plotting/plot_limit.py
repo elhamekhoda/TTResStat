@@ -210,10 +210,12 @@ def plot_limits(run_dir):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('run_dir', help='the input run directory')
+    parser.add_argument('run_dir', help='the input run directory', nargs='+')
 
     args = parser.parse_args()
-    plot_limits(args.run_dir)
+
+    for run_dir in args.run_dir:
+        plot_limits(run_dir)
 
 
 if __name__ == "__main__":
